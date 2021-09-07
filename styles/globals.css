@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+body{
+    font-family: 'Josefin Sans', sans-serif;
+	background-color: rgb(5, 4, 29);
+}
+
+.name{
+	position: absolute;
+	width: 100vw;
+	justify-content: center;
+	display: inline-block;
+	color: white;
+	font-size: 80px;
+}
+
+#container {
+	/* Center the text in the viewport. */
+	position: absolute;
+	margin: auto;
+	width: 100vh;
+	height: 80px;
+	top: 0;
+	bottom: 0;
+	
+	/* This filter is a lot of the magic, try commenting it out to see how the morphing works! */
+	filter: url(#threshold) blur(0.8px);
+}
+
+/* Your average text styling */
+#text1, #text2 {
+	position: absolute;
+	width: 100%;
+	display: inline-block;
+	font-size: 50px;
+	color: aquamarine;	
+	text-align: center;
+	
+	user-select: none;
+}
