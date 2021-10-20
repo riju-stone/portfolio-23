@@ -4,6 +4,7 @@ import React, {useState} from "react"
 import { AnimatePresence } from 'framer-motion'
 import Loader from '../components/loader/Loader'
 import Work from '../components/work/Work'
+import Contact from '../components/contact/Contact'
 
 export default function Home() {
 
@@ -20,7 +21,7 @@ export default function Home() {
           {
             loading ? (
               <Loader setLoading={setLoading} />
-            ): <div className="overflow-x-hidden"><Title/></div>
+            ): <div className="overflow-x-hidden"><Title/><Work/><Contact/></div>
           }
         </AnimatePresence>
     </div>

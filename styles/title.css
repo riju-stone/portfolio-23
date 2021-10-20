@@ -1,11 +1,11 @@
 .background-container{
-	height: 100%;
+	height: 100vh;
 	width: 100%;
 	background-image: url('../assets/hero-background.jpeg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	position: fixed;
+	background-attachment: fixed;
 }
 
 .title_name{
@@ -23,7 +23,7 @@
 	position: absolute;
 	display: block;
 	top: 72%;
-	left: 52%;
+	left: 55%;
 	background: #00C283;
 	height: .5em;
 	width: .4em;

@@ -48,23 +48,27 @@ const Title = () => {
 	})
 	
     return (
-		<section className="flex flex-col items-center justify-between h-screen text-center align-middle">
-			<motion.div className="background-container"
-			initial={{scale:1.2, opacity:0}}
-			animate={{scale:1, opacity:1}}
-			transition={{duration: 1}}></motion.div>
+		<motion.section className="flex flex-col items-center justify-between text-center align-middle background-container"
+		initial={{scale:1.2, opacity:0}}
+		animate={{scale:1, opacity:1}}
+		transition={{duration:1}}>
 			<div className="z-10 flex flex-row justify-center px-5 align-middle laptop:flex-col title_name">
-				<span className="my-2 font-bold text-gray-200 text-8xl tablet:text-5xl">Arighna</span>
+				<motion.span className="my-2 font-bold text-gray-200 text-8xl tablet:text-5xl"
+				initial={{x:-50, opacity:0}} animate={{x:0, opacity:1}} transition={{ducation:10, delay:1.5}}>Arighna</motion.span>
 				<span className="mx-5 phone:mx-2"></span>
-				<span className="my-2 font-bold text-gray-200 text-8xl tablet:text-5xl">Chakraborty</span>
+				<motion.span className="my-2 font-bold text-gray-200 text-8xl tablet:text-5xl" 
+				initial={{x:50, opacity:0}} animate={{x:0, opacity:1}} transition={{ducation:10, delay:1.5}} >Chakraborty</motion.span>
 			</div>
 			<div className="z-10 table text-5xl title_tagline phone:text-4xl">
-				<p><span className="text-green-500 typed-text"></span><span className="cursor">&nbsp; </span>Developer</p>
+				<motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{duration:2, delay:2}}><span className="text-green-500 typed-text"></span><span className="cursor">&nbsp; </span>Developer</motion.p>
 			</div>
-			<span className="my-10 scroll-icon">
+			<motion.span className="my-10 scroll-icon"
+			initial={{y:-40, opacity:0}}
+			animate={{y:0, opacity:1}}
+			transition={{duration:2, delay:4}}>
 				<span className="scroll-icon__dot"></span>
-			</span>
-		</section>
+			</motion.span>
+		</motion.section>
 	);
 }
 
