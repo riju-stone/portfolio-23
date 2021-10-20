@@ -12,7 +12,7 @@ export default function Loader({setLoading}) {
                 setLoading(false)
                 return 0;
             }
-            const diff = Math.random() * 30;
+            const diff = Math.random() * 40;
             return Math.min(oldProgress + diff, 100);
           });
         }, 500);

@@ -1,0 +1,10 @@
+.MuiLinearProgress-root{
+	background-color: #fff;
+	height: 12px;
+	border-radius: 10px;
+	border: none;
+}
+
+.MuiLinearProgress-bar{
+	background-color: #00C283;
+}

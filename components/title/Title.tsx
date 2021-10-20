@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React, { useEffect } from 'react'
 
 const Title = () => {
@@ -47,13 +48,17 @@ const Title = () => {
 	})
 	
     return (
-		<section className="flex flex-col items-center justify-between h-screen text-left align-middle title_container">
-			<div className="flex flex-row justify-center px-5 align-middle tablet:flex-col title_name">
+		<section className="flex flex-col items-center justify-between h-screen text-center align-middle">
+			<motion.div className="background-container"
+			initial={{scale:1.2, opacity:0}}
+			animate={{scale:1, opacity:1}}
+			transition={{duration: 1}}></motion.div>
+			<div className="z-10 flex flex-row justify-center px-5 align-middle laptop:flex-col title_name">
 				<span className="my-2 font-bold text-gray-200 text-8xl tablet:text-5xl">Arighna</span>
 				<span className="mx-5 phone:mx-2"></span>
 				<span className="my-2 font-bold text-gray-200 text-8xl tablet:text-5xl">Chakraborty</span>
 			</div>
-			<div className="table text-5xl title_tagline tablet:text-4xl">
+			<div className="z-10 table text-5xl title_tagline phone:text-4xl">
 				<p><span className="text-green-500 typed-text"></span><span className="cursor">&nbsp; </span>Developer</p>
 			</div>
 			<span className="my-10 scroll-icon">

@@ -1,0 +1,70 @@
+.background-container{
+	height: 100%;
+	width: 100%;
+	background-image: url('../assets/hero-background.jpeg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: fixed;
+}
+
+.title_name{
+	margin-top: calc(100vh - 70vh);
+}
+
+@keyframes scroll_2 {
+	0%   { transform: translateY(0); opacity: 1; }
+	25%  { opacity: 1; }
+	75%  { transform: translateY(.75em); opacity: 0; }
+	100% { transform: translateY(0); opacity: 0; }
+}
+
+.scroll-icon__dot {
+	position: absolute;
+	display: block;
+	top: 72%;
+	left: 52%;
+	background: #00C283;
+	height: .5em;
+	width: .4em;
+	top: .6em;
+	margin-left: -.25em;
+	border-radius: 50%;
+	transform-origin: top center;
+	backface-visibility: hidden;
+	animation: scroll_2 2s ease-out infinite;
+  }
+  
+  .scroll-icon {
+	display: block;
+	position: relative;
+	height: 3em;
+	width: 2em;
+	border: .16em solid #00C283;
+	border-radius: 1em;
+  }
+
+  .title_tagline > p{
+	line-height: 50px;
+	color: #ccc;
+}
+
+.cursor{
+	display: inline-block;
+	background-color: #ccc;
+	margin-right: 0.7rem;
+	width: 3px;
+	animation: blink 1s infinite;
+}
+
+.cursor.typing{
+	animation: none;
+}
+
+@keyframes blink{
+	0%  { background-color: #ccc; }
+  	49% { background-color: #ccc; }
+  	50% { background-color: transparent; }
+  	99% { background-color: transparent; }
+  	100%  { background-color: #ccc; }
+}
