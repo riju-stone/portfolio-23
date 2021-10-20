@@ -6,7 +6,19 @@
 
 body{
     font-family: 'Josefin Sans', sans-serif;
-	background-color: rgb(5, 4, 29);
+	background-color: rgb(10, 20, 34);
+}
+
+.title_container{
+	background-image: url('../assets/hero-background.jpeg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: static;
+}
+
+.title_name{
+	margin-top: calc(100vh - 60vh);
 }
 
 @keyframes scroll_2 {
@@ -21,7 +33,7 @@ body{
 	display: block;
 	top: 72%;
 	left: 52%;
-	background: #fff;
+	background: #00C283;
 	height: .5em;
 	width: .4em;
 	top: .6em;
@@ -37,6 +49,42 @@ body{
 	position: relative;
 	height: 3em;
 	width: 2em;
-	border: .16em solid #fff;
+	border: .16em solid #00C283;
 	border-radius: 1em;
   }
+
+.MuiLinearProgress-root{
+	background-color: #fff;
+	height: 12px;
+	border-radius: 10px;
+	border: none;
+}
+
+.MuiLinearProgress-bar{
+	background-color: #00C283;
+}
+
+.title_tagline > p{
+	line-height: 50px;
+	color: #ccc;
+}
+
+.cursor{
+	display: inline-block;
+	background-color: #ccc;
+	margin-right: 0.7rem;
+	width: 3px;
+	animation: blink 1s infinite;
+}
+
+.cursor.typing{
+	animation: none;
+}
+
+@keyframes blink{
+	0%  { background-color: #ccc; }
+  	49% { background-color: #ccc; }
+  	50% { background-color: transparent; }
+  	99% { background-color: transparent; }
+  	100%  { background-color: #ccc; }
+}
