@@ -2,9 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 
-body{
-    font-family: 'Josefin Sans', sans-serif;
-	background-color: rgb(10, 20, 34);
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: rgb(10, 20, 34);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00c283;
+  border-radius: 5px;
 }
