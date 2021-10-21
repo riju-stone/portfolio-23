@@ -6,9 +6,9 @@ import Title from '../title/Title'
 function App() {
     return (
         <div className="overflow-x-hidden">
+            <Contact/>
             <Title/>
             <Work/>
-            <Contact/>
         </div>
     )
 }

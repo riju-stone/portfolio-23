@@ -4,9 +4,24 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Josefin Sans", sans-serif;
   background-color: rgb(10, 20, 34);
+}
+
+.MuiLinearProgress-root {
+  background-color: #fff;
+  height: 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+.MuiLinearProgress-bar {
+  background-color: #00c283;
 }
 
 ::-webkit-scrollbar {
@@ -20,4 +35,19 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: #00c283;
   border-radius: 5px;
+}
+
+.contact-container {
+  height: calc(100vh - 4vh);
+}
+
+.icon {
+  scale: 1;
+  height: 30px;
+  width: 30px;
+  transition: ease-in-out 0.4s;
+}
+
+.icon:hover {
+  transform: scale(1.2);
 }
