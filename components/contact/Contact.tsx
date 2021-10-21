@@ -4,7 +4,7 @@ import { FiInstagram, FiTwitter, FiLinkedin, FiGithub} from 'react-icons/fi'
 function Contact() {
     return (
         <motion.div className="flex flex-col w-10 fixed z-5 bg-transparent contact-container tablet:flex-row"
-        initial={{y:-200, opacity:0}}
+        initial={{y:-500, opacity:0}}
         animate={{y:0, opacity:1}}
         transition={{ducation:5, delay:2}}>
             <div className="border-r-2 border-green-500 w-7 h-full tablet:border-0"></div>
