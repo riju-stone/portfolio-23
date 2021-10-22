@@ -1,7 +1,7 @@
 .background-container {
   height: 100vh;
   width: 100%;
-  background-image: url("../assets/hero-background.jpeg");
+  background-image: url("../assets/hero-background.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -53,6 +53,26 @@
   width: 2em;
   border: 0.2em solid #00c283;
   border-radius: 1em;
+}
+
+@media screen and (max-width: 512px) {
+  .scroll-icon__dot {
+    top: 70%;
+    left: 60%;
+    height: 0.4em;
+    width: 0.25em;
+    top: 0.5em;
+    border-radius: 40%;
+  }
+
+  .scroll-icon {
+    display: block;
+    position: relative;
+    height: 2.4em;
+    width: 1.6em;
+    border: 0.13em solid #00c283;
+    border-radius: 1em;
+  }
 }
 
 .title_tagline > p {

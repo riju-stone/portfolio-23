@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {},
     screens:{
-      'phone': {'max': '450px'},
+      'phone': {'max': '512px'},
       'tablet': {'max': '760px'},
       'laptop': {'max': '980px'}
     },
