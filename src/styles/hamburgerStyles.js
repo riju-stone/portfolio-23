@@ -8,7 +8,7 @@ export const Nav = styled(motion.div)`
   width: 100%;
   height: 100%;
   display: blobk;
-  background: ${(props) => props.theme.red};
+  background: ${(props) => props.theme.darkTurqoise};
   color: #000;
   z-index: 100;
   overflow-x: hidden;
@@ -19,7 +19,7 @@ export const NavHeader = styled.div`
   top: 72px;
   position: relative;
   h2 {
-    color: ${(props) => props.theme.background};
+    color: ${(props) => props.theme.turqoise};
   }
 `;
 
@@ -36,7 +36,7 @@ export const CloseNav = styled.div`
       height: 6px;
       border-radius: 30px;
       display: block;
-      background: ${(props) => props.theme.background};
+      background: ${(props) => props.theme.link};
       margin: 8px;
     }
   }
@@ -59,7 +59,7 @@ export const NavList = styled.div`
       overflow: hidden;
       margin-bottom: 80px;
       a {
-        color: ${(props) => props.theme.background};
+        color: ${(props) => props.theme.link};
         .link {
           position: relative;
           display: flex;
@@ -71,7 +71,7 @@ export const NavList = styled.div`
             svg {
               width: 100px;
               path {
-                fill: ${(props) => props.theme.background};
+                fill: ${(props) => props.theme.link};
               }
             }
           }
@@ -94,7 +94,7 @@ export const NavVideos = styled.div`
   background: #000;
   .reveal {
     width: 100%;
-    background: ${(props) => props.theme.red};
+    background: ${(props) => props.theme.darkTurqoise};
     position: absolute;
     top: 0;
     bottom: 0;

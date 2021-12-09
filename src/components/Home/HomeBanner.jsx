@@ -8,7 +8,7 @@ import {
 } from "../../styles/homeStyles";
 import useWindowSize from "../../hooks/windowSize";
 import { useGlobalStateContext } from "../../context/globalContext";
-import BackgroundVideo from "../../assets/videos/video.mp4";
+import BackgroundVideo from "../../assets/videos/bg.mp4";
 
 const HomeBanner = ({ onCursor }) => {
   let canvas = useRef(null);

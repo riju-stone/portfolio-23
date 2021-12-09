@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { ArrowRightIcon } from "@heroicons/react/outline/";
 import { Container, Flex } from "../../styles/globalStyles";
 import {
   Nav,
@@ -74,22 +73,22 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                   {navRoutes.map((route) => (
                     <motion.li
                       key={route.id}
-                      onHoverStart={() =>
+                      onHoverStart={() => {
+                        onCursor("pointer");
                         setRevealVideo({
                           show: true,
                           video: route.video,
                           key: route.id,
-                        })
-                      }
+                        });
+                      }}
                       onHoverEnd={() => {
                         setRevealVideo({
                           show: false,
                           video: route.video,
                           key: route.id,
                         });
+                        onCursor();
                       }}
-                      onMouseEnter={() => onCursor("pointer")}
-                      onMouseLeave={onCursor}
                     >
                       <a href={`/${route.path}`}>
                         <motion.div
@@ -123,7 +122,7 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
               <NavFooter></NavFooter>
               <NavVideos>
                 <motion.div
-                  animate={{ width: revealVideo.show ? "0%" : "100%" }}
+                  animate={{ width: revealVideo.show ? 0 : "100%" }}
                   transition={{ duration: 1 }}
                   className="reveal"
                 ></motion.div>

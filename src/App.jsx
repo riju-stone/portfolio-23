@@ -36,15 +36,19 @@ body{
 `;
 
 const darkTheme = {
-  background: "#000",
-  text: "#fff",
-  red: "#ea291e",
+  background: "#152b39",
+  text: "#ededed",
+  link: "#f2B591",
+  turqoise: "#09bd86",
+  darkTurqoise: "#024959",
 };
 
 const lightTheme = {
-  background: "#fff",
-  text: "#000",
-  red: "#ea291e",
+  background: "#dddddd",
+  text: "#011826",
+  link: "#BF6560",
+  turqoise: "#09bd86",
+  darkTurqoise: "#024959",
 };
 
 function App() {

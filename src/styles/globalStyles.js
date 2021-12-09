@@ -62,7 +62,7 @@ export const Cursor = styled.div`
   left: 0;
   width: 32px;
   height: 32px;
-  background: ${(props) => props.theme.red};
+  background: ${(props) => props.theme.turqoise};
   border-radius: 100%;
   transform: translate(-50%, -50%);
   transition: all 0.1s ease-in-out;
@@ -75,7 +75,7 @@ export const Cursor = styled.div`
     background: transparent !important;
     width: 56px;
     height: 56px;
-    border: 2px solid ${(props) => props.theme.red};
+    border: 2px solid ${(props) => props.theme.turqoise};
   }
 
   &.pointer {
