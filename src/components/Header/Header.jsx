@@ -1,62 +1,71 @@
-import React, { useState } from "react";
-import Hamburger from "../Hamburger/Hamburger";
+import React /*, { useEffect, useRef }*/ from "react";
+import { HeaderNav, Logo, Menu } from "../../styles/headerStyles";
+import { Container, Flex } from "../../styles/globalStyles";
 
-function Header() {
-  const [state, setState] = useState({
-    initial: false,
-    clicked: null,
-    menuName: "Menu",
-  });
+import {
+  useGlobalStateContext,
+  useGlobalDispatchContext,
+} from "../../context/globalContext";
 
-  const [disabled, setDisabled] = useState(false);
+// import { gsap } from "gsap";
 
-  const handleMenu = () => {
-    disableMenu();
-    if (state.initial === false) {
-      setState({
-        initial: null,
-        clicked: false,
-        menuName: "Close",
-      });
-    } else if (state.clicked === true) {
-      setState({
-        clicked: !state.clicked,
-        menuName: "Menu",
-      });
-    } else if (state.clicked === false) {
-      setState({
-        clicked: !state.clicked,
-        menuName: "Close",
-      });
+const Header = ({ onCursor }) => {
+  const { currentTheme } = useGlobalStateContext();
+  const dispatch = useGlobalDispatchContext();
+
+  const toggleTheme = () => {
+    if (currentTheme === "dark") {
+      dispatch({ type: "TOGGLE_THEME", theme: "light" });
+    } else {
+      dispatch({ type: "TOGGLE_THEME", theme: "dark" });
     }
   };
 
-  const disableMenu = () => {
-    setDisabled(!disabled);
-    setTimeout(() => {
-      setDisabled(false);
-    }, 800);
-  };
+  // let headerNav = useRef(null);
+
+  // useEffect(() => {
+  //   headerAnimate();
+  // });
+
+  // const headerAnimate = () => {
+  //   gsap.from(headerNav, {
+  //     opacity: 0,
+  //     y: -100,
+  //   });
+  //   gsap.to(headerNav, {
+  //     duration: 1,
+  //     opacity: 1,
+  //     y: 0,
+  //     ease: "power3.inOut",
+  //   });
+  // };
 
   return (
-    <header>
-      <div className="container">
-        <div className="wrapper">
-          <div className="inner-header">
-            <div className="logo">
-              <a href="/">Home</a>
-            </div>
-            <div className="menu">
-              <button onClick={handleMenu} disabled={disabled}>
-                Menu
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <Hamburger state={state} changeState={setState} />
-    </header>
+    <HeaderNav /*ref={(el) => (headerNav = el)}*/>
+      <Container>
+        <Flex spaceBetween noHeight>
+          <Logo
+            onMouseEnter={() => onCursor("hovered")}
+            onMouseLeave={() => onCursor()}
+          >
+            <a href="/">H</a>
+            <span
+              onClick={toggleTheme}
+              onMouseEnter={() => onCursor("pointer")}
+              onMouseLeave={() => onCursor()}
+            ></span>
+            <a href="/">ME</a>
+          </Logo>
+          <Menu>
+            <button>
+              <span></span>
+              <span></span>
+            </button>
+          </Menu>
+        </Flex>
+      </Container>
+    </HeaderNav>
   );
-}
+};
 
 export default Header;
