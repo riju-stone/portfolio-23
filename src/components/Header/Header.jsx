@@ -9,7 +9,7 @@ import {
 
 // import { gsap } from "gsap";
 
-const Header = ({ onCursor }) => {
+const Header = ({ onCursor, toggleMenu, setToggleMenu }) => {
   const { currentTheme } = useGlobalStateContext();
   const dispatch = useGlobalDispatchContext();
 
@@ -21,27 +21,12 @@ const Header = ({ onCursor }) => {
     }
   };
 
-  // let headerNav = useRef(null);
-
-  // useEffect(() => {
-  //   headerAnimate();
-  // });
-
-  // const headerAnimate = () => {
-  //   gsap.from(headerNav, {
-  //     opacity: 0,
-  //     y: -100,
-  //   });
-  //   gsap.to(headerNav, {
-  //     duration: 1,
-  //     opacity: 1,
-  //     y: 0,
-  //     ease: "power3.inOut",
-  //   });
-  // };
-
   return (
-    <HeaderNav /*ref={(el) => (headerNav = el)}*/>
+    <HeaderNav
+      initial={{ opacity: 0, y: -72 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
+    >
       <Container>
         <Flex spaceBetween noHeight>
           <Logo
@@ -56,7 +41,7 @@ const Header = ({ onCursor }) => {
             ></span>
             <a href="/">ME</a>
           </Logo>
-          <Menu>
+          <Menu onClick={() => setToggleMenu(!toggleMenu)}>
             <button>
               <span></span>
               <span></span>

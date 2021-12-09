@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
@@ -6,9 +6,12 @@ import {
 
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { normalize } from "styled-normalize";
+
+//components
 import Header from "./components/Header/Header";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
 import HomeBanner from "./components/Home/HomeBanner";
+import Hamburger from "./components/Hamburger/Hamburger";
 
 const GlobalStyle = createGlobalStyle`
 ${normalize}
@@ -27,6 +30,8 @@ body{
   background: ${(props) => props.theme.background};
   overscroll-behaviour: none;
   overflow-x: hidden;
+  padding:0;
+  margin:0;
 }
 `;
 
@@ -55,11 +60,22 @@ function App() {
     dispatch({ type: "CURSOR_TYPE", cursorType: curType });
   };
 
+  const [toggleMenu, setToggleMenu] = useState(false);
+
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
-      <CustomCursor />
-      <Header onCursor={onCursor} />
+      <CustomCursor toggleMenu={toggleMenu} />
+      <Header
+        onCursor={onCursor}
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
+      />
+      <Hamburger
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
+        onCursor={onCursor}
+      />
       <HomeBanner onCursor={onCursor} />
     </ThemeProvider>
   );

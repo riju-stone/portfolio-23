@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Cursor } from "../../styles/globalStyles";
 import { useGlobalStateContext } from "../../context/globalContext";
 
-const CustomCursor = () => {
+const CustomCursor = ({ toggleMenu }) => {
   const { cursorType } = useGlobalStateContext();
 
   console.log(cursorType);
@@ -26,7 +26,9 @@ const CustomCursor = () => {
 
   return (
     <Cursor
-      className={`${!!cursorType ? "hovered" : ""} ${cursorType}`}
+      className={`${!!cursorType ? "hovered" : ""} ${cursorType} ${
+        toggleMenu ? "nav-open" : ""
+      }`}
       style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
     />
   );

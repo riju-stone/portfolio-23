@@ -28,6 +28,7 @@ const HomeBanner = ({ onCursor }) => {
     let curMoving = false;
 
     renderingCtx.globalCompositeOperation = "source-over";
+    // renderingCtx.clearReact(0, 0, size.width, size.height);
     renderingCtx.fillStyle = currentTheme === "dark" ? "#000000" : "#ffffff";
     renderingCtx.fillRect(0, 0, size.width, size.height);
 
@@ -62,10 +63,31 @@ const HomeBanner = ({ onCursor }) => {
       }
     });
   }, [size, currentTheme]);
+
+  const parent = {
+    initial: { y: 800 },
+    animate: {
+      y: 0,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const child = {
+    initial: { y: 800 },
+    animate: {
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: [0.5, 0.05, -0.01, 0.9],
+      },
+    },
+  };
   return (
     <Banner>
       <Video>
-        <video height="100%" width="100%" loop autoPlay muted>
+        <video loop autoPlay muted>
           <source src={BackgroundVideo} type="video/mp4" />
         </video>
       </Video>
@@ -76,9 +98,9 @@ const HomeBanner = ({ onCursor }) => {
         onMouseLeave={onCursor}
         onMouseEnter={() => onCursor("hovered")}
       />
-      <BannerTitle>
-        <Headline>Arighna</Headline>
-        <Headline>Chakraborty</Headline>
+      <BannerTitle variants={parent} initial="initial" animate="animate">
+        <Headline variants={child}>Arighna</Headline>
+        <Headline variants={child}>Chakraborty</Headline>
       </BannerTitle>
     </Banner>
   );
