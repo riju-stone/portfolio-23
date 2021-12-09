@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+
+* {
+  scroll-behavior: smooth;
+  user-select: none;
+  cursor: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Readex Pro";
+}
+
+.container {
+  width: 1280px;
+  min-width: 1280px;
+  margin: 0 auto;
+  .wrapper {
+    padding: 0 48px;
+    .home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      p {
+        font-size: 0.75rem;
+        letter-spacing: 0.3rem;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      h5 {
+        margin-top: 260px;
+        font-size: 1.8rem;
+        font-weight: 600;
+        padding-right: 360px;
+      }
+    }
+  }
+}
+
+//header
+header {
+  height: 100px;
+  .inner-header {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo a {
+      font-weight: 700;
+      text-decoration: none;
+      color: #191919;
+    }
+    .menu {
+      button {
+        border: none;
+        background: none;
+        outline: none;
+        font-size: 0.8rem;
+        color: #191919;
+      }
+    }
+  }
+  //hamburger
+  .hamburger-menu {
+    //display: none;
+    z-index: 9;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    .menu-secondary-color {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      background-color: #191919;
+      z-index: -1;
+    }
+    .menu-layer {
+      position: relative;
+      background-color: red;
+      height: 100%;
+      overflow: hidden;
+      .menu-city-background {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+      }
+      .wrapper {
+        position: relative;
+        .menu-links {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+          top: 200px;
+          nav {
+            display: block;
+            ul {
+              padding: 0;
+              margin: 0;
+              li {
+                list-style: none;
+                font-size: 6rem;
+                font-weight: 700;
+                height: 135px;
+                overflow: hidden;
+                width: 700px;
+                a {
+                  position: absolute;
+                  color: #fff;
+                  text-decoration: none;
+                  &:hover {
+                    color: #191919;
+                  }
+                }
+              }
+            }
+          }
+          .info {
+            color: white;
+            width: 300px;
+            h3 {
+              font-size: 1.2rem;
+              margin: 8px auto;
+            }
+            p {
+              margin: 0 auto;
+              font-size: 0.8rem;
+            }
+          }
+        }
+        .location {
+          position: absolute;
+          bottom: -80px;
+          color: white;
+          margin-top: 16px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          span {
+            &:first-child {
+              margin-left: 64px;
+            }
+            margin: 0 32px;
+            transition: 0.3s ease-in-out;
+            &:hover {
+              background-color: #191919;
+              padding: 8px 24px;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// ::-webkit-scrollbar {
+//   width: 5px;
+// }
+
+// ::-webkit-scrollbar-track {
+//   background: transparent;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   background-color: #00c283;
+//   border-radius: 5px;
+// }
