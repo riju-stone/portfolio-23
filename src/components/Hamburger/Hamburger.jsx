@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-// import useElementPosition from "../../hooks/elemPos";
+import React, { useState, useRef, useEffect } from "react";
+import useElementPosition from "../../hooks/elemPos";
 import { AnimatePresence, motion } from "framer-motion";
 //styles
 import { Container, Flex } from "../../styles/globalStyles";
@@ -10,8 +10,9 @@ import {
   NavList,
   NavFooter,
   NavVideos,
+  FooterSocial,
 } from "../../styles/hamburgerStyles";
-import { FooterContent, FooterSocial } from "../../styles/footerStyles";
+import { FooterContent } from "../../styles/footerStyles";
 import { BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
 
 //videos
@@ -46,26 +47,26 @@ const Hamburger = ({
   onCursor,
   setFooterPosition,
 }) => {
-  // const instaNavLink = useRef(null);
-  // const instaNavPosition = useElementPosition(instaNavLink);
-
-  // const twitterNavLink = useRef(null);
-  // const twitterNavPosition = useElementPosition(twitterNavLink);
-
-  // const gitNavLink = useRef(null);
-  // const gitNavPosition = useElementPosition(gitNavLink);
-
-  const [hoverClose, setHoverClose] = useState(false);
   const [revealVideo, setRevealVideo] = useState({
     show: false,
     video: <source src={AboutVideo} type="video/mp4" />,
     key: "0",
   });
 
-  // const onLinkHover = (x) => {
-  //   onCursor("locked");
-  //   setFooterPosition({ x: x });
-  // };
+  const onLinkHover = (x) => {
+    onCursor("locked");
+    setFooterPosition({ x: x });
+  };
+
+  let instaNavLink = useRef(null);
+  let twitterNavLink = useRef(null);
+  let gitNavLink = useRef(null);
+
+  console.log(instaNavLink, twitterNavLink, gitNavLink);
+
+  // const instaNavPosition = useElementPosition(instaNavLink);
+  // const twitterNavPosition = useElementPosition(twitterNavLink);
+  // const gitNavPosition = useElementPosition(gitNavLink);
 
   return (
     <>
@@ -74,7 +75,7 @@ const Hamburger = ({
           <Nav
             initial={{ x: "100%" }}
             exit={{ x: "100%" }}
-            animate={{ x: toggleMenu ? 0 : "100%" }}
+            animate={{ x: toggleMenu ? "0%" : "100%" }}
             transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
           >
             <Container>
@@ -86,10 +87,7 @@ const Hamburger = ({
                     onMouseEnter={() => onCursor("pointer")}
                     onMouseLeave={onCursor}
                   >
-                    <button
-                      onHoverStart={() => setHoverClose(!hoverClose)}
-                      onHoverEnd={() => setHoverClose(!hoverClose)}
-                    >
+                    <button>
                       <motion.span
                         animate={{ rotate: 45, y: 7 }}
                         transition={{
@@ -170,6 +168,9 @@ const Hamburger = ({
                   </FooterContent>
                   <FooterSocial>
                     <a
+                      ref={instaNavLink}
+                      onMouseEnter={() => onCursor("pointer")}
+                      onMouseLeave={() => onCursor()}
                       href="https://www.instagram.com/epash_opash_dhopash/"
                       target="_blank"
                       rel="noreferrer"
@@ -177,6 +178,9 @@ const Hamburger = ({
                       <BsInstagram size={{ height: "20px" }} />
                     </a>
                     <a
+                      ref={twitterNavLink}
+                      onMouseEnter={() => onCursor("pointer")}
+                      onMouseLeave={() => onCursor()}
                       href="https://twitter.com/RijuStone"
                       target="_blank"
                       rel="noreferrer"
@@ -184,6 +188,9 @@ const Hamburger = ({
                       <BsTwitter size={{ height: "20px" }} />
                     </a>
                     <a
+                      ref={gitNavLink}
+                      onMouseEnter={() => onCursor("pointer")}
+                      onMouseLeave={() => onCursor()}
                       target="_blank"
                       href="https://github.com/riju-stone"
                       rel="noreferrer"

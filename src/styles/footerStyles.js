@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 export const FooterNav = styled.div`
   height: 300px;
-  margin-top: 296px;
+  margin-top: 120px;
 `;
 export const FooterContent = styled.div`
   color: ${(props) => props.theme.turqoise};

@@ -69,7 +69,8 @@ export const NavList = styled.div`
             margin-right: 8px;
             margin-bottom: 10px;
             svg {
-              width: 100px;
+              length: 100px;
+              width: 108px;
               path {
                 fill: ${(props) => props.theme.link};
               }
@@ -122,6 +123,19 @@ export const NavVideos = styled.div`
       object-fit: cover;
       height: 100%;
       width: 100%;
+    }
+  }
+`;
+
+export const FooterSocial = styled.div`
+  display: flex;
+  a {
+    position: relative;
+    display: block;
+    width: 25px;
+    height: 25px;
+    padding: 8px;
+    color: ${(props) => props.theme.link};
     }
   }
 `;

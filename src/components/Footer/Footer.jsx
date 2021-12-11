@@ -10,13 +10,13 @@ import {
 import { Container, Flex } from "../../styles/globalStyles";
 
 const Footer = ({ onCursor, setFooterPosition }) => {
-  const instaLink = useRef(null);
+  let instaLink = useRef(null);
   const instaPosition = useElementPosition(instaLink);
 
-  const twitterLink = useRef(null);
+  let twitterLink = useRef(null);
   const twitterPosition = useElementPosition(twitterLink);
 
-  const gitLink = useRef(null);
+  let gitLink = useRef(null);
   const gitPosition = useElementPosition(gitLink);
 
   const onLinkHover = (x) => {
@@ -33,8 +33,6 @@ const Footer = ({ onCursor, setFooterPosition }) => {
             <p>riju23chakra@gmail.com</p>
           </FooterContent>
           <FooterContent wider>
-            <p>36 Motilal Roy Lane,</p>
-            <p>Bhadrakali, Hooghly - 712232</p>
             <p>Kolkata, West Bengal, IN</p>
           </FooterContent>
           <FooterSocial>

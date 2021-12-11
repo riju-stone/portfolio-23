@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
@@ -43,6 +43,10 @@ function App() {
   const dispatch = useGlobalDispatchContext();
   const [toggleMenu, setToggleMenu] = useState(false);
   const [hamburgerPosition, setHamburgerPosition] = useState({ x: 0, y: 0 });
+
+  //component refs
+  let aboutRef = useRef(null);
+  let projectsRef = useRef(null);
   // save the theme on localstorage
 
   const darkTheme = {
@@ -93,8 +97,8 @@ function App() {
       />
       <HomeBanner onCursor={onCursor} />
       <HomeContent />
-      <HomeFeatured onCursor={onCursor} />
-      <HomeAbout onCursor={onCursor} />
+      <HomeFeatured onCursor={onCursor} projectRef={projectsRef} />
+      <HomeAbout onCursor={onCursor} aboutRef={aboutRef} />
       <Footer
         onCursor={onCursor}
         footerPosition={hamburgerPosition}

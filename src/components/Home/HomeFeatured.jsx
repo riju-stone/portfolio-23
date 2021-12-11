@@ -12,7 +12,7 @@ import {
   FeaturedVideo,
 } from "../../styles/homeStyles";
 
-const HomeFeatured = ({ onCursor }) => {
+const HomeFeatured = ({ onCursor, projectRef }) => {
   const [hovered, setHovered] = useState(false);
   const animation = useAnimation();
   const [featuredRef, inView] = useInView({

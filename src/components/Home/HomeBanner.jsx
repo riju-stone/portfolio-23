@@ -27,29 +27,29 @@ const HomeBanner = ({ onCursor }) => {
 
     let curMoving = false;
 
-    renderingCtx.globalCompositeOperation = "source-over";
+    renderingCtx.globalCompositeOperation = "copy";
     // renderingCtx.clearReact(0, 0, size.width, size.height);
     renderingCtx.fillStyle = currentTheme === "dark" ? "#000000" : "#ffffff";
     renderingCtx.fillRect(0, 0, size.width, size.height);
 
-    renderingElement.addEventListener("mouseover", (e) => {
+    const _mouseover = (ev) => {
       curMoving = true;
-      lastX = e.pageX - renderingElement.offsetLeft;
-      lastY = e.pageY - renderingElement.offsetTop;
-    });
+      lastX = ev.pageX - renderingElement.offsetLeft;
+      lastY = ev.pageY - renderingElement.offsetTop;
+    };
 
-    renderingElement.addEventListener("mouseup", (e) => {
+    const _mouseup = (ev) => {
       curMoving = false;
-      lastX = e.pageX - renderingElement.offsetLeft;
-      lastY = e.pageY - renderingElement.offsetTop;
-    });
+      lastX = ev.pageX - renderingElement.offsetLeft;
+      lastY = ev.pageY - renderingElement.offsetTop;
+    };
 
-    renderingElement.addEventListener("mousemove", (e) => {
+    const _mousemove = (ev) => {
       if (curMoving) {
-        drawingCtx.globalCompositeOperation = "source-over";
+        drawingCtx.globalCompositeOperation = "copy";
         renderingCtx.globalCompositeOperation = "destination-out";
-        let currentX = e.pageX - renderingElement.offsetLeft;
-        let currentY = e.pageY - renderingElement.offsetTop;
+        let currentX = ev.pageX - renderingElement.offsetLeft;
+        let currentY = ev.pageY - renderingElement.offsetTop;
 
         drawingCtx.lineJoin = "round";
         drawingCtx.moveTo(lastX, lastY);
@@ -61,7 +61,27 @@ const HomeBanner = ({ onCursor }) => {
         lastY = currentY;
         renderingCtx.drawImage(drawingElement, 0, 0);
       }
-    });
+    };
+
+    const _mouseclick = (ev) => {
+      curMoving = true;
+      lastX = ev.pageX - renderingElement.offsetLeft;
+      lastY = ev.pageY - renderingElement.offsetTop;
+    };
+
+    renderingElement.addEventListener("mouseover", _mouseover);
+    renderingElement.addEventListener("mouseup", _mouseup);
+    renderingElement.addEventListener("mousemove", _mousemove);
+    renderingElement.addEventListener("click", _mouseclick);
+
+    return () => {
+      drawingElement = null;
+      drawingElement = renderingElement.cloneNode();
+      renderingElement.removeEventListener("mouseover", _mouseover);
+      renderingElement.removeEventListener("mouseup", _mouseup);
+      renderingElement.removeEventListener("mousemove", _mousemove);
+      renderingElement.addEventListener("click", _mouseclick);
+    };
   }, [size, currentTheme]);
 
   const parent = {

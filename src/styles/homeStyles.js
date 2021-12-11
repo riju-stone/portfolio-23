@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export const Banner = styled.div`
   background: ${(props) => props.theme.background};
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   position: relative;
   margin-bottom: 296px;
 `;
@@ -22,6 +22,7 @@ export const Video = styled.div`
 
 export const Canvas = styled.canvas`
   position: absolute;
+  width: 100vw;
   display: block;
   top: 0;
   left: 0;
@@ -35,6 +36,7 @@ export const BannerTitle = styled(motion.h1)`
   color: ${(props) => props.theme.turqoise};
   pointer-events: none;
   padding: 40px 80px;
+  overflow: hidden;
 `;
 
 export const Headline = styled(motion.span)`
@@ -51,7 +53,7 @@ export const HomeContentSection = styled(motion.div)`
 
 export const Content = styled.div`
   width: 53%;
-  font-size: 2.3rem;
+  font-size: 4.5rem;
   font-weight: 400;
   margin-left: 124px;
   color: ${(props) => props.theme.text};
@@ -221,9 +223,9 @@ export const AccordionContent = styled(motion.div)`
   span {
     width: 100%;
     margin: 8px 0;
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: ${(props) => props.theme.turqoise};
     display: block;
-    font-weight: 300;
+    font-weight: 400;
   }
 `;
