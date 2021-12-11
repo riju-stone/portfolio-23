@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+// import useElementPosition from "../../hooks/elemPos";
+import { AnimatePresence, motion } from "framer-motion";
+//styles
 import { Container, Flex } from "../../styles/globalStyles";
 import {
   Nav,
@@ -8,8 +11,10 @@ import {
   NavFooter,
   NavVideos,
 } from "../../styles/hamburgerStyles";
-import { AnimatePresence, motion } from "framer-motion";
+import { FooterContent, FooterSocial } from "../../styles/footerStyles";
+import { BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
 
+//videos
 import AboutVideo from "../../assets/videos/about.mp4";
 import ProjectVideo from "../../assets/videos/projects.mp4";
 import ContactVideo from "../../assets/videos/contact.mp4";
@@ -35,12 +40,32 @@ const navRoutes = [
   },
 ];
 
-const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
+const Hamburger = ({
+  toggleMenu,
+  setToggleMenu,
+  onCursor,
+  setFooterPosition,
+}) => {
+  // const instaNavLink = useRef(null);
+  // const instaNavPosition = useElementPosition(instaNavLink);
+
+  // const twitterNavLink = useRef(null);
+  // const twitterNavPosition = useElementPosition(twitterNavLink);
+
+  // const gitNavLink = useRef(null);
+  // const gitNavPosition = useElementPosition(gitNavLink);
+
+  const [hoverClose, setHoverClose] = useState(false);
   const [revealVideo, setRevealVideo] = useState({
     show: false,
     video: <source src={AboutVideo} type="video/mp4" />,
     key: "0",
   });
+
+  // const onLinkHover = (x) => {
+  //   onCursor("locked");
+  //   setFooterPosition({ x: x });
+  // };
 
   return (
     <>
@@ -61,9 +86,24 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                     onMouseEnter={() => onCursor("pointer")}
                     onMouseLeave={onCursor}
                   >
-                    <button>
-                      <span></span>
-                      <span></span>
+                    <button
+                      onHoverStart={() => setHoverClose(!hoverClose)}
+                      onHoverEnd={() => setHoverClose(!hoverClose)}
+                    >
+                      <motion.span
+                        animate={{ rotate: 45, y: 7 }}
+                        transition={{
+                          duration: 0.2,
+                          ease: [0.6, 0.05, -0.01, 0.9],
+                        }}
+                      ></motion.span>
+                      <motion.span
+                        animate={{ rotate: -45, y: -7 }}
+                        transition={{
+                          duration: 0.2,
+                          ease: [0.6, 0.05, -0.01, 0.9],
+                        }}
+                      ></motion.span>
                     </button>
                   </CloseNav>
                 </Flex>
@@ -119,7 +159,40 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                   ))}
                 </ul>
               </NavList>
-              <NavFooter></NavFooter>
+              <NavFooter>
+                <Flex spaceBetween>
+                  <FooterContent>
+                    <p>+91 9163411820</p>
+                    <p>riju23chakra@gmail.com</p>
+                  </FooterContent>
+                  <FooterContent wider>
+                    <p>Kolkata, West Bengal, IN</p>
+                  </FooterContent>
+                  <FooterSocial>
+                    <a
+                      href="https://www.instagram.com/epash_opash_dhopash/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <BsInstagram size={{ height: "20px" }} />
+                    </a>
+                    <a
+                      href="https://twitter.com/RijuStone"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <BsTwitter size={{ height: "20px" }} />
+                    </a>
+                    <a
+                      target="_blank"
+                      href="https://github.com/riju-stone"
+                      rel="noreferrer"
+                    >
+                      <BsGithub size={{ height: "20px" }} />
+                    </a>
+                  </FooterSocial>
+                </Flex>
+              </NavFooter>
               <NavVideos>
                 <motion.div
                   animate={{ width: revealVideo.show ? 0 : "100%" }}

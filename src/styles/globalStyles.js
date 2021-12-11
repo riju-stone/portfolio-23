@@ -46,7 +46,7 @@ export const Flex = styled.div`
     ${(props) =>
     props.alignTop &&
     css`
-      align-items: top;
+      align-items: flex-start;
     `}
 
     ${(props) =>
@@ -82,10 +82,19 @@ export const Cursor = styled.div`
     background: transparent !important;
     width: 40px;
     height: 40px;
-    border: 2px solid ${(props) => props.theme.text};
+    border: 4px solid ${(props) => props.theme.text};
   }
 
   &.nav-open {
     background: ${(props) => props.theme.text};
+  }
+
+  &.locked {
+    background: transparent !important;
+    width: 40px;
+    height: 40px;
+    border: 4px solid ${(props) => props.theme.turqoise};
+    top: ${(props) => props.theme.top} !important;
+    left: ${(props) => props.theme.left} !important;
   }
 `;

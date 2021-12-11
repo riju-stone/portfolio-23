@@ -14,7 +14,8 @@ import Hamburger from "./components/Hamburger/Hamburger";
 import HomeBanner from "./components/Home/HomeBanner";
 import HomeContent from "./components/Home/HomeContent";
 import HomeFeatured from "./components/Home/HomeFeatured";
-
+import HomeAbout from "./components/Home/HomeAbout";
+import Footer from "./components/Footer/Footer";
 const GlobalStyle = createGlobalStyle`
 ${normalize}
 *{
@@ -37,26 +38,33 @@ body{
 }
 `;
 
-const darkTheme = {
-  background: "#152b39",
-  text: "#ededed",
-  link: "#f2B591",
-  turqoise: "#09bd86",
-  darkTurqoise: "#024959",
-};
-
-const lightTheme = {
-  background: "#dddddd",
-  text: "#011826",
-  link: "#BF6560",
-  turqoise: "#09bd86",
-  darkTurqoise: "#024959",
-};
-
 function App() {
   const { currentTheme, cursorStyles } = useGlobalStateContext();
   const dispatch = useGlobalDispatchContext();
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const [hamburgerPosition, setHamburgerPosition] = useState({ x: 0, y: 0 });
   // save the theme on localstorage
+
+  const darkTheme = {
+    background: "#152b39",
+    text: "#ededed",
+    link: "#f2B591",
+    turqoise: "#09bd86",
+    darkTurqoise: "#024959",
+    left: `${hamburgerPosition.x}px`,
+    top: `${hamburgerPosition.y}px`,
+  };
+
+  const lightTheme = {
+    background: "#dddddd",
+    text: "#011826",
+    link: "#BF6560",
+    turqoise: "#09bd86",
+    darkTurqoise: "#024959",
+    left: `${hamburgerPosition.x}px`,
+    top: `${hamburgerPosition.y}px`,
+  };
+
   useEffect(() => {
     window.localStorage.setItem("theme", currentTheme);
   }, [currentTheme]);
@@ -66,8 +74,6 @@ function App() {
     dispatch({ type: "CURSOR_TYPE", cursorType: curType });
   };
 
-  const [toggleMenu, setToggleMenu] = useState(false);
-
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
@@ -76,15 +82,24 @@ function App() {
         onCursor={onCursor}
         toggleMenu={toggleMenu}
         setToggleMenu={setToggleMenu}
+        setHamburgerPosition={setHamburgerPosition}
       />
       <Hamburger
         toggleMenu={toggleMenu}
         setToggleMenu={setToggleMenu}
         onCursor={onCursor}
+        footerPosition={hamburgerPosition}
+        setFooterPosition={setHamburgerPosition}
       />
       <HomeBanner onCursor={onCursor} />
       <HomeContent />
       <HomeFeatured onCursor={onCursor} />
+      <HomeAbout onCursor={onCursor} />
+      <Footer
+        onCursor={onCursor}
+        footerPosition={hamburgerPosition}
+        setFooterPosition={setHamburgerPosition}
+      />
     </ThemeProvider>
   );
 }

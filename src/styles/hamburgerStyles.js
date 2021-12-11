@@ -10,7 +10,7 @@ export const Nav = styled(motion.div)`
   display: blobk;
   background: ${(props) => props.theme.darkTurqoise};
   color: #000;
-  z-index: 100;
+  z-index: 95;
   overflow-x: hidden;
   overflow-y: hidden;
 `;
@@ -23,7 +23,7 @@ export const NavHeader = styled.div`
   }
 `;
 
-export const CloseNav = styled.div`
+export const CloseNav = styled(motion.div)`
   button {
     transform-origin: center;
     border: none;
@@ -36,7 +36,7 @@ export const CloseNav = styled.div`
       height: 6px;
       border-radius: 30px;
       display: block;
-      background: ${(props) => props.theme.link};
+      background: ${(props) => props.theme.turqoise};
       margin: 8px;
     }
   }
@@ -81,7 +81,19 @@ export const NavList = styled.div`
   }
 `;
 
-export const NavFooter = styled.div``;
+export const NavFooter = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 56px 0px;
+  p {
+    color: ${(props) => props.theme.link};
+  }
+  a {
+    color: ${(props) => props.theme.link};
+  }
+`;
 
 export const NavVideos = styled.div`
   position: absolute;

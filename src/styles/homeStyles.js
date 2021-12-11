@@ -73,7 +73,7 @@ export const FeaturedContent = styled(motion.div)`
   width: 100%;
   padding: 56px 124px;
   box-sizing: border-box;
-  color: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.link};
   h3 {
     font-size: 1.4rem;
   }
@@ -104,7 +104,7 @@ export const FeaturedContent = styled(motion.div)`
         left: -48px;
         width: 108px;
         path {
-          fill: ${(props) => props.theme.text};
+          fill: ${(props) => props.theme.link};
         }
       }
     }
@@ -163,4 +163,67 @@ button{
     margin-top: 8px;
   }
 }
+`;
+
+//home about styles
+export const HomeAboutSection = styled.div``;
+
+export const About = styled(motion.div)`
+  width: 100%;
+  h2 {
+    width: 60%;
+    font-size: 2.3rem;
+    font-weight: 400;
+    margin-left: 124px;
+    color: ${(props) => props.theme.text};
+  }
+  p {
+    max-width: 440px;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    margin-left: 124px;
+    color: ${(props) => props.theme.text};
+  }
+`;
+
+export const Services = styled(motion.div)`
+  font-size: 2rem;
+  color: ${(props) => props.theme.link};
+`;
+
+export const AccordionHeader = styled(motion.div)`
+  width: 100%;
+  color: ${(props) => props.theme.turqoise};
+  height: 32px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 8px 0;
+`;
+
+export const AccordionIcon = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 8px;
+  span {
+    width: 16px;
+    height: 4px;
+    background: ${(props) => props.theme.turqoise};
+    transition: 0.1s ease-in-out;
+  }
+`;
+
+export const AccordionContent = styled(motion.div)`
+  overflow: hidden;
+  padding-left: 40px;
+  span {
+    width: 100%;
+    margin: 8px 0;
+    font-size: 0.875rem;
+    color: ${(props) => props.theme.turqoise};
+    display: block;
+    font-weight: 300;
+  }
 `;
