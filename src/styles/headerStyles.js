@@ -15,13 +15,13 @@ export const Logo = styled.div`
   a {
     font-size: 1.8rem;
     font-weight: 800;
-    color: ${(props) => props.theme.text};
+    color: ${(props) => props.theme.turqoise};
     user-select: none;
   }
   span {
     height: 1rem;
     width: 1rem;
-    background: ${(props) => props.theme.turqoise};
+    background: ${(props) => props.theme.link};
     margin: 0 4px;
     border-radius: 100%;
     display: inline-block;
@@ -42,7 +42,7 @@ export const Menu = styled.div`
       width: 28px;
       height: 6px;
       display: block;
-      background: ${(props) => props.theme.text};
+      background: ${(props) => props.theme.turqoise};
       border-radius: 30px;
       margin: 8px;
     }

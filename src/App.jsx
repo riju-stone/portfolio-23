@@ -10,8 +10,10 @@ import { normalize } from "styled-normalize";
 //components
 import Header from "./components/Header/Header";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
-import HomeBanner from "./components/Home/HomeBanner";
 import Hamburger from "./components/Hamburger/Hamburger";
+import HomeBanner from "./components/Home/HomeBanner";
+import HomeContent from "./components/Home/HomeContent";
+import HomeFeatured from "./components/Home/HomeFeatured";
 
 const GlobalStyle = createGlobalStyle`
 ${normalize}
@@ -81,6 +83,8 @@ function App() {
         onCursor={onCursor}
       />
       <HomeBanner onCursor={onCursor} />
+      <HomeContent />
+      <HomeFeatured onCursor={onCursor} />
     </ThemeProvider>
   );
 }

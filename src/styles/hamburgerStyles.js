@@ -55,7 +55,7 @@ export const NavList = styled.div`
       test-transform: uppercase;
       font-weight: 900;
       height: 96px;
-      line-height: 98px;
+      line-height: 96px;
       overflow: hidden;
       margin-bottom: 80px;
       a {
@@ -88,7 +88,7 @@ export const NavVideos = styled.div`
   top: 0;
   botton: 0;
   left: 28%;
-  z-index: -1;
+  z-index: -10;
   height: 100%;
   width: 100%;
   background: #000;

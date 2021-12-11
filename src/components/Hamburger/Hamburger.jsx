@@ -47,9 +47,9 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
       <AnimatePresence>
         {toggleMenu && (
           <Nav
-            initial={{ x: "-100%" }}
-            exit={{ x: "-100%" }}
-            animate={{ x: toggleMenu ? 0 : "-100%" }}
+            initial={{ x: "100%" }}
+            exit={{ x: "100%" }}
+            animate={{ x: toggleMenu ? 0 : "100%" }}
             transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
           >
             <Container>
