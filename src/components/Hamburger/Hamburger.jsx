@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import useElementPosition from "../../hooks/elemPos";
+import React, { useState } from "react";
+// import useElementPosition from "../../hooks/elemPos";
 import { AnimatePresence, motion } from "framer-motion";
 //styles
 import { Container, Flex } from "../../styles/globalStyles";
@@ -53,16 +53,14 @@ const Hamburger = ({
     key: "0",
   });
 
-  const onLinkHover = (x) => {
-    onCursor("locked");
-    setFooterPosition({ x: x });
-  };
+  // const onLinkHover = (x) => {
+  //   onCursor("locked");
+  //   setFooterPosition({ x: x });
+  // };
 
-  let instaNavLink = useRef(null);
-  let twitterNavLink = useRef(null);
-  let gitNavLink = useRef(null);
-
-  console.log(instaNavLink, twitterNavLink, gitNavLink);
+  // const instaNavLink = useRef(null);
+  // const twitterNavLink = useRef(null);
+  // const gitNavLink = useRef(null);
 
   // const instaNavPosition = useElementPosition(instaNavLink);
   // const twitterNavPosition = useElementPosition(twitterNavLink);
@@ -168,7 +166,7 @@ const Hamburger = ({
                   </FooterContent>
                   <FooterSocial>
                     <a
-                      ref={instaNavLink}
+                      // ref={instaNavLink}
                       onMouseEnter={() => onCursor("pointer")}
                       onMouseLeave={() => onCursor()}
                       href="https://www.instagram.com/epash_opash_dhopash/"
@@ -178,7 +176,7 @@ const Hamburger = ({
                       <BsInstagram size={{ height: "20px" }} />
                     </a>
                     <a
-                      ref={twitterNavLink}
+                      // ref={twitterNavLink}
                       onMouseEnter={() => onCursor("pointer")}
                       onMouseLeave={() => onCursor()}
                       href="https://twitter.com/RijuStone"
@@ -188,7 +186,7 @@ const Hamburger = ({
                       <BsTwitter size={{ height: "20px" }} />
                     </a>
                     <a
-                      ref={gitNavLink}
+                      // ref={gitNavLink}
                       onMouseEnter={() => onCursor("pointer")}
                       onMouseLeave={() => onCursor()}
                       target="_blank"

@@ -107,7 +107,7 @@ const HomeBanner = ({ onCursor }) => {
   return (
     <Banner>
       <Video>
-        <video loop autoPlay muted>
+        <video loop autoPlay muted playsInline>
           <source src={BackgroundVideo} type="video/mp4" />
         </video>
       </Video>

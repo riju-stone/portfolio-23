@@ -80,7 +80,7 @@ const HomeFeatured = ({ onCursor, projectRef }) => {
           </h2>
         </FeaturedContent>
         <FeaturedVideo>
-          <video loop autoPlay>
+          <video loop autoPlay playsInline muted>
             <source src={ChessVideo} type="video/mp4" />
           </video>
         </FeaturedVideo>
