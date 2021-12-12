@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Cursor } from "../../styles/globalStyles";
 import { useGlobalStateContext } from "../../context/globalContext";
 
 const CustomCursor = ({ toggleMenu }) => {
   const { cursorType } = useGlobalStateContext();
-
-  console.log(cursorType);
-
-  const [mousePos, setMousePos] = useState({
-    x: 400,
-    y: 400,
-  });
+  const cursor = useRef(null);
 
   const onMouseMove = (event) => {
-    const { pageX: x, pageY: y } = event;
-    setMousePos({ x, y });
+    const { clientX, clientY } = event;
+    cursor.current.style.left = `${clientX}px`;
+    cursor.current.style.top = `${clientY}px`;
   };
 
   useEffect(() => {
@@ -22,15 +17,17 @@ const CustomCursor = ({ toggleMenu }) => {
     return () => {
       document.removeEventListener("mousemove", onMouseMove);
     };
-  });
+  }, []);
 
   return (
-    <Cursor
-      className={`${!!cursorType ? "hovered" : ""} ${cursorType} ${
-        toggleMenu ? "nav-open" : ""
-      }`}
-      style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
-    />
+    <>
+      <Cursor
+        ref={cursor}
+        className={`${!!cursorType ? "hovered" : ""} ${cursorType} ${
+          toggleMenu ? "nav-open" : ""
+        }`}
+      />
+    </>
   );
 };
 
