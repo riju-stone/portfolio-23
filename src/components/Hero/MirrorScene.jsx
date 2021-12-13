@@ -2,7 +2,6 @@ import React, { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { useThree, extend, useFrame, useLoader } from "@react-three/fiber";
 import {
-  Text,
   Box,
   useMatcapTexture,
   Octahedron,
