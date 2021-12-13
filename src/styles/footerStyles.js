@@ -2,9 +2,10 @@ import styled, { css } from "styled-components";
 // import { motion } from "framer-motion";
 
 export const FooterNav = styled.div`
-  height: 300px;
+  height: 150px;
   margin-top: 120px;
 `;
+
 export const FooterContent = styled.div`
   color: ${(props) => props.theme.turqoise};
   font-size: 1.2rem;

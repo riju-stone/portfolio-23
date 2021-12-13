@@ -129,7 +129,7 @@ export const FeaturedVideo = styled.div`
 `;
 
 export const FeaturedProjects = styled.div`
-margin-top: 200px;
+margin-top: 120px;
 button{
   background: ${(props) => props.theme.darkTurqoise};
   color: #fff;

@@ -1,31 +1,40 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
 } from "./context/globalContext";
 
+//styled components
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { normalize } from "styled-normalize";
 
 //components
+import Loader from "./components/Loader/Loader";
 import Header from "./components/Header/Header";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
 import Hamburger from "./components/Hamburger/Hamburger";
+import Hero from "./components/Hero/Hero";
 import HomeBanner from "./components/Home/HomeBanner";
 import HomeContent from "./components/Home/HomeContent";
 import HomeFeatured from "./components/Home/HomeFeatured";
 import HomeAbout from "./components/Home/HomeAbout";
 import Footer from "./components/Footer/Footer";
+
+// global style
 const GlobalStyle = createGlobalStyle`
 ${normalize}
 *{
   text-decoration: none;
-  cursor: none;
+  cursor: none
 }
 
 html{
   box-sizing: border-box;
   font-size: 16px;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 body{
@@ -36,6 +45,11 @@ body{
   padding:0;
   margin:0;
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 `;
 
 function App() {
@@ -82,28 +96,44 @@ function App() {
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
       <CustomCursor toggleMenu={toggleMenu} />
-      <Header
-        onCursor={onCursor}
-        toggleMenu={toggleMenu}
-        setToggleMenu={setToggleMenu}
-        setHamburgerPosition={setHamburgerPosition}
-      />
-      <Hamburger
-        toggleMenu={toggleMenu}
-        setToggleMenu={setToggleMenu}
-        onCursor={onCursor}
-        footerPosition={hamburgerPosition}
-        setFooterPosition={setHamburgerPosition}
-      />
-      <HomeBanner onCursor={onCursor} />
-      <HomeContent />
-      <HomeFeatured onCursor={onCursor} projectRef={projectsRef} />
-      <HomeAbout onCursor={onCursor} aboutRef={aboutRef} />
-      <Footer
-        onCursor={onCursor}
-        footerPosition={hamburgerPosition}
-        setFooterPosition={setHamburgerPosition}
-      />
+      <Suspense fallback={<Loader />}>
+        <Header
+          onCursor={onCursor}
+          toggleMenu={toggleMenu}
+          setToggleMenu={setToggleMenu}
+          setHamburgerPosition={setHamburgerPosition}
+        />
+        <Hamburger
+          toggleMenu={toggleMenu}
+          setToggleMenu={setToggleMenu}
+          onCursor={onCursor}
+          footerPosition={hamburgerPosition}
+          setFooterPosition={setHamburgerPosition}
+        />
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <HomeBanner onCursor={onCursor} />
+                  <Hero />
+                  <HomeContent />
+                  <HomeFeatured onCursor={onCursor} projectRef={projectsRef} />
+                  <HomeAbout onCursor={onCursor} aboutRef={aboutRef} />
+                  <Footer
+                    onCursor={onCursor}
+                    footerPosition={hamburgerPosition}
+                    setFooterPosition={setHamburgerPosition}
+                  />
+                </>
+              }
+            ></Route>
+            <Route path="/about"></Route>
+            <Route path="/projects"></Route>
+          </Routes>
+        </BrowserRouter>
+      </Suspense>
     </ThemeProvider>
   );
 }

@@ -29,7 +29,7 @@ const HomeBanner = ({ onCursor }) => {
 
     renderingCtx.globalCompositeOperation = "copy";
     // renderingCtx.clearReact(0, 0, size.width, size.height);
-    renderingCtx.fillStyle = currentTheme === "dark" ? "#000000" : "#ffffff";
+    renderingCtx.fillStyle = currentTheme === "dark" ? "#011826" : "#ddd";
     renderingCtx.fillRect(0, 0, size.width, size.height);
 
     const _mouseover = (ev) => {
