@@ -24,8 +24,11 @@ import Footer from "./components/Footer/Footer";
 const GlobalStyle = createGlobalStyle`
 ${normalize}
 *{
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
   text-decoration: none;
-  cursor: none
+  cursor: none;
+  
 }
 
 html{

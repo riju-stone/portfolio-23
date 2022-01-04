@@ -8,6 +8,7 @@ export const FooterNav = styled.div`
 
 export const FooterContent = styled.div`
   color: ${(props) => props.theme.turqoise};
+  font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 8px;

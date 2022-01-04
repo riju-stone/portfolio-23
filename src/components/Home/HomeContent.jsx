@@ -38,8 +38,8 @@ const HomeContent = () => {
     >
       <Container>
         <Content>
-          - Turning Paper Balls <br />
-          into Paper Planes.
+          - Turning <br /> Paper Balls <br />
+          into <br /> Paper Planes.
         </Content>
       </Container>
     </HomeContentSection>

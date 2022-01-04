@@ -12,9 +12,10 @@ export const HeaderNav = styled(motion.div)`
 `;
 
 export const Logo = styled.div`
+  font-family: "Montserrat", sans-serif;
   a {
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: 900;
     color: ${(props) => props.theme.turqoise};
     user-select: none;
   }

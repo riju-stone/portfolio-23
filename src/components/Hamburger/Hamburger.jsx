@@ -109,6 +109,8 @@ const Hamburger = ({
                   {navRoutes.map((route) => (
                     <motion.li
                       key={route.id}
+                      onMouseEnter={() => onCursor("pointer")}
+                      onMouseLeave={onCursor}
                       onHoverStart={() => {
                         onCursor("pointer");
                         setRevealVideo({
@@ -204,7 +206,7 @@ const Hamburger = ({
                   transition={{ duration: 1 }}
                   className="reveal"
                 ></motion.div>
-                <div className="img">
+                <div className="video">
                   <AnimatePresence initial={false} exitBeforeEnter>
                     <motion.video
                       key={revealVideo.key}

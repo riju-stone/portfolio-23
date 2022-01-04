@@ -7,7 +7,7 @@ export const Nav = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100%;
-  display: blobk;
+  display: block;
   background: ${(props) => props.theme.darkTurqoise};
   color: #000;
   z-index: 95;
@@ -47,12 +47,12 @@ export const NavList = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  font-family: "Hammersmith One", sans-serif;
   ul {
     padding: 0;
     li {
       list-style: none;
       font-size: 4.5rem;
-      text-transform: uppercase;
       font-weight: 900;
       height: 96px;
       line-height: 96px;
@@ -101,7 +101,7 @@ export const NavVideos = styled.div`
   top: 0;
   bottom: 0;
   left: 28%;
-  z-index: -20;
+  z-index: -1;
   height: 100%;
   width: 100%;
   background: #000;
@@ -118,7 +118,7 @@ export const NavVideos = styled.div`
     position: absolute;
     height: 100%;
     margin: 0;
-    z-index: -5;
+    z-index: -1;
     video {
       object-fit: cover;
       height: 100%;
@@ -130,6 +130,7 @@ export const NavVideos = styled.div`
 export const FooterSocial = styled.div`
   display: flex;
   a {
+    font-family: "Montserrat", sans-serif;
     position: relative;
     display: block;
     width: 25px;

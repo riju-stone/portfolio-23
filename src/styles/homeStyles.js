@@ -41,6 +41,7 @@ export const BannerTitle = styled(motion.h1)`
 
 export const Headline = styled(motion.span)`
   display: block;
+  font-family: "Hammersmith One", sans-serif;
   font-size: 12rem;
   font-weight: 900;
   line-height: 1;
@@ -53,8 +54,9 @@ export const HomeContentSection = styled(motion.div)`
 
 export const Content = styled.div`
   width: 53%;
+  font-family: "Hammersmith One", sans-serif;
   font-size: 4.5rem;
-  font-weight: 400;
+  font-weight: 600;
   margin-left: 124px;
   color: ${(props) => props.theme.text};
 `;
@@ -63,6 +65,7 @@ export const Content = styled.div`
 export const HomeAboutSection = styled.div``;
 
 export const About = styled(motion.div)`
+  font-family: "Montserrat", sans-serif;
   width: 100%;
   h2 {
     width: 60%;
@@ -81,6 +84,7 @@ export const About = styled(motion.div)`
 `;
 
 export const Services = styled(motion.div)`
+  font-family: "Hammersmith One", sans-serif;
   font-size: 2rem;
   color: ${(props) => props.theme.link};
 `;
@@ -91,6 +95,7 @@ export const AccordionHeader = styled(motion.div)`
   height: 32px;
   display: flex;
   align-items: center;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
   margin: 8px 0;
@@ -113,6 +118,7 @@ export const AccordionContent = styled(motion.div)`
   overflow: hidden;
   padding-left: 40px;
   span {
+    font-family: "Montserrat", sans-serif;
     width: 100%;
     margin: 8px 0;
     font-size: 1rem;
