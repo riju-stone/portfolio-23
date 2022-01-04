@@ -52,7 +52,7 @@ export const NavList = styled.div`
     li {
       list-style: none;
       font-size: 4.5rem;
-      test-transform: uppercase;
+      text-transform: uppercase;
       font-weight: 900;
       height: 96px;
       line-height: 96px;
@@ -69,7 +69,7 @@ export const NavList = styled.div`
             margin-right: 8px;
             margin-bottom: 10px;
             svg {
-              length: 100px;
+              height: auto;
               width: 108px;
               path {
                 fill: ${(props) => props.theme.link};
@@ -99,9 +99,9 @@ export const NavFooter = styled.div`
 export const NavVideos = styled.div`
   position: absolute;
   top: 0;
-  botton: 0;
+  bottom: 0;
   left: 28%;
-  z-index: -10;
+  z-index: -20;
   height: 100%;
   width: 100%;
   background: #000;
@@ -111,7 +111,7 @@ export const NavVideos = styled.div`
     position: absolute;
     top: 0;
     bottom: 0;
-    letf: 0;
+    left: 0;
   }
   .video {
     background: #000;
@@ -136,6 +136,5 @@ export const FooterSocial = styled.div`
     height: 25px;
     padding: 8px;
     color: ${(props) => props.theme.link};
-    }
   }
 `;

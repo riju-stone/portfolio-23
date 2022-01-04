@@ -2,7 +2,7 @@ import React, { useEffect, Suspense } from "react";
 import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
-import MirrorScene from "./MirrorScene";
+import Wave from "./Wave";
 
 //styles
 import { HeroSection } from "../../styles/heroStyles";
@@ -37,9 +37,9 @@ const Hero = () => {
         },
       }}
     >
-      <Canvas camera={{ position: [0, 0, 5], fov: 85 }}>
+      <Canvas camera={{ position: [0, 0, 3], fov: 85 }}>
         <Suspense fallback={null}>
-          <MirrorScene />
+          <Wave />
         </Suspense>
         <ambientLight intensity={0.4} />
       </Canvas>

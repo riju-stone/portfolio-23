@@ -91,8 +91,8 @@ const HomeAbout = ({ onCursor }) => {
             }}
           >
             <h2>
-              - A Web and App Developer from India with an eye for details.
-              Highly Organized and a weirdly obsessed perfectionist...
+              - A Web and App Developer with an eye for details.
+              Highly Organized and an obsessed perfectionist...
             </h2>
             <p>
               Everybody's got a story. And I don't stop until I've uncovered

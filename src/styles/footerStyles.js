@@ -28,6 +28,5 @@ export const FooterSocial = styled.div`
     height: 25px;
     padding: 8px;
     color: ${(props) => props.theme.text};
-    }
   }
 `;

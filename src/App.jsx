@@ -17,7 +17,6 @@ import Hamburger from "./components/Hamburger/Hamburger";
 import Hero from "./components/Hero/Hero";
 import HomeBanner from "./components/Home/HomeBanner";
 import HomeContent from "./components/Home/HomeContent";
-import HomeFeatured from "./components/Home/HomeFeatured";
 import HomeAbout from "./components/Home/HomeAbout";
 import Footer from "./components/Footer/Footer";
 
@@ -40,7 +39,7 @@ html{
 body{
   font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue';
   background: ${(props) => props.theme.background};
-  overscroll-behaviour: none;
+  overscroll-behavior: none;
   overflow-x: hidden;
   padding:0;
   margin:0;
@@ -60,7 +59,6 @@ function App() {
 
   //component refs
   let aboutRef = useRef(null);
-  let projectsRef = useRef(null);
   // save the theme on localstorage
 
   const darkTheme = {
@@ -119,7 +117,6 @@ function App() {
                   <HomeBanner onCursor={onCursor} />
                   <Hero />
                   <HomeContent />
-                  <HomeFeatured onCursor={onCursor} projectRef={projectsRef} />
                   <HomeAbout onCursor={onCursor} aboutRef={aboutRef} />
                   <Footer
                     onCursor={onCursor}

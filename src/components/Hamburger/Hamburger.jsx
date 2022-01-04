@@ -18,26 +18,26 @@ import { BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
 //videos
 import AboutVideo from "../../assets/videos/about.mp4";
 import ProjectVideo from "../../assets/videos/projects.mp4";
-import ContactVideo from "../../assets/videos/contact.mp4";
+import CVVideo from "../../assets/videos/cv.mp4";
 
 const navRoutes = [
   {
     id: 0,
-    title: "I'm an Open Book",
+    title: "Little About Me",
     path: "/about",
     video: <source src={AboutVideo} type="video/mp4" />,
   },
   {
     id: 1,
-    title: "I did some cool stuff",
+    title: "My Stuff",
     path: "/projects",
     video: <source src={ProjectVideo} type="video/mp4" />,
   },
   {
     id: 2,
-    title: "Impressed right ? Let's talk",
-    path: "/contact",
-    video: <source src={ContactVideo} type="video/mp4" />,
+    title: "My CV",
+    path: "cv/cv.pdf",
+    video: <source src={CVVideo} type="video/mp4" />,
   },
 ];
 
@@ -126,7 +126,7 @@ const Hamburger = ({
                         onCursor();
                       }}
                     >
-                      <a href={`/${route.path}`}>
+                      <a href={`${route.path}`} download>
                         <motion.div
                           className="link"
                           initial={{ x: -108 }}
@@ -204,7 +204,7 @@ const Hamburger = ({
                   transition={{ duration: 1 }}
                   className="reveal"
                 ></motion.div>
-                <div className="video">
+                <div className="img">
                   <AnimatePresence initial={false} exitBeforeEnter>
                     <motion.video
                       key={revealVideo.key}
