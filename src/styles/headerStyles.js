@@ -18,6 +18,8 @@ export const Logo = styled.div`
     font-weight: 900;
     color: ${(props) => props.theme.turqoise};
     user-select: none;
+    text-decoration: none;
+    cursor: none;
   }
   span {
     height: 1rem;

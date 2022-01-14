@@ -59,6 +59,8 @@ export const NavList = styled.div`
       overflow: hidden;
       margin-bottom: 80px;
       a {
+        text-decoration: none;
+        cursor: none;
         color: ${(props) => props.theme.link};
         .link {
           position: relative;

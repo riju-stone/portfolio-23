@@ -26,12 +26,11 @@ ${normalize}
 *{
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
-  text-decoration: none;
   cursor: none;
-  
 }
 
 html{
+  text-decoration: none;
   box-sizing: border-box;
   font-size: 16px;
   -webkit-user-select: none; /* Safari */
@@ -40,6 +39,7 @@ html{
 }
 
 body{
+  cursor: none;
   font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue';
   background: ${(props) => props.theme.background};
   overscroll-behavior: none;

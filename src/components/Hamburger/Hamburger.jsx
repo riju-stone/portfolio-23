@@ -209,6 +209,8 @@ const Hamburger = ({
                 <div className="video">
                   <AnimatePresence initial={false} exitBeforeEnter>
                     <motion.video
+                      preload
+                      muted
                       key={revealVideo.key}
                       initial={{ opacity: 0 }}
                       exit={{ opacity: 0 }}
