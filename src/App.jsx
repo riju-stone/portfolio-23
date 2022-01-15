@@ -20,6 +20,9 @@ import HomeContent from "./components/Home/HomeContent";
 import HomeAbout from "./components/Home/HomeAbout";
 import Footer from "./components/Footer/Footer";
 
+import About from "./components/About/About";
+import Projects from "./components/Projects/Projects";
+
 // global style
 const GlobalStyle = createGlobalStyle`
 ${normalize}
@@ -129,8 +132,8 @@ function App() {
                 </>
               }
             ></Route>
-            <Route path="/about"></Route>
-            <Route path="/projects"></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/projects" element={<Projects />}></Route>
           </Routes>
         </BrowserRouter>
       </Suspense>

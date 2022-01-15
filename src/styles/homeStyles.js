@@ -40,7 +40,8 @@ export const BannerTitle = styled(motion.h1)`
 `;
 
 export const Headline = styled(motion.span)`
-  display: block;
+  display: inline-block;
+  inset: 0;
   font-family: "Hammersmith One", sans-serif;
   font-size: 12rem;
   font-weight: 900;
