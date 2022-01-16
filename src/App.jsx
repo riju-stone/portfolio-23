@@ -1,5 +1,10 @@
 import React, { useState, useEffect, useRef, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Fragment,
+} from "react-router-dom";
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
@@ -101,20 +106,21 @@ function App() {
       <GlobalStyle />
       <CustomCursor toggleMenu={toggleMenu} />
       <Suspense fallback={<Loader />}>
-        <Header
-          onCursor={onCursor}
-          toggleMenu={toggleMenu}
-          setToggleMenu={setToggleMenu}
-          setHamburgerPosition={setHamburgerPosition}
-        />
-        <Hamburger
-          toggleMenu={toggleMenu}
-          setToggleMenu={setToggleMenu}
-          onCursor={onCursor}
-          footerPosition={hamburgerPosition}
-          setFooterPosition={setHamburgerPosition}
-        />
-        <BrowserRouter>
+        <Router>
+          <Header
+            onCursor={onCursor}
+            toggleMenu={toggleMenu}
+            setToggleMenu={setToggleMenu}
+            setHamburgerPosition={setHamburgerPosition}
+          />
+          <Hamburger
+            toggleMenu={toggleMenu}
+            setToggleMenu={setToggleMenu}
+            onCursor={onCursor}
+            footerPosition={hamburgerPosition}
+            setFooterPosition={setHamburgerPosition}
+          />
+
           <Routes>
             <Route
               path="/"
@@ -135,7 +141,7 @@ function App() {
             <Route path="/about" element={<About />}></Route>
             <Route path="/projects" element={<Projects />}></Route>
           </Routes>
-        </BrowserRouter>
+        </Router>
       </Suspense>
     </ThemeProvider>
   );

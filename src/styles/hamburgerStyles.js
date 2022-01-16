@@ -58,7 +58,8 @@ export const NavList = styled.div`
       line-height: 96px;
       overflow: hidden;
       margin-bottom: 80px;
-      a {
+      a,
+      Link {
         text-decoration: none;
         cursor: none;
         color: ${(props) => props.theme.link};

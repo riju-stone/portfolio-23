@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 // import useElementPosition from "../../hooks/elemPos";
 import { AnimatePresence, motion } from "framer-motion";
 //styles
@@ -86,7 +87,7 @@ const Hamburger = ({
 
   return (
     <>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence>
         {toggleMenu && (
           <Nav
             initial={{ x: "100%" }}
@@ -165,7 +166,7 @@ const Hamburger = ({
                           </motion.div>
                         </a>
                       ) : (
-                        <a href={`${route.path}`}>
+                        <Link to={`${route.path}`} onClick={() => setToggleMenu(!toggleMenu)}>
                           <motion.div
                             className="link"
                             initial={{ x: -108 }}
@@ -189,7 +190,7 @@ const Hamburger = ({
                             </span>
                             {route.title}
                           </motion.div>
-                        </a>
+                        </Link>
                       )}
                     </motion.li>
                   ))}
@@ -247,7 +248,7 @@ const Hamburger = ({
                 <div className="video">
                   <AnimatePresence initial={false} exitBeforeEnter>
                     <motion.video
-                      preload
+                      preload="True"
                       muted
                       key={revealVideo.key}
                       initial={{ opacity: 0 }}

@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import { HeaderNav, Logo, Menu } from "../../styles/headerStyles";
 import { Container, Flex } from "../../styles/globalStyles";
 
@@ -46,13 +47,13 @@ const Header = ({
             onMouseEnter={() => onCursor("hovered")}
             onMouseLeave={() => onCursor()}
           >
-            <a href="/">H</a>
+            <Link to="/">H</Link>
             <span
               onClick={toggleTheme}
               onMouseEnter={() => onCursor("pointer")}
               onMouseLeave={() => onCursor()}
             ></span>
-            <a href="/">ME</a>
+            <Link to="/">ME</Link>
           </Logo>
           <Menu
             ref={hamburger}
