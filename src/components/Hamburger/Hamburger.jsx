@@ -66,9 +66,27 @@ const Hamburger = ({
   // const twitterNavPosition = useElementPosition(twitterNavLink);
   // const gitNavPosition = useElementPosition(gitNavLink);
 
+  const menuAnim1 = {
+    initial: { rotate: 0, y: 0 },
+    hover: { rotate: 45, y: 7 },
+    transition: {
+      duration: 0.2,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    },
+  };
+
+  const menuAnim2 = {
+    initial: { rotate: 0, y: 0 },
+    hover: { rotate: -45, y: -7 },
+    transition: {
+      duration: 0.2,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    },
+  };
+
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {toggleMenu && (
           <Nav
             initial={{ x: "100%" }}
@@ -85,22 +103,14 @@ const Hamburger = ({
                     onMouseEnter={() => onCursor("pointer")}
                     onMouseLeave={onCursor}
                   >
-                    <button>
-                      <motion.span
-                        animate={{ rotate: 45, y: 7 }}
-                        transition={{
-                          duration: 0.2,
-                          ease: [0.6, 0.05, -0.01, 0.9],
-                        }}
-                      ></motion.span>
-                      <motion.span
-                        animate={{ rotate: -45, y: -7 }}
-                        transition={{
-                          duration: 0.2,
-                          ease: [0.6, 0.05, -0.01, 0.9],
-                        }}
-                      ></motion.span>
-                    </button>
+                    <motion.button
+                      initial="initial"
+                      whileHover="hover"
+                      animate="initial"
+                    >
+                      <motion.span variants={menuAnim1}></motion.span>
+                      <motion.span variants={menuAnim2}></motion.span>
+                    </motion.button>
                   </CloseNav>
                 </Flex>
               </NavHeader>

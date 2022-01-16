@@ -21,7 +21,7 @@
     "react-intersection-observer": "^8.32.5",
     "react-router-dom": "^6.0.2",
     "react-scripts": "next",
-    "react-spring": "^9.3.2",
+    "react-spring": "^9.4.2",
     "react-three-fiber": "^6.0.13",
     "styled-components": "^5.3.3",
     "styled-normalize": "^8.0.7",

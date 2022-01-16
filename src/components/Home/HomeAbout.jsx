@@ -91,15 +91,14 @@ const HomeAbout = ({ onCursor }) => {
             }}
           >
             <h2>
-              - A Web and App Developer with an eye for details.
-              Highly Organized and an obsessed perfectionist...
+              - A Web and App Developer with an eye for details. Highly
+              Organized and an obsessed perfectionist...
             </h2>
             <p>
               Everybody's got a story. And I don't stop until I've uncovered
               what makes yours worth telling. Whether it's working directly with
               you, an agency partner, or putting the finishing touches on
-              something special, I'm ready to dig in and get my hands dirty —
-              are you?
+              something special, I'm ready to dig in and get my hands dirty...
             </p>
           </About>
           <Services
