@@ -35,12 +35,13 @@ export const AboutBanner = styled(motion.div)`
       }
     }
     video {
-      width: 100%;
+      position: fixed;
       object-fit: cover;
+      z-index: -99;
     }
     #sub-title {
       position: absolute;
-      bottom: 50px;
+      bottom: 100px;
       left: 50px;
       font-family: "Montserrat", sans-serif;
       font-weight: 600;

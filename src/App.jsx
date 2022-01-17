@@ -70,7 +70,6 @@ function App() {
 
   //component refs
   let aboutRef = useRef(null);
-  // save the theme on localstorage
 
   const darkTheme = {
     background: "#152b39",
@@ -92,6 +91,7 @@ function App() {
     top: `${hamburgerPosition.y}px`,
   };
 
+  // save the theme on localstorage
   useEffect(() => {
     window.localStorage.setItem("theme", currentTheme);
   }, [currentTheme]);

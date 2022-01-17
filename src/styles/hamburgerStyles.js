@@ -25,6 +25,7 @@ export const NavHeader = styled.div`
 
 export const CloseNav = styled(motion.div)`
   button {
+    cursor: none;
     transform-origin: center;
     border: none;
     outline: none;
@@ -32,6 +33,7 @@ export const CloseNav = styled(motion.div)`
     background: none;
     outline: none;
     span {
+      cursor: none;
       width: 28px;
       height: 6px;
       border-radius: 30px;
@@ -95,6 +97,7 @@ export const NavFooter = styled.div`
     color: ${(props) => props.theme.link};
   }
   a {
+    cursor: none;
     color: ${(props) => props.theme.link};
   }
 `;
@@ -133,6 +136,7 @@ export const NavVideos = styled.div`
 export const FooterSocial = styled.div`
   display: flex;
   a {
+    cursor: none;
     font-family: "Montserrat", sans-serif;
     position: relative;
     display: block;

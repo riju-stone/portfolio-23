@@ -14,8 +14,8 @@ export const HeaderNav = styled(motion.div)`
 export const Logo = styled.div`
   font-family: "Montserrat", sans-serif;
   a {
-    font-size: 1.8rem;
-    font-weight: 900;
+    font-size: 2.3rem;
+    font-weight: bolder;
     color: ${(props) => props.theme.turqoise};
     user-select: none;
     text-decoration: none;

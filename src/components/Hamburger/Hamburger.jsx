@@ -97,8 +97,7 @@ const Hamburger = ({
           >
             <Container>
               <NavHeader>
-                <Flex spaceBetween noHeight>
-                  <h2>Menu</h2>
+                <Flex flexEnd noHeight>
                   <CloseNav
                     onClick={() => setToggleMenu(!toggleMenu)}
                     onMouseEnter={() => onCursor("pointer")}
@@ -140,7 +139,11 @@ const Hamburger = ({
                       }}
                     >
                       {route.title === "My CV" ? (
-                        <a href={`${route.path}`} download>
+                        <a
+                          href={`${route.path}`}
+                          download
+                          onClick={() => setToggleMenu(!toggleMenu)}
+                        >
                           <motion.div
                             className="link"
                             initial={{ x: -108 }}
@@ -166,7 +169,10 @@ const Hamburger = ({
                           </motion.div>
                         </a>
                       ) : (
-                        <Link to={`${route.path}`} onClick={() => setToggleMenu(!toggleMenu)}>
+                        <Link
+                          to={`${route.path}`}
+                          onClick={() => setToggleMenu(!toggleMenu)}
+                        >
                           <motion.div
                             className="link"
                             initial={{ x: -108 }}

@@ -44,7 +44,10 @@ const Footer = ({ onCursor, setFooterPosition }) => {
               onMouseLeave={() => onCursor()}
               rel="noreferrer"
             >
-              <BsInstagram size={{ height: "20px" }} />
+              <BsInstagram
+                size={{ height: "20px" }}
+                style={{ cursor: "none" }}
+              />
             </a>
             <a
               ref={twitterLink}
@@ -54,7 +57,7 @@ const Footer = ({ onCursor, setFooterPosition }) => {
               onMouseLeave={() => onCursor()}
               rel="noreferrer"
             >
-              <BsTwitter size={{ height: "20px" }} />
+              <BsTwitter size={{ height: "20px" }} style={{ cursor: "none" }} />
             </a>
             <a
               ref={gitLink}
@@ -64,7 +67,7 @@ const Footer = ({ onCursor, setFooterPosition }) => {
               onMouseLeave={() => onCursor()}
               rel="noreferrer"
             >
-              <BsGithub size={{ height: "20px" }} />
+              <BsGithub size={{ height: "20px" }} style={{ cursor: "none" }} />
             </a>
           </FooterSocial>
         </Flex>

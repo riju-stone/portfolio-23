@@ -19,14 +19,7 @@ const accordionIds = [
   {
     id: 0,
     title: "Front-End",
-    tech: [
-      "HTML/CSS",
-      "JavaScript",
-      "React",
-      "Next",
-      "Tailwind",
-      "Gsap/Framer-Motion",
-    ],
+    tech: ["HTML/CSS", "JavaScript", "React", "Tailwind", "Framer-Motion"],
   },
   {
     id: 1,
@@ -46,7 +39,7 @@ const accordionIds = [
   {
     id: 4,
     title: "Miscellaneous",
-    tech: ["C++", "Java", "Python", "Tensorflow", "Blender"],
+    tech: ["C++", "Java", "Python", "Blender"],
   },
   {
     id: 5,

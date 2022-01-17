@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import TitleVideo from "../../assets/videos/about.mp4";
+import AboutImage from "../../assets/images/about.jpeg";
 import {
   AboutSection,
   AboutBanner,
