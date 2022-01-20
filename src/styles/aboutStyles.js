@@ -37,6 +37,8 @@ export const AboutBanner = styled(motion.div)`
     video {
       position: fixed;
       object-fit: cover;
+      height: 100vh;
+      width: 100vw;
       z-index: -99;
     }
     #sub-title {

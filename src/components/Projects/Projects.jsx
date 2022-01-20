@@ -6,7 +6,8 @@ import { AboutSection, AboutBanner } from "../../styles/aboutStyles";
 import { ProjectViewSection } from "../../styles/projectStyles";
 
 //assets
-import ProjectVideo from "../../assets/videos/projects.mp4";
+import ProjectVideo720p from "../../assets/videos/projects/projects720p.mp4";
+import ProjectVideo1080p from "../../assets/videos/projects/projects1080p.mp4";
 
 function Projects() {
   return (
@@ -56,7 +57,8 @@ function Projects() {
             Stuff I am proud of...
           </motion.span>
           <video autoPlay muted playsInline preload="True" loop>
-            <source src={ProjectVideo} />
+            <source src={ProjectVideo720p} type="video/mp4" />
+            <source src={ProjectVideo1080p} type="video/mp4" />
           </video>
         </div>
       </AboutBanner>

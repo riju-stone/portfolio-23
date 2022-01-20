@@ -1,10 +1,5 @@
 import React, { useState, useEffect, useRef, Suspense } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Fragment,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
@@ -20,13 +15,13 @@ import Header from "./components/Header/Header";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
 import Hamburger from "./components/Hamburger/Hamburger";
 import Hero from "./components/Hero/Hero";
-import HomeBanner from "./components/Home/HomeBanner";
 import HomeContent from "./components/Home/HomeContent";
 import HomeAbout from "./components/Home/HomeAbout";
 import Footer from "./components/Footer/Footer";
 
-import About from "./components/About/About";
-import Projects from "./components/Projects/Projects";
+const Projects = React.lazy(() => import("./components/Projects/Projects"));
+const About = React.lazy(() => import("./components/About/About"));
+const HomeBanner = React.lazy(() => import("./components/Home/HomeBanner"));
 
 // global style
 const GlobalStyle = createGlobalStyle`
@@ -105,27 +100,27 @@ function App() {
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
       <CustomCursor toggleMenu={toggleMenu} />
-      <Suspense fallback={<Loader />}>
-        <Router>
-          <Header
-            onCursor={onCursor}
-            toggleMenu={toggleMenu}
-            setToggleMenu={setToggleMenu}
-            setHamburgerPosition={setHamburgerPosition}
-          />
-          <Hamburger
-            toggleMenu={toggleMenu}
-            setToggleMenu={setToggleMenu}
-            onCursor={onCursor}
-            footerPosition={hamburgerPosition}
-            setFooterPosition={setHamburgerPosition}
-          />
+      <Router>
+        <Header
+          onCursor={onCursor}
+          toggleMenu={toggleMenu}
+          setToggleMenu={setToggleMenu}
+          setHamburgerPosition={setHamburgerPosition}
+        />
+        <Hamburger
+          toggleMenu={toggleMenu}
+          setToggleMenu={setToggleMenu}
+          onCursor={onCursor}
+          footerPosition={hamburgerPosition}
+          setFooterPosition={setHamburgerPosition}
+        />
 
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Suspense fallback={<Loader />}>
                   <HomeBanner onCursor={onCursor} />
                   <Hero />
                   <HomeContent />
@@ -135,14 +130,28 @@ function App() {
                     footerPosition={hamburgerPosition}
                     setFooterPosition={setHamburgerPosition}
                   />
-                </>
-              }
-            ></Route>
-            <Route path="/about" element={<About />}></Route>
-            <Route path="/projects" element={<Projects />}></Route>
-          </Routes>
-        </Router>
-      </Suspense>
+                </Suspense>
+              </>
+            }
+          ></Route>
+          <Route
+            path="/about"
+            element={
+              <Suspense fallback={<Loader />}>
+                <About />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/projects"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Projects />
+              </Suspense>
+            }
+          ></Route>
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 }

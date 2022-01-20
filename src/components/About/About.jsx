@@ -1,11 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import TitleVideo from "../../assets/videos/about.mp4";
 import {
   AboutSection,
   AboutBanner,
   AboutTimeline,
 } from "../../styles/aboutStyles";
+import TitleVideo720p from "../../assets/videos/about/about720p.mp4";
+import TitleVideo1080p from "../../assets/videos/about/about1080p.mp4";
 
 function About() {
   return (
@@ -55,7 +56,8 @@ function About() {
             I am where I am <br /> 'cause I've been where I've been...
           </motion.span>
           <video autoPlay muted playsInline preload="True" loop>
-            <source src={TitleVideo} />
+            <source src={TitleVideo720p} type="video/mp4" />
+            <source src={TitleVideo1080p} type="video/mp4" />
           </video>
         </div>
       </AboutBanner>
