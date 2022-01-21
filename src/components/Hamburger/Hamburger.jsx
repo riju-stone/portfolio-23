@@ -17,11 +17,8 @@ import { FooterContent } from "../../styles/footerStyles";
 import { BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
 
 //videos
-import AboutVideo720p from "../../assets/videos/about/about720p.mp4";
 import AboutVideo1080p from "../../assets/videos/about/about1080p.mp4";
-import ProjectVideo720p from "../../assets/videos/projects/projects720p.mp4";
 import ProjectVideo1080p from "../../assets/videos/projects/projects1080p.mp4";
-import CVVideo720p from "../../assets/videos/cv/cv720p.mp4";
 import CVVideo1080p from "../../assets/videos/cv/cv1080p.mp4";
 
 const navRoutes = [
@@ -29,28 +26,19 @@ const navRoutes = [
     id: 0,
     title: "Little About Me",
     path: "/about",
-    video: [
-      <source src={AboutVideo720p} type="video/mp4" />,
-      <source src={AboutVideo1080p} type="video/mp4" />,
-    ],
+    video: <source src={AboutVideo1080p} type="video/mp4" />,
   },
   {
     id: 1,
     title: "My Stuff",
     path: "/projects",
-    video: [
-      <source src={ProjectVideo720p} type="video/mp4" />,
-      <source src={ProjectVideo1080p} type="video/mp4" />,
-    ],
+    video: <source src={ProjectVideo1080p} type="video/mp4" />,
   },
   {
     id: 2,
     title: "My CV",
     path: "cv/cv.pdf",
-    video: [
-      <source src={CVVideo720p} type="video/mp4" />,
-      <source src={CVVideo1080p} type="video/mp4" />,
-    ],
+    video: <source src={CVVideo1080p} type="video/mp4" />,
   },
 ];
 
@@ -62,10 +50,7 @@ const Hamburger = ({
 }) => {
   const [revealVideo, setRevealVideo] = useState({
     show: false,
-    video: [
-      <source src={AboutVideo720p} type="video/mp4" />,
-      <source src={AboutVideo1080p} type="video/mp4" />,
-    ],
+    video: <source src={AboutVideo1080p} type="video/mp4" />,
     key: "0",
   });
 
@@ -279,7 +264,6 @@ const Hamburger = ({
                       loop
                       autoPlay
                     >
-                      {/* {revealVideo.video[0]} */}
                       {revealVideo.video[1]}
                     </motion.video>
                   </AnimatePresence>

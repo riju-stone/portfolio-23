@@ -6,7 +6,6 @@ import { AboutSection, AboutBanner } from "../../styles/aboutStyles";
 import { ProjectViewSection } from "../../styles/projectStyles";
 
 //assets
-import ProjectVideo720p from "../../assets/videos/projects/projects720p.mp4";
 import ProjectVideo1080p from "../../assets/videos/projects/projects1080p.mp4";
 
 function Projects() {

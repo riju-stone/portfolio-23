@@ -5,7 +5,6 @@ import {
   AboutBanner,
   AboutTimeline,
 } from "../../styles/aboutStyles";
-import TitleVideo720p from "../../assets/videos/about/about720p.mp4";
 import TitleVideo1080p from "../../assets/videos/about/about1080p.mp4";
 
 function About() {
