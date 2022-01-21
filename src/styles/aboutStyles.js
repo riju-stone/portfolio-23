@@ -19,6 +19,7 @@ export const AboutBanner = styled(motion.div)`
     align-items: center;
     overflow: hidden;
     #title {
+      font-family: "Hammersmith One";
       position: absolute;
       top: 0;
       left: 0;
@@ -45,7 +46,7 @@ export const AboutBanner = styled(motion.div)`
       position: absolute;
       bottom: 100px;
       left: 50px;
-      font-family: "Montserrat", sans-serif;
+      font-family: "Monteserrat";
       font-weight: 600;
       font-size: 3rem;
       color: ${(props) => props.theme.turqoise};

@@ -57,7 +57,6 @@ function Projects() {
             Stuff I am proud of...
           </motion.span>
           <video autoPlay muted playsInline preload="True" loop>
-            <source src={ProjectVideo720p} type="video/mp4" />
             <source src={ProjectVideo1080p} type="video/mp4" />
           </video>
         </div>

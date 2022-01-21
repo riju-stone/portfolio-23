@@ -88,6 +88,7 @@ export const NavList = styled.div`
 `;
 
 export const NavFooter = styled.div`
+  font-family: "Monteserrat";
   position: absolute;
   bottom: 0;
   left: 0;

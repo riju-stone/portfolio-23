@@ -8,7 +8,6 @@ import {
 } from "../../styles/homeStyles";
 import useWindowSize from "../../hooks/windowSize";
 import { useGlobalStateContext } from "../../context/globalContext";
-import BackgroundVideo720p from "../../assets/videos/bg/bg720p.mp4";
 import BackgroundVideo1080p from "../../assets/videos/bg/bg1080p.mp4";
 
 const HomeBanner = ({ onCursor }) => {
@@ -109,7 +108,6 @@ const HomeBanner = ({ onCursor }) => {
     <Banner>
       <Video>
         <video loop autoPlay muted playsInline preload="True">
-          <source src={BackgroundVideo720p} type="video/mp4" />
           <source src={BackgroundVideo1080p} type="video/mp4" />
         </video>
       </Video>

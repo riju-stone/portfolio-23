@@ -279,7 +279,7 @@ const Hamburger = ({
                       loop
                       autoPlay
                     >
-                      {revealVideo.video[0]}
+                      {/* {revealVideo.video[0]} */}
                       {revealVideo.video[1]}
                     </motion.video>
                   </AnimatePresence>

@@ -12,7 +12,7 @@ export const HeaderNav = styled(motion.div)`
 `;
 
 export const Logo = styled.div`
-  font-family: "Montserrat", sans-serif;
+  font-family: "Hammersmith One";
   a {
     font-size: 2.3rem;
     font-weight: bolder;

@@ -56,7 +56,6 @@ function About() {
             I am where I am <br /> 'cause I've been where I've been...
           </motion.span>
           <video autoPlay muted playsInline preload="True" loop>
-            <source src={TitleVideo720p} type="video/mp4" />
             <source src={TitleVideo1080p} type="video/mp4" />
           </video>
         </div>
