@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 export const AboutSection = styled(motion.div)``;
 
 export const AboutBanner = styled(motion.div)`
+  margin: 0;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -11,13 +12,14 @@ export const AboutBanner = styled(motion.div)`
   justify-content: center;
   align-items: center;
   #title-container {
+    overflow-y: hidden;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-y: hidden;
     #title {
       font-family: "Hammersmith One";
       position: absolute;
@@ -28,10 +30,11 @@ export const AboutBanner = styled(motion.div)`
       font-weight: bolder;
       height: 100%;
       width: 100%;
+      overflow-y: hidden;
       rect {
         fill: ${(props) => props.theme.background};
-        height: 100%;
-        width: 100%;
+        height: 100vh;
+        width: 100vw;
         mask: url(#text-mask);
       }
     }
@@ -43,6 +46,7 @@ export const AboutBanner = styled(motion.div)`
       z-index: -99;
     }
     #sub-title {
+      overflow-y: hidden;
       position: absolute;
       bottom: 100px;
       left: 50px;
@@ -54,8 +58,47 @@ export const AboutBanner = styled(motion.div)`
   }
 `;
 
+export const Marquee = styled.div`
+  z-index: 50;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: ${(props) => props.theme.background};
+  p {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: ${(props) => props.theme.link};
+    line-height: 0;
+  }
+  #upper {
+    font-family: "Bungee Outline";
+    font-weight: bolder;
+    font-size: 18rem;
+  }
+  #lower {
+    font-family: "Bungee Outline";
+    font-weight: bolder;
+    font-size: 15rem;
+  }
+  #author {
+    margin: 10px 0px;
+    font-family: "Hammersmith One";
+    font-weight: bolder;
+    font-size: 4rem;
+  }
+`;
+
 export const AboutTimeline = styled(motion.div)`
-  height: 200vh;
+  height: 100vh;
+  width: 100vw;
   z-index: 50;
   background-color: ${(props) => props.theme.background};
   display: flex;

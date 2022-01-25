@@ -7,26 +7,6 @@ export const Banner = styled.div`
   height: 100vh;
   width: 100vw;
   position: relative;
-  margin-bottom: 296px;
-`;
-
-export const Video = styled.div`
-  height: 100%;
-  width: 100%;
-  video {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-`;
-
-export const Canvas = styled.canvas`
-  position: absolute;
-  width: 100vw;
-  display: block;
-  top: 0;
-  left: 0;
-  height: 100%;
 `;
 
 export const BannerTitle = styled(motion.h1)`
@@ -41,7 +21,7 @@ export const BannerTitle = styled(motion.h1)`
 
 export const Headline = styled(motion.span)`
   display: flex;
-
+  letter-spacing: 10px;
   inset: 0;
   font-family: "Hammersmith One";
   font-size: 12rem;
@@ -51,20 +31,46 @@ export const Headline = styled(motion.span)`
 
 //home content styles
 export const HomeContentSection = styled(motion.div)`
-  margin-bottom: 300px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const HeroSection = styled(motion.div)`
+  margin: 0;
+  padding: 0;
+  top: 100%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: middle;
+  justify-content: center;
+  Canvas {
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
 `;
 
 export const Content = styled.div`
-  width: 53%;
+  width: 60%;
   font-family: "Hammersmith One", sans-serif;
   font-size: 4.5rem;
   font-weight: 600;
-  margin-left: 124px;
+  margin-left: 20%;
+  margin-top: 20%;
   color: ${(props) => props.theme.text};
 `;
 
 //home about styles
-export const HomeAboutSection = styled.div``;
+export const HomeAboutSection = styled.div`
+  margin-top: 100px;
+  width: 100vw;
+`;
 
 export const About = styled(motion.div)`
   width: 100%;

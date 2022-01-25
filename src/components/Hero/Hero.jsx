@@ -5,13 +5,13 @@ import { Canvas } from "@react-three/fiber";
 import Wave from "./Wave";
 
 //styles
-import { HeroSection } from "../../styles/heroStyles";
+import { HeroSection } from "../../styles/homeStyles";
 
 const Hero = () => {
   const animation = useAnimation();
   const [heroRef, inView] = useInView({
     triggerOnce: true,
-    rootMargin: "120px",
+    rootMargin: "-350px",
   });
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Hero = () => {
         },
         hidden: {
           opacity: 0,
-          y: -72,
+          y: -100,
         },
       }}
     >

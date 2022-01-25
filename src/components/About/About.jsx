@@ -4,6 +4,7 @@ import {
   AboutSection,
   AboutBanner,
   AboutTimeline,
+  Marquee,
 } from "../../styles/aboutStyles";
 import TitleVideo1080p from "../../assets/videos/about/about1080p.mp4";
 
@@ -59,6 +60,11 @@ function About() {
           </video>
         </div>
       </AboutBanner>
+      <Marquee>
+        <p id="upper">Never Lose</p>
+        <p id="author">~ Nelson Mandela</p>
+        <p id="lower">Win or Learn</p>
+      </Marquee>
       <AboutTimeline></AboutTimeline>
     </AboutSection>
   );

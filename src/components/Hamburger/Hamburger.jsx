@@ -24,19 +24,19 @@ import CVVideo1080p from "../../assets/videos/cv/cv1080p.mp4";
 const navRoutes = [
   {
     id: 0,
-    title: "Little About Me",
+    title: "About Me",
     path: "/about",
     video: <source src={AboutVideo1080p} type="video/mp4" />,
   },
   {
     id: 1,
-    title: "My Stuff",
+    title: "My Projects",
     path: "/projects",
     video: <source src={ProjectVideo1080p} type="video/mp4" />,
   },
   {
     id: 2,
-    title: "My CV",
+    title: "Curriculum Vitae",
     path: "cv/cv.pdf",
     video: <source src={CVVideo1080p} type="video/mp4" />,
   },
@@ -264,7 +264,7 @@ const Hamburger = ({
                       loop
                       autoPlay
                     >
-                      {revealVideo.video[1]}
+                      {revealVideo.video}
                     </motion.video>
                   </AnimatePresence>
                 </div>

@@ -54,10 +54,10 @@ export const NavList = styled.div`
     padding: 0;
     li {
       list-style: none;
-      font-size: 4.5rem;
+      font-size: 7rem;
       font-weight: 900;
-      height: 96px;
-      line-height: 96px;
+      height: 120px;
+      line-height: 120px;
       overflow: hidden;
       margin-bottom: 80px;
       a,
@@ -72,7 +72,7 @@ export const NavList = styled.div`
           .arrow {
             height: 76px;
             margin-right: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 50px;
             svg {
               height: auto;
               width: 108px;
