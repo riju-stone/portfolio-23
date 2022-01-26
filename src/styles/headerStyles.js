@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const HeaderNav = styled(motion.div)`
+  position: absolute;
+  z-index: 100;
   height: 0px;
   width: 100%;
   position: absolute;
@@ -21,20 +23,13 @@ export const Logo = styled.div`
     text-decoration: none;
     cursor: none;
   }
-  span {
-    height: 1rem;
-    width: 1rem;
-    background: ${(props) => props.theme.link};
-    margin: 0 4px;
-    border-radius: 100%;
-    display: inline-block;
-    position: relative;
-    user-select: none;
-    bottom: 2px;
+  img {
+    height: 25px;
+    width: 25px;
   }
 `;
 
-export const Menu = styled.div`
+export const Menu = styled(motion.div)`
   button {
     transform-origin: center;
     border: none;

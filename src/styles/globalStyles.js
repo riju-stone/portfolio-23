@@ -5,17 +5,8 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
-  width: 80%;
+  width: 70%;
   height: 100%;
-  @media (min-width: 1024px) {
-    max-width: 960px;
-  }
-  @media (min-width: 1216px) {
-    max-width: 1152px;
-  }
-  @media (min-width: 1408px) {
-    max-width: 1244px;
-  }
 
   ${(props) =>
     props.fluid &&

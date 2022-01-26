@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+
+//styles
 import { HeaderNav, Logo, Menu } from "../../styles/headerStyles";
 import { Container, Flex } from "../../styles/globalStyles";
 
@@ -8,9 +10,11 @@ import {
   useGlobalDispatchContext,
 } from "../../context/globalContext";
 
+//hooks
 import useElementPosition from "../../hooks/elemPos";
 
-// import { gsap } from "gsap";
+import Sun from "../../assets/logos/sun.png";
+import Moon from "../../assets/logos/moon.png";
 
 const Header = ({
   onCursor,
@@ -52,7 +56,13 @@ const Header = ({
               onClick={toggleTheme}
               onMouseEnter={() => onCursor("pointer")}
               onMouseLeave={() => onCursor()}
-            ></span>
+            >
+              <img
+                src={currentTheme === "dark" ? Moon : Sun}
+                alt=""
+                srcset=""
+              />
+            </span>
             <Link to="/">ME</Link>
           </Logo>
           <Menu

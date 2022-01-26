@@ -176,7 +176,6 @@ html{
 
 body{
   cursor: none;
-  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue';
   background: ${(props) => props.theme.background};
   overscroll-behavior: none;
   overflow-x: hidden;
@@ -194,6 +193,7 @@ function App() {
   const { currentTheme, cursorStyles } = useGlobalStateContext();
   const dispatch = useGlobalDispatchContext();
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [hamburgerPosition, setHamburgerPosition] = useState({ x: 0, y: 0 });
 
   //component refs
@@ -222,6 +222,9 @@ function App() {
   // save the theme on localstorage
   useEffect(() => {
     window.localStorage.setItem("theme", currentTheme);
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
   }, [currentTheme]);
 
   const onCursor = (curType) => {
@@ -233,57 +236,63 @@ function App() {
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
       <CustomCursor toggleMenu={toggleMenu} />
-      <Router>
-        <Header
-          onCursor={onCursor}
-          toggleMenu={toggleMenu}
-          setToggleMenu={setToggleMenu}
-          setHamburgerPosition={setHamburgerPosition}
-        />
-        <Hamburger
-          toggleMenu={toggleMenu}
-          setToggleMenu={setToggleMenu}
-          onCursor={onCursor}
-          footerPosition={hamburgerPosition}
-          setFooterPosition={setHamburgerPosition}
-        />
+      {loading === true ? (
+        <Loader />
+      ) : (
+        <>
+          <Router>
+            <Header
+              onCursor={onCursor}
+              toggleMenu={toggleMenu}
+              setToggleMenu={setToggleMenu}
+              setHamburgerPosition={setHamburgerPosition}
+            />
+            <Hamburger
+              toggleMenu={toggleMenu}
+              setToggleMenu={setToggleMenu}
+              onCursor={onCursor}
+              footerPosition={hamburgerPosition}
+              setFooterPosition={setHamburgerPosition}
+            />
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Suspense fallback={<Loader />}>
-                  <HomeBanner onCursor={onCursor} />
-                  <HomeContent />
-                  <HomeAbout onCursor={onCursor} aboutRef={aboutRef} />
-                  <Footer
-                    onCursor={onCursor}
-                    footerPosition={hamburgerPosition}
-                    setFooterPosition={setHamburgerPosition}
-                  />
-                </Suspense>
-              </>
-            }
-          ></Route>
-          <Route
-            path="/about"
-            element={
-              <Suspense fallback={<Loader />}>
-                <About />
-              </Suspense>
-            }
-          ></Route>
-          <Route
-            path="/projects"
-            element={
-              <Suspense fallback={<Loader />}>
-                <Projects />
-              </Suspense>
-            }
-          ></Route>
-        </Routes>
-      </Router>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Suspense fallback={<Loader />}>
+                      <HomeBanner onCursor={onCursor} />
+                      <HomeContent />
+                      <HomeAbout onCursor={onCursor} aboutRef={aboutRef} />
+                      <Footer
+                        onCursor={onCursor}
+                        footerPosition={hamburgerPosition}
+                        setFooterPosition={setHamburgerPosition}
+                      />
+                    </Suspense>
+                  </>
+                }
+              ></Route>
+              <Route
+                path="/about"
+                element={
+                  <Suspense fallback={<Loader />}>
+                    <About />
+                  </Suspense>
+                }
+              ></Route>
+              <Route
+                path="/projects"
+                element={
+                  <Suspense fallback={<Loader />}>
+                    <Projects />
+                  </Suspense>
+                }
+              ></Route>
+            </Routes>
+          </Router>
+        </>
+      )}
     </ThemeProvider>
   );
 }

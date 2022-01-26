@@ -68,7 +68,7 @@ export const Content = styled.div`
 
 //home about styles
 export const HomeAboutSection = styled.div`
-  margin-top: 100px;
+  margin-top: 150px;
   width: 100vw;
 `;
 
