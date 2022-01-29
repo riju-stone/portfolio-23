@@ -3,11 +3,12 @@ import { BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
 import useElementPosition from "../../hooks/elemPos";
 //styles
 import {
+  Flex,
   FooterNav,
   FooterContent,
   FooterSocial,
 } from "../../styles/footerStyles";
-import { Container, Flex } from "../../styles/globalStyles";
+import { Container } from "../../styles/globalStyles";
 
 const Footer = ({ onCursor, setFooterPosition }) => {
   let instaLink = useRef(null);
@@ -27,7 +28,7 @@ const Footer = ({ onCursor, setFooterPosition }) => {
   return (
     <FooterNav>
       <Container>
-        <Flex spaceBetween>
+        <Flex>
           <FooterContent>
             <p>+91 9163411820</p>
             <p>riju23chakra@gmail.com</p>

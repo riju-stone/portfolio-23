@@ -13,7 +13,7 @@ import {
   NavVideos,
   FooterSocial,
 } from "../../styles/hamburgerStyles";
-import { FooterContent } from "../../styles/footerStyles";
+import { FooterContent, Flex as FooterFlex } from "../../styles/footerStyles";
 import { BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
 
 //videos
@@ -203,7 +203,7 @@ const Hamburger = ({
                 </ul>
               </NavList>
               <NavFooter>
-                <Flex spaceBetween>
+                <FooterFlex>
                   <FooterContent>
                     <p>+91 9163411820</p>
                     <p>riju23chakra@gmail.com</p>
@@ -243,7 +243,7 @@ const Hamburger = ({
                       <BsGithub size={{ height: "20px" }} />
                     </a>
                   </FooterSocial>
-                </Flex>
+                </FooterFlex>
               </NavFooter>
               <NavVideos>
                 <motion.div

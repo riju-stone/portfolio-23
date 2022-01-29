@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const AboutSection = styled(motion.div)``;
+export const AboutSection = styled(motion.div)`
+  padding: 0%;
+  margin: 0%;
+`;
 
 export const AboutBanner = styled(motion.div)`
   margin: 0;
@@ -56,6 +59,17 @@ export const AboutBanner = styled(motion.div)`
       color: ${(props) => props.theme.turqoise};
     }
   }
+  @media (max-width: 480px) {
+    #title-container {
+      #title {
+        font-size: 4.2rem;
+      }
+      #sub-title {
+        font-size: 1.2rem;
+        bottom: 70px;
+      }
+    }
+  }
 `;
 
 export const Marquee = styled.div`
@@ -93,6 +107,17 @@ export const Marquee = styled.div`
     font-family: "Hammersmith One";
     font-weight: bolder;
     font-size: 4rem;
+  }
+  @media (max-width: 480px) {
+    #upper {
+      font-size: 3rem;
+    }
+    #lower {
+      font-size: 2.8rem;
+    }
+    #author {
+      font-size: 1.6rem;
+    }
   }
 `;
 

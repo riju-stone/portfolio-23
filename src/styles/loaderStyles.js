@@ -16,6 +16,9 @@ export const LoaderSection = styled(motion.div)`
     font-size: 3rem;
     font-weight: bolder;
     color: ${(props) => props.theme.link};
+    @media (max-width: 480px) {
+      font-size: 1.6rem;
+    }
   }
 `;
 
@@ -24,6 +27,9 @@ export const CoffeeAnimWrapper = styled(motion.div)`
   .tea {
     --secondary: ${(props) => props.theme.turqoise};
     transform: scale(3);
+    @media (max-width: 480px) {
+      transform: scale(2);
+    }
   }
   .tea #teabag {
     transform-origin: top center;

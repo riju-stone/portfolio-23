@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
 //home banner styles
@@ -17,6 +17,9 @@ export const BannerTitle = styled(motion.h1)`
   pointer-events: none;
   padding: 40px 80px;
   overflow: hidden;
+  @media (max-width: 480px) {
+    padding: 20px 40px;
+  }
 `;
 
 export const Headline = styled(motion.span)`
@@ -27,6 +30,10 @@ export const Headline = styled(motion.span)`
   font-size: 12rem;
   font-weight: 900;
   line-height: 1;
+  @media (max-width: 480px) {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+  }
 `;
 
 //home content styles
@@ -64,12 +71,53 @@ export const Content = styled.div`
   margin-left: 20%;
   margin-top: 20%;
   color: ${(props) => props.theme.text};
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+    margin-top: 50%;
+  }
 `;
 
 //home about styles
 export const HomeAboutSection = styled.div`
   margin-top: 150px;
   width: 100vw;
+  @media (max-width: 480px) {
+    margin-top: 0;
+  }
+`;
+
+export const Flex = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  ${(props) =>
+    props.spaceBetween &&
+    css`
+      justify-content: space-between;
+    `}
+
+  ${(props) =>
+    props.flexEnd &&
+    css`
+      justify-content: flex-end;
+    `}
+
+    ${(props) =>
+    props.alignTop &&
+    css`
+      align-items: flex-start;
+    `}
+
+    ${(props) =>
+    props.noHeight &&
+    css`
+      height: 0;
+    `}
+
+    @media (max-width: 480px) {
+    flex-direction: column;
+  }
 `;
 
 export const About = styled(motion.div)`
@@ -89,6 +137,18 @@ export const About = styled(motion.div)`
     line-height: 1.6rem;
     margin-left: 124px;
     color: ${(props) => props.theme.text};
+  }
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1.8rem;
+      margin-left: 0;
+      width: 100%;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-left: 0;
+      width: 100%;
+    }
   }
 `;
 

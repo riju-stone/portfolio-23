@@ -2,8 +2,13 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 
 //styles
-import { HeaderNav, Logo, Menu } from "../../styles/headerStyles";
-import { Container, Flex } from "../../styles/globalStyles";
+import {
+  HeaderNav,
+  Logo,
+  Menu,
+  Container,
+  Flex,
+} from "../../styles/headerStyles";
 
 import {
   useGlobalStateContext,

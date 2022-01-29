@@ -41,6 +41,12 @@ export const CloseNav = styled(motion.div)`
       background: ${(props) => props.theme.turqoise};
       margin: 8px;
     }
+    @media (max-width: 480px) {
+      span {
+        height: 4px;
+        width: 24px;
+      }
+    }
   }
 `;
 
@@ -80,6 +86,20 @@ export const NavList = styled.div`
                 fill: ${(props) => props.theme.link};
               }
             }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    ul {
+      li {
+        font-size: 2.6rem;
+        margin-bottom: 20px;
+        height: 80px;
+        Link {
+          .arrow {
+            display: none;
           }
         }
       }
@@ -131,6 +151,9 @@ export const NavVideos = styled.div`
       height: 100%;
       width: 100%;
     }
+  }
+  @media (max-width: 480px) {
+    display: none;
   }
 `;
 

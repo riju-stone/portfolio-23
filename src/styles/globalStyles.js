@@ -1,13 +1,15 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-  flex-grow: 1;
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
   width: 70%;
   height: 100%;
-
+  @media (max-width: 480px) {
+    padding: 0 6px;
+    width: 90%;
+  }
   ${(props) =>
     props.fluid &&
     css`
@@ -21,7 +23,7 @@ export const Flex = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-
+  width: 100%;
   ${(props) =>
     props.spaceBetween &&
     css`
@@ -87,5 +89,9 @@ export const Cursor = styled.div`
     border: 4px solid ${(props) => props.theme.turqoise};
     top: ${(props) => props.theme.top} !important;
     left: ${(props) => props.theme.left} !important;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;

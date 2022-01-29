@@ -1,16 +1,67 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
 export const HeaderNav = styled(motion.div)`
   position: absolute;
   z-index: 100;
-  height: 0px;
   width: 100%;
   position: absolute;
   top: 72px;
   right: 0;
   left: 0;
   z-index: 90;
+  @media (max-width: 480px) {
+    top: 50px;
+  }
+`;
+
+export const Container = styled.div`
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  width: 70%;
+  height: 100%;
+  @media (max-width: 480px) {
+    padding: 0 6px;
+    width: 90%;
+  }
+  ${(props) =>
+    props.fluid &&
+    css`
+      padding: 0;
+      margin: 0;
+      max-width: 100%;
+    `}
+`;
+
+export const Flex = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  ${(props) =>
+    props.spaceBetween &&
+    css`
+      justify-content: space-between;
+    `}
+
+  ${(props) =>
+    props.flexEnd &&
+    css`
+      justify-content: flex-end;
+    `}
+
+    ${(props) =>
+    props.alignTop &&
+    css`
+      align-items: flex-start;
+    `}
+
+    ${(props) =>
+    props.noHeight &&
+    css`
+      height: 0;
+    `}
 `;
 
 export const Logo = styled.div`
@@ -26,6 +77,15 @@ export const Logo = styled.div`
   img {
     height: 25px;
     width: 25px;
+  }
+  @media (max-width: 480px) {
+    a {
+      font-size: 1.8rem;
+    }
+    img {
+      height: 18px;
+      width: 18px;
+    }
   }
 `;
 
@@ -43,6 +103,13 @@ export const Menu = styled(motion.div)`
       background: ${(props) => props.theme.turqoise};
       border-radius: 30px;
       margin: 8px;
+    }
+    @media (max-width: 480px) {
+      padding: 10px;
+      span {
+        height: 4px;
+        width: 24px;
+      }
     }
   }
 `;

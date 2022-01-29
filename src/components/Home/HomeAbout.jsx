@@ -4,9 +4,10 @@ import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 //styles
-import { Container, Flex } from "../../styles/globalStyles";
+import { Container } from "../../styles/globalStyles";
 import {
   HomeAboutSection,
+  Flex,
   About,
   Services,
   AccordionHeader,
