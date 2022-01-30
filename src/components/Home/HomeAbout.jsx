@@ -55,7 +55,7 @@ const HomeAbout = ({ onCursor }) => {
   const [aboutRef, inView] = useInView({
     triggerOnce: true,
     // Giving our scrollwheel additional 300px before executing animation
-    rootMargin: "-300px",
+    rootMargin: "-150px",
   });
 
   useEffect(() => {

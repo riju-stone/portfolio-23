@@ -21,6 +21,9 @@ export const NavHeader = styled.div`
   h2 {
     color: ${(props) => props.theme.turqoise};
   }
+  @media (max-width: 480px) {
+    top: 50px;
+  }
 `;
 
 export const CloseNav = styled(motion.div)`
@@ -42,6 +45,7 @@ export const CloseNav = styled(motion.div)`
       margin: 8px;
     }
     @media (max-width: 480px) {
+      padding: 30px;
       span {
         height: 4px;
         width: 24px;
@@ -51,8 +55,8 @@ export const CloseNav = styled(motion.div)`
 `;
 
 export const NavList = styled.div`
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   font-family: "Hammersmith One", sans-serif;
@@ -94,8 +98,10 @@ export const NavList = styled.div`
   @media (max-width: 480px) {
     ul {
       li {
-        font-size: 2.6rem;
-        margin-bottom: 20px;
+        line-height: normal;
+        font-size: 2rem;
+        margin-top: 0;
+        margin-bottom: 10px;
         height: 80px;
         Link {
           .arrow {
@@ -120,6 +126,9 @@ export const NavFooter = styled.div`
   a {
     cursor: none;
     color: ${(props) => props.theme.link};
+  }
+  @media (max-width: 480px) {
+    padding: 20px 0px;
   }
 `;
 

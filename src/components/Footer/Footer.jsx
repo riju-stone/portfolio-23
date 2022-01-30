@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
-import useElementPosition from "../../hooks/elemPos";
+import useElementPosition from "../../hooks/useElemPos";
 //styles
 import {
   Flex,

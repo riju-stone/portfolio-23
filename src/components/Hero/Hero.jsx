@@ -11,7 +11,7 @@ const Hero = () => {
   const animation = useAnimation();
   const [heroRef, inView] = useInView({
     triggerOnce: true,
-    rootMargin: "-350px",
+    rootMargin: "-200px",
   });
 
   useEffect(() => {

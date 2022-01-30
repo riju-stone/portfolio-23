@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
 
+// hooks
+import useIsMobile from "../../hooks/useMediaQuery";
 import Hero from "../Hero/Hero";
 //styles
 import { Container } from "../../styles/globalStyles";
@@ -11,7 +13,7 @@ const HomeContent = () => {
   const animation = useAnimation();
   const [contentRef, inView] = useInView({
     triggerOnce: true,
-    rootMargin: "-350px",
+    rootMargin: "-200px",
   });
 
   useEffect(() => {

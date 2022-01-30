@@ -19,6 +19,7 @@ export const BannerTitle = styled(motion.h1)`
   overflow: hidden;
   @media (max-width: 480px) {
     padding: 20px 40px;
+    margin-bottom: 100px;
   }
 `;
 
@@ -73,7 +74,7 @@ export const Content = styled.div`
   color: ${(props) => props.theme.text};
   @media (max-width: 480px) {
     font-size: 2.5rem;
-    margin-top: 50%;
+    margin-top: 55%;
   }
 `;
 
@@ -145,7 +146,7 @@ export const About = styled(motion.div)`
       width: 100%;
     }
     p {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-left: 0;
       width: 100%;
     }
@@ -156,6 +157,11 @@ export const Services = styled(motion.div)`
   font-family: "Hammersmith One", sans-serif;
   font-size: 2rem;
   color: ${(props) => props.theme.link};
+  @media (max-width: 480px) {
+    h3 {
+      font-size: 1.8rem;
+    }
+  }
 `;
 
 export const AccordionHeader = styled(motion.div)`
@@ -168,6 +174,10 @@ export const AccordionHeader = styled(motion.div)`
   font-weight: 600;
   font-size: 1.5rem;
   margin: 8px 0;
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    height: 24px;
+  }
 `;
 
 export const AccordionIcon = styled.div`
@@ -194,5 +204,8 @@ export const AccordionContent = styled(motion.div)`
     color: ${(props) => props.theme.turqoise};
     display: block;
     font-weight: 400;
+  }
+  @media (max-width: 480px) {
+    margin: 4px 0;
   }
 `;

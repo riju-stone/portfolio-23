@@ -16,7 +16,7 @@ import {
 } from "../../context/globalContext";
 
 //hooks
-import useElementPosition from "../../hooks/elemPos";
+import useElementPosition from "../../hooks/useElemPos";
 
 import Sun from "../../assets/logos/sun.png";
 import Moon from "../../assets/logos/moon.png";
@@ -65,7 +65,7 @@ const Header = ({
               <img
                 src={currentTheme === "dark" ? Moon : Sun}
                 alt=""
-                srcset=""
+                
               />
             </span>
             <Link to="/">ME</Link>
