@@ -4,17 +4,22 @@ import { useAnimation } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import Wave from "./Wave";
 
+//hooks
+import { useIsMobile } from "../../hooks/useMediaQuery";
 //styles
 import { HeroSection } from "../../styles/homeStyles";
 
 const Hero = () => {
+  const isMobile = useIsMobile();
   const animation = useAnimation();
+  let rootMargin;
   const [heroRef, inView] = useInView({
     triggerOnce: true,
-    rootMargin: "-200px",
+    rootMargin: rootMargin,
   });
 
   useEffect(() => {
+    rootMargin = isMobile ? "-200px" : "-300px";
     if (inView) {
       animation.start("visible");
     }

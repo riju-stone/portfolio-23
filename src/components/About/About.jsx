@@ -8,7 +8,10 @@ import {
 } from "../../styles/aboutStyles";
 import TitleVideo1080p from "../../assets/videos/about/about1080p.mp4";
 
+// hooks
+import { useIsMobile } from "../../hooks/useMediaQuery";
 function About() {
+  const isMobile = useIsMobile();
   return (
     <AboutSection>
       <AboutBanner>
@@ -23,7 +26,7 @@ function About() {
               <mask id="text-mask" x="0" y="0">
                 <rect x="0" y="0" />
                 <motion.text
-                  x="50px"
+                  x={isMobile ? "30px" : "50px"}
                   y="70%"
                   initial={{ y: 800 }}
                   animate={{

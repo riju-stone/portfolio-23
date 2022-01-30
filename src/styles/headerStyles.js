@@ -105,7 +105,7 @@ export const Menu = styled(motion.div)`
       margin: 8px;
     }
     @media (max-width: 480px) {
-      padding: 10px;
+      padding: 5px;
       span {
         height: 4px;
         width: 24px;

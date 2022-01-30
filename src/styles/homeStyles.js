@@ -32,7 +32,7 @@ export const Headline = styled(motion.span)`
   font-weight: 900;
   line-height: 1;
   @media (max-width: 480px) {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     letter-spacing: 2px;
   }
 `;

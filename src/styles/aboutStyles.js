@@ -40,6 +40,9 @@ export const AboutBanner = styled(motion.div)`
         width: 100vw;
         mask: url(#text-mask);
       }
+      text {
+        x: 50px;
+      }
     }
     video {
       position: fixed;
@@ -67,6 +70,7 @@ export const AboutBanner = styled(motion.div)`
       #sub-title {
         font-size: 1.2rem;
         bottom: 70px;
+        left: 30px;
       }
     }
   }

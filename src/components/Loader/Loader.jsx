@@ -54,8 +54,8 @@ function Loader() {
             </svg>
           </CoffeeAnimWrapper>
           <div>
-            Getting My <br />
-            Shit Together
+            Collecting <br />
+            My Thoughts
           </div>
         </LoaderSection>
       </AnimatePresence>

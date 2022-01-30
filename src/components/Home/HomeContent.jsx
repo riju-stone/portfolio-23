@@ -3,20 +3,23 @@ import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
 
 // hooks
-import useIsMobile from "../../hooks/useMediaQuery";
+import { useIsMobile } from "../../hooks/useMediaQuery";
 import Hero from "../Hero/Hero";
 //styles
 import { Container } from "../../styles/globalStyles";
 import { HomeContentSection, Content } from "../../styles/homeStyles";
 
 const HomeContent = () => {
+  const isMobile = useIsMobile();
   const animation = useAnimation();
+  let rootMargin;
   const [contentRef, inView] = useInView({
     triggerOnce: true,
-    rootMargin: "-200px",
+    rootMargin: rootMargin,
   });
 
   useEffect(() => {
+    rootMargin = isMobile ? "-200px" : "-300px";
     if (inView) {
       animation.start("visible");
     }

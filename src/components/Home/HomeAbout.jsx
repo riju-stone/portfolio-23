@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+// hooks
+import { useIsMobile } from "../../hooks/useMediaQuery";
+
 //styles
 import { Container } from "../../styles/globalStyles";
 import {
@@ -50,15 +53,18 @@ const accordionIds = [
 ];
 
 const HomeAbout = ({ onCursor }) => {
+  const isMobile = useIsMobile();
   const [expanded, setExpanded] = useState(null);
   const animation = useAnimation();
+  let rootMargin;
   const [aboutRef, inView] = useInView({
     triggerOnce: true,
     // Giving our scrollwheel additional 300px before executing animation
-    rootMargin: "-150px",
+    rootMargin: rootMargin,
   });
 
   useEffect(() => {
+    rootMargin = isMobile ? "-200px" : "-300px";
     if (inView) {
       animation.start("visible");
     }

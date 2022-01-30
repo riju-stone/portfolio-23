@@ -8,7 +8,10 @@ import { ProjectViewSection } from "../../styles/projectStyles";
 //assets
 import ProjectVideo1080p from "../../assets/videos/projects/projects1080p.mp4";
 
+// hooks
+import { useIsMobile } from "../../hooks/useMediaQuery";
 function Projects() {
+  const isMobile = useIsMobile();
   return (
     <AboutSection>
       <AboutBanner>
@@ -23,7 +26,7 @@ function Projects() {
               <mask id="text-mask" x="0" y="0">
                 <rect x="0" y="0" />
                 <motion.text
-                  x="50px"
+                  x={isMobile ? "30px" : "50px"}
                   y="70%"
                   initial={{ y: 800 }}
                   animate={{
