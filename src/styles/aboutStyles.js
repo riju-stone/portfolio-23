@@ -40,9 +40,6 @@ export const AboutBanner = styled(motion.div)`
         width: 100vw;
         mask: url(#text-mask);
       }
-      text {
-        x: 50px;
-      }
     }
     video {
       position: fixed;
@@ -71,6 +68,17 @@ export const AboutBanner = styled(motion.div)`
         font-size: 1.2rem;
         bottom: 70px;
         left: 30px;
+      }
+    }
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
+    #title-container {
+      #title {
+        font-size: 9rem;
+      }
+      #sub-title {
+        font-size: 2.6rem;
+        bottom: 70px;
       }
     }
   }
@@ -121,6 +129,17 @@ export const Marquee = styled.div`
     }
     #author {
       font-size: 1.6rem;
+    }
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
+    #upper {
+      font-size: 6.5rem;
+    }
+    #lower {
+      font-size: 5.5rem;
+    }
+    #author {
+      font-size: 2.8rem;
     }
   }
 `;

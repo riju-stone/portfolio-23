@@ -36,7 +36,7 @@ const navRoutes = [
   },
   {
     id: 2,
-    title: "Curriculum Vitae",
+    title: "Resume",
     path: "cv/cv.pdf",
     video: <source src={CVVideo1080p} type="video/mp4" />,
   },
@@ -204,12 +204,12 @@ const Hamburger = ({
               </NavList>
               <NavFooter>
                 <FooterFlex>
-                  <FooterContent>
+                  <FooterContent wider>
                     <p>+91 9163411820</p>
                     <p>riju23chakra@gmail.com</p>
                   </FooterContent>
                   <FooterContent wider>
-                    <p>Kolkata, West Bengal, IN</p>
+                    <p>Kolkata, IN</p>
                   </FooterContent>
                   <FooterSocial>
                     <a

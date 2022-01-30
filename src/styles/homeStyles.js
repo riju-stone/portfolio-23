@@ -21,6 +21,10 @@ export const BannerTitle = styled(motion.h1)`
     padding: 20px 40px;
     margin-bottom: 100px;
   }
+  @media (min-width: 480px) and (max-width: 768px) {
+    padding: 20px 60px;
+    margin-bottom: 100px;
+  }
 `;
 
 export const Headline = styled(motion.span)`
@@ -35,6 +39,9 @@ export const Headline = styled(motion.span)`
     font-size: 3.2rem;
     letter-spacing: 2px;
   }
+  @media (min-width: 480px) and (max-width: 768px) {
+    font-size: 6rem;
+  }
 `;
 
 //home content styles
@@ -45,6 +52,9 @@ export const HomeContentSection = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 480px) {
+    height: 90vh;
+  }
 `;
 
 export const HeroSection = styled(motion.div)`
@@ -62,6 +72,10 @@ export const HeroSection = styled(motion.div)`
     width: 100%;
     z-index: 0;
   }
+  @media (max-width: 480px) {
+    height: 85%;
+    width: 85%;
+  }
 `;
 
 export const Content = styled.div`
@@ -74,7 +88,13 @@ export const Content = styled.div`
   color: ${(props) => props.theme.text};
   @media (max-width: 480px) {
     font-size: 2.5rem;
-    margin-top: 55%;
+    margin-top: 50%;
+    margin-left: 20px;
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
+    font-size: 3.5rem;
+    margin-top: 50%;
+    margin-left: 40px;
   }
 `;
 
@@ -83,6 +103,9 @@ export const HomeAboutSection = styled.div`
   margin-top: 150px;
   width: 100vw;
   @media (max-width: 480px) {
+    margin-top: 0;
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
     margin-top: 0;
   }
 `;
@@ -151,6 +174,18 @@ export const About = styled(motion.div)`
       width: 100%;
     }
   }
+  @media (min-width: 480px) and (max-width: 768px) {
+    h2 {
+      font-size: 2rem;
+      margin-left: 0;
+      width: 90%;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-left: 0;
+      width: 90%;
+    }
+  }
 `;
 
 export const Services = styled(motion.div)`
@@ -160,6 +195,11 @@ export const Services = styled(motion.div)`
   @media (max-width: 480px) {
     h3 {
       font-size: 1.8rem;
+    }
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
+    h3 {
+      font-size: 2rem;
     }
   }
 `;
@@ -177,6 +217,10 @@ export const AccordionHeader = styled(motion.div)`
   @media (max-width: 480px) {
     font-size: 1.2rem;
     height: 24px;
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
+    font-size: 1.5rem;
+    height: 32px;
   }
 `;
 
@@ -206,6 +250,9 @@ export const AccordionContent = styled(motion.div)`
     font-weight: 400;
   }
   @media (max-width: 480px) {
+    margin: 4px 0;
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
     margin: 4px 0;
   }
 `;

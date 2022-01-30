@@ -6,11 +6,14 @@ export const FooterNav = styled.div`
   margin-top: 120px;
   @media (max-width: 480px) {
     height: 50px;
+    margin-top: 50px;
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
+    margin-top: 50px;
   }
 `;
 
 export const Flex = styled.div`
-  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
@@ -58,12 +61,15 @@ export const FooterContent = styled.div`
       display: none;
     }
   }
+  @media (min-width: 480px) and(max-width: 768px) {
+    word-wrap: break-word;
+    margin: 0 20px;
+  }
 `;
 
 export const FooterSocial = styled.div`
   display: flex;
   a {
-    position: relative;
     display: block;
     width: 25px;
     height: 25px;

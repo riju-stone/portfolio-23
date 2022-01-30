@@ -111,6 +111,18 @@ export const NavList = styled.div`
       }
     }
   }
+  @media (min-width: 480px) and (max-width: 768px) {
+    ul {
+      li {
+        font-size: 5.5rem;
+        Link {
+          .arrow {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 `;
 
 export const NavFooter = styled.div`
@@ -128,6 +140,9 @@ export const NavFooter = styled.div`
     color: ${(props) => props.theme.link};
   }
   @media (max-width: 480px) {
+    padding: 20px 0px;
+  }
+  @media (min-width: 480px) and (max-width: 768px) {
     padding: 20px 0px;
   }
 `;
@@ -161,7 +176,7 @@ export const NavVideos = styled.div`
       width: 100%;
     }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     display: none;
   }
 `;

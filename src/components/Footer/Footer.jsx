@@ -28,13 +28,13 @@ const Footer = ({ onCursor, setFooterPosition }) => {
   return (
     <FooterNav>
       <Container>
-        <Flex>
-          <FooterContent>
+        <Flex spaceBetween>
+          <FooterContent wider>
             <p>+91 9163411820</p>
             <p>riju23chakra@gmail.com</p>
           </FooterContent>
           <FooterContent wider>
-            <p>Kolkata, West Bengal, IN</p>
+            <p>Kolkata, IN</p>
           </FooterContent>
           <FooterSocial>
             <a
