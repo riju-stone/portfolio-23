@@ -78,15 +78,17 @@ export const Logo = styled.div`
     text-decoration: none;
     cursor: none;
   }
-  img {
+  svg {
     height: 25px;
     width: 25px;
+    transition: all 0.3s ease-in-out;
+    stroke-width: 2px;
   }
   @media (max-width: 480px) {
     a {
       font-size: 1.8rem;
     }
-    img {
+    svg {
       height: 18px;
       width: 18px;
     }

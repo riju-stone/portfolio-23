@@ -12,6 +12,6 @@ I am not great at UI/UX design. I am still learning so much about web developmen
 
 ## Attribution
 
-I have made my portfolio open-source with the sole purpose that people might be willing to make their own portfolio using this project, either by directly modifying the code or by taking it as an inspiration.
+I have made my portfolio open-source with the sole purpose that people might be willing to make their own using this project, either by directly modifying the code or by using it as an inspiration.
 
 All I ask for is proper attribution to my work. That would mean a lot to me...

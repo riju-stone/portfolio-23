@@ -18,8 +18,8 @@ import {
 //hooks
 import useElementPosition from "../../hooks/useElemPos";
 
-import Sun from "../../assets/logos/sun.png";
-import Moon from "../../assets/logos/moon.png";
+// logos
+import { HalfMoon, SunLight } from "iconoir-react";
 
 const Header = ({
   onCursor,
@@ -62,11 +62,11 @@ const Header = ({
               onMouseEnter={() => onCursor("pointer")}
               onMouseLeave={() => onCursor()}
             >
-              <img
-                src={currentTheme === "dark" ? Moon : Sun}
-                alt=""
-                
-              />
+              {currentTheme === "dark" ? (
+                <HalfMoon color="#ededed" />
+              ) : (
+                <SunLight color="#024959" />
+              )}
             </span>
             <Link to="/">ME</Link>
           </Logo>
