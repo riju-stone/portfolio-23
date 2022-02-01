@@ -6,6 +6,9 @@ import glsl from "babel-plugin-glsl/macro";
 
 import BackgroundImage from "../../assets/images/bg.jpg";
 
+//hooks
+import { useIsMobile } from "../../hooks/useMediaQuery";
+
 const WaveShaderMaterial = shaderMaterial(
   // Uniform
   {
@@ -54,9 +57,18 @@ export default function Wave() {
   useFrame(({ clock }) => (ref.current.uTime = clock.getElapsedTime()));
   const [image] = useLoader(THREE.TextureLoader, [BackgroundImage]);
 
+  const isMobile = useIsMobile();
+
+  const dimensions = {
+    height: isMobile ? 7 : 9,
+    width: isMobile ? 5 : 6,
+  };
+
   return (
     <mesh position={[0, 0, -5]}>
-      <planeBufferGeometry args={[6, 9, 50, 50]} />
+      <planeBufferGeometry
+        args={[dimensions.width, dimensions.height, 50, 50]}
+      />
       <waveShaderMaterial uColor={"hotpink"} ref={ref} uTexture={image} />
     </mesh>
   );

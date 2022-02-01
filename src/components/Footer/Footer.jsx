@@ -10,21 +10,19 @@ import {
 } from "../../styles/footerStyles";
 import { Container } from "../../styles/globalStyles";
 
-const Footer = ({ onCursor, setFooterPosition }) => {
-  let instaLink = useRef(null);
-  const instaPosition = useElementPosition(instaLink);
+import { Heart, Computer } from "iconoir-react";
 
-  let twitterLink = useRef(null);
-  const twitterPosition = useElementPosition(twitterLink);
+//hooks
+import {
+  useIsMobile,
+  useIsSmallTablet,
+  useIsLargeTablet,
+} from "../../hooks/useMediaQuery";
 
-  let gitLink = useRef(null);
-  const gitPosition = useElementPosition(gitLink);
-
-  const onLinkHover = (x) => {
-    onCursor("locked");
-    setFooterPosition({ x: x });
-  };
-
+const Footer = ({ onCursor }) => {
+  const isMobile = useIsMobile();
+  const isSmallTablet = useIsSmallTablet();
+  const isLargeTablet = useIsLargeTablet();
   return (
     <FooterNav>
       <Container>
@@ -38,10 +36,9 @@ const Footer = ({ onCursor, setFooterPosition }) => {
           </FooterContent>
           <FooterSocial>
             <a
-              ref={instaLink}
-              href="https://www.instagram.com/epash_opash_dhopash/"
+              href="https://www.instagram.com/riju_stone/"
               target="_blank"
-              onMouseEnter={() => onLinkHover(instaPosition.x)}
+              onMouseEnter={() => onCursor("pointer")}
               onMouseLeave={() => onCursor()}
               rel="noreferrer"
             >
@@ -51,20 +48,18 @@ const Footer = ({ onCursor, setFooterPosition }) => {
               />
             </a>
             <a
-              ref={twitterLink}
               href="https://twitter.com/RijuStone"
               target="_blank"
-              onMouseEnter={() => onLinkHover(twitterPosition.x)}
+              onMouseEnter={() => onCursor("pointer")}
               onMouseLeave={() => onCursor()}
               rel="noreferrer"
             >
               <BsTwitter size={{ height: "20px" }} style={{ cursor: "none" }} />
             </a>
             <a
-              ref={gitLink}
               target="_blank"
               href="https://github.com/riju-stone"
-              onMouseEnter={() => onLinkHover(gitPosition.x)}
+              onMouseEnter={() => onCursor("pointer")}
               onMouseLeave={() => onCursor()}
               rel="noreferrer"
             >
@@ -73,6 +68,17 @@ const Footer = ({ onCursor, setFooterPosition }) => {
           </FooterSocial>
         </Flex>
       </Container>
+      <div className="madeby">
+        {isMobile || isSmallTablet || isLargeTablet ? (
+          <>
+            Best viewed on a <Computer />
+          </>
+        ) : (
+          <>
+            Made with <Heart /> by Arighna Chakraborty
+          </>
+        )}
+      </div>
     </FooterNav>
   );
 };

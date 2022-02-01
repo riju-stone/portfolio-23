@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-// import useElementPosition from "../../hooks/elemPos";
+import useElementPosition from "../../hooks/useElemPos";
 import { AnimatePresence, motion } from "framer-motion";
 //styles
 import { Container, Flex } from "../../styles/globalStyles";
@@ -42,30 +42,12 @@ const navRoutes = [
   },
 ];
 
-const Hamburger = ({
-  toggleMenu,
-  setToggleMenu,
-  onCursor,
-  setFooterPosition,
-}) => {
+const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
   const [revealVideo, setRevealVideo] = useState({
     show: false,
     video: <source src={AboutVideo1080p} type="video/mp4" />,
     key: "0",
   });
-
-  // const onLinkHover = (x) => {
-  //   onCursor("locked");
-  //   setFooterPosition({ x: x });
-  // };
-
-  // const instaNavLink = useRef(null);
-  // const twitterNavLink = useRef(null);
-  // const gitNavLink = useRef(null);
-
-  // const instaNavPosition = useElementPosition(instaNavLink);
-  // const twitterNavPosition = useElementPosition(twitterNavLink);
-  // const gitNavPosition = useElementPosition(gitNavLink);
 
   const menuAnim1 = {
     initial: { rotate: 0, y: 0 },
@@ -119,10 +101,9 @@ const Hamburger = ({
                   {navRoutes.map((route) => (
                     <motion.li
                       key={route.id}
-                      onMouseEnter={() => onCursor("pointer")}
                       onMouseLeave={onCursor}
                       onHoverStart={() => {
-                        onCursor("pointer");
+                        onCursor("hovered");
                         setRevealVideo({
                           show: true,
                           video: route.video,

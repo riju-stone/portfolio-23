@@ -53,7 +53,7 @@ export const HomeContentSection = styled(motion.div)`
   justify-content: center;
   align-items: center;
   @media (max-width: 480px) {
-    height: 90vh;
+    height: 80vh;
   }
 `;
 
@@ -63,7 +63,7 @@ export const HeroSection = styled(motion.div)`
   top: 100%;
   position: absolute;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: middle;
   justify-content: center;
@@ -73,8 +73,8 @@ export const HeroSection = styled(motion.div)`
     z-index: 0;
   }
   @media (max-width: 480px) {
-    height: 85%;
-    width: 85%;
+    margin-left: 50px;
+    top: 85%;
   }
 `;
 
@@ -87,8 +87,8 @@ export const Content = styled.div`
   margin-top: 20%;
   color: ${(props) => props.theme.text};
   @media (max-width: 480px) {
-    font-size: 2.5rem;
-    margin-top: 50%;
+    font-size: 2.2rem;
+    margin-top: 40%;
     margin-left: 20px;
   }
   @media (min-width: 480px) and (max-width: 768px) {
@@ -219,8 +219,8 @@ export const AccordionHeader = styled(motion.div)`
     height: 24px;
   }
   @media (min-width: 480px) and (max-width: 768px) {
-    font-size: 1.5rem;
-    height: 32px;
+    font-size: 1.4rem;
+    height: 26px;
   }
 `;
 

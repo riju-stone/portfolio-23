@@ -89,8 +89,8 @@ export const Logo = styled.div`
       font-size: 1.8rem;
     }
     svg {
-      height: 18px;
-      width: 18px;
+      height: 20px;
+      width: 20px;
     }
   }
 `;

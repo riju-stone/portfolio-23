@@ -4,9 +4,33 @@ import styled, { css } from "styled-components";
 export const FooterNav = styled.div`
   height: 150px;
   margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .madeby {
+    padding: 2rem 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.text};
+    svg {
+      height: 20px;
+      width: 20px;
+      stroke-width: 2.5px;
+    }
+  }
   @media (max-width: 480px) {
     height: 50px;
     margin-top: 50px;
+    .madeby {
+      padding: 1rem 0;
+      font-size: 0.8rem;
+      svg {
+        height: 14px;
+        width: 14px;
+        padding-top: 10px;
+      }
+    }
   }
   @media (min-width: 480px) and (max-width: 768px) {
     margin-top: 50px;
@@ -63,7 +87,8 @@ export const FooterContent = styled.div`
   }
   @media (min-width: 480px) and(max-width: 768px) {
     word-wrap: break-word;
-    margin: 0 20px;
+    /* margin: 0 20px; */
+    font-size: 1rem;
   }
 `;
 

@@ -10,7 +10,7 @@ import TitleVideo1080p from "../../assets/videos/about/about1080p.mp4";
 
 // hooks
 import { useIsMobile } from "../../hooks/useMediaQuery";
-function About() {
+function About({ onCursor }) {
   const isMobile = useIsMobile();
   return (
     <AboutSection>

@@ -251,8 +251,6 @@ function App() {
               toggleMenu={toggleMenu}
               setToggleMenu={setToggleMenu}
               onCursor={onCursor}
-              footerPosition={hamburgerPosition}
-              setFooterPosition={setHamburgerPosition}
             />
 
             <Routes>
@@ -264,11 +262,7 @@ function App() {
                       <HomeBanner onCursor={onCursor} />
                       <HomeContent />
                       <HomeAbout onCursor={onCursor} aboutRef={aboutRef} />
-                      <Footer
-                        onCursor={onCursor}
-                        footerPosition={hamburgerPosition}
-                        setFooterPosition={setHamburgerPosition}
-                      />
+                      <Footer onCursor={onCursor} />
                     </Suspense>
                   </>
                 }
@@ -277,7 +271,7 @@ function App() {
                 path="/about"
                 element={
                   <Suspense fallback={<Loader />}>
-                    <About />
+                    <About onCursor={onCursor} />
                   </Suspense>
                 }
               ></Route>
@@ -285,7 +279,7 @@ function App() {
                 path="/projects"
                 element={
                   <Suspense fallback={<Loader />}>
-                    <Projects />
+                    <Projects onCursor={onCursor} />
                   </Suspense>
                 }
               ></Route>

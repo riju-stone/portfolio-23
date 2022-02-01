@@ -10,10 +10,11 @@ export const LoaderSection = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: ${(props) => props.theme.background};
   div {
     font-family: "Bungee Outline";
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bolder;
     color: ${(props) => props.theme.link};
     @media (max-width: 480px) {
@@ -26,7 +27,7 @@ export const CoffeeAnimWrapper = styled(motion.div)`
   margin-bottom: 5rem;
   .tea {
     --secondary: ${(props) => props.theme.turqoise};
-    transform: scale(3);
+    transform: scale(4);
     @media (max-width: 480px) {
       transform: scale(2);
     }

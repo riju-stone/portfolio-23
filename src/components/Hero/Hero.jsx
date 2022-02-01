@@ -19,7 +19,7 @@ const Hero = () => {
   });
 
   useEffect(() => {
-    rootMargin = isMobile ? "-200px" : "-300px";
+    rootMargin = isMobile ? "-200px" : "-350px";
     if (inView) {
       animation.start("visible");
     }
@@ -34,11 +34,11 @@ const Hero = () => {
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
+          transition: { duration: 1, ease: [0.6, 0.05, -0.01, 0.9] },
         },
         hidden: {
           opacity: 0,
-          y: -100,
+          y: 300,
         },
       }}
     >
