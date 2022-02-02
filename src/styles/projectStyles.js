@@ -11,7 +11,6 @@ export const ProjectViewSection = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  text-align: center;
 `;
 
 export const CardsWrapper = styled(motion.div)`
@@ -22,6 +21,21 @@ export const CardsWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
+  .info {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    font-family: "Bungee Outline";
+    color: ${(props) => props.theme.link};
+    font-weight: 600;
+    font-size: 2rem;
+    text-align: right;
+  }
+  @media (max-width: 480px) {
+    .info {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const Cards = styled(motion.div)`

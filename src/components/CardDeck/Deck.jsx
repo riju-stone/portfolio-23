@@ -4,6 +4,9 @@ import { useInView } from "react-intersection-observer";
 
 import { CardsWrapper, Cards } from "../../styles/projectStyles";
 
+// hooks
+import { useIsMobile } from "../../hooks/useMediaQuery";
+
 const transition = { type: "spring", stiffness: 300, damping: 50 };
 
 const item = {
@@ -28,11 +31,8 @@ const item = {
 };
 
 const constraints = { top: 0, right: 0, bottom: 0, left: 0 };
-
 const swipeForce = 6;
-
 const swipeThreshold = 5000;
-
 const swipePower = (offset, velocity) => Math.abs(offset) * velocity;
 
 const transform = ({ x, y, scale, rotateY, rotateZ }) =>
@@ -81,9 +81,12 @@ export default function Deck({ cards }) {
   // mock what the variants API does and just animate from the
   // enter animation to the main animation.
 
+  const isMobile = useIsMobile();
+  let rootMargin;
+
   const [ref, inView] = useInView({
     triggerOnce: true,
-    rootMargin: "-250px",
+    rootMargin: rootMargin,
   });
 
   const wrapperAnim = {
@@ -98,6 +101,7 @@ export default function Deck({ cards }) {
   };
 
   useEffect(() => {
+    rootMargin = isMobile ? "-150px" : "-250px";
     function startAnimation() {
       cardControls.start(item.enter);
       cardControls.start(item.main);
@@ -116,23 +120,10 @@ export default function Deck({ cards }) {
       animate={wrapperControls}
       transition={{ duration: 1, ease: [0.6, 0.05, -0.01, 0.9] }}
     >
-      {/* Simply map over the number of cards and display them. 
-          Each card is positioned absolute and centered on the 
-          screen so the cards stack. */}
       {Array(cards.length)
         .fill(null)
         .map((_, i) => (
           <>
-            {/* This is the card itself. We use the index as a `key` for the element
-                  and also inject it as `custom` property so we know which is which.
-                  Additionally, we provide our custom constrols to the `animate` prop 
-                  to manipulate the animation. We also provide a custom `transformTemplate`
-                  to include a perspective transform which is useful for a kind of 3D-Look.
-                  We enable `drag` on the element and set the `dragConstraints` to all zero
-                  while the `dragElastic` prop is 1. Thus, we can freely drag the item however
-                  we want, but in case or swipe is not strong enough, it will snap back into 
-                  its original place. We also set the background to some image and 
-                  animate the scale while we tap the element to simulate that we pick the element up. */}
             <Cards
               key={i}
               custom={i}
@@ -148,6 +139,10 @@ export default function Deck({ cards }) {
             />
           </>
         ))}
+      <p className="info">
+        Click on the Card <br />
+        To know more
+      </p>
     </CardsWrapper>
   );
 }

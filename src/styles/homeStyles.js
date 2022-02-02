@@ -75,6 +75,7 @@ export const WaveSceneSection = styled(motion.div)`
   @media (max-width: 480px) {
     margin-left: 50px;
     top: 85%;
+    width: 80vw;
   }
 `;
 
@@ -89,7 +90,7 @@ export const Content = styled(motion.div)`
   @media (max-width: 480px) {
     font-size: 2.2rem;
     margin-top: 40%;
-    margin-left: 20px;
+    margin-left: 25px;
   }
   @media (min-width: 480px) and (max-width: 768px) {
     font-size: 3.5rem;
@@ -164,14 +165,15 @@ export const About = styled(motion.div)`
   }
   @media (max-width: 480px) {
     h2 {
+      margin-top: 0;
       font-size: 1.8rem;
       margin-left: 0;
-      width: 100%;
+      width: 95%;
     }
     p {
       font-size: 1rem;
       margin-left: 0;
-      width: 100%;
+      width: 95%;
     }
   }
   @media (min-width: 480px) and (max-width: 768px) {

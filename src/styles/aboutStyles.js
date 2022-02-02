@@ -149,5 +149,4 @@ export const AboutTimeline = styled(motion.div)`
   width: 100vw;
   z-index: 50;
   background-color: ${(props) => props.theme.background};
-  display: flex;
 `;

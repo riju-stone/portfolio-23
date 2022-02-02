@@ -27,11 +27,14 @@ const cards = [
   CardBG,
 ];
 
-function Projects() {
+function Projects({ onCursor }) {
   const isMobile = useIsMobile();
   return (
     <AboutSection>
-      <AboutBanner>
+      <AboutBanner
+        onMouseLeave={onCursor}
+        onMouseEnter={() => onCursor("hovered")}
+      >
         <div id="title-container">
           <motion.svg
             id="title"

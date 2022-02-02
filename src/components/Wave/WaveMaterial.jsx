@@ -63,7 +63,7 @@ export default function WaveMaterial() {
 
   const dimensions = {
     height: isMobile ? 7 : 9,
-    width: isMobile ? 5 : 6,
+    width: isMobile ? 4 : 6,
   };
 
   const group = useSlerp();

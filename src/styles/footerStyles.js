@@ -2,8 +2,12 @@ import styled, { css } from "styled-components";
 // import { motion } from "framer-motion";
 
 export const FooterNav = styled.div`
+  background-color: ${(props) => props.theme.background};
+  z-index: 50;
+  padding-top: 100px;
+  margin-bottom: 0;
+  overflow: hidden;
   height: 150px;
-  margin-top: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +25,8 @@ export const FooterNav = styled.div`
   }
   @media (max-width: 480px) {
     height: 50px;
-    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     .madeby {
       padding: 1rem 0;
       font-size: 0.8rem;

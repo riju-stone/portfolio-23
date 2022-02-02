@@ -272,6 +272,7 @@ function App() {
                 element={
                   <Suspense fallback={<Loader />}>
                     <About onCursor={onCursor} />
+                    <Footer onCursor={onCursor} />
                   </Suspense>
                 }
               ></Route>
@@ -280,6 +281,7 @@ function App() {
                 element={
                   <Suspense fallback={<Loader />}>
                     <Projects onCursor={onCursor} />
+                    <Footer onCursor={onCursor} />
                   </Suspense>
                 }
               ></Route>

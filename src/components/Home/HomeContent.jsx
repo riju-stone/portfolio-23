@@ -19,7 +19,7 @@ const HomeContent = () => {
   });
 
   useEffect(() => {
-    rootMargin = isMobile ? "-200px" : "-350px";
+    rootMargin = isMobile ? "-150px" : "-350px";
     if (inView) {
       animation.start("visible");
     }
