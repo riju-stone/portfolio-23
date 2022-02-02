@@ -57,7 +57,7 @@ export const HomeContentSection = styled(motion.div)`
   }
 `;
 
-export const HeroSection = styled(motion.div)`
+export const WaveSceneSection = styled(motion.div)`
   margin: 0;
   padding: 0;
   top: 100%;
@@ -78,14 +78,14 @@ export const HeroSection = styled(motion.div)`
   }
 `;
 
-export const Content = styled.div`
+export const Content = styled(motion.div)`
   width: 60%;
   font-family: "Hammersmith One", sans-serif;
   font-size: 4.5rem;
   font-weight: 600;
   margin-left: 20%;
   margin-top: 20%;
-  color: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.link};
   @media (max-width: 480px) {
     font-size: 2.2rem;
     margin-top: 40%;

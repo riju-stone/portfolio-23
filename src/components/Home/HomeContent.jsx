@@ -4,7 +4,7 @@ import { useAnimation } from "framer-motion";
 
 // hooks
 import { useIsMobile } from "../../hooks/useMediaQuery";
-import Hero from "../Hero/Hero";
+import WaveScene from "../Wave/WaveScene";
 //styles
 import { Container } from "../../styles/globalStyles";
 import { HomeContentSection, Content } from "../../styles/homeStyles";
@@ -19,32 +19,32 @@ const HomeContent = () => {
   });
 
   useEffect(() => {
-    rootMargin = isMobile ? "-200px" : "-300px";
+    rootMargin = isMobile ? "-200px" : "-350px";
     if (inView) {
       animation.start("visible");
     }
   }, [animation, inView]);
 
   return (
-    <HomeContentSection
-      ref={contentRef}
-      animate={animation}
-      initial="hidden"
-      variants={{
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
-        },
-        hidden: {
-          opacity: 0,
-          y: 100,
-        },
-      }}
-    >
-      <Hero />
+    <HomeContentSection>
+      <WaveScene />
       <Container>
-        <Content>
+        <Content
+          ref={contentRef}
+          animate={animation}
+          initial="hidden"
+          variants={{
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 1, ease: [0.6, 0.05, -0.01, 0.9] },
+            },
+            hidden: {
+              opacity: 0,
+              y: -200,
+            },
+          }}
+        >
           - Turning <br /> Paper Balls <br />
           into <br /> Paper Planes.
         </Content>

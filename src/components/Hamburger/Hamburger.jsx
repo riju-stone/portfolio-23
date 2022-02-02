@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import useElementPosition from "../../hooks/useElemPos";
 import { AnimatePresence, motion } from "framer-motion";
 //styles
 import { Container, Flex } from "../../styles/globalStyles";
@@ -21,6 +20,9 @@ import AboutVideo1080p from "../../assets/videos/about/about1080p.mp4";
 import ProjectVideo1080p from "../../assets/videos/projects/projects1080p.mp4";
 import CVVideo1080p from "../../assets/videos/cv/cv1080p.mp4";
 
+//resume
+import Resume from "../../assets/resume/resume.pdf";
+
 const navRoutes = [
   {
     id: 0,
@@ -37,7 +39,7 @@ const navRoutes = [
   {
     id: 2,
     title: "Resume",
-    path: "cv/cv.pdf",
+    path: "/resume",
     video: <source src={CVVideo1080p} type="video/mp4" />,
   },
 ];
@@ -119,10 +121,10 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                         onCursor();
                       }}
                     >
-                      {route.title === "My CV" ? (
+                      {route.title === "Resume" ? (
                         <a
-                          href={`${route.path}`}
-                          download
+                          href={Resume}
+                          target="_blank"
                           onClick={() => setToggleMenu(!toggleMenu)}
                         >
                           <motion.div

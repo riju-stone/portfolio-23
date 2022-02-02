@@ -2,18 +2,18 @@ import React, { useEffect, Suspense } from "react";
 import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
-import Wave from "./Wave";
+import WaveMaterial from "./WaveMaterial";
 
 //hooks
 import { useIsMobile } from "../../hooks/useMediaQuery";
 //styles
-import { HeroSection } from "../../styles/homeStyles";
+import { WaveSceneSection } from "../../styles/homeStyles";
 
-const Hero = () => {
+const WaveScene = () => {
   const isMobile = useIsMobile();
   const animation = useAnimation();
   let rootMargin;
-  const [heroRef, inView] = useInView({
+  const [sceneRef, inView] = useInView({
     triggerOnce: true,
     rootMargin: rootMargin,
   });
@@ -26,8 +26,8 @@ const Hero = () => {
   }, [animation, inView]);
 
   return (
-    <HeroSection
-      ref={heroRef}
+    <WaveSceneSection
+      ref={sceneRef}
       animate={animation}
       initial="hidden"
       variants={{
@@ -38,18 +38,18 @@ const Hero = () => {
         },
         hidden: {
           opacity: 0,
-          y: 300,
+          y: 200,
         },
       }}
     >
-      <Canvas camera={{ position: [0, 0, 3], fov: 85 }}>
+      <Canvas concurrent shadowMap camera={{ position: [0, 0, 3], fov: 85 }}>
         <Suspense fallback={null}>
-          <Wave />
+          <WaveMaterial />
         </Suspense>
-        <ambientLight intensity={0.4} />
+        <ambientLight intensity={0.6} />
       </Canvas>
-    </HeroSection>
+    </WaveSceneSection>
   );
 };
 
-export default Hero;
+export default WaveScene;

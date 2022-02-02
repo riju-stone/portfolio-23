@@ -8,6 +8,8 @@ import BackgroundImage from "../../assets/images/bg.jpg";
 
 //hooks
 import { useIsMobile } from "../../hooks/useMediaQuery";
+import useSlerp from "../../hooks/useSlerp";
+import useRenderTarget from "../../hooks/useRenderTarget";
 
 const WaveShaderMaterial = shaderMaterial(
   // Uniform
@@ -52,7 +54,7 @@ const WaveShaderMaterial = shaderMaterial(
 
 extend({ WaveShaderMaterial });
 
-export default function Wave() {
+export default function WaveMaterial() {
   const ref = useRef();
   useFrame(({ clock }) => (ref.current.uTime = clock.getElapsedTime()));
   const [image] = useLoader(THREE.TextureLoader, [BackgroundImage]);
@@ -64,12 +66,26 @@ export default function Wave() {
     width: isMobile ? 5 : 6,
   };
 
+  const group = useSlerp();
+  const [cubeCamera, renderTarget] = useRenderTarget();
+
   return (
-    <mesh position={[0, 0, -5]}>
-      <planeBufferGeometry
-        args={[dimensions.width, dimensions.height, 50, 50]}
+    <>
+      <cubeCamera
+        layers={[11]}
+        name="cubeCamera"
+        ref={cubeCamera}
+        args={[0.1, 100, renderTarget]}
+        position={[0, 0, -12]}
       />
-      <waveShaderMaterial uColor={"hotpink"} ref={ref} uTexture={image} />
-    </mesh>
+      <group ref={group}>
+        <mesh position={[0, 0, -5]}>
+          <planeBufferGeometry
+            args={[dimensions.width, dimensions.height, 80, 80]}
+          />
+          <waveShaderMaterial uColor={"hotpink"} ref={ref} uTexture={image} />
+        </mesh>
+      </group>
+    </>
   );
 }

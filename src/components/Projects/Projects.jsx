@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import Deck from "../CardDeck/Deck";
+
 //styles
 import { AboutSection, AboutBanner } from "../../styles/aboutStyles";
 import { ProjectViewSection } from "../../styles/projectStyles";
@@ -10,6 +12,21 @@ import ProjectVideo1080p from "../../assets/videos/projects/projects1080p.mp4";
 
 // hooks
 import { useIsMobile } from "../../hooks/useMediaQuery";
+
+import CardBG from "../../assets/images/bg.jpg";
+
+const cards = [
+  CardBG,
+  CardBG,
+  CardBG,
+  CardBG,
+  CardBG,
+  CardBG,
+  CardBG,
+  CardBG,
+  CardBG,
+];
+
 function Projects() {
   const isMobile = useIsMobile();
   return (
@@ -63,7 +80,9 @@ function Projects() {
           </video>
         </div>
       </AboutBanner>
-      <ProjectViewSection></ProjectViewSection>
+      <ProjectViewSection>
+        <Deck cards={cards} />
+      </ProjectViewSection>
     </AboutSection>
   );
 }
