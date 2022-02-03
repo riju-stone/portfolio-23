@@ -18,6 +18,8 @@ export const FooterNav = styled.div`
     font-weight: bold;
     color: ${(props) => props.theme.text};
     svg {
+      padding: 0;
+      margin: 0;
       height: 20px;
       width: 20px;
       stroke-width: 2.5px;
@@ -25,15 +27,14 @@ export const FooterNav = styled.div`
   }
   @media (max-width: 480px) {
     height: 50px;
-    padding-top: 50px;
+    padding-top: 35px;
     padding-bottom: 50px;
     .madeby {
       padding: 1rem 0;
       font-size: 0.8rem;
       svg {
-        height: 14px;
-        width: 14px;
-        padding-top: 10px;
+        height: 18px;
+        width: 18px;
       }
     }
   }

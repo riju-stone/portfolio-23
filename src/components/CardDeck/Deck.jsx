@@ -3,6 +3,7 @@ import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import { CardsWrapper, Cards } from "../../styles/projectStyles";
+import { GitHub, WebWindow, SmartphoneDevice } from "iconoir-react";
 
 // hooks
 import { useIsMobile } from "../../hooks/useMediaQuery";
@@ -38,7 +39,7 @@ const swipePower = (offset, velocity) => Math.abs(offset) * velocity;
 const transform = ({ x, y, scale, rotateY, rotateZ }) =>
   `perspective(1500px) rotateX(30deg) rotateY(${rotateY}) rotateZ(${rotateZ}) scale(${scale}) translateX(${x}) translateY(${y})`;
 
-export default function Deck({ cards }) {
+export default function Deck({ cards, onCursor }) {
   const cardControls = useAnimation();
   const wrapperControls = useAnimation();
   const gone = useRef(new Set()).current;
@@ -123,21 +124,49 @@ export default function Deck({ cards }) {
       {Array(cards.length)
         .fill(null)
         .map((_, i) => (
-          <>
-            <Cards
-              key={i}
-              custom={i}
-              className="card"
-              animate={cardControls}
-              transformTemplate={transform}
-              drag
-              dragElastic={1}
-              dragConstraints={constraints}
-              onDragEnd={(_, info) => onDragEnd(i, info)}
-              style={{ backgroundImage: `url(${cards[i]})` }}
-              whileTap={{ scale: 1.2 }}
-            />
-          </>
+          <Cards
+            key={i}
+            custom={i}
+            className="card"
+            animate={cardControls}
+            transformTemplate={transform}
+            drag
+            dragElastic={1}
+            dragConstraints={constraints}
+            onDragEnd={(_, info) => onDragEnd(i, info)}
+          >
+            <img src={cards[i].logo} alt="" />
+            <h1>{cards[i].title}</h1>
+            <p>{cards[i].summary}</p>
+            {cards[i].linkType === "github" ? (
+              <a
+                href={cards[i].link}
+                target="_blank"
+                onMouseEnter={() => onCursor("hovered")}
+                onMouseLeave={() => onCursor()}
+              >
+                <GitHub />
+              </a>
+            ) : cards[i].linkType === "web" ? (
+              <a
+                href={cards[i].link}
+                target="_blank"
+                onMouseEnter={() => onCursor("hovered")}
+                onMouseLeave={() => onCursor()}
+              >
+                <WebWindow />
+              </a>
+            ) : (
+              <a
+                href={cards[i].link}
+                target="_blank"
+                onMouseEnter={() => onCursor("hovered")}
+                onMouseLeave={() => onCursor()}
+              >
+                <SmartphoneDevice />
+              </a>
+            )}
+          </Cards>
         ))}
       <p className="info">
         Click on the Card <br />

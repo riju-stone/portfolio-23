@@ -45,6 +45,11 @@ export const Cards = styled(motion.div)`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   width: 35vw;
   height: 80vh;
   will-change: transform;
@@ -52,8 +57,51 @@ export const Cards = styled(motion.div)`
   pointer-events: all;
   box-shadow: 0px 5px 14px #152b39;
 
+  img {
+    height: 50%;
+    width: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  h1 {
+    font-family: "Hammersmith One";
+    font-size: 2.5rem;
+    color: ${(props) => props.theme.darkTurqoise};
+  }
+
+  p {
+    font-family: "Monteserrat";
+    width: 65%;
+  }
+
+  a {
+    margin-top: 20px;
+    cursor: none;
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: ${(props) => props.theme.link};
+    svg {
+      stroke-width: 2px;
+      cursor: none;
+    }
+  }
+
   @media (max-width: 480px) {
     height: 60%;
     width: 60%;
+    img {
+      height: 30%;
+      width: auto;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+    a {
+      font-size: 1.6rem;
+    }
   }
 `;
