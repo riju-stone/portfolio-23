@@ -18,9 +18,13 @@ import Hamburger from "./components/Hamburger/Hamburger";
 import HomeContent from "./components/Home/HomeContent";
 import HomeAbout from "./components/Home/HomeAbout";
 import Footer from "./components/Footer/Footer";
+import AboutContent from "./components/About/AboutContent";
+
+import { AboutSection } from "./styles/aboutStyles";
 
 const Projects = React.lazy(() => import("./components/Projects/Projects"));
-const About = React.lazy(() => import("./components/About/About"));
+const AboutBanner = React.lazy(() => import("./components/About/AboutBanner"));
+
 const HomeBanner = React.lazy(() => import("./components/Home/HomeBanner"));
 
 // global style
@@ -224,7 +228,7 @@ function App() {
     window.localStorage.setItem("theme", currentTheme);
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 1000);
   }, [currentTheme]);
 
   const onCursor = (curType) => {
@@ -271,7 +275,8 @@ function App() {
                 path="/about"
                 element={
                   <Suspense fallback={<Loader />}>
-                    <About onCursor={onCursor} />
+                    <AboutBanner onCursor={onCursor} />
+                    <AboutContent />
                     <Footer onCursor={onCursor} />
                   </Suspense>
                 }

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Deck from "../CardDeck/Deck";
 
 //styles
-import { AboutSection, AboutBanner } from "../../styles/aboutStyles";
+import { AboutSection, AboutBannerSection } from "../../styles/aboutStyles";
 import { ProjectViewSection } from "../../styles/projectStyles";
 
 //assets
@@ -76,7 +76,7 @@ function Projects({ onCursor }) {
   const isMobile = useIsMobile();
   return (
     <AboutSection>
-      <AboutBanner
+      <AboutBannerSection
         onMouseLeave={onCursor}
         onMouseEnter={() => onCursor("hovered")}
       >
@@ -127,7 +127,7 @@ function Projects({ onCursor }) {
             <source src={ProjectVideo1080p} type="video/mp4" />
           </video>
         </div>
-      </AboutBanner>
+      </AboutBannerSection>
       <ProjectViewSection>
         <Deck cards={cards} onCursor={onCursor} />
       </ProjectViewSection>

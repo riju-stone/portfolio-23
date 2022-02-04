@@ -73,11 +73,7 @@ const Footer = ({ onCursor }) => {
           <>
             Best viewed on a <Computer />
           </>
-        ) : (
-          <>
-            Made with <Heart /> by Arighna Chakraborty
-          </>
-        )}
+        ) : null}
       </div>
     </FooterNav>
   );

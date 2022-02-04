@@ -1,20 +1,37 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+//styles
 import {
   AboutSection,
-  AboutBanner,
-  AboutTimeline,
+  AboutBannerSection,
   Marquee,
 } from "../../styles/aboutStyles";
 import TitleVideo1080p from "../../assets/videos/about/about1080p.mp4";
 
 // hooks
 import { useIsMobile } from "../../hooks/useMediaQuery";
-function About({ onCursor }) {
+
+const AboutBanner = ({ onCursor }) => {
   const isMobile = useIsMobile();
+
+  const animation = useAnimation();
+
+  let rootMargin;
+  const [quoteRef, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: "-120px",
+  });
+
+  useEffect(() => {
+    if (inView) {
+      animation.start("visible");
+    }
+  }, [animation, inView]);
   return (
     <AboutSection>
-      <AboutBanner
+      <AboutBannerSection
         onMouseLeave={onCursor}
         onMouseEnter={() => onCursor("hovered")}
       >
@@ -65,15 +82,50 @@ function About({ onCursor }) {
             <source src={TitleVideo1080p} type="video/mp4" />
           </video>
         </div>
-      </AboutBanner>
+      </AboutBannerSection>
       <Marquee>
-        <p id="upper">Never Lose</p>
+        <motion.p
+          id="upper"
+          ref={quoteRef}
+          variants={{
+            visible: {
+              opacity: 1,
+              x: 0,
+              transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
+            },
+            hidden: {
+              opacity: 0,
+              x: -90,
+            },
+          }}
+          initial="hidden"
+          animate={animation}
+        >
+          Never Lose
+        </motion.p>
         <p id="author">~ Nelson Mandela</p>
-        <p id="lower">Win or Learn</p>
+        <motion.p
+          id="lower"
+          ref={quoteRef}
+          variants={{
+            visible: {
+              opacity: 1,
+              x: 0,
+              transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
+            },
+            hidden: {
+              opacity: 0,
+              x: 90,
+            },
+          }}
+          initial="hidden"
+          animate={animation}
+        >
+          Win or Learn
+        </motion.p>
       </Marquee>
-      <AboutTimeline></AboutTimeline>
     </AboutSection>
   );
-}
+};
 
-export default About;
+export default AboutBanner;

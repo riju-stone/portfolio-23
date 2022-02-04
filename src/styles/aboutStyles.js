@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 export const AboutSection = styled(motion.div)`
   padding: 0%;
   margin: 0%;
+  overflow: hidden;
 `;
 
-export const AboutBanner = styled(motion.div)`
+export const AboutBannerSection = styled(motion.div)`
   margin: 0;
   height: 100vh;
   width: 100vw;
@@ -14,6 +15,7 @@ export const AboutBanner = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-y: hidden;
   #title-container {
     overflow-y: hidden;
     height: 100%;
@@ -42,7 +44,6 @@ export const AboutBanner = styled(motion.div)`
       }
     }
     video {
-      position: fixed;
       object-fit: cover;
       height: 100vh;
       width: 100vw;
@@ -121,6 +122,9 @@ export const Marquee = styled.div`
     font-size: 4rem;
   }
   @media (max-width: 480px) {
+    padding: 50px 0px;
+    height: auto;
+    width: 100vw;
     #upper {
       font-size: 3rem;
     }
@@ -140,6 +144,51 @@ export const Marquee = styled.div`
     }
     #author {
       font-size: 2.8rem;
+    }
+  }
+`;
+
+export const ContentSection = styled(motion.div)`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Hammersmith One";
+  font-size: 2.6rem;
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.background};
+
+  canvas {
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    left: 30%;
+  }
+
+  h1 {
+    position: absolute;
+    width: 50%;
+    left: 50px;
+    z-index: 0;
+  }
+
+  @media (max-width: 480px) {
+    height: 400px;
+    width: 100vw;
+    border: none;
+    padding: 50px 0px;
+    margin: 0;
+    font-size: 0.8rem;
+    canvas {
+      position: absolute;
+      left: 0px;
+    }
+    h1 {
+      width: 35%;
+      left: 15px;
+      text-align: left;
     }
   }
 `;

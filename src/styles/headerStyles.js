@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
 export const HeaderNav = styled(motion.div)`
-  position: absolute;
+  position: fixed;
   z-index: 100;
   width: 100%;
   position: absolute;

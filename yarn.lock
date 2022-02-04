@@ -1485,6 +1485,11 @@
     utility-types "^3.10.0"
     zustand "^3.5.1"
 
+"@rive-app/canvas@1.0.18":
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/@rive-app/canvas/-/canvas-1.0.18.tgz#f6d148a78aad52ff7385ea6c43791ca847c3ff6f"
+  integrity sha512-D2eNIf+9WchAKJKDtCpwQcIe0b31NuKdn8BH6Ii+4FYRyut/awmrVITJre2px8B58lnTGxg+rSr95E99VcbgWg==
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.0.tgz#9cb1c5146ddd6a4968ad96f209c50c62f92f9879"
@@ -8151,6 +8156,13 @@ rimraf@^3.0.0, rimraf@^3.0.2:
   integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
   dependencies:
     glob "^7.1.3"
+
+rive-react@^0.0.31:
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/rive-react/-/rive-react-0.0.31.tgz#e13df9f244066e88272055033fbd14de9416c856"
+  integrity sha512-icImFq2pWEe+LJlnFFRNeghmJvNgdP9UH8epPQTwOEVv8r5HdxJ1olRHtafeX1iLJbunvLQRoEmsh9htss45NA==
+  dependencies:
+    "@rive-app/canvas" "1.0.18"
 
 rollup-plugin-terser@^7.0.0:
   version "7.0.2"
