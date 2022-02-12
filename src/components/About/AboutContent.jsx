@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Rive, { useRive } from "rive-react";
 import { AboutSection, ContentSection } from "../../styles/aboutStyles";
 
 // hooks
 import { useIsMobile } from "../../hooks/useMediaQuery";
-import CharacterAnimation from "../Character/FallAnimation";
+import Fall from "../../assets/animations/fall.riv";
 
 const AboutContent = () => {
   const isMobile = useIsMobile();
@@ -23,6 +24,7 @@ const AboutContent = () => {
       animation.start("visible");
     }
   }, [inView]);
+  
   return (
     <AboutSection>
       <ContentSection>
@@ -44,7 +46,7 @@ const AboutContent = () => {
         >
           - Falling nine times and getting up ten...
         </motion.h1>
-        <CharacterAnimation />
+        <Rive src={Fall} />
       </ContentSection>
     </AboutSection>
   );

@@ -82,48 +82,7 @@ const AboutBanner = ({ onCursor }) => {
             <source src={TitleVideo1080p} type="video/mp4" />
           </video>
         </div>
-      </AboutBannerSection>
-      <Marquee>
-        <motion.p
-          id="upper"
-          ref={quoteRef}
-          variants={{
-            visible: {
-              opacity: 1,
-              x: 0,
-              transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
-            },
-            hidden: {
-              opacity: 0,
-              x: -90,
-            },
-          }}
-          initial="hidden"
-          animate={animation}
-        >
-          Never Lose
-        </motion.p>
-        <p id="author">~ Nelson Mandela</p>
-        <motion.p
-          id="lower"
-          ref={quoteRef}
-          variants={{
-            visible: {
-              opacity: 1,
-              x: 0,
-              transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
-            },
-            hidden: {
-              opacity: 0,
-              x: 90,
-            },
-          }}
-          initial="hidden"
-          animate={animation}
-        >
-          Win or Learn
-        </motion.p>
-      </Marquee>
+      </AboutBannerSection> 
     </AboutSection>
   );
 };

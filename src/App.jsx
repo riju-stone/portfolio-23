@@ -15,17 +15,17 @@ import Header from "./components/Header/Header";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
 import Hamburger from "./components/Hamburger/Hamburger";
 
-import HomeContent from "./components/Home/HomeContent";
-import HomeAbout from "./components/Home/HomeAbout";
-import Footer from "./components/Footer/Footer";
+import AboutDetails from "./components/About/AboutDetails";
+import AboutPlane from "./components/About/AboutPlane";
 import AboutContent from "./components/About/AboutContent";
+import AboutTimeline from "./components/About/AboutTimeline";
 
 import { AboutSection } from "./styles/aboutStyles";
 
 const Projects = React.lazy(() => import("./components/Projects/Projects"));
 const AboutBanner = React.lazy(() => import("./components/About/AboutBanner"));
-
 const HomeBanner = React.lazy(() => import("./components/Home/HomeBanner"));
+const Contact = React.lazy(() => import("./components/Contact/Contact"));
 
 // global style
 const GlobalStyle = createGlobalStyle`
@@ -228,7 +228,7 @@ function App() {
     window.localStorage.setItem("theme", currentTheme);
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 4000);
   }, [currentTheme]);
 
   const onCursor = (curType) => {
@@ -263,10 +263,7 @@ function App() {
                 element={
                   <>
                     <Suspense fallback={<Loader />}>
-                      <HomeBanner onCursor={onCursor} />
-                      <HomeContent />
-                      <HomeAbout onCursor={onCursor} aboutRef={aboutRef} />
-                      <Footer onCursor={onCursor} />
+                      <HomeBanner onCursor={onCursor} />           
                     </Suspense>
                   </>
                 }
@@ -275,9 +272,10 @@ function App() {
                 path="/about"
                 element={
                   <Suspense fallback={<Loader />}>
-                    <AboutBanner onCursor={onCursor} />
-                    <AboutContent />
-                    <Footer onCursor={onCursor} />
+                    <AboutBanner onCursor={onCursor} /> 
+                    <AboutPlane/>
+                    <AboutContent/>
+                    <AboutTimeline/>
                   </Suspense>
                 }
               ></Route>
@@ -286,7 +284,16 @@ function App() {
                 element={
                   <Suspense fallback={<Loader />}>
                     <Projects onCursor={onCursor} />
-                    <Footer onCursor={onCursor} />
+               
+                  </Suspense>
+                }
+              ></Route>
+              <Route
+                path="/contact"
+                element={
+                  <Suspense fallback={<Loader />}>
+                    <Contact onCursor={onCursor} />
+                
                   </Suspense>
                 }
               ></Route>

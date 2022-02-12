@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import Deck from "../CardDeck/Deck";
-
 //styles
 import { AboutSection, AboutBannerSection } from "../../styles/aboutStyles";
 import { ProjectViewSection } from "../../styles/projectStyles";
@@ -129,7 +127,7 @@ function Projects({ onCursor }) {
         </div>
       </AboutBannerSection>
       <ProjectViewSection>
-        <Deck cards={cards} onCursor={onCursor} />
+        
       </ProjectViewSection>
     </AboutSection>
   );

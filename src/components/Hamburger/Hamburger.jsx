@@ -19,6 +19,7 @@ import { BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
 import AboutVideo1080p from "../../assets/videos/about/about1080p.mp4";
 import ProjectVideo1080p from "../../assets/videos/projects/projects1080p.mp4";
 import CVVideo1080p from "../../assets/videos/cv/cv1080p.mp4";
+import ContactVideo1080p from "../../assets/videos/contact/contact1080p.mp4";
 
 //resume
 import Resume from "../../assets/resume/resume.pdf";
@@ -38,6 +39,12 @@ const navRoutes = [
   },
   {
     id: 2,
+    title: "Let's Talk",
+    path: "/contact",
+    video:  <source src={ContactVideo1080p} type="video/mp4" />,
+  },
+  {
+    id: 3,
     title: "Resume",
     path: "/resume",
     video: <source src={CVVideo1080p} type="video/mp4" />,
@@ -186,14 +193,7 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                 </ul>
               </NavList>
               <NavFooter>
-                <FooterFlex>
-                  <FooterContent wider>
-                    <p>+91 9163411820</p>
-                    <p>riju23chakra@gmail.com</p>
-                  </FooterContent>
-                  <FooterContent wider>
-                    <p>Kolkata, IN</p>
-                  </FooterContent>
+                <FooterFlex flexEnd>
                   <FooterSocial>
                     <a
                       // ref={instaNavLink}

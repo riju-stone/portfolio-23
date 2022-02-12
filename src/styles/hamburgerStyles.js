@@ -64,12 +64,12 @@ export const NavList = styled.div`
     padding: 0;
     li {
       list-style: none;
-      font-size: 7rem;
+      font-size: 6rem;
       font-weight: 900;
       height: 120px;
-      line-height: 120px;
+      line-height:120px;
       overflow: hidden;
-      margin-bottom: 80px;
+      margin-bottom: 50px;
       a,
       Link {
         text-decoration: none;
@@ -131,7 +131,7 @@ export const NavFooter = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 56px 0px;
+  padding: 45px 0px;
   p {
     color: ${(props) => props.theme.link};
   }
