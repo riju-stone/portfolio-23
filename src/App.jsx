@@ -263,7 +263,7 @@ function App() {
                 element={
                   <>
                     <Suspense fallback={<Loader />}>
-                      <HomeBanner onCursor={onCursor} />           
+                      <HomeBanner onCursor={onCursor} />
                     </Suspense>
                   </>
                 }
@@ -272,10 +272,11 @@ function App() {
                 path="/about"
                 element={
                   <Suspense fallback={<Loader />}>
-                    <AboutBanner onCursor={onCursor} /> 
-                    <AboutPlane/>
-                    <AboutContent/>
-                    <AboutTimeline/>
+                    <AboutBanner onCursor={onCursor} />
+                    <AboutPlane />
+                    <AboutDetails />
+                    <AboutContent />
+                    <AboutTimeline />
                   </Suspense>
                 }
               ></Route>
@@ -284,7 +285,6 @@ function App() {
                 element={
                   <Suspense fallback={<Loader />}>
                     <Projects onCursor={onCursor} />
-               
                   </Suspense>
                 }
               ></Route>
@@ -293,7 +293,6 @@ function App() {
                 element={
                   <Suspense fallback={<Loader />}>
                     <Contact onCursor={onCursor} />
-                
                   </Suspense>
                 }
               ></Route>

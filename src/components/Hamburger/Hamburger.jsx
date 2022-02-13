@@ -41,7 +41,7 @@ const navRoutes = [
     id: 2,
     title: "Let's Talk",
     path: "/contact",
-    video:  <source src={ContactVideo1080p} type="video/mp4" />,
+    video: <source src={ContactVideo1080p} type="video/mp4" />,
   },
   {
     id: 3,

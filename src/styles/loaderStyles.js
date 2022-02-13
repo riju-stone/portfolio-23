@@ -23,4 +23,4 @@ export const LoaderSection = styled(motion.div)`
       font-size: 1.6rem;
     }
   }
-  `;
+`;

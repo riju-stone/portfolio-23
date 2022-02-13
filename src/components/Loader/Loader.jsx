@@ -2,7 +2,6 @@ import React from "react";
 import Rive, { useRive } from "rive-react";
 import { AnimatePresence } from "framer-motion";
 
-
 import Rocket from "../../assets/animations/rocket.riv";
 // styles
 import { LoaderSection } from "../../styles/loaderStyles.js";
@@ -13,10 +12,10 @@ function Loader() {
       <AnimatePresence>
         <LoaderSection>
           <Rive src={Rocket} />
-          <div>
+          {/* <div>
             Setting things <br />
             in Motion
-          </div>
+          </div> */}
         </LoaderSection>
       </AnimatePresence>
     </>

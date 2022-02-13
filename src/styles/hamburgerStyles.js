@@ -67,7 +67,7 @@ export const NavList = styled.div`
       font-size: 6rem;
       font-weight: 900;
       height: 120px;
-      line-height:120px;
+      line-height: 120px;
       overflow: hidden;
       margin-bottom: 50px;
       a,

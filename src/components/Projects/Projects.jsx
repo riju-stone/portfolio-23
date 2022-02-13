@@ -126,9 +126,7 @@ function Projects({ onCursor }) {
           </video>
         </div>
       </AboutBannerSection>
-      <ProjectViewSection>
-        
-      </ProjectViewSection>
+      <ProjectViewSection></ProjectViewSection>
     </AboutSection>
   );
 }

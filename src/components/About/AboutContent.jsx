@@ -24,7 +24,7 @@ const AboutContent = () => {
       animation.start("visible");
     }
   }, [inView]);
-  
+
   return (
     <AboutSection>
       <ContentSection>

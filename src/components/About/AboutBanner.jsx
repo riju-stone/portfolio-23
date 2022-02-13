@@ -82,7 +82,7 @@ const AboutBanner = ({ onCursor }) => {
             <source src={TitleVideo1080p} type="video/mp4" />
           </video>
         </div>
-      </AboutBannerSection> 
+      </AboutBannerSection>
     </AboutSection>
   );
 };

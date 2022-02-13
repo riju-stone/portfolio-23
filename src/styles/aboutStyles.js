@@ -1,6 +1,5 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
-
 
 // about banner styles
 export const AboutSection = styled(motion.div)`
@@ -122,171 +121,127 @@ export const Content = styled(motion.div)`
 
 // about details styles
 export const AboutDetailsSection = styled.div`
-  margin-top: 150px;
   height: 100vh;
   width: 100vw;
-  @media (max-width: 480px) {
-    margin-top: 0;
-    margin-bottom: 20vh;
-  }
-  @media (min-width: 480px) and (max-width: 768px) {
-    margin-top: 0;
-  }
-`;
-
-export const Flex = styled.div`
-  position: relative;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  ${(props) =>
-    props.spaceBetween &&
-    css`
-      justify-content: space-between;
-    `}
-
-  ${(props) =>
-    props.flexEnd &&
-    css`
-      justify-content: flex-end;
-    `}
-
-    ${(props) =>
-    props.alignTop &&
-    css`
-      align-items: flex-start;
-    `}
-
-    ${(props) =>
-    props.noHeight &&
-    css`
-      height: 0;
-    `}
-
-    @media (max-width: 480px) {
-    flex-direction: column;
-  }
-`;
-
-export const About = styled(motion.div)`
-  width: 100%;
-  h2 {
+  .skill-title {
+    position: absolute;
+    font-weight: bolder;
+    text-transform: uppercase;
     font-family: "Hammersmith One";
-    width: 60%;
-    font-size: 2.3rem;
-    font-weight: 400;
-    margin-left: 124px;
     color: ${(props) => props.theme.text};
+    font-size: 28rem;
   }
-  p {
-    font-family: "Monteserrat";
-    max-width: 440px;
-    font-size: 1.2rem;
-    line-height: 1.6rem;
-    margin-left: 124px;
-    color: ${(props) => props.theme.text};
-  }
-  @media (max-width: 480px) {
-    h2 {
-      margin-top: 0;
-      font-size: 1.8rem;
-      margin-left: 0;
-      width: 95%;
-    }
-    p {
-      font-size: 1rem;
-      margin-left: 0;
-      width: 95%;
-    }
-  }
-  @media (min-width: 480px) and (max-width: 768px) {
-    h2 {
-      font-size: 2rem;
-      margin-left: 0;
-      width: 90%;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-left: 0;
-      width: 90%;
-    }
-  }
-`;
-
-export const Services = styled(motion.div)`
-  font-family: "Hammersmith One", sans-serif;
-  font-size: 2rem;
-  color: ${(props) => props.theme.link};
-  @media (max-width: 480px) {
-    margin-bottom: 200px;
-    h3 {
-      font-size: 1.8rem;
-    }
-  }
-  @media (min-width: 480px) and (max-width: 768px) {
-    h3 {
-      font-size: 2rem;
-    }
-  }
-`;
-
-export const AccordionHeader = styled(motion.div)`
-  width: 100%;
-  color: ${(props) => props.theme.turqoise};
-  height: 32px;
-  display: flex;
-  align-items: center;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
-  margin: 8px 0;
-  @media (max-width: 480px) {
-    font-size: 1.2rem;
-    height: 24px;
-  }
-  @media (min-width: 480px) and (max-width: 768px) {
-    font-size: 1.4rem;
-    height: 26px;
-  }
-`;
-
-export const AccordionIcon = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
-  margin-right: 8px;
-  span {
-    width: 16px;
-    height: 4px;
-    background: ${(props) => props.theme.turqoise};
-    transition: 0.1s ease-in-out;
-  }
-`;
-
-export const AccordionContent = styled(motion.div)`
-  overflow: hidden;
-  padding-left: 40px;
-  font-family: "Montserrat", sans-serif;
-  span {
-    width: 100%;
-    margin: 8px 0;
-    font-size: 1rem;
+  .skill {
+    position: relative;
+    font-size: 5rem;
+    font-weight: bolder;
+    text-transform: uppercase;
     color: ${(props) => props.theme.turqoise};
-    display: block;
-    font-weight: 400;
   }
+
   @media (max-width: 480px) {
-    margin: 4px 0;
   }
   @media (min-width: 480px) and (max-width: 768px) {
-    margin: 4px 0;
   }
 `;
 
+export const ContentSection = styled(motion.div)`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Hammersmith One";
+  font-size: 2.6rem;
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.background};
+
+  canvas {
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    left: 30%;
+  }
+
+  h1 {
+    position: absolute;
+    width: 50%;
+    left: 50px;
+    z-index: 0;
+  }
+
+  @media (max-width: 480px) {
+    height: 400px;
+    width: 100vw;
+    border: none;
+    padding: 50px 0px;
+    margin: 0;
+    font-size: 0.8rem;
+    canvas {
+      position: absolute;
+      left: 0px;
+    }
+    h1 {
+      width: 35%;
+      left: 15px;
+      text-align: left;
+    }
+  }
+`;
+
+// about timeline
+export const AboutTimelineSection = styled(motion.div)`
+  height: 310vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  background-color: ${(props) => props.theme.background};
+  .title {
+    text-transform: uppercase;
+    margin: 0;
+    font-family: "Hammersmith One";
+    font-size: 18rem;
+    font-weight: bolder;
+    color: ${(props) => props.theme.text};
+  }
+`;
+
+export const TimelineView = styled(motion.div)`
+  margin: 0%;
+  padding: 0%;
+  width: 100vw;
+  background-color: ${(props) => props.theme.background};
+  .timeline-card-content {
+    height: auto;
+    width: 30vw;
+    padding: 10px 15px;
+    font-style: "Hammersmith One;";
+    background-color: ${(props) => props.theme.link};
+    span {
+      background-color: ${(props) => props.theme.link};
+    }
+    a {
+      color: ${(props) => props.theme.background};
+      text-decoration: none;
+      cursor: none;
+    }
+  }
+  .timeline-item-title {
+    background-color: ${(props) => props.theme.turqoise};
+    color: ${(props) => props.theme.text};
+  }
+`;
 
 export const Marquee = styled.div`
   z-index: 50;
-  margin: 0;
   padding: 0;
   height: 100vh;
   width: 100vw;
@@ -346,61 +301,3 @@ export const Marquee = styled.div`
     }
   }
 `;
-
-export const ContentSection = styled(motion.div)`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: "Hammersmith One";
-  font-size: 2.6rem;
-  color: ${(props) => props.theme.text};
-  background-color: ${(props) => props.theme.background};
-
-  canvas {
-    position: absolute;
-    height: 100%;
-    width: 100vw;
-    left: 30%;
-  }
-
-  h1 {
-    position: absolute;
-    width: 50%;
-    left: 50px;
-    z-index: 0;
-  }
-
-  @media (max-width: 480px) {
-    height: 400px;
-    width: 100vw;
-    border: none;
-    padding: 50px 0px;
-    margin: 0;
-    font-size: 0.8rem;
-    canvas {
-      position: absolute;
-      left: 0px;
-    }
-    h1 {
-      width: 35%;
-      left: 15px;
-      text-align: left;
-    }
-  }
-`;
-
-export const AboutTimelineSection = styled(motion.div)`
-  height: 100vh;
-  width: 100vw;
-  z-index: 50;
-  background-color: ${(props) => props.theme.background};
-`;
-
-export const Timeline = styled(motion.div)`
-height: 100vh;
-width: 100vw;
-background-color: ${(props) => props.theme.background};
-`
