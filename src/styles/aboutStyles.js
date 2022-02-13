@@ -137,6 +137,7 @@ export const AboutDetailsSection = styled.div`
   }
   .skill {
     position: relative;
+    margin-top: 60%;
     font-size: 5rem;
     font-weight: bolder;
     text-transform: uppercase;
