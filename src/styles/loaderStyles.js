@@ -12,15 +12,4 @@ export const LoaderSection = styled(motion.div)`
   align-items: center;
   text-align: center;
   background-color: ${(props) => props.theme.background};
-  div {
-    position: absolute;
-    bottom: 12%;
-    font-family: "Bungee Outline";
-    font-size: 3.2rem;
-    font-weight: bolder;
-    color: ${(props) => props.theme.link};
-    @media (max-width: 480px) {
-      font-size: 1.6rem;
-    }
-  }
 `;

@@ -13,8 +13,9 @@ const skills = [
   {
     skillName: "React",
     style: {
-      left: "5%",
+      left: "10%",
       top: "-5%",
+      zIndex: "2",
     },
   },
   {
@@ -43,6 +44,7 @@ const skills = [
     style: {
       left: "10%",
       top: "-5%",
+      zIndex: "2",
     },
   },
   {
@@ -50,6 +52,7 @@ const skills = [
     style: {
       right: "10%",
       top: "-20%",
+      zIndex: "2",
     },
   },
   {
@@ -57,6 +60,7 @@ const skills = [
     style: {
       right: "30%",
       top: "-40%",
+      zIndex: "2",
     },
   },
   {
@@ -71,6 +75,7 @@ const skills = [
     style: {
       top: "-10%",
       right: "5%",
+      zIndex: "2",
     },
   },
   {
@@ -95,7 +100,7 @@ const skills = [
   // "Gaming",
 ];
 
-const Skills = ({ skillName, style }) => {
+const Skills = ({ skillName, style, id }) => {
   const [elementTop, setElementTop] = useState(0);
   const ref = useRef(null);
   const { scrollY } = useViewportScroll();
@@ -110,7 +115,12 @@ const Skills = ({ skillName, style }) => {
   }, [ref]);
 
   return (
-    <motion.p ref={ref} className="skill" style={{ ...style, y: y }}>
+    <motion.p
+      className={`skill ${id}`}
+      ref={ref}
+      className="skill"
+      style={{ ...style, y: y }}
+    >
       {skillName}
     </motion.p>
   );
@@ -119,9 +129,25 @@ const Skills = ({ skillName, style }) => {
 const AboutDetails = () => {
   return (
     <AboutDetailsSection>
-      <p className="skill-title">Skills</p>
+      <motion.p
+        initial={{ y: -40 }}
+        animate={{ y: 40 }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+        className="skill-title"
+      >
+        Skills
+      </motion.p>
       {skills.map((skill, index) => (
-        <Skills skillName={skill.skillName} key={index} style={skill.style} />
+        <Skills
+          skillName={skill.skillName}
+          key={index}
+          style={skill.style}
+          id={index}
+        />
       ))}
     </AboutDetailsSection>
   );

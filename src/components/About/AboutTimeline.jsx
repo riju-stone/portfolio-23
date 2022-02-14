@@ -21,47 +21,24 @@ import {
 const data = [
   {
     title: "May 2015",
-    cardTitle: "Passed 10th Grade under ICSE Board",
-    cardSubtitle: "Pearls of God School",
-    cardDetailedText:
-      "Started learning the fundamentals of Object Oriented Programming in Java.",
   },
   {
     title: "May 2017",
-    cardTitle: "Passed 12th Grade under ISC Board",
-    cardSubtitle: "Pearls of God School",
-    cardDetailedText:
-      "I pursued science in 12th grade and that's when I started to realise the potential and applications of Computers.",
   },
   {
     title: "In Between",
-    cardSubtitle: "Started learning Javascript and Flutter",
   },
   {
     title: "September 2020",
-    cardTitle: "Completed Bachelors of Science in CS",
-    cardSubtitle: "University of Calcutta",
-    cardDetailedText:
-      "I pursued science in 12th grade and that's when I started to realise the potential and applications of Computers.",
   },
   {
     title: "Jun - Nov 2021",
-    cardTitle: "Skill Academia",
-    cardSubtitle: "Full Stack Developer Intern",
-    cardDetailedText:
-      "I pursued science in 12th grade and that's when I started to realise the potential and applications of Computers.",
   },
   {
     title: "Dec - Present",
-    cardTitle: "Simulacra Technologies",
-    cardSubtitle: "Backend Developer Intern",
   },
   {
     title: "June 2022",
-    cardTitle: "Expected Completion of Masters of Science in CS",
-    cardSubtitle: "St. Xavier's College",
-    cardDetailedText:
-      "I pursued science in 12th grade and that's when I started to realise the potential and applications of Computers.",
   },
 ];
 
@@ -99,15 +76,62 @@ const AboutTimeline = () => {
             titleColor: "#ffffff",
           }}
         >
-          {/* <div className="chrono-icons">
-            <img src={SchoolSVG} alt="image1" />
-            <img src={SchoolSVG} alt="image1" />
-            <img src={CodeSVG} alt="image1" />
-            <img src={CollegeSVG} alt="image1" />
-            <img src={JobSVG} alt="image1" />
-            <img src={JobSVG} alt="image1" />
-            <img src={CollegeSVG} alt="image1" />
-          </div> */}
+          <div className="card">
+            <div className="card-title">Passed 10th Grade under ICSE Board</div>
+            <div className="card-subtitle">Pearls of God School</div>
+            <div className="card-content">
+              Started learning the fundamentals of Object Oriented Programming
+              in Java.
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-title">Passed 10th Grade under ICSE Board</div>
+            <div className="card-subtitle">Pearls of God School</div>
+            <div className="card-content">
+              Started learning the fundamentals of Object Oriented Programming
+              in Java.
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-title">Passed 10th Grade under ICSE Board</div>
+            <div className="card-subtitle">Pearls of God School</div>
+            <div className="card-content">
+              Started learning the fundamentals of Object Oriented Programming
+              in Java.
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-title">Passed 10th Grade under ICSE Board</div>
+            <div className="card-subtitle">Pearls of God School</div>
+            <div className="card-content">
+              Started learning the fundamentals of Object Oriented Programming
+              in Java.
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-title">Passed 10th Grade under ICSE Board</div>
+            <div className="card-subtitle">Pearls of God School</div>
+            <div className="card-content">
+              Started learning the fundamentals of Object Oriented Programming
+              in Java.
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-title">Passed 12th Grade under ISC Board</div>
+            <div className="card-subtitle">Pearls of God School</div>
+            <div className="card-content">
+              Started learning the fundamentals of Object Oriented Programming
+              in Java.
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-title">Passed 10th Grade under ICSE Board</div>
+            <div className="card-subtitle">Pearls of God School</div>
+            <div className="card-content">
+              Started learning the fundamentals of Object Oriented Programming
+              in Java.
+            </div>
+          </div>
         </Chrono>
       </TimelineView>
       <Marquee>

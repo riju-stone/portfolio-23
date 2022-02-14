@@ -134,6 +134,7 @@ export const AboutDetailsSection = styled.div`
     font-family: "Hammersmith One";
     color: ${(props) => props.theme.text};
     font-size: 28rem;
+    z-index: 1;
   }
   .skill {
     position: relative;
@@ -145,6 +146,12 @@ export const AboutDetailsSection = styled.div`
   }
 
   @media (max-width: 480px) {
+    .skill-title {
+      font-size: 7rem;
+    }
+    .skill {
+      font-size: 2rem;
+    }
   }
   @media (min-width: 480px) and (max-width: 768px) {
   }
@@ -199,6 +206,7 @@ export const ContentSection = styled(motion.div)`
 export const AboutTimelineSection = styled(motion.div)`
   height: 310vh;
   width: 100vw;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -213,31 +221,68 @@ export const AboutTimelineSection = styled(motion.div)`
     font-weight: bolder;
     color: ${(props) => props.theme.text};
   }
+  @media (max-width: 480px) {
+    .title {
+      font-size: 4rem;
+    }
+  }
 `;
 
 export const TimelineView = styled(motion.div)`
   margin: 0%;
   padding: 0%;
-  width: 100vw;
+  width: 100%;
   background-color: ${(props) => props.theme.background};
   .timeline-card-content {
     height: auto;
-    width: 30vw;
+    width: 40%;
     padding: 10px 15px;
-    font-style: "Hammersmith One;";
-    background-color: ${(props) => props.theme.link};
+    background-color: ${(props) => props.theme.darkTurqoise};
     span {
-      background-color: ${(props) => props.theme.link};
-    }
-    a {
-      color: ${(props) => props.theme.background};
-      text-decoration: none;
-      cursor: none;
+      background-color: ${(props) => props.theme.darkTurqoise};
     }
   }
   .timeline-item-title {
+    font-family: "Hammersmith One";
     background-color: ${(props) => props.theme.turqoise};
     color: ${(props) => props.theme.text};
+  }
+  .card-title {
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+    font-family: "Hammersmith One";
+    font-weight: bolder;
+    color: ${(props) => props.theme.link};
+  }
+  .card-subtitle {
+    margin-bottom: 10px;
+    font-family: "Hammersmith One";
+    font-size: 1.1rem;
+    color: ${(props) => props.theme.turqoise};
+  }
+  .card-content {
+    font-size: 1rem;
+    color: white;
+  }
+  @media (max-width: 480px) {
+    .timeline-card-content {
+      height: 50px;
+      width: 100%;
+      padding: 5px 15px;
+      span {
+        display: none;
+      }
+    }
+    .card-title {
+      font-size: 1rem;
+    }
+    .card-subtitle {
+      font-size: 0.8rem;
+    }
+    .card-content {
+      line-height: 12px;
+      font-size: 0.6rem;
+    }
   }
 `;
 

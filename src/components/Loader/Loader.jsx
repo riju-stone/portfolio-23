@@ -11,7 +11,7 @@ function Loader() {
     <>
       <AnimatePresence>
         <LoaderSection>
-          <Rive src={Rocket} />
+          <Rive src={Rocket} style={{ height: "100%", width: "25%" }} />
           {/* <div>
             Setting things <br />
             in Motion
