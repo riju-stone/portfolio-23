@@ -101,8 +101,8 @@ const skills = [
   {
     skillName: "C++",
     style: {
-      right: "10%",
-      marginTop: "250px",
+      right: "18%",
+      marginTop: "300px",
     },
   },
   {

@@ -59,7 +59,7 @@ export const NavList = styled.div`
   width: 100vw;
   display: flex;
   align-items: center;
-  font-family: "Hammersmith One", sans-serif;
+  font-family: "Space Grotesk";
   ul {
     padding: 0;
     li {

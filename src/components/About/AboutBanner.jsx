@@ -76,7 +76,9 @@ const AboutBanner = ({ onCursor }) => {
               ease: [0.5, 0.05, -0.01, 0.9],
             }}
           >
-            I am where I am <br /> 'cause I've been where I've been...
+            I am where I am 'cause
+            <br />
+            I've been where I've been...
           </motion.span>
           <video autoPlay muted playsInline preload="True" loop>
             <source src={TitleVideo1080p} type="video/mp4" />

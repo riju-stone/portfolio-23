@@ -1,5 +1,5 @@
 import React from "react";
-import Rive, { useRive } from "rive-react";
+import Rive from "rive-react";
 import { AnimatePresence } from "framer-motion";
 
 import Rocket from "../../assets/animations/rocket.riv";

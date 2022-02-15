@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { motion } from "framer-motion";
 
 //home banner styles
@@ -33,7 +33,7 @@ export const BannerTitle = styled(motion.h1)`
 export const Headline = styled(motion.span)`
   display: flex;
   inset: 0;
-  font-family: "Camar";
+  font-family: "Hammersmith One";
   font-size: 15rem;
   font-weight: bolder;
   line-height: 1;

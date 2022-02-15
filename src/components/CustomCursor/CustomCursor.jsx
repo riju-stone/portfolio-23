@@ -35,9 +35,7 @@ const CustomCursor = ({ toggleMenu }) => {
     <>
       <Cursor
         ref={cursor}
-        className={`${!!cursorType ? "hovered" : ""} ${cursorType} ${
-          toggleMenu ? "nav-open" : ""
-        }`}
+        className={`${!!cursorType ? "hovered" : ""} ${cursorType} `}
       />
     </>
   );

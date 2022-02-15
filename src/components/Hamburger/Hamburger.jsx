@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 //styles
@@ -12,7 +12,7 @@ import {
   NavVideos,
   FooterSocial,
 } from "../../styles/hamburgerStyles";
-import { FooterContent, Flex as FooterFlex } from "../../styles/footerStyles";
+import { Flex as FooterFlex } from "../../styles/footerStyles";
 import { BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
 
 //videos

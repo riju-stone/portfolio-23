@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { motion } from "framer-motion";
 
 // about banner styles
@@ -53,11 +53,11 @@ export const AboutBannerSection = styled(motion.div)`
     #sub-title {
       overflow-y: hidden;
       position: absolute;
-      bottom: 100px;
+      bottom: 60px;
       left: 50px;
-      font-family: "Monteserrat";
-      font-weight: 600;
-      font-size: 4rem;
+      font-family: "Space Grotesk";
+      font-weight: 200;
+      font-size: 3.4rem;
       color: ${(props) => props.theme.turqoise};
     }
   }
@@ -95,7 +95,7 @@ export const AboutPlaneSection = styled(motion.div)`
   justify-content: center;
   align-items: center;
   @media (max-width: 480px) {
-    height: 400px;
+    height: 50vh;
   }
 `;
 
@@ -148,18 +148,17 @@ export const AboutDetailsSection = styled.div`
     position: absolute;
   }
   .skill {
-    font-family: "Camar";
+    font-family: "Space Grotesk";
     margin-top: 10%;
     position: absolute;
     line-height: 0;
     font-size: 2.5rem;
     font-weight: bolder;
-    text-transform: uppercase;
     color: ${(props) => props.theme.turqoise};
   }
 
   @media (max-width: 480px) {
-    height: 400px;
+    height: 90vh;
     .skill-title {
       font-size: 7rem;
     }
@@ -218,7 +217,7 @@ export const ContentSection = styled(motion.div)`
 
 // about timeline
 export const AboutTimelineSection = styled(motion.div)`
-  height: 310vh;
+  height: 330vh;
   width: 100vw;
   overflow: hidden;
   display: flex;
@@ -228,6 +227,7 @@ export const AboutTimelineSection = styled(motion.div)`
   z-index: 50;
   background-color: ${(props) => props.theme.background};
   .title {
+    margin-top: 200px;
     text-transform: uppercase;
     margin: 0;
     font-family: "Hammersmith One";
@@ -236,6 +236,7 @@ export const AboutTimelineSection = styled(motion.div)`
     color: ${(props) => props.theme.text};
   }
   @media (max-width: 480px) {
+    height: auto;
     .title {
       font-size: 4rem;
     }
@@ -257,9 +258,9 @@ export const TimelineView = styled(motion.div)`
     }
   }
   .timeline-item-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 5px 10px;
-    font-family: "Hammersmith One";
+    font-family: "Space Grotesk";
     background-color: ${(props) => props.theme.turqoise};
     color: ${(props) => props.theme.text};
   }
@@ -272,17 +273,20 @@ export const TimelineView = styled(motion.div)`
   }
   .card-subtitle {
     margin-bottom: 10px;
-    font-family: "Hammersmith One";
+    font-family: "Space Grotesk";
+    font-weight: bold;
     font-size: 1.1rem;
     color: ${(props) => props.theme.turqoise};
   }
   .card-content {
+    font-family: "Work Sans";
     font-size: 1rem;
     color: white;
   }
   @media (max-width: 480px) {
     .timeline-item-title {
-      font-size: 0.6rem;
+      padding: 5px 5px;
+      font-size: 0.5rem;
     }
     .timeline-card-content {
       height: 50px;
@@ -317,7 +321,6 @@ export const Marquee = styled.div`
   overflow: hidden;
   background-color: ${(props) => props.theme.background};
   p {
-    text-transform: uppercase;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -336,7 +339,7 @@ export const Marquee = styled.div`
   }
   #author {
     margin: 10px 0px;
-    font-family: "Hammersmith One";
+    font-family: "Space Grotesk";
     font-weight: bolder;
     font-size: 4rem;
   }

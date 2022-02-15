@@ -10,9 +10,10 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { normalize } from "styled-normalize";
 
 //fonts
-import Camar from "./fonts/Camar.otf";
+import SpaceGrotesk from "./fonts/SpaceGrotesk.ttf";
 import HammerSmith from "./fonts/HammersmithOne.ttf";
 import Bungee from "./fonts/BungeeOutline.ttf";
+import WorkSans from "./fonts/WorkSans.ttf";
 
 //components
 import Loader from "./components/Loader/Loader";
@@ -38,12 +39,16 @@ ${normalize}
 *{
   cursor: none;
   @font-face{
-    font-family: 'Camar';
-    src: url(${Camar});
+    font-family: 'Space Grotesk';
+    src: url(${SpaceGrotesk});
   }
   @font-face{
     font-family: 'Hammersmith One';
     src: url(${HammerSmith});
+  }
+  @font-face {
+    font-family: 'Work Sans';
+    src: url(${WorkSans});
   }
   @font-face{
     font-family: 'Bungee Outline';
