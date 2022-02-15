@@ -1,13 +1,8 @@
-import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React from "react";
+import { motion } from "framer-motion";
 
 //styles
-import {
-  AboutSection,
-  AboutBannerSection,
-  Marquee,
-} from "../../styles/aboutStyles";
+import { AboutSection, AboutBannerSection } from "../../styles/aboutStyles";
 import TitleVideo1080p from "../../assets/videos/about/about1080p.mp4";
 
 // hooks
@@ -15,20 +10,6 @@ import { useIsMobile } from "../../hooks/useMediaQuery";
 
 const AboutBanner = ({ onCursor }) => {
   const isMobile = useIsMobile();
-
-  const animation = useAnimation();
-
-  let rootMargin;
-  const [quoteRef, inView] = useInView({
-    triggerOnce: true,
-    rootMargin: "-120px",
-  });
-
-  useEffect(() => {
-    if (inView) {
-      animation.start("visible");
-    }
-  }, [animation, inView]);
   return (
     <AboutSection>
       <AboutBannerSection

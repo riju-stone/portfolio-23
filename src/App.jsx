@@ -1,19 +1,15 @@
-import React, { useState, useEffect, useRef, Suspense } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
 } from "./context/globalContext";
 
+import Monoton from "./fonts/Monoton.ttf";
+
 //styled components
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { normalize } from "styled-normalize";
-
-//fonts
-import SpaceGrotesk from "./fonts/SpaceGrotesk.ttf";
-import HammerSmith from "./fonts/HammersmithOne.ttf";
-import Bungee from "./fonts/BungeeOutline.ttf";
-import WorkSans from "./fonts/WorkSans.ttf";
 
 //components
 import Loader from "./components/Loader/Loader";
@@ -26,8 +22,6 @@ import AboutPlane from "./components/About/AboutPlane";
 import AboutContent from "./components/About/AboutContent";
 import AboutTimeline from "./components/About/AboutTimeline";
 
-import { AboutSection } from "./styles/aboutStyles";
-
 const Projects = React.lazy(() => import("./components/Projects/Projects"));
 const AboutBanner = React.lazy(() => import("./components/About/AboutBanner"));
 const HomeBanner = React.lazy(() => import("./components/Home/HomeBanner"));
@@ -38,21 +32,9 @@ const GlobalStyle = createGlobalStyle`
 ${normalize}
 *{
   cursor: none;
-  @font-face{
-    font-family: 'Space Grotesk';
-    src: url(${SpaceGrotesk});
-  }
-  @font-face{
-    font-family: 'Hammersmith One';
-    src: url(${HammerSmith});
-  }
   @font-face {
-    font-family: 'Work Sans';
-    src: url(${WorkSans});
-  }
-  @font-face{
-    font-family: 'Bungee Outline';
-    src: url(${Bungee});
+    font-family: "Monoton";
+    src: url(${Monoton});
   }
 }
 
@@ -80,15 +62,13 @@ body{
 
 `;
 
+// main app component
 function App() {
   const { currentTheme, cursorStyles } = useGlobalStateContext();
   const dispatch = useGlobalDispatchContext();
   const [toggleMenu, setToggleMenu] = useState(false);
   const [loading, setLoading] = useState(true);
   const [hamburgerPosition, setHamburgerPosition] = useState({ x: 0, y: 0 });
-
-  //component refs
-  let aboutRef = useRef(null);
 
   const darkTheme = {
     background: "#152b39",
@@ -113,11 +93,14 @@ function App() {
   // save the theme on localstorage
   useEffect(() => {
     window.localStorage.setItem("theme", currentTheme);
+
+    // timeout for loader component
     setTimeout(() => {
       setLoading(false);
     }, 4000);
   }, [currentTheme]);
 
+  // dispatch action when cursor type is changed
   const onCursor = (curType) => {
     curType = (cursorStyles.includes(curType) && curType) || false;
     dispatch({ type: "CURSOR_TYPE", cursorType: curType });
@@ -128,7 +111,7 @@ function App() {
       <GlobalStyle />
       <CustomCursor toggleMenu={toggleMenu} />
       {loading === true ? (
-        <Loader />
+        <Loader onCursor={onCursor} />
       ) : (
         <>
           <Router>
@@ -143,7 +126,6 @@ function App() {
               setToggleMenu={setToggleMenu}
               onCursor={onCursor}
             />
-
             <Routes>
               <Route
                 path="/"

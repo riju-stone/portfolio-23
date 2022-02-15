@@ -1,15 +1,6 @@
-import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
-import { animationControls, motion } from "framer-motion";
-import {
-  useAnimation,
-  useViewportScroll,
-  useTransform,
-  useSpring,
-} from "framer-motion";
-import { useInView } from "react-intersection-observer";
-
-// hooks
-import { useIsMobile } from "../../hooks/useMediaQuery";
+import React, { useState, useRef, useLayoutEffect } from "react";
+import { motion } from "framer-motion";
+import { useViewportScroll, useTransform, useSpring } from "framer-motion";
 
 //styles
 import { AboutDetailsSection } from "../../styles/aboutStyles";

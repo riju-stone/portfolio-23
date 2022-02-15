@@ -56,7 +56,7 @@ export const AboutBannerSection = styled(motion.div)`
       bottom: 60px;
       left: 50px;
       font-family: "Space Grotesk";
-      font-weight: 200;
+      font-weight: 800;
       font-size: 3.4rem;
       color: ${(props) => props.theme.turqoise};
     }
@@ -152,7 +152,7 @@ export const AboutDetailsSection = styled.div`
     margin-top: 10%;
     position: absolute;
     line-height: 0;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: bolder;
     color: ${(props) => props.theme.turqoise};
   }
@@ -328,14 +328,12 @@ export const Marquee = styled.div`
     line-height: 0;
   }
   #upper {
-    font-family: "Bungee Outline";
-    font-weight: bolder;
-    font-size: 18rem;
+    font-family: "Monoton";
+    font-size: 16rem;
   }
   #lower {
-    font-family: "Bungee Outline";
-    font-weight: bolder;
-    font-size: 15rem;
+    font-family: "Monoton";
+    font-size: 14rem;
   }
   #author {
     margin: 10px 0px;

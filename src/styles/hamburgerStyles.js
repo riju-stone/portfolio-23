@@ -59,7 +59,8 @@ export const NavList = styled.div`
   width: 100vw;
   display: flex;
   align-items: center;
-  font-family: "Space Grotesk";
+  font-family: "Hammersmith One";
+  font-weight: bolder;
   ul {
     padding: 0;
     li {
@@ -126,7 +127,6 @@ export const NavList = styled.div`
 `;
 
 export const NavFooter = styled.div`
-  font-family: "Monteserrat";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -185,7 +185,6 @@ export const FooterSocial = styled.div`
   display: flex;
   a {
     cursor: none;
-    font-family: "Montserrat", sans-serif;
     position: relative;
     display: block;
     width: 25px;

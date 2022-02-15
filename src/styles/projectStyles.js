@@ -71,7 +71,6 @@ export const Cards = styled(motion.div)`
   }
 
   p {
-    font-family: "Monteserrat";
     width: 65%;
   }
 
