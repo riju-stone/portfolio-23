@@ -82,7 +82,6 @@ export const Logo = styled.div`
     height: 25px;
     width: 25px;
     transition: all 0.3s ease-in-out;
-    stroke-width: 2px;
   }
   @media (max-width: 480px) {
     a {

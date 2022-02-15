@@ -32,7 +32,7 @@ export const AboutBannerSection = styled(motion.div)`
       top: 0;
       left: 0;
       fill: ${(props) => props.theme.text};
-      font-size: 16rem;
+      font-size: 20rem;
       font-weight: bolder;
       height: 100%;
       width: 100%;
@@ -57,7 +57,7 @@ export const AboutBannerSection = styled(motion.div)`
       left: 50px;
       font-family: "Monteserrat";
       font-weight: 600;
-      font-size: 3rem;
+      font-size: 4rem;
       color: ${(props) => props.theme.turqoise};
     }
   }
@@ -95,20 +95,21 @@ export const AboutPlaneSection = styled(motion.div)`
   justify-content: center;
   align-items: center;
   @media (max-width: 480px) {
-    height: 80vh;
+    height: 400px;
   }
 `;
 
 export const Content = styled(motion.div)`
   width: 60%;
   font-family: "Hammersmith One", sans-serif;
-  font-size: 5.2rem;
+  font-size: 7.2rem;
   font-weight: 600;
   margin-left: 20%;
   margin-top: 20%;
   color: ${(props) => props.theme.link};
   @media (max-width: 480px) {
-    font-size: 2.2rem;
+    font-size: 3rem;
+    width: 80%;
     margin-top: 40%;
     margin-left: 25px;
   }
@@ -125,8 +126,9 @@ export const AboutDetailsSection = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
   .skill-title {
     position: absolute;
     font-weight: bolder;
@@ -136,21 +138,33 @@ export const AboutDetailsSection = styled.div`
     font-size: 28rem;
     z-index: 1;
   }
+  .skill-container {
+    width: 80%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+  }
   .skill {
-    position: relative;
-    margin-top: 60%;
-    font-size: 5rem;
+    font-family: "Camar";
+    margin-top: 10%;
+    position: absolute;
+    line-height: 0;
+    font-size: 2.5rem;
     font-weight: bolder;
     text-transform: uppercase;
     color: ${(props) => props.theme.turqoise};
   }
 
   @media (max-width: 480px) {
+    height: 400px;
     .skill-title {
       font-size: 7rem;
     }
     .skill {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
   @media (min-width: 480px) and (max-width: 768px) {
@@ -165,7 +179,6 @@ export const ContentSection = styled(motion.div)`
   justify-content: center;
   align-items: center;
   font-family: "Hammersmith One";
-  font-size: 2.6rem;
   color: ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.background};
 
@@ -177,6 +190,7 @@ export const ContentSection = styled(motion.div)`
   }
 
   h1 {
+    font-size: 7.6rem;
     position: absolute;
     width: 50%;
     left: 50px;
@@ -187,15 +201,15 @@ export const ContentSection = styled(motion.div)`
     height: 400px;
     width: 100vw;
     border: none;
-    padding: 50px 0px;
     margin: 0;
     font-size: 0.8rem;
     canvas {
       position: absolute;
-      left: 0px;
+      left: 2%;
     }
     h1 {
-      width: 35%;
+      font-size: 2.2rem;
+      width: 40%;
       left: 15px;
       text-align: left;
     }
@@ -243,6 +257,8 @@ export const TimelineView = styled(motion.div)`
     }
   }
   .timeline-item-title {
+    font-size: 1.2rem;
+    padding: 5px 10px;
     font-family: "Hammersmith One";
     background-color: ${(props) => props.theme.turqoise};
     color: ${(props) => props.theme.text};
@@ -265,9 +281,12 @@ export const TimelineView = styled(motion.div)`
     color: white;
   }
   @media (max-width: 480px) {
+    .timeline-item-title {
+      font-size: 0.6rem;
+    }
     .timeline-card-content {
       height: 50px;
-      width: 100%;
+      width: 80%;
       padding: 5px 15px;
       span {
         display: none;

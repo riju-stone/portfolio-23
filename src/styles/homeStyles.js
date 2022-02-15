@@ -6,7 +6,10 @@ export const Banner = styled.div`
   background: ${(props) => props.theme.background};
   height: 100vh;
   width: 100vw;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const BannerTitle = styled(motion.h1)`
@@ -29,11 +32,10 @@ export const BannerTitle = styled(motion.h1)`
 
 export const Headline = styled(motion.span)`
   display: flex;
-  letter-spacing: 10px;
   inset: 0;
-  font-family: "Hammersmith One";
-  font-size: 12rem;
-  font-weight: 900;
+  font-family: "Camar";
+  font-size: 15rem;
+  font-weight: bolder;
   line-height: 1;
   @media (max-width: 480px) {
     font-size: 3.2rem;

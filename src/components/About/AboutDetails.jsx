@@ -1,6 +1,11 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
-import { motion } from "framer-motion";
-import { useAnimation, useViewportScroll, useTransform } from "framer-motion";
+import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
+import { animationControls, motion } from "framer-motion";
+import {
+  useAnimation,
+  useViewportScroll,
+  useTransform,
+  useSpring,
+} from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 // hooks
@@ -14,122 +19,131 @@ const skills = [
     skillName: "React",
     style: {
       left: "10%",
-      top: "-5%",
-      zIndex: "2",
+      marginTop: "-150px",
     },
   },
   {
     skillName: "Javascript",
     style: {
-      left: "60%",
-      top: "10%",
+      left: "8%",
+      marginTop: "100px",
     },
   },
   {
     skillName: "Go",
     style: {
-      left: "10%",
-      top: "15%",
+      left: "20%",
+      zIndex: "2",
+      marginTop: "-50px",
     },
   },
   {
     skillName: "Node",
     style: {
-      right: "10%",
-      top: "5%",
+      left: "40%",
+      marginTop: "250px",
     },
   },
   {
     skillName: "Python",
     style: {
-      left: "10%",
-      top: "-5%",
+      right: "20%",
       zIndex: "2",
+      marginTop: "80px",
     },
   },
   {
     skillName: "SQL",
     style: {
+      right: "35%",
+      marginTop: "-60px",
+      zIndex: "2",
+    },
+  },
+  {
+    skillName: "Electron",
+    style: {
       right: "10%",
-      top: "-20%",
+      marginTop: "-80px",
+    },
+  },
+  {
+    skillName: "Flutter",
+    style: {
+      right: "35%",
+      marginTop: "-200px",
       zIndex: "2",
     },
   },
   {
-    skillName: "HTML",
+    skillName: "TailwindCSS",
     style: {
-      right: "30%",
-      top: "-40%",
+      left: "40%",
+      marginTop: "-100px",
+      zIndex: "2",
+    },
+  },
+  // {
+  //   skillName: "Framer-Motion/GSAP",
+  //   style: {
+  //     left: "25%",
+  //     marginTop: "-200px",
+  //     zIndex: "0",
+  //   },
+  // },
+  {
+    skillName: "Mongo-DB",
+    style: {
+      right: "40%",
       zIndex: "2",
     },
   },
   {
-    skillName: "CSS",
+    skillName: "C++",
     style: {
-      right: "55%",
-      top: "-32%",
+      right: "10%",
+      marginTop: "250px",
     },
   },
   {
-    skillName: "Git",
+    skillName: "Java",
     style: {
-      top: "-10%",
-      right: "5%",
-      zIndex: "2",
-    },
-  },
-  {
-    skillName: "Docker",
-    style: {
-      top: "-30%",
       right: "12%",
+      marginTop: "150px",
     },
   },
-  // "Tailwind",
-  // "Framer-Motion",
-  // "Node",
-  // "Go",
-  // "MySQL",
-  // "MongoDB",
-  // "Firebase",
-  // "C++",
-  // "Java",
-  // "Python",
-  // "Painting",
-  // "Photography",
-  // "Gaming",
 ];
 
-const Skills = ({ skillName, style, id }) => {
-  const [elementTop, setElementTop] = useState(0);
+const Skills = ({ skillName, style, id, start }) => {
   const ref = useRef(null);
   const { scrollY } = useViewportScroll();
 
-  const y = useTransform(scrollY, [elementTop, elementTop + 8], [0, -2], {
+  const transform = useTransform(scrollY, [start, start + 1], [0, -0.01 * id], {
     clamp: false,
   });
-
-  useLayoutEffect(() => {
-    const element = ref.current;
-    setElementTop(element.offsetTop);
-  }, [ref]);
+  const physics = { damping: 15, mass: 0.27, stiffness: 50 };
+  const y = useSpring(transform, physics);
 
   return (
-    <motion.p
-      className={`skill ${id}`}
-      ref={ref}
-      className="skill"
-      style={{ ...style, y: y }}
-    >
+    <motion.p className={`skill ${id}`} ref={ref} style={{ ...style, y: y }}>
       {skillName}
     </motion.p>
   );
 };
 
 const AboutDetails = () => {
+  const [elementTop, setElementTop] = useState(null);
+  const skillRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const element = skillRef.current;
+    setElementTop(element.offsetTop);
+  }, [skillRef]);
+
   return (
     <AboutDetailsSection>
       <motion.p
+        ref={skillRef}
         initial={{ y: -40 }}
         animate={{ y: 40 }}
         transition={{
@@ -141,14 +155,17 @@ const AboutDetails = () => {
       >
         Skills
       </motion.p>
-      {skills.map((skill, index) => (
-        <Skills
-          skillName={skill.skillName}
-          key={index}
-          style={skill.style}
-          id={index}
-        />
-      ))}
+      <div className="skills-container">
+        {skills.map((skill, index) => (
+          <Skills
+            start={elementTop}
+            skillName={skill.skillName}
+            key={index}
+            style={skill.style}
+            id={index}
+          />
+        ))}
+      </div>
     </AboutDetailsSection>
   );
 };

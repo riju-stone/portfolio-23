@@ -4,13 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { Chrono } from "react-chrono";
 
 //hooks
-import { useIsMobile } from "../../hooks/useMediaQuery";
-
-//styles
-import SchoolSVG from "../../assets/logos/school.png";
-import CodeSVG from "../../assets/logos/code.png";
-import CollegeSVG from "../../assets/logos/college.png";
-import JobSVG from "../../assets/logos/job.png";
+import { useIsMobile, useIsSmallTablet } from "../../hooks/useMediaQuery";
 
 import {
   Marquee,
@@ -44,6 +38,7 @@ const data = [
 
 const AboutTimeline = () => {
   const isMobile = useIsMobile();
+  const isSmallTablet = useIsSmallTablet();
   const animation = useAnimation();
 
   let rootMargin;
@@ -64,7 +59,7 @@ const AboutTimeline = () => {
       <p className="title">Experience</p>
       <TimelineView>
         <Chrono
-          mode="VERTICAL_ALTERNATING"
+          mode={isMobile || isSmallTablet ? "VERTICAL" : "VERTICAL_ALTERNATING"}
           hideControls="true"
           items={data}
           borderLessCards="true"

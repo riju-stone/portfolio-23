@@ -15,11 +15,10 @@ import {
   useGlobalDispatchContext,
 } from "../../context/globalContext";
 
+import { BiSun, BiMoon } from "react-icons/bi";
+
 //hooks
 import useElementPosition from "../../hooks/useElemPos";
-
-// logos
-import { HalfMoon, SunLight } from "iconoir-react";
 
 const Header = ({
   onCursor,
@@ -63,9 +62,9 @@ const Header = ({
               onMouseLeave={() => onCursor()}
             >
               {currentTheme === "dark" ? (
-                <HalfMoon color="#ededed" />
+                <BiMoon color="#ededed" />
               ) : (
-                <SunLight color="#024959" />
+                <BiSun color="#024959" />
               )}
             </span>
             <Link to="/">ME</Link>
