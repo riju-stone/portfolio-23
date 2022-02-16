@@ -10,7 +10,7 @@ export const Nav = styled(motion.div)`
   display: block;
   background: ${(props) => props.theme.darkTurqoise};
   color: #000;
-  z-index: 95;
+  z-index: 80;
   overflow-x: hidden;
   overflow-y: hidden;
 `;

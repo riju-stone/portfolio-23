@@ -10,10 +10,10 @@ export const Banner = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 `;
 
 export const BannerTitle = styled(motion.h1)`
-  position: absolute;
   bottom: 0;
   left: -18px;
   color: ${(props) => props.theme.turqoise};
@@ -34,7 +34,8 @@ export const Headline = styled(motion.span)`
   display: flex;
   inset: 0;
   font-family: "Hammersmith One";
-  font-size: 15rem;
+  font-size: 12rem;
+  letter-spacing: 2px;
   font-weight: bolder;
   line-height: 1;
   @media (max-width: 480px) {

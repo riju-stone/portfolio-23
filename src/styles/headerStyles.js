@@ -3,13 +3,11 @@ import { motion } from "framer-motion";
 
 export const HeaderNav = styled(motion.div)`
   position: fixed;
-  z-index: 100;
   width: 100%;
   position: absolute;
   top: 72px;
   right: 0;
   left: 0;
-  z-index: 90;
   @media (max-width: 480px) {
     top: 50px;
   }
@@ -70,6 +68,7 @@ export const Flex = styled.div`
 
 export const Logo = styled.div`
   font-family: "Hammersmith One";
+  z-index: 70;
   a {
     font-size: 2.3rem;
     font-weight: bolder;
@@ -94,27 +93,26 @@ export const Logo = styled.div`
   }
 `;
 
-export const Menu = styled(motion.div)`
-  button {
-    transform-origin: center;
-    border: none;
-    outline: none;
-    padding: 20px;
-    background: none;
+export const Menu = styled(motion.button)`
+  z-index: 90;
+  transform-origin: center;
+  border: none;
+  outline: none;
+  padding: 20px;
+  background: none;
+  span {
+    width: 28px;
+    height: 6px;
+    display: block;
+    background: ${(props) => props.theme.turqoise};
+    border-radius: 30px;
+    margin: 8px;
+  }
+  @media (max-width: 480px) {
+    padding: 5px;
     span {
-      width: 28px;
-      height: 6px;
-      display: block;
-      background: ${(props) => props.theme.turqoise};
-      border-radius: 30px;
-      margin: 8px;
-    }
-    @media (max-width: 480px) {
-      padding: 5px;
-      span {
-        height: 4px;
-        width: 24px;
-      }
+      height: 4px;
+      width: 22px;
     }
   }
 `;

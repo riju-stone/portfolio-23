@@ -54,6 +54,7 @@ body{
   overflow-x: hidden;
   padding:0;
   margin:0;
+  scroll-snap-type: y mandatory;
 }
 
 ::-webkit-scrollbar {

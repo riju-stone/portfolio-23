@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 //styles
-import { Container, Flex } from "../../styles/globalStyles";
+import { Container } from "../../styles/globalStyles";
 import {
   Nav,
-  NavHeader,
-  CloseNav,
   NavList,
   NavFooter,
   NavVideos,
@@ -58,24 +56,6 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
     key: "0",
   });
 
-  const menuAnim1 = {
-    initial: { rotate: 0, y: 0 },
-    hover: { rotate: 45, y: 7 },
-    transition: {
-      duration: 0.2,
-      ease: [0.6, 0.05, -0.01, 0.9],
-    },
-  };
-
-  const menuAnim2 = {
-    initial: { rotate: 0, y: 0 },
-    hover: { rotate: -45, y: -7 },
-    transition: {
-      duration: 0.2,
-      ease: [0.6, 0.05, -0.01, 0.9],
-    },
-  };
-
   return (
     <>
       <AnimatePresence>
@@ -87,7 +67,7 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
             transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
           >
             <Container>
-              <NavHeader>
+              {/* <NavHeader>
                 <Flex flexEnd noHeight>
                   <CloseNav
                     onClick={() => setToggleMenu(!toggleMenu)}
@@ -104,7 +84,7 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                     </motion.button>
                   </CloseNav>
                 </Flex>
-              </NavHeader>
+              </NavHeader> */}
               <NavList>
                 <ul>
                   {navRoutes.map((route) => (
@@ -132,6 +112,7 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                         <a
                           href={Resume}
                           target="_blank"
+                          rel="noopener noreferrer"
                           onClick={() => setToggleMenu(!toggleMenu)}
                         >
                           <motion.div

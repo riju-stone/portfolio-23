@@ -6,6 +6,7 @@ export const AboutSection = styled(motion.div)`
   padding: 0%;
   margin: 0%;
   overflow: hidden;
+  scroll-snap-align: start;
 `;
 
 export const AboutBannerSection = styled(motion.div)`
@@ -17,6 +18,7 @@ export const AboutBannerSection = styled(motion.div)`
   justify-content: center;
   align-items: center;
   overflow-y: hidden;
+  scroll-snap-align: start;
   #title-container {
     overflow-y: hidden;
     height: 100%;
@@ -94,8 +96,9 @@ export const AboutPlaneSection = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  scroll-snap-align: start;
   @media (max-width: 480px) {
-    height: 50vh;
+    height: 80vh;
   }
 `;
 
@@ -129,6 +132,7 @@ export const AboutDetailsSection = styled.div`
   align-items: center;
   justify-content: center;
   overflow-y: hidden;
+  scroll-snap-align: start;
   .skill-title {
     position: absolute;
     font-weight: bolder;
@@ -180,7 +184,7 @@ export const ContentSection = styled(motion.div)`
   font-family: "Hammersmith One";
   color: ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.background};
-
+  scroll-snap-align: start;
   canvas {
     position: absolute;
     height: 100%;
@@ -225,6 +229,7 @@ export const AboutTimelineSection = styled(motion.div)`
   justify-content: center;
   align-items: center;
   z-index: 50;
+  scroll-snap-align: start;
   background-color: ${(props) => props.theme.background};
   .title {
     margin-top: 200px;
@@ -319,6 +324,7 @@ export const Marquee = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  scroll-snap-align: start;
   background-color: ${(props) => props.theme.background};
   p {
     display: flex;

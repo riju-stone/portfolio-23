@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 //styles
 import {
@@ -43,6 +44,24 @@ const Header = ({
     setHamburgerPosition({ x: x, y: y });
   };
 
+  const menuAnim1 = {
+    initial: { rotate: 0, y: 0 },
+    open: { rotate: 45, y: 7 },
+    transition: {
+      duration: 0.2,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    },
+  };
+
+  const menuAnim2 = {
+    initial: { rotate: 0, y: 0 },
+    open: { rotate: -45, y: -7 },
+    transition: {
+      duration: 0.2,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    },
+  };
+
   return (
     <HeaderNav
       initial={{ opacity: 0, y: -72 }}
@@ -74,11 +93,11 @@ const Header = ({
             onClick={() => setToggleMenu(!toggleMenu)}
             onMouseEnter={() => menuHover(position.x, position.y)}
             onMouseLeave={() => onCursor()}
+            initial="initial"
+            animate={toggleMenu ? "open" : "initial"}
           >
-            <button>
-              <span></span>
-              <span></span>
-            </button>
+            <motion.span variants={menuAnim1}></motion.span>
+            <motion.span variants={menuAnim2}></motion.span>
           </Menu>
         </Flex>
       </Container>
