@@ -8,6 +8,7 @@ I am not great at UI/UX design. I am still learning so much about web developmen
 
 - The Hamburger Menu and a few other things were inspired from designs by [Akram Khalid](https://wrongakram.com/)
 - All the stock background videos were created and rendered by [Rostislav Uzunov](https://www.pexels.com/@rostislav-uzunov-3145660)
+- The various beautiful animations were created in RIVE editor by the RIVE community
 - `StackOverflow` and `YouTube` - the sole saviour of all my problems.
 
 ## Attribution
