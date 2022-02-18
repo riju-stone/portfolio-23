@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 //styles
 import { Container } from "../../styles/globalStyles";
@@ -26,19 +25,19 @@ const navRoutes = [
   {
     id: 0,
     title: "About Me",
-    path: "/about",
+    path: "#about",
     video: <source src={AboutVideo1080p} type="video/mp4" />,
   },
   {
     id: 1,
     title: "My Projects",
-    path: "/projects",
+    path: "#projects",
     video: <source src={ProjectVideo1080p} type="video/mp4" />,
   },
   {
     id: 2,
     title: "Let's Talk",
-    path: "/contact",
+    path: "#contact",
     video: <source src={ContactVideo1080p} type="video/mp4" />,
   },
   {
@@ -140,8 +139,8 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                           </motion.div>
                         </a>
                       ) : (
-                        <Link
-                          to={`${route.path}`}
+                        <a
+                          href={`${route.path}`}
                           onClick={() => setToggleMenu(!toggleMenu)}
                         >
                           <motion.div
@@ -167,7 +166,7 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                             </span>
                             {route.title}
                           </motion.div>
-                        </Link>
+                        </a>
                       )}
                     </motion.li>
                   ))}

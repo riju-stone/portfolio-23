@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
 export const HeaderNav = styled(motion.div)`
-  position: fixed;
   width: 100%;
   position: absolute;
   top: 72px;
@@ -15,16 +14,13 @@ export const HeaderNav = styled(motion.div)`
 
 export const Container = styled.div`
   margin: 0 auto;
-  padding: 0 32px;
   position: relative;
   width: 70%;
   height: 100%;
   @media (max-width: 480px) {
-    padding: 0 6px;
     width: 90%;
   }
   @media (min-width: 480px) and (max-width: 768px) {
-    padding: 0 16px;
     width: 88%;
   }
   ${(props) =>
@@ -67,6 +63,8 @@ export const Flex = styled.div`
 `;
 
 export const Logo = styled.div`
+  position: fixed;
+  left: 10%;
   font-family: "Hammersmith One";
   z-index: 70;
   a {
@@ -94,6 +92,8 @@ export const Logo = styled.div`
 `;
 
 export const Menu = styled(motion.button)`
+  position: fixed;
+  right: 10%;
   z-index: 90;
   transform-origin: center;
   border: none;

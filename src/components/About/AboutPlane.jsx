@@ -25,7 +25,7 @@ const AboutPlane = () => {
   }, [animation, inView]);
 
   return (
-    <AboutPlaneSection>
+    <AboutPlaneSection id="about">
       <Container>
         <Content
           ref={contentRef}

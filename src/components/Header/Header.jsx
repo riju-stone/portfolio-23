@@ -74,7 +74,7 @@ const Header = ({
             onMouseEnter={() => onCursor("hovered")}
             onMouseLeave={() => onCursor()}
           >
-            <Link to="/">H</Link>
+            <a href="/">H</a>
             <span
               onClick={toggleTheme}
               onMouseEnter={() => onCursor("pointer")}
@@ -86,7 +86,7 @@ const Header = ({
                 <BiSun color="#024959" />
               )}
             </span>
-            <Link to="/">ME</Link>
+            <a href="/">ME</a>
           </Logo>
           <Menu
             ref={hamburger}

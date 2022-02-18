@@ -1,9 +1,13 @@
 import React from "react";
-import { Banner, BannerTitle, Headline } from "../../styles/homeStyles";
+import {
+  HeroBannerSection,
+  BannerTitle,
+  Headline,
+} from "../../styles/heroStyles";
 // import useWindowSize from "../../hooks/windowSize";
 // import { useGlobalStateContext } from "../../context/globalContext";
 
-const HomeBanner = ({ onCursor }) => {
+const Banner = ({ onCursor }) => {
   const parent = {
     initial: { y: 800 },
     animate: {
@@ -25,13 +29,16 @@ const HomeBanner = ({ onCursor }) => {
     },
   };
   return (
-    <Banner onMouseLeave={onCursor} onMouseEnter={() => onCursor("hovered")}>
+    <HeroBannerSection
+      onMouseLeave={onCursor}
+      onMouseEnter={() => onCursor("hovered")}
+    >
       <BannerTitle variants={parent} initial="initial" animate="animate">
         <Headline variants={child}>Arighna</Headline>
         <Headline variants={child}>Chakraborty</Headline>
       </BannerTitle>
-    </Banner>
+    </HeroBannerSection>
   );
 };
 
-export default HomeBanner;
+export default Banner;

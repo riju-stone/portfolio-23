@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 //home banner styles
-export const Banner = styled.div`
+export const HeroBannerSection = styled.div`
   background: ${(props) => props.theme.background};
   height: 100vh;
   width: 100vw;
@@ -14,6 +14,7 @@ export const Banner = styled.div`
 `;
 
 export const BannerTitle = styled(motion.h1)`
+  position: absolute;
   bottom: 0;
   left: -18px;
   color: ${(props) => props.theme.turqoise};

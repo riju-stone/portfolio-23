@@ -1,5 +1,4 @@
-import React, { useState, useEffect, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
@@ -16,15 +15,13 @@ import Loader from "./components/Loader/Loader";
 import Header from "./components/Header/Header";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
 import Hamburger from "./components/Hamburger/Hamburger";
-
 import AboutDetails from "./components/About/AboutDetails";
-import AboutPlane from "./components/About/AboutPlane";
 import AboutContent from "./components/About/AboutContent";
 import AboutTimeline from "./components/About/AboutTimeline";
 
+const Banner = React.lazy(() => import("./components/Hero/Banner"));
+const AboutPlane = React.lazy(() => import("./components/About/AboutPlane"));
 const Projects = React.lazy(() => import("./components/Projects/Projects"));
-const AboutBanner = React.lazy(() => import("./components/About/AboutBanner"));
-const HomeBanner = React.lazy(() => import("./components/Home/HomeBanner"));
 const Contact = React.lazy(() => import("./components/Contact/Contact"));
 
 // global style
@@ -114,61 +111,27 @@ function App() {
       {loading === true ? (
         <Loader onCursor={onCursor} />
       ) : (
-        <>
-          <Router>
-            <Header
-              onCursor={onCursor}
-              toggleMenu={toggleMenu}
-              setToggleMenu={setToggleMenu}
-              setHamburgerPosition={setHamburgerPosition}
-            />
-            <Hamburger
-              toggleMenu={toggleMenu}
-              setToggleMenu={setToggleMenu}
-              onCursor={onCursor}
-            />
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <>
-                    <Suspense fallback={<Loader />}>
-                      <HomeBanner onCursor={onCursor} />
-                    </Suspense>
-                  </>
-                }
-              ></Route>
-              <Route
-                path="/about"
-                element={
-                  <Suspense fallback={<Loader />}>
-                    <AboutBanner onCursor={onCursor} />
-                    <AboutPlane />
-                    <AboutDetails />
-                    <AboutContent />
-                    <AboutTimeline />
-                  </Suspense>
-                }
-              ></Route>
-              <Route
-                path="/projects"
-                element={
-                  <Suspense fallback={<Loader />}>
-                    <Projects onCursor={onCursor} />
-                  </Suspense>
-                }
-              ></Route>
-              <Route
-                path="/contact"
-                element={
-                  <Suspense fallback={<Loader />}>
-                    <Contact onCursor={onCursor} />
-                  </Suspense>
-                }
-              ></Route>
-            </Routes>
-          </Router>
-        </>
+        <Suspense fallback={<Loader />}>
+          <Header
+            onCursor={onCursor}
+            toggleMenu={toggleMenu}
+            setToggleMenu={setToggleMenu}
+            setHamburgerPosition={setHamburgerPosition}
+          />
+          <Hamburger
+            toggleMenu={toggleMenu}
+            setToggleMenu={setToggleMenu}
+            onCursor={onCursor}
+          />
+
+          <Banner onCursor={onCursor} />
+          <AboutPlane />
+          <AboutDetails />
+          <AboutContent />
+          <AboutTimeline />
+          <Projects onCursor={onCursor} />
+          <Contact onCursor={onCursor} />
+        </Suspense>
       )}
     </ThemeProvider>
   );
