@@ -75,7 +75,7 @@ const skills = [
     },
   },
   // {
-  //   skillName: "Framer-Motion/GSAP",
+  //   skillName: "Framer-Motion",
   //   style: {
   //     left: "25%",
   //     marginTop: "-200px",
@@ -116,7 +116,14 @@ const Skills = ({ skillName, style, id, start }) => {
   const y = useSpring(transform, physics);
 
   return (
-    <motion.p className={`skill ${id}`} ref={ref} style={{ ...style, y: y }}>
+    <motion.p
+      className={`skill ${id}`}
+      ref={ref}
+      style={{ ...style, y: y }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, delay: id / 2 }}
+    >
       {skillName}
     </motion.p>
   );
