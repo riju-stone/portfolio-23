@@ -99,16 +99,14 @@ export const AboutPlaneSection = styled(motion.div)`
   overflow-y: hidden;
   padding: 0;
   margin: 0;
-  canvas {
-    height: 100%;
-    width: 100%;
-  }
+  z-index: 60;
   @media (max-width: 480px) {
     height: 80vh;
   }
 `;
 
 export const Content = styled(motion.div)`
+  position: absolute;
   width: 60%;
   font-family: "Hammersmith One", sans-serif;
   font-size: 7.2rem;

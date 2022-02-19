@@ -17,6 +17,7 @@ export const BannerTitle = styled(motion.h1)`
   position: absolute;
   bottom: 0;
   left: -18px;
+  z-index: 60;
   color: ${(props) => props.theme.turqoise};
   pointer-events: none;
   padding: 40px 80px;

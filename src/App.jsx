@@ -80,7 +80,7 @@ function App() {
   };
 
   const lightTheme = {
-    background: "#e9d0b3",
+    background: "#fff7ee",
     text: "#011826",
     link: "#c25b55",
     turqoise: "#09bd86",
@@ -126,7 +126,7 @@ function App() {
           />
           <Banner onCursor={onCursor} />
           <AboutPlane />
-          <AboutDetails />
+          <AboutDetails onCursor={onCursor} />
           <AboutContent />
           <AboutTimeline />
           <Projects onCursor={onCursor} />

@@ -105,7 +105,7 @@ const skills = [
   },
 ];
 
-const Skills = ({ skillName, style, id, start }) => {
+const Skills = ({ skillName, style, id, start, onCursor }) => {
   const ref = useRef(null);
   const { scrollY } = useViewportScroll();
 
@@ -116,13 +116,19 @@ const Skills = ({ skillName, style, id, start }) => {
   const y = useSpring(transform, physics);
 
   return (
-    <motion.p className={`skill ${id}`} ref={ref} style={{ ...style, y: y }}>
+    <motion.p
+      className={`skill ${id}`}
+      ref={ref}
+      style={{ ...style, y: y }}
+      onMouseLeave={onCursor}
+      onMouseEnter={() => onCursor("hovered")}
+    >
       {skillName}
     </motion.p>
   );
 };
 
-const AboutDetails = () => {
+const AboutDetails = ({ onCursor }) => {
   const [elementTop, setElementTop] = useState(null);
   const skillRef = useRef(null);
 
@@ -149,6 +155,7 @@ const AboutDetails = () => {
       <div className="skills-container">
         {skills.map((skill, index) => (
           <Skills
+            onCursor={onCursor}
             start={elementTop}
             skillName={skill.skillName}
             key={index}

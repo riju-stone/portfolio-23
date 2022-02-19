@@ -10,48 +10,45 @@ import {
   FooterSocial,
 } from "../../styles/hamburgerStyles";
 import { Flex as FooterFlex } from "../../styles/footerStyles";
+
+// icons
 import { BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
-
-//videos
-import AboutVideo1080p from "../../assets/videos/about/about1080p.mp4";
-import ProjectVideo1080p from "../../assets/videos/projects/projects1080p.mp4";
-import CVVideo1080p from "../../assets/videos/cv/cv1080p.mp4";
-import ContactVideo1080p from "../../assets/videos/contact/contact1080p.mp4";
-
-//resume
-import Resume from "../../assets/resume/resume.pdf";
 
 const navRoutes = [
   {
     id: 0,
     title: "About Me",
     path: "#about",
-    video: <source src={AboutVideo1080p} type="video/mp4" />,
+    video: <source src="assets/videos/about/about1080p.mp4" type="video/mp4" />,
   },
   {
     id: 1,
     title: "My Projects",
     path: "#projects",
-    video: <source src={ProjectVideo1080p} type="video/mp4" />,
+    video: (
+      <source src="assets/videos/projects/projects1080p.mp4" type="video/mp4" />
+    ),
   },
   {
     id: 2,
     title: "Let's Talk",
     path: "#contact",
-    video: <source src={ContactVideo1080p} type="video/mp4" />,
+    video: <source src="assets/videos/cv/cv1080p.mp4" type="video/mp4" />,
   },
   {
     id: 3,
     title: "Resume",
     path: "/resume",
-    video: <source src={CVVideo1080p} type="video/mp4" />,
+    video: (
+      <source src="assets/videos/contact/contact1080p.mp4" type="video/mp4" />
+    ),
   },
 ];
 
 const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
   const [revealVideo, setRevealVideo] = useState({
     show: false,
-    video: <source src={AboutVideo1080p} type="video/mp4" />,
+    video: <source src="assets/videos/about/about1080p.mp4" type="video/mp4" />,
     key: "0",
   });
 
@@ -109,7 +106,7 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                     >
                       {route.title === "Resume" ? (
                         <a
-                          href={Resume}
+                          href="assets/resume/resume.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setToggleMenu(!toggleMenu)}
