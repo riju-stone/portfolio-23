@@ -82,7 +82,7 @@ const Header = ({
               {currentTheme === "dark" ? (
                 <BiMoon color="#ededed" />
               ) : (
-                <BiSun color="#024959" />
+                <BiSun color="#00232b" />
               )}
             </span>
             <a href="/">ME</a>

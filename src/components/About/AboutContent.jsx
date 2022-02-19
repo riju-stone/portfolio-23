@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Rive, { useRive } from "rive-react";
-import { AboutSection, ContentSection } from "../../styles/aboutStyles";
+import Rive from "rive-react";
+import { AboutContentSection, ContentSection } from "../../styles/aboutStyles";
 
 // hooks
 import { useIsMobile } from "../../hooks/useMediaQuery";
@@ -25,7 +25,7 @@ const AboutContent = () => {
   }, [inView]);
 
   return (
-    <AboutSection>
+    <AboutContentSection>
       <ContentSection>
         <motion.h1
           ref={quoteRef}
@@ -47,7 +47,7 @@ const AboutContent = () => {
         </motion.h1>
         <Rive src="assets/animations/fall.riv" />
       </ContentSection>
-    </AboutSection>
+    </AboutContentSection>
   );
 };
 

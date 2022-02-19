@@ -10,6 +10,7 @@ import {
 } from "@react-three/postprocessing";
 import {
   Html,
+  Text,
   Icosahedron,
   useTexture,
   useCubeTexture,
@@ -55,6 +56,8 @@ function Instances({ material }) {
     [13, 4, -12],
     [14, -2, -23],
     [8, 10, -20],
+    [15, -10, -8],
+    [18, -28, -18],
   ];
   // smaller spheres movement
   useFrame(() => {
@@ -72,7 +75,7 @@ function Instances({ material }) {
       <MainSphere material={material} />
       {initialPositions.map((pos, i) => (
         <Icosahedron
-          args={[1, 4]}
+          args={[1, 8]}
           position={[pos[0], pos[1], pos[2]]}
           material={material}
           key={i}
@@ -83,7 +86,7 @@ function Instances({ material }) {
   );
 }
 
-function Scene() {
+function SphereCollection() {
   const bumpMap = useTexture("assets/blob/bump.png");
   const envMap = useCubeTexture(
     ["px.png", "nx.png", "py.png", "ny.png", "pz.png", "nz.png"],
@@ -98,7 +101,7 @@ function Scene() {
         ref={set}
         envMap={envMap}
         bumpMap={bumpMap}
-        color={"#010101"}
+        color={"#003525"}
         roughness={0.1}
         metalness={1}
         bumpScale={0.005}
@@ -125,10 +128,10 @@ export default function BlobScene() {
         depth: false,
       }}
     >
-      <color attach="background" args={["#050505"]} />
-      <fog color="#161616" attach="fog" near={8} far={30} />
-      <Suspense fallback={<Html center>Loading.</Html>}>
-        <Scene />
+      <color attach="background" args={["#002c1f"]} />
+      <fog color="#00412d" attach="fog" near={8} far={30} />
+      <Suspense fallback={<Html center>Loading</Html>}>
+        <SphereCollection />
       </Suspense>
       <EffectComposer multisampling={0} disableNormalPass={true}>
         <DepthOfField
@@ -144,7 +147,7 @@ export default function BlobScene() {
           opacity={3}
         />
         <Noise opacity={0.015} />
-        <Vignette eskil={false} offset={0.1} darkness={1.1} />
+        <Vignette eskil={false} offset={0.1} darkness={0.8} />
       </EffectComposer>
     </Canvas>
   );

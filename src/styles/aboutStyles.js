@@ -2,12 +2,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 // about banner styles
-export const AboutSection = styled(motion.div)`
-  padding: 0%;
-  margin: 0%;
-  overflow: hidden;
-  scroll-snap-align: start;
-`;
 
 export const AboutBannerSection = styled(motion.div)`
   margin: 0;
@@ -177,6 +171,14 @@ export const AboutDetailsSection = styled.div`
   }
 `;
 
+export const AboutContentSection = styled(motion.div)`
+  padding: 0%;
+  margin: 0%;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+`;
+
 export const ContentSection = styled(motion.div)`
   height: 100vh;
   width: 100vw;
@@ -187,16 +189,14 @@ export const ContentSection = styled(motion.div)`
   font-family: "Hammersmith One";
   color: ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.background};
-  scroll-snap-align: start;
   canvas {
     position: absolute;
     height: 100%;
-    width: 100vw;
+    width: 100%;
     left: 30%;
   }
-
   h1 {
-    font-size: 7.6rem;
+    font-size: 7rem;
     position: absolute;
     width: 50%;
     left: 50px;

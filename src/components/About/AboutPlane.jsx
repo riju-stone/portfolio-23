@@ -20,8 +20,8 @@ const PlaneModel = () => {
 const Lights = () => {
   return (
     <>
-      <ambientLight intensity={0.3} />
-      <directionalLight castShadow position={[0, 10, 0]} intensity={0.6} />
+      <ambientLight intensity={0.5} color={"#00ffbf"} />
+      <directionalLight castShadow position={[0, 10, 0]} intensity={0.1} />
     </>
   );
 };

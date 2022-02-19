@@ -80,7 +80,7 @@ function App() {
   };
 
   const lightTheme = {
-    background: "#fff7ee",
+    background: "#cecece",
     text: "#011826",
     link: "#c25b55",
     turqoise: "#09bd86",
@@ -96,7 +96,7 @@ function App() {
     // timeout for loader component
     setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 2000);
   }, [currentTheme]);
 
   // dispatch action when cursor type is changed
