@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Suspense } from "react";
+
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
@@ -79,7 +80,7 @@ function App() {
   };
 
   const lightTheme = {
-    background: "#dddddd",
+    background: "#e9d0b3",
     text: "#011826",
     link: "#c25b55",
     turqoise: "#09bd86",
@@ -123,7 +124,6 @@ function App() {
             setToggleMenu={setToggleMenu}
             onCursor={onCursor}
           />
-
           <Banner onCursor={onCursor} />
           <AboutPlane />
           <AboutDetails />

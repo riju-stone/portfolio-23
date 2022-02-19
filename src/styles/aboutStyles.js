@@ -96,7 +96,13 @@ export const AboutPlaneSection = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  scroll-snap-align: start;
+  overflow-y: hidden;
+  padding: 0;
+  margin: 0;
+  canvas {
+    height: 100%;
+    width: 100%;
+  }
   @media (max-width: 480px) {
     height: 80vh;
   }
@@ -132,7 +138,6 @@ export const AboutDetailsSection = styled.div`
   align-items: center;
   justify-content: center;
   overflow-y: hidden;
-  scroll-snap-align: start;
   .skill-title {
     position: absolute;
     font-weight: bolder;

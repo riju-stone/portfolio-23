@@ -116,14 +116,7 @@ const Skills = ({ skillName, style, id, start }) => {
   const y = useSpring(transform, physics);
 
   return (
-    <motion.p
-      className={`skill ${id}`}
-      ref={ref}
-      style={{ ...style, y: y }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, delay: id / 2 }}
-    >
+    <motion.p className={`skill ${id}`} ref={ref} style={{ ...style, y: y }}>
       {skillName}
     </motion.p>
   );

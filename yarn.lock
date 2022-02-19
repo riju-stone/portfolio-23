@@ -4743,6 +4743,14 @@ fraction.js@^4.1.2:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.1.2.tgz#13e420a92422b6cf244dff8690ed89401029fbe8"
   integrity sha512-o2RiJQ6DZaR/5+Si0qJUIy637QMRudSi9kU/FFzx9EZazrIdnBgpU+3sEWCxAVhH2RtxW2Oz+T4p2o8uOPVcgA==
 
+framer-motion-3d@^6.2.6:
+  version "6.2.6"
+  resolved "https://registry.yarnpkg.com/framer-motion-3d/-/framer-motion-3d-6.2.6.tgz#e2ea441ad88572e9eaf5108bfd71962cd6abd8bf"
+  integrity sha512-55aEfek1N3UwXSjweK+XuAXmaPT1Gvn8Yi20QKPbhDggNqv25ptlNslCneMqK/anXm4wvbAFNLSEiKP+zHJdbA==
+  dependencies:
+    framer-motion "^6.2.6"
+    react-merge-refs "^1.1.0"
+
 framer-motion@^5.4.4:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-5.6.0.tgz#8203b5bc4e172265d43dfe67c3c41346c67a3940"
@@ -4753,6 +4761,19 @@ framer-motion@^5.4.4:
     popmotion "11.0.3"
     react-merge-refs "^1.1.0"
     react-use-measure "^2.1.1"
+    style-value-types "5.0.0"
+    tslib "^2.1.0"
+  optionalDependencies:
+    "@emotion/is-prop-valid" "^0.8.2"
+
+framer-motion@^6.2.6:
+  version "6.2.6"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-6.2.6.tgz#75277b4944a1234beaf7453da19028bbf4f75cce"
+  integrity sha512-7eGav5MxEEzDHozQTDY6+psTIOw2i2kM1QVoJOC3bCp9VOKoo+mKR5n7aT5JPh7ksEKFYJYz0GJDils/9S+oLA==
+  dependencies:
+    framesync "6.0.1"
+    hey-listen "^1.0.8"
+    popmotion "11.0.3"
     style-value-types "5.0.0"
     tslib "^2.1.0"
   optionalDependencies:

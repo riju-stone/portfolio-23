@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.1.10",
     "babel-plugin-glsl": "^1.0.0",
     "framer-motion": "^5.4.4",
+    "framer-motion-3d": "^6.2.6",
     "glsl-noise": "^0.0.0",
     "glslify": "^7.1.1",
     "prettier": "^2.5.1",

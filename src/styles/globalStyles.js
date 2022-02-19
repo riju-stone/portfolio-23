@@ -87,8 +87,8 @@ export const Cursor = styled.div`
     width: 40px;
     height: 40px;
     border: 4px solid ${(props) => props.theme.turqoise};
-    top: ${(props) => props.theme.top} !important;
-    left: ${(props) => props.theme.left} !important;
+    /* top: ${(props) => props.theme.top} !important;
+    left: ${(props) => props.theme.left} !important; */
   }
 
   @media (max-width: 768px) {
