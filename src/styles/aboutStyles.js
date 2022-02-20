@@ -193,7 +193,7 @@ export const ContentSection = styled(motion.div)`
     position: absolute;
     height: 100%;
     width: 100%;
-    left: 30%;
+    left: 25%;
   }
   h1 {
     font-size: 7rem;

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, Suspense } from "react";
 
+// global context
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
 } from "./context/globalContext";
 
+// fonts
 import Monoton from "./fonts/Monoton.ttf";
 
 //styled components
@@ -20,6 +22,7 @@ import AboutDetails from "./components/About/AboutDetails";
 import AboutContent from "./components/About/AboutContent";
 import AboutTimeline from "./components/About/AboutTimeline";
 
+// lazy loading components
 const Banner = React.lazy(() => import("./components/Hero/Banner"));
 const AboutPlane = React.lazy(() => import("./components/About/AboutPlane"));
 const Projects = React.lazy(() => import("./components/Projects/Projects"));
@@ -39,7 +42,6 @@ ${normalize}
 html{
   text-decoration: none;
   box-sizing: border-box;
-  font-size: 16px;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
@@ -52,21 +54,38 @@ body{
   overflow-x: hidden;
   padding:0;
   margin:0;
-  scroll-snap-type: y mandatory;
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: ${(props) => props.theme.turqoise};
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: ${(props) => props.theme.darkTurqoise};
 }
 
 `;
 
 // main app component
 function App() {
+  // keeping track of theme and cursor styles using global state context
   const { currentTheme, cursorStyles } = useGlobalStateContext();
+  // using global dispatch context to dispatch actions
   const dispatch = useGlobalDispatchContext();
+  // using useState to toggle hamburger menu
   const [toggleMenu, setToggleMenu] = useState(false);
+  // using useState to toggle the loader screen
   const [loading, setLoading] = useState(true);
+
   const [hamburgerPosition, setHamburgerPosition] = useState({ x: 0, y: 0 });
 
   const darkTheme = {
@@ -96,7 +115,7 @@ function App() {
     // timeout for loader component
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 4500);
   }, [currentTheme]);
 
   // dispatch action when cursor type is changed

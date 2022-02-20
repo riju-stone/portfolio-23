@@ -7,6 +7,7 @@ import { ProjectViewSection } from "../../styles/projectStyles";
 //assets
 // hooks
 import { useIsMobile } from "../../hooks/useMediaQuery";
+import BreathingDotsScene from "./BreathingDotsScene";
 
 // const cards = [
 //   {
@@ -63,7 +64,15 @@ import { useIsMobile } from "../../hooks/useMediaQuery";
 
 function Projects({ onCursor }) {
   const isMobile = useIsMobile();
-  return <ProjectViewSection id="projects">Projects</ProjectViewSection>;
+  return (
+    <ProjectViewSection id="projects">
+      <BreathingDotsScene />
+      <div className="title-container">
+        <span className="title">Projects</span>
+        <span className="sub-title">Just Gettin Started</span>
+      </div>
+    </ProjectViewSection>
+  );
 }
 
 export default Projects;
