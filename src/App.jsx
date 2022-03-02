@@ -6,9 +6,6 @@ import {
   useGlobalDispatchContext,
 } from "./context/globalContext";
 
-// fonts
-import Monoton from "./fonts/Monoton.ttf";
-
 //styled components
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { normalize } from "styled-normalize";
