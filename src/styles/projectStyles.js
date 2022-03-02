@@ -37,7 +37,7 @@ export const ProjectViewSection = styled.div`
   @media (max-width: 480px) {
     flex-direction: column;
     justify-content: center;
-    .title{
+    .title {
       font-size: 4.5rem;
     }
     .sub-title {
