@@ -33,10 +33,6 @@ const GlobalStyle = createGlobalStyle`
 ${normalize}
 *{
   cursor: none;
-  @font-face {
-    font-family: "Monoton";
-    src: url(${Monoton});
-  }
 }
 
 html{
@@ -57,7 +53,7 @@ body{
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {

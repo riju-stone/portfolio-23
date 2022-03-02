@@ -190,6 +190,6 @@ export const FooterSocial = styled.div`
     width: 25px;
     height: 25px;
     padding: 8px;
-    color: ${(props) => props.theme.link};
+    color: ${(props) => props.theme.turqoise};
   }
 `;

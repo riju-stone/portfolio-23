@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 //styles
-import { ProjectViewSection } from "../../styles/projectStyles";
+import { ProjectViewSection, ProjectTitle } from "../../styles/projectStyles";
 
 //assets
 // hooks
@@ -66,10 +66,42 @@ function Projects({ onCursor }) {
   const isMobile = useIsMobile();
   return (
     <ProjectViewSection id="projects">
-      <BreathingDotsScene />
+      {/* <BreathingDotsScene /> */}
       <div className="title-container">
         <span className="title">Projects</span>
         <span className="sub-title">Just Gettin Started</span>
+      </div>
+      <div className="project-details">
+        <ProjectTitle
+          onMouseLeave={onCursor}
+          onMouseEnter={() => onCursor("hovered")}
+        >
+          Chess
+        </ProjectTitle>
+        <ProjectTitle
+          onMouseLeave={onCursor}
+          onMouseEnter={() => onCursor("hovered")}
+        >
+          Go Rest API
+        </ProjectTitle>
+        <ProjectTitle
+          onMouseLeave={onCursor}
+          onMouseEnter={() => onCursor("hovered")}
+        >
+          Nincompoop
+        </ProjectTitle>
+        <ProjectTitle
+          onMouseLeave={onCursor}
+          onMouseEnter={() => onCursor("hovered")}
+        >
+          Skill Academia
+        </ProjectTitle>
+        <ProjectTitle
+          onMouseLeave={onCursor}
+          onMouseEnter={() => onCursor("hovered")}
+        >
+          Covi Check
+        </ProjectTitle>
       </div>
     </ProjectViewSection>
   );

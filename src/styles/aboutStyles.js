@@ -164,7 +164,7 @@ export const AboutDetailsSection = styled.div`
       font-size: 7rem;
     }
     .skill {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
   }
   @media (min-width: 480px) and (max-width: 768px) {

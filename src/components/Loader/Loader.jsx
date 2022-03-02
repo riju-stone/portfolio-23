@@ -8,7 +8,12 @@ import { LoaderSection } from "../../styles/loaderStyles.js";
 function Loader({ onCursor }) {
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence
+        initial={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 0 }}
+        transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
+      >
         <LoaderSection onMouseEnter={() => onCursor("hovered")}>
           <Rive
             src="assets/animations/rocket.riv"

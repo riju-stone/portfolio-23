@@ -63,24 +63,6 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
             transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
           >
             <Container>
-              {/* <NavHeader>
-                <Flex flexEnd noHeight>
-                  <CloseNav
-                    onClick={() => setToggleMenu(!toggleMenu)}
-                    onMouseEnter={() => onCursor("pointer")}
-                    onMouseLeave={onCursor}
-                  >
-                    <motion.button
-                      initial="initial"
-                      whileHover="hover"
-                      animate="initial"
-                    >
-                      <motion.span variants={menuAnim1}></motion.span>
-                      <motion.span variants={menuAnim2}></motion.span>
-                    </motion.button>
-                  </CloseNav>
-                </Flex>
-              </NavHeader> */}
               <NavList>
                 <ul>
                   {navRoutes.map((route) => (

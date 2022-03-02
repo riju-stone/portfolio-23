@@ -32,7 +32,7 @@ const skills = [
     skillName: "Node",
     style: {
       left: "40%",
-      marginTop: "250px",
+      marginTop: "300px",
     },
   },
   {

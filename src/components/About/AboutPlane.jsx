@@ -31,8 +31,8 @@ const Scene = () => {
     <group factor={2} offset={1}>
       <motion3d.mesh
         position={[0, -10, -1]}
-        initial={{ x: -5, rotateY: -24, rotateX: -0.4 }}
-        animate={{ x: 4, y: 0.1, rotateX: 0.8 }}
+        initial={{ x: -5, z: 0, rotateY: -24, rotateX: -0.4 }}
+        animate={{ x: 4, y: 0.1, z: -3, rotateX: 0.8 }}
         transition={{
           duration: 3,
           repeat: Infinity,
