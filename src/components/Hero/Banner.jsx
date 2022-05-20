@@ -37,7 +37,7 @@ const Banner = ({ onCursor }) => {
         <Headline variants={child}>Arighna</Headline>
         <Headline variants={child}>Chakraborty</Headline>
       </BannerTitle>
-      <BlobScene />
+      {/* <BlobScene /> */}
     </HeroBannerSection>
   );
 };
