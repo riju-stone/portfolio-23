@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "2.0.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@react-three/cannon": "^4.2.0",
     "@react-three/drei": "^8.0.0",
