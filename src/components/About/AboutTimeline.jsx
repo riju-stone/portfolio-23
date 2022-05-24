@@ -12,27 +12,54 @@ import {
   AboutTimelineSection,
 } from "../../styles/aboutStyles";
 
-const data = [
-  {
-    title: "May 2015",
-  },
-  {
-    title: "May 2017",
-  },
-  {
-    title: "In Between",
-  },
+const dates = [
   {
     title: "September 2020",
   },
   {
-    title: "Jun - Nov 2021",
+    title: "May - Oct 2021",
   },
   {
-    title: "Dec - Present",
+    title: "Nov - May 2022",
   },
   {
-    title: "June 2022",
+    title: "May 2022",
+  },
+  {
+    title: "July 2022",
+  },
+];
+
+const timelineData = [
+  {
+    title: "Completed Bachelor's in Computer Science",
+    subtitle: "Vidyasagar College, University of Calcutta",
+    content:
+      "Learned basics in C, C++, Data Structures, Algorithms, and Operating Systems.",
+  },
+  {
+    title: "Software Developer Intern",
+    subtitle: "Skill Academia",
+    content:
+      "Developed a cross-platform mobile application built with Flutter and Firebase item | Wrote and reviewed code for company website using React",
+  },
+  {
+    title: "Full Stack Intern",
+    subtitle: "Simulacra Technologies",
+    content:
+      "Worked on numerous frontend projects using React. | Worked on backend systems and Restful APIs using Golang and Node.",
+  },
+  {
+    title: "Completed Master's in Computer Science",
+    subtitle: "St. Xavier's College (Autonomous), Kolkata",
+    content:
+      "Started learning the fundamentals of Object Oriented Programming in Java.",
+  },
+  {
+    title: "Software Developer",
+    subtitle: "Zineone Inc.",
+    content:
+      "Started learning the fundamentals of Object Oriented Programming in Java.",
   },
 ];
 
@@ -61,7 +88,7 @@ const AboutTimeline = () => {
         <Chrono
           mode={isMobile || isSmallTablet ? "VERTICAL" : "VERTICAL_ALTERNATING"}
           hideControls="true"
-          items={data}
+          items={dates}
           borderLessCards="true"
           theme={{
             primary: "#09bd86",
@@ -71,62 +98,15 @@ const AboutTimeline = () => {
             titleColor: "#ffffff",
           }}
         >
-          <div className="card">
-            <div className="card-title">Passed 10th Grade under ICSE Board</div>
-            <div className="card-subtitle">Pearls of God School</div>
-            <div className="card-content">
-              Started learning the fundamentals of Object Oriented Programming
-              in Java.
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-title">Passed 10th Grade under ICSE Board</div>
-            <div className="card-subtitle">Pearls of God School</div>
-            <div className="card-content">
-              Started learning the fundamentals of Object Oriented Programming
-              in Java.
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-title">Passed 10th Grade under ICSE Board</div>
-            <div className="card-subtitle">Pearls of God School</div>
-            <div className="card-content">
-              Started learning the fundamentals of Object Oriented Programming
-              in Java.
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-title">Passed 10th Grade under ICSE Board</div>
-            <div className="card-subtitle">Pearls of God School</div>
-            <div className="card-content">
-              Started learning the fundamentals of Object Oriented Programming
-              in Java.
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-title">Passed 10th Grade under ICSE Board</div>
-            <div className="card-subtitle">Pearls of God School</div>
-            <div className="card-content">
-              Started learning the fundamentals of Object Oriented Programming
-              in Java.
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-title">Passed 12th Grade under ISC Board</div>
-            <div className="card-subtitle">Pearls of God School</div>
-            <div className="card-content">
-              Started learning the fundamentals of Object Oriented Programming
-              in Java.
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-title">Passed 10th Grade under ICSE Board</div>
-            <div className="card-subtitle">Pearls of God School</div>
-            <div className="card-content">
-              Started learning the fundamentals of Object Oriented Programming
-              in Java.
-            </div>
-          </div>
+          {timelineData.map((data, index) => {
+            return (
+              <div className="card" key={index}>
+                <div className="card-title">{data.title}</div>
+                <div className="card-subtitle">{data.subtitle}</div>
+                <div className="card-content">{data.content}</div>
+              </div>
+            );
+          })}
         </Chrono>
       </TimelineView>
       <Marquee>

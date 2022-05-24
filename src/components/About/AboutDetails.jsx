@@ -10,14 +10,14 @@ const skills = [
     skillName: "React",
     style: {
       left: "10%",
-      marginTop: "-150px",
+      marginTop: "-250px",
     },
   },
   {
     skillName: "Javascript",
     style: {
       left: "8%",
-      marginTop: "100px",
+      marginTop: "130px",
     },
   },
   {
@@ -31,14 +31,14 @@ const skills = [
   {
     skillName: "Node",
     style: {
-      left: "40%",
-      marginTop: "300px",
+      left: "30%",
+      marginTop: "200px",
     },
   },
   {
     skillName: "Python",
     style: {
-      right: "20%",
+      right: "60%",
       zIndex: "2",
       marginTop: "80px",
     },
@@ -55,14 +55,14 @@ const skills = [
     skillName: "Electron",
     style: {
       right: "10%",
-      marginTop: "-80px",
+      marginTop: "-200px",
     },
   },
   {
     skillName: "Flutter",
     style: {
       right: "35%",
-      marginTop: "-200px",
+      marginTop: "-320px",
       zIndex: "2",
     },
   },
@@ -70,7 +70,7 @@ const skills = [
     skillName: "TailwindCSS",
     style: {
       left: "40%",
-      marginTop: "-100px",
+      marginTop: "-180px",
       zIndex: "2",
     },
   },
@@ -93,14 +93,14 @@ const skills = [
     skillName: "C++",
     style: {
       right: "18%",
-      marginTop: "300px",
+      marginTop: "200px",
     },
   },
   {
     skillName: "Java",
     style: {
       right: "12%",
-      marginTop: "150px",
+      marginTop: "100px",
     },
   },
 ];
@@ -141,13 +141,13 @@ const AboutDetails = ({ onCursor }) => {
     <AboutDetailsSection>
       <motion.p
         ref={skillRef}
-        initial={{ y: -40 }}
-        animate={{ y: 40 }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
+        // initial={{ y: -40 }}
+        // animate={{ y: 40 }}
+        // transition={{
+        //   duration: 2,
+        //   repeat: Infinity,
+        //   repeatType: "reverse",
+        // }}
         className="skill-title"
       >
         Skills
