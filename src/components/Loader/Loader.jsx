@@ -5,6 +5,9 @@ import { AnimatePresence } from "framer-motion";
 // styles
 import { LoaderSection } from "../../styles/loaderStyles.js";
 
+// RIVE animation
+import Rocket from "../../assets/animations/rocket.riv"
+
 function Loader({ onCursor }) {
   return (
     <>
@@ -16,7 +19,7 @@ function Loader({ onCursor }) {
       >
         <LoaderSection onMouseEnter={() => onCursor("hovered")}>
           <Rive
-            src="assets/animations/rocket.riv"
+            src={Rocket}
             style={{ height: "100%", width: "25%" }}
           />
           {/* <div>

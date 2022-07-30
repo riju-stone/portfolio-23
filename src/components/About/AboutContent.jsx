@@ -7,6 +7,9 @@ import { AboutContentSection, ContentSection } from "../../styles/aboutStyles";
 // hooks
 import { useIsMobile } from "../../hooks/useMediaQuery";
 
+// RIVE Animation
+import FallAnim from "../../assets/animations/fall.riv";
+
 const AboutContent = () => {
   const isMobile = useIsMobile();
   const animation = useAnimation();
@@ -45,7 +48,7 @@ const AboutContent = () => {
         >
           - Falling nine times and getting up ten...
         </motion.h1>
-        <Rive src="assets/animations/fall.riv" />
+        <Rive src={FallAnim} />
       </ContentSection>
     </AboutContentSection>
   );

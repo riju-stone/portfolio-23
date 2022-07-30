@@ -12,8 +12,11 @@ import { useIsMobile } from "../../hooks/useMediaQuery";
 import { Container } from "../../styles/globalStyles";
 import { AboutPlaneSection, Content } from "../../styles/aboutStyles";
 
+// import model
+import PlaneFBX from "../../assets/models/PaperAirplane.fbx";
+
 const PlaneModel = () => {
-  const fbx = useFBX("assets/models/PaperAirplane.fbx");
+  const fbx = useFBX(PlaneFBX);
   return <primitive object={fbx} dispose={null} />;
 };
 
@@ -85,7 +88,6 @@ const AboutPlane = () => {
         </Content>
       </Container>
       <Canvas
-        colorManagement
         camera={{ position: [0, 0, 15], fov: 70 }}
         gl={{
           alpha: true,

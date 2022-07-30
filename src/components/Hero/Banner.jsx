@@ -6,7 +6,6 @@ import {
 } from "../../styles/heroStyles";
 // import useWindowSize from "../../hooks/windowSize";
 // import { useGlobalStateContext } from "../../context/globalContext";
-import BlobScene from "./Blob";
 const Banner = ({ onCursor }) => {
   const parent = {
     initial: { y: 800 },
@@ -37,7 +36,6 @@ const Banner = ({ onCursor }) => {
         <Headline variants={child}>Arighna</Headline>
         <Headline variants={child}>Chakraborty</Headline>
       </BannerTitle>
-      {/* <BlobScene /> */}
     </HeroBannerSection>
   );
 };

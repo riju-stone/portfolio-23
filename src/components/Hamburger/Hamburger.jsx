@@ -14,33 +14,42 @@ import { Flex as FooterFlex } from "../../styles/footerStyles";
 // icons
 import { BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
 
+// Videos
+import AboutVideo from "../../assets/videos/about/about1080p.mp4";
+import ProjectsVideo from "../../assets/videos/projects/projects1080p.mp4";
+import ContactVideo from "../../assets/videos/contact/contact1080p.mp4";
+import ResumeVideo from "../../assets/videos/cv/cv1080p.mp4";
+
+// CV File
+import CV from "../../assets/resume/resume.pdf"
+
 const navRoutes = [
   {
     id: 0,
     title: "About Me",
     path: "#about",
-    video: <source src="assets/videos/about/about1080p.mp4" type="video/mp4" />,
+    video: <source src={AboutVideo} type="video/mp4" />,
   },
   {
     id: 1,
     title: "My Projects",
     path: "#projects",
     video: (
-      <source src="assets/videos/projects/projects1080p.mp4" type="video/mp4" />
+      <source src={ProjectsVideo} type="video/mp4" />
     ),
   },
   {
     id: 2,
     title: "Let's Talk",
     path: "#contact",
-    video: <source src="assets/videos/cv/cv1080p.mp4" type="video/mp4" />,
+    video: <source src={ContactVideo} type="video/mp4" />,
   },
   {
     id: 3,
     title: "Resume",
     path: "/resume",
     video: (
-      <source src="assets/videos/contact/contact1080p.mp4" type="video/mp4" />
+      <source src={ResumeVideo} type="video/mp4" />
     ),
   },
 ];
@@ -88,7 +97,7 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                     >
                       {route.title === "Resume" ? (
                         <a
-                          href="assets/resume/resume.pdf"
+                          href={CV}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setToggleMenu(!toggleMenu)}
@@ -158,7 +167,7 @@ const Hamburger = ({ toggleMenu, setToggleMenu, onCursor }) => {
                       // ref={instaNavLink}
                       onMouseEnter={() => onCursor("pointer")}
                       onMouseLeave={() => onCursor()}
-                      href="https://www.instagram.com/epash_opash_dhopash/"
+                      href="https://www.instagram.com/riju_stone/"
                       target="_blank"
                       rel="noreferrer"
                     >
