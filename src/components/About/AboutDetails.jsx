@@ -6,166 +6,133 @@ import { useViewportScroll, useTransform, useSpring } from "framer-motion";
 import { AboutDetailsSection } from "../../styles/aboutStyles";
 
 const skills = [
-  {
-    skillName: "React",
-    style: {
-      left: "10%",
-      marginTop: "-250px",
-    },
-  },
-  {
-    skillName: "Javascript",
-    style: {
-      left: "8%",
-      marginTop: "130px",
-    },
-  },
-  {
-    skillName: "Go",
-    style: {
-      left: "20%",
-      zIndex: "2",
-      marginTop: "-50px",
-    },
-  },
-  {
-    skillName: "Node",
-    style: {
-      left: "30%",
-      marginTop: "200px",
-    },
-  },
-  {
-    skillName: "Python",
-    style: {
-      right: "60%",
-      zIndex: "2",
-      marginTop: "80px",
-    },
-  },
-  {
-    skillName: "SQL",
-    style: {
-      right: "35%",
-      marginTop: "-60px",
-      zIndex: "2",
-    },
-  },
-  {
-    skillName: "Electron",
-    style: {
-      right: "10%",
-      marginTop: "-200px",
-    },
-  },
-  {
-    skillName: "Flutter",
-    style: {
-      right: "35%",
-      marginTop: "-320px",
-      zIndex: "2",
-    },
-  },
-  {
-    skillName: "TailwindCSS",
-    style: {
-      left: "40%",
-      marginTop: "-180px",
-      zIndex: "2",
-    },
-  },
-  // {
-  //   skillName: "Framer-Motion",
-  //   style: {
-  //     left: "25%",
-  //     marginTop: "-200px",
-  //     zIndex: "0",
-  //   },
-  // },
-  {
-    skillName: "Mongo-DB",
-    style: {
-      right: "40%",
-      zIndex: "2",
-    },
-  },
-  {
-    skillName: "C++",
-    style: {
-      right: "18%",
-      marginTop: "200px",
-    },
-  },
-  {
-    skillName: "Java",
-    style: {
-      right: "12%",
-      marginTop: "100px",
-    },
-  },
+	{
+		skillName: "Javascript",
+		style: {
+			left: "12%",
+			marginTop: "130px",
+			zIndex: "2",
+		},
+	},
+	{
+		skillName: "Node",
+		style: {
+			right: "43%",
+			marginTop: "120px",
+		},
+	},
+	{
+		skillName: "Python",
+		style: {
+			right: "60%",
+			marginTop: "80px",
+			zIndex: "2",
+		},
+	},
+	{
+		skillName: "React",
+		style: {
+			left: "20%",
+			marginTop: "-210px",
+		},
+	},
+	{
+		skillName: "SQL",
+		style: {
+			right: "40%",
+			marginTop: "-60px",
+			zIndex: "2",
+		},
+	},
+	{
+		skillName: "Flutter",
+		style: {
+			right: "35%",
+			marginTop: "-240px",
+			zIndex: "2",
+		},
+	},
+	{
+		skillName: "Mongo DB",
+		style: {
+			marginTop: "-100px",
+			left: "30%",
+			zIndex: "2",
+		},
+	},
+	{
+		skillName: "C++",
+		style: {
+			right: "18%",
+			marginTop: "-120px",
+			zIndex: "2",
+		},
+	},
+	{
+		skillName: "Java",
+		style: {
+			right: "15%",
+			marginTop: "100px",
+			zIndex: "2",
+		},
+	},
 ];
 
 const Skills = ({ skillName, style, id, start, onCursor }) => {
-  const ref = useRef(null);
-  const { scrollY } = useViewportScroll();
+	const ref = useRef(null);
+	const { scrollY } = useViewportScroll();
 
-  const transform = useTransform(scrollY, [start, start + 1], [0, -0.01 * id], {
-    clamp: false,
-  });
-  const physics = { damping: 15, mass: 0.27, stiffness: 50 };
-  const y = useSpring(transform, physics);
+	const transform = useTransform(
+		scrollY,
+		[start, start + 1],
+		[0, -0.1 + id * 0.01],
+		{
+			clamp: false,
+		}
+	);
+	const physics = { damping: 5, mass: 0.5, stiffness: 20 };
+	const y = useSpring(transform, physics);
 
-  return (
-    <motion.p
-      className={`skill ${id}`}
-      ref={ref}
-      style={{ ...style, y: y }}
-      onMouseLeave={onCursor}
-      onMouseEnter={() => onCursor("hovered")}
-    >
-      {skillName}
-    </motion.p>
-  );
+	return (
+		<motion.p
+			className={`skill ${id}`}
+			ref={ref}
+			style={{ ...style, y: y }}
+			onMouseLeave={onCursor}
+			onMouseEnter={() => onCursor("hovered")}>
+			{skillName}
+		</motion.p>
+	);
 };
 
 const AboutDetails = ({ onCursor }) => {
-  const [elementTop, setElementTop] = useState(null);
-  const skillRef = useRef(null);
+	const [elementTop, setElementTop] = useState(null);
+	const skillRef = useRef(null);
 
-  useLayoutEffect(() => {
-    const element = skillRef.current;
-    setElementTop(element.offsetTop);
-  }, [skillRef]);
+	useLayoutEffect(() => {
+		const element = skillRef.current;
+		setElementTop(element.offsetTop);
+	}, [skillRef]);
 
-  return (
-    <AboutDetailsSection>
-      <motion.p
-        ref={skillRef}
-        // initial={{ y: -40 }}
-        // animate={{ y: 40 }}
-        // transition={{
-        //   duration: 2,
-        //   repeat: Infinity,
-        //   repeatType: "reverse",
-        // }}
-        className="skill-title"
-      >
-        Skills
-      </motion.p>
-      <div className="skills-container">
-        {skills.map((skill, index) => (
-          <Skills
-            onCursor={onCursor}
-            start={elementTop}
-            skillName={skill.skillName}
-            key={index}
-            style={skill.style}
-            id={index}
-          />
-        ))}
-      </div>
-    </AboutDetailsSection>
-  );
+	return (
+		<AboutDetailsSection>
+			<motion.p ref={skillRef} className="skill-title">
+				Skills
+			</motion.p>
+			<div className="skills-container">
+				{skills.map((skill, index) => (
+					<Skills
+						onCursor={onCursor}
+						start={elementTop}
+						skillName={skill.skillName}
+						key={index}
+						style={skill.style}
+						id={index}
+					/>
+				))}
+			</div>
+		</AboutDetailsSection>
+	);
 };
 
 export default AboutDetails;

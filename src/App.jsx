@@ -2,8 +2,8 @@ import React, { useState, useEffect, Suspense } from "react";
 
 // global context
 import {
-  useGlobalStateContext,
-  useGlobalDispatchContext,
+	useGlobalStateContext,
+	useGlobalDispatchContext,
 } from "./context/globalContext";
 
 //styled components
@@ -22,8 +22,8 @@ import AboutTimeline from "./components/About/AboutTimeline";
 // lazy loading components
 const Banner = React.lazy(() => import("./components/Hero/Banner"));
 const AboutPlane = React.lazy(() => import("./components/About/AboutPlane"));
-const Projects = React.lazy(() => import("./components/Projects/Projects"));
-const Contact = React.lazy(() => import("./components/Contact/Contact"));
+// const Projects = React.lazy(() => import("./components/Projects/Projects"));
+// const Contact = React.lazy(() => import("./components/Contact/Contact"));
 
 // global style
 const GlobalStyle = createGlobalStyle`
@@ -49,104 +49,91 @@ body{
   margin:0;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: ${(props) => props.theme.turqoise};
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: ${(props) => props.theme.darkTurqoise};
+::-webkit-scrollbar{
+	display: none;
 }
 
 `;
 
 // main app component
 function App() {
-  // keeping track of theme and cursor styles using global state context
-  const { currentTheme, cursorStyles } = useGlobalStateContext();
-  // using global dispatch context to dispatch actions
-  const dispatch = useGlobalDispatchContext();
-  // using useState to toggle hamburger menu
-  const [toggleMenu, setToggleMenu] = useState(false);
-  // using useState to toggle the loader screen
-  const [loading, setLoading] = useState(true);
+	// keeping track of theme and cursor styles using global state context
+	const { currentTheme, cursorStyles } = useGlobalStateContext();
+	// using global dispatch context to dispatch actions
+	const dispatch = useGlobalDispatchContext();
+	// using useState to toggle hamburger menu
+	const [toggleMenu, setToggleMenu] = useState(false);
+	// using useState to toggle the loader screen
+	const [loading, setLoading] = useState(true);
 
-  const [hamburgerPosition, setHamburgerPosition] = useState({ x: 0, y: 0 });
+	const [hamburgerPosition, setHamburgerPosition] = useState({ x: 0, y: 0 });
 
-  const darkTheme = {
-    background: "#152b39",
-    text: "#ededed",
-    link: "#ffa46f",
-    turqoise: "#09bd86",
-    darkTurqoise: "#024959",
-    left: `${hamburgerPosition.x}px`,
-    top: `${hamburgerPosition.y}px`,
-  };
+	const darkTheme = {
+		background: "#152b39",
+		text: "#ededed",
+		link: "#ffa46f",
+		turqoise: "#09bd86",
+		darkTurqoise: "#024959",
+		left: `${hamburgerPosition.x}px`,
+		top: `${hamburgerPosition.y}px`,
+	};
 
-  const lightTheme = {
-    background: "#cecece",
-    text: "#011826",
-    link: "#c25b55",
-    turqoise: "#09bd86",
-    darkTurqoise: "#024959",
-    left: `${hamburgerPosition.x}px`,
-    top: `${hamburgerPosition.y}px`,
-  };
+	const lightTheme = {
+		background: "#cecece",
+		text: "#011826",
+		link: "#c25b55",
+		turqoise: "#09bd86",
+		darkTurqoise: "#024959",
+		left: `${hamburgerPosition.x}px`,
+		top: `${hamburgerPosition.y}px`,
+	};
 
-  // save the theme on localstorage
-  useEffect(() => {
-    window.localStorage.setItem("theme", currentTheme);
+	// save the theme on localstorage
+	useEffect(() => {
+		window.localStorage.setItem("theme", currentTheme);
 
-    // timeout for loader component
-    setTimeout(() => {
-      setLoading(false);
-    }, 4500);
-  }, [currentTheme]);
+		// timeout for loader component
+		setTimeout(() => {
+			setLoading(false);
+		}, 4500);
+	}, [currentTheme]);
 
-  // dispatch action when cursor type is changed
-  const onCursor = (curType) => {
-    curType = (cursorStyles.includes(curType) && curType) || false;
-    dispatch({ type: "CURSOR_TYPE", cursorType: curType });
-  };
+	// dispatch action when cursor type is changed
+	const onCursor = (curType) => {
+		curType = (cursorStyles.includes(curType) && curType) || false;
+		dispatch({ type: "CURSOR_TYPE", cursorType: curType });
+	};
 
-  return (
-    <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
-      <GlobalStyle />
-      <CustomCursor toggleMenu={toggleMenu} />
-      {loading === true ? (
-        <Loader onCursor={onCursor} />
-      ) : (
-        <Suspense fallback={<Loader />}>
-          <Header
-            onCursor={onCursor}
-            toggleMenu={toggleMenu}
-            setToggleMenu={setToggleMenu}
-            setHamburgerPosition={setHamburgerPosition}
-          />
-          <Hamburger
-            toggleMenu={toggleMenu}
-            setToggleMenu={setToggleMenu}
-            onCursor={onCursor}
-          />
-          <Banner onCursor={onCursor} />
-          <AboutPlane />
-          <AboutDetails onCursor={onCursor} />
-          <AboutContent />
-          <AboutTimeline />
-          <Projects onCursor={onCursor} />
-          <Contact onCursor={onCursor} />
-        </Suspense>
-      )}
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
+			<GlobalStyle />
+			<CustomCursor toggleMenu={toggleMenu} />
+			{loading === true ? (
+				<Loader onCursor={onCursor} />
+			) : (
+				<Suspense fallback={<Loader />}>
+					<Header
+						onCursor={onCursor}
+						toggleMenu={toggleMenu}
+						setToggleMenu={setToggleMenu}
+						setHamburgerPosition={setHamburgerPosition}
+					/>
+					<Hamburger
+						toggleMenu={toggleMenu}
+						setToggleMenu={setToggleMenu}
+						onCursor={onCursor}
+					/>
+					<Banner onCursor={onCursor} />
+					<AboutPlane />
+					<AboutDetails onCursor={onCursor} />
+					<AboutContent />
+					<AboutTimeline />
+					{/*<Projects />
+					 <Contact onCursor={onCursor} /> */}
+				</Suspense>
+			)}
+		</ThemeProvider>
+	);
 }
 
 export default App;
