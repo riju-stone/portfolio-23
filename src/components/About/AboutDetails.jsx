@@ -53,7 +53,7 @@ const skills = [
 		},
 	},
 	{
-		skillName: "Mongo DB",
+		skillName: "MongoDB",
 		style: {
 			marginTop: "-100px",
 			left: "30%",
@@ -61,7 +61,7 @@ const skills = [
 		},
 	},
 	{
-		skillName: "C++",
+		skillName: "",
 		style: {
 			right: "18%",
 			marginTop: "-120px",

@@ -11,8 +11,8 @@ import {
 import { EffectComposer, SSAO } from "@react-three/postprocessing";
 
 const baubleMaterial = new THREE.MeshLambertMaterial({
-	color: "#09bd72",
-	emissive: "#067c45",
+	color: "#D55A13",
+	emissive: "#994210",
 });
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 const baubles = [...Array(50)].map(() => ({
@@ -29,12 +29,26 @@ function Bauble({ vec = new THREE.Vector3(), ...props }) {
 			{
 				type: "Box",
 				position: [0, 0, 1.2 * props.args],
-				args: new THREE.Vector3().setScalar(props.args * 0.4).toArray(),
+				args: new THREE.Vector3().setScalar(props.args * 0.2).toArray(),
 			},
 			{ type: "Sphere", args: [props.args] },
 		],
 	}));
-	useEffect(() => api.position.subscribe((p) => api.applyForce(vec.set(...p).normalize().multiplyScalar(-props.args * 35).toArray(), [0, 0, 0])), [api, props.args, vec]) // prettier-ignore
+
+	useEffect(
+		() =>
+			api.position.subscribe((p) =>
+				api.applyForce(
+					vec
+						.set(...p)
+						.normalize()
+						.multiplyScalar(-props.args * 5)
+						.toArray(),
+					[0, 0, 0]
+				)
+			),
+		[api, props.args, vec]
+	);
 
 	return (
 		<group ref={ref} dispose={null}>
@@ -76,7 +90,7 @@ const BubbleScene = () => (
 			position={[20, 20, 25]}
 			penumbra={1}
 			angle={0.23}
-			color="white"
+			color="purple"
 			castShadow
 			shadow-mapSize={[512, 512]}
 		/>
@@ -84,16 +98,15 @@ const BubbleScene = () => (
 		<directionalLight position={[0, -15, -0]} intensity={3} color="purple" />
 		<Physics gravity={[0, 1, 0]} iterations={5} broadphase="SAP">
 			<Collisions />
-			{
-				baubles.map((props, i) => <Bauble key={i} {...props} />) /* prettier-ignore */
-			}
+			{baubles.map((props, i) => (
+				<Bauble key={i} {...props} />
+			))}
 		</Physics>
-		{/* <Environment files="../../models/adamsbridge.hdr" /> */}
 		<EffectComposer multisampling={0}>
 			<SSAO
-				samples={11}
+				samples={15}
 				radius={30}
-				intensity={20}
+				intensity={30}
 				luminanceInfluence={0.6}
 				color="#09bd45"
 			/>

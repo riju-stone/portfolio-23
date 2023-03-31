@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 
 // global context
 import {
@@ -111,7 +111,7 @@ function App() {
 			{loading === true ? (
 				<Loader onCursor={onCursor} />
 			) : (
-				<Suspense fallback={<Loader />}>
+				<>
 					<Header
 						onCursor={onCursor}
 						toggleMenu={toggleMenu}
@@ -130,7 +130,7 @@ function App() {
 					<AboutTimeline />
 					{/*<Projects />
 					 <Contact onCursor={onCursor} /> */}
-				</Suspense>
+				</>
 			)}
 		</ThemeProvider>
 	);
