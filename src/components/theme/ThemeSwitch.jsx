@@ -3,10 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeTheme, setThemeSwitchPos } from "./ThemeSlice";
 import { motion } from "framer-motion";
 import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
+import { useDeviceDetection } from "../../utils/deviceType";
 
 const ThemeSwitch = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const dispatch = useDispatch();
+  const deviceType = useDeviceDetection();
+
+  let toggleSize = "h-10 w-10";
+  if (deviceType === "Mobile") {
+    toggleSize = "h-7 w-7";
+  }
 
   const handleSwitch = (e) => {
     dispatch(changeTheme());
@@ -67,7 +74,7 @@ const ThemeSwitch = () => {
       onMouseLeave={() => handleMouseLeave()}
     >
       <motion.svg
-        className="sun-moon h-10 w-10"
+        className={`sun-moon ${toggleSize}`}
         aria-hidden="true"
         width="20"
         height="20"

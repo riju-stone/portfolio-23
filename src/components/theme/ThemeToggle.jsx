@@ -4,7 +4,7 @@ import ThemeSwitch from "./ThemeSwitch";
 
 const ThemeToggle = () => {
   return (
-    <div className="h-full w-full flex justify-end align-middle py-6 px-10">
+    <div className="flex">
       <ThemeSwitch />
     </div>
   );

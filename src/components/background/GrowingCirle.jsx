@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Circle from "../../utils/circle";
 import { throttle, debounce } from "../../utils/limitors";
+import { COLORS } from "../../utils/constants";
 
 const GrowingCircle = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
@@ -14,8 +15,6 @@ const GrowingCircle = () => {
     const ctx = canvasRef.current.getContext("2d");
     let circleAnimation = Circle.initializeCanvas(ctx, theme);
     let shouldStartCircleAnimation = true;
-
-    console.log(circleAnimation);
 
     const circleAnimationRunner = () => {
       if (circleAnimation !== null && shouldStartCircleAnimation) {
@@ -61,7 +60,7 @@ const GrowingCircle = () => {
 
   return (
     <canvas
-      className="fixed bg-[#122027] w-screen h-screen -z-10"
+      className={`fixed bg-[${COLORS.dark}] w-screen h-screen -z-10`}
       ref={canvasRef}
     ></canvas>
   );

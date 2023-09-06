@@ -2,10 +2,7 @@
  * @author {Celik Koseoglu} <https://github.com/celikkoseoglu/celikk-personal-website>
  */
 
-const COLORS = {
-  light: "#EDEDED",
-  dark: "#122027"
-};
+import { COLORS } from "./constants";
 
 const RADIUS_GROWTH_RATE_MS = 0.025;
 const CIRCLE_RESOLUTION = 0.5;
