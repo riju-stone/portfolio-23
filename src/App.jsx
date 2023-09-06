@@ -1,12 +1,14 @@
 import React from "react";
-import DrawingCirle from "./components/background/DrawingCirle";
+import GrowingCircle from "./components/background/GrowingCirle";
 import ThemeToggle from "./components/theme/ThemeToggle";
+import Cursor from "./components/cursor/Cursor";
 
 function App() {
   return (
     <div className="App">
-      <DrawingCirle />
+      <GrowingCircle />
       <ThemeToggle />
+      <Cursor />
     </div>
   );
 }

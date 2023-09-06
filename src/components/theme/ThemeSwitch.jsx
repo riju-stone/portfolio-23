@@ -2,15 +2,23 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeTheme, setThemeSwitchPos } from "./ThemeSlice";
 import { motion } from "framer-motion";
+import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
 
 const ThemeSwitch = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
-
   const dispatch = useDispatch();
 
   const handleSwitch = (e) => {
     dispatch(changeTheme());
     dispatch(setThemeSwitchPos({ x: e.pageX, y: e.pageY }));
+  };
+
+  const handleMouseEnter = () => {
+    dispatch(expandCursor());
+  };
+
+  const handleMouseLeave = () => {
+    dispatch(defaultCursor());
   };
 
   const animations = {
@@ -21,14 +29,14 @@ const ThemeSwitch = () => {
         rotateZ: -75,
         opacity: 1,
         transition: {
-          duration: 0.5
+          duration: 0.4
         }
       },
       dark: {
         rotateZ: 0,
         opacity: 0,
         transition: {
-          duration: 0.5
+          duration: 0.4
         }
       }
     },
@@ -55,6 +63,8 @@ const ThemeSwitch = () => {
       aria-label="auto"
       aria-live="polite"
       onClick={(e) => handleSwitch(e)}
+      onMouseEnter={() => handleMouseEnter()}
+      onMouseLeave={() => handleMouseLeave()}
     >
       <motion.svg
         className="sun-moon h-10 w-10"
@@ -69,11 +79,11 @@ const ThemeSwitch = () => {
           cy="12"
           r="6"
           mask="url(#moon-mask)"
-          fill={theme == "light" ? "#145256" : "#29F996"}
+          fill={theme == "light" ? "#FF9043" : "#B9B9B9"}
         />
         <motion.g
           className="sun-beams strole-[2px]"
-          stroke={theme == "light" ? "#145256" : "#29F996"}
+          stroke="#FF9043"
           variants={animations.sunBeams}
           animate={theme == "light" ? "light" : "dark"}
         >

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const cursorSlice = createSlice({
-  name: "CursorState",
+  name: "cursor",
   initialState: {
     cursorStyle: "normal"
   },

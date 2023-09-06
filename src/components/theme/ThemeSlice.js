@@ -5,8 +5,8 @@ export const themeSlice = createSlice({
   initialState: {
     currentTheme: localStorage.getItem("theme") || "light",
     toggleButtonPos: {
-      x: window.screen.width,
-      y: 0
+      x: null,
+      y: null
     }
   },
   reducers: {
