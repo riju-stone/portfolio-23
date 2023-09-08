@@ -5,7 +5,9 @@ export default {
     extend: {
       fontFamily: {
         "space-grotesk": "Space Grotesk",
-        "caveat-cursive": "Caveat"
+        "caveat-cursive": "Caveat",
+        "work-sans": "Work Sans",
+        "space-mono": "Space Mono"
       }
     }
   },

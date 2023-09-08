@@ -29,14 +29,12 @@ const ThemeSwitch = () => {
   };
 
   const animations = {
-    sun: {},
-    moon: {},
     sunBeams: {
       light: {
-        rotateZ: -75,
+        rotateZ: -120,
         opacity: 1,
         transition: {
-          duration: 0.4
+          duration: 0.8
         }
       },
       dark: {
@@ -64,11 +62,14 @@ const ThemeSwitch = () => {
   };
 
   return (
-    <button
+    <motion.button
       className="theme-switch"
       title="Theme Toggle Switch"
       aria-label="auto"
       aria-live="polite"
+      initial={{ scale: 0 }}
+      animate={{ scale: 1, transition: { duration: 1 } }}
+      exit={{ scale: 0 }}
       onClick={(e) => handleSwitch(e)}
       onMouseEnter={() => handleMouseEnter()}
       onMouseLeave={() => handleMouseLeave()}
@@ -115,7 +116,7 @@ const ThemeSwitch = () => {
           />
         </motion.mask>
       </motion.svg>
-    </button>
+    </motion.button>
   );
 };
 

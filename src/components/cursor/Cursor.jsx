@@ -1,7 +1,10 @@
 import React from "react";
 import { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useTouchDevice } from "../../utils/deviceType";
+import {
+  useDeviceDetection,
+  useTouchDevice
+} from "../../utils/deviceType";
 
 const Cursor = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
@@ -10,6 +13,7 @@ const Cursor = () => {
   );
   const cursorRef = useRef(null);
   const isTouchDevice = useTouchDevice();
+  const deviceType = useDeviceDetection();
 
   const cursorStyles = {
     normallight: "w-[32px] h-[32px] bg-[#122027]",
@@ -23,6 +27,14 @@ const Cursor = () => {
     lockeddark:
       "h-[40px] bg-[none] border-solid border-4 border-[#EDEDED]"
   };
+
+  if (
+    isTouchDevice ||
+    deviceType === "Mobile" ||
+    deviceType === "Tablet"
+  ) {
+    cursorRef.current.style.display = `none`;
+  }
 
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
@@ -46,15 +58,13 @@ const Cursor = () => {
   };
 
   useEffect(() => {
-    if (isTouchDevice) {
-      cursorRef.current.style.display = `none`;
-      return;
+    if (cursorRef.current.style.display !== `none`) {
+      document.addEventListener("mouseleave", handleMouseOut);
+      document.addEventListener("mouseenter", handleMouseEnter);
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mousedown", handleMouseDown);
+      document.addEventListener("mouseup", handleMouseUp);
     }
-    document.addEventListener("mouseleave", handleMouseOut);
-    document.addEventListener("mouseenter", handleMouseEnter);
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mousedown", handleMouseDown);
-    document.addEventListener("mouseup", handleMouseUp);
     return () => {
       document.removeEventListener("mouseleave", handleMouseOut);
       document.removeEventListener("mouseenter", handleMouseEnter);

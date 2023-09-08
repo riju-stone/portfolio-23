@@ -4,7 +4,7 @@ import ThemeSwitch from "./ThemeSwitch";
 
 const ThemeToggle = () => {
   return (
-    <div className="flex">
+    <div className="flex mx-1">
       <ThemeSwitch />
     </div>
   );

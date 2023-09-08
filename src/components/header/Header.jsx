@@ -1,45 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import ThemeToggle from "../theme/ThemeToggle";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
-import { TEXTCOLORS } from "../../utils/constants";
 import { Link } from "react-router-dom";
+import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
 
 const Header = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
+  const [currentPage, setCurrentPage] = useState("Home");
+  const dispatch = useDispatch();
 
   const styles = {
-    text: `text-[${TEXTCOLORS[theme]}]`,
-    headerContainer: `w-screen flex justify-center align-middle items-center py-6 px-8 font-space-grotesk`,
-    headerLink: `flex font-bormal mx-4 items-center`,
-    selectedHeaderLink: `flex font-bold mx-4 items-center`
+    textlight: `text-[#122027]`,
+    textdark: `text-[#EDEDED]`,
+    headerContainer: `w-screen flex justify-between align-middle items-center py-6 px-8 font-work-sans`,
+    headerLink: `flex font-normal items-center ease-out duration-[0.1s]`,
+    selectedHeaderLink: `flex font-bold items-center ease-out duration-[0.1s]`
   };
 
+  const headerData = [
+    {
+      link: "/",
+      label: "Home"
+    },
+    {
+      link: "#projects",
+      label: "Projects"
+    },
+    {
+      link: "#skills",
+      label: "Skills"
+    },
+    {
+      link: "/blog",
+      label: "Blog"
+    }
+  ];
+
   const headerAnimation = {
-    hidden: { y: -50, opacity: 0 },
+    hidden: { opacity: 0 },
     show: {
-      y: 0,
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
         delayChildren: 0.8,
-        duration: 0.3
+        duration: 0.1
       }
     }
   };
 
-  const firstItem = {
-    hidden: { y: -20, opacity: 0 },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6
-      }
-    }
-  };
-
-  const secondItem = {
+  const headerLinkAnimation = {
     hidden: { y: -20, opacity: 0 },
     show: {
       y: 0,
@@ -50,25 +60,12 @@ const Header = () => {
     }
   };
 
-  const thirdItem = {
-    hidden: { y: -20, opacity: 0 },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6
-      }
-    }
+  const handleMouseEnter = () => {
+    dispatch(expandCursor());
   };
-  const fourthItem = {
-    hidden: { y: -20, opacity: 0 },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6
-      }
-    }
+
+  const handleMouseLeave = () => {
+    dispatch(defaultCursor());
   };
 
   return (
@@ -76,35 +73,30 @@ const Header = () => {
       variants={headerAnimation}
       initial="hidden"
       animate="show"
-      className={`${styles.headerContainer} ${styles.text}`}
+      className={`${styles.headerContainer} ${
+        theme === "dark" ? styles.textdark : styles.textlight
+      }`}
     >
-      <Link to="/">
-        <motion.span
-          className={styles.selectedHeaderLink}
-          variants={firstItem}
-        >
-          H
-          <ThemeToggle />
-          ME
-        </motion.span>
-      </Link>
-      <motion.span
-        className={styles.headerLink}
-        variants={secondItem}
-      >
-        Projects
-      </motion.span>
-      <motion.span className={styles.headerLink} variants={thirdItem}>
-        Skills
-      </motion.span>
-      <Link to="/blogs">
-        <motion.span
-          className={styles.headerLink}
-          variants={fourthItem}
-        >
-          Blog
-        </motion.span>
-      </Link>
+      {headerData.map((headerElement, i) => {
+        return (
+          <Link key={i} to={headerElement.link}>
+            <motion.div
+              className={`${
+                currentPage === headerElement.label
+                  ? styles.selectedHeaderLink
+                  : styles.headerLink
+              }`}
+              variants={headerLinkAnimation}
+              onClick={() => setCurrentPage(headerElement.label)}
+              onMouseEnter={() => handleMouseEnter()}
+              onMouseLeave={() => handleMouseLeave()}
+            >
+              {headerElement.label}
+            </motion.div>
+          </Link>
+        );
+      })}
+      <ThemeToggle />
     </motion.div>
   );
 };
