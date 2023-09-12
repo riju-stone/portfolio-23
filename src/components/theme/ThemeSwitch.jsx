@@ -5,6 +5,39 @@ import { motion } from "framer-motion";
 import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
 import { useDeviceDetection } from "../../utils/deviceType";
 
+const animations = {
+  sunBeams: {
+    light: {
+      rotateZ: -120,
+      opacity: 1,
+      transition: {
+        duration: 0.8
+      }
+    },
+    dark: {
+      rotateZ: 0,
+      opacity: 0,
+      transition: {
+        duration: 0.4
+      }
+    }
+  },
+  moonCircle: {
+    light: {
+      x: 0,
+      transition: {
+        duration: 0.8
+      }
+    },
+    dark: {
+      x: -7,
+      transition: {
+        duration: 0.8
+      }
+    }
+  }
+};
+
 const ThemeSwitch = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const dispatch = useDispatch();
@@ -26,39 +59,6 @@ const ThemeSwitch = () => {
 
   const handleMouseLeave = () => {
     dispatch(defaultCursor());
-  };
-
-  const animations = {
-    sunBeams: {
-      light: {
-        rotateZ: -120,
-        opacity: 1,
-        transition: {
-          duration: 0.8
-        }
-      },
-      dark: {
-        rotateZ: 0,
-        opacity: 0,
-        transition: {
-          duration: 0.4
-        }
-      }
-    },
-    moonCircle: {
-      light: {
-        x: 0,
-        transition: {
-          duration: 0.8
-        }
-      },
-      dark: {
-        x: -7,
-        transition: {
-          duration: 0.8
-        }
-      }
-    }
   };
 
   return (
