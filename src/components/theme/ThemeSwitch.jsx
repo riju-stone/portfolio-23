@@ -74,13 +74,7 @@ const ThemeSwitch = () => {
       onMouseEnter={() => handleMouseEnter()}
       onMouseLeave={() => handleMouseLeave()}
     >
-      <motion.svg
-        className={`sun-moon ${toggleSize}`}
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-      >
+      <motion.svg className={`sun-moon ${toggleSize}`} aria-hidden="true" width="20" height="20" viewBox="0 0 24 24">
         <motion.circle
           className="sun"
           cx="12"

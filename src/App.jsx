@@ -1,9 +1,5 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+import React, { useRef, useMemo, useCallback, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GrowingCircle from "./components/background/GrowingCirle";
 import Cursor from "./components/cursor/Cursor";
 import Header from "./components/header/Header";

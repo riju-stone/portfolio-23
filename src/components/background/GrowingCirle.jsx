@@ -2,13 +2,10 @@ import React, { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Circle from "../../utils/circle";
 import { throttle, debounce } from "../../utils/limitors";
-import { COLORS } from "../../utils/constants";
 
 const GrowingCircle = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
-  const themeSwitchPos = useSelector(
-    (state) => state.theme.toggleButtonPos
-  );
+  const themeSwitchPos = useSelector((state) => state.theme.toggleButtonPos);
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -32,10 +29,7 @@ const GrowingCircle = () => {
 
     circleAnimationRunner();
 
-    Circle.setCircleCenterCoordinates(
-      themeSwitchPos.x,
-      themeSwitchPos.y
-    );
+    Circle.setCircleCenterCoordinates(themeSwitchPos.x, themeSwitchPos.y);
 
     const handleResize = () => {
       Circle.resetCircleCenterCoordinates();
@@ -43,27 +37,15 @@ const GrowingCircle = () => {
       circleAnimationRunner();
     };
 
-    window.addEventListener(
-      "resize",
-      throttle(debounce(handleResize))
-    );
+    window.addEventListener("resize", throttle(debounce(handleResize)));
 
     return () => {
       shouldStartCircleAnimation = false;
-      window.removeEventListener(
-        "resize",
-        throttle(debounce(handleResize)),
-        false
-      );
+      window.removeEventListener("resize", throttle(debounce(handleResize)), false);
     };
   }, [theme]);
 
-  return (
-    <canvas
-      className={`fixed bg-[${COLORS.dark}] w-screen h-screen -z-10`}
-      ref={canvasRef}
-    ></canvas>
-  );
+  return <canvas className={`fixed bg-darkbg w-screen h-screen -z-10`} ref={canvasRef}></canvas>;
 };
 
 export default GrowingCircle;

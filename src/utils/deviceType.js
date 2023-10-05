@@ -6,14 +6,8 @@ export const useDeviceDetection = () => {
   useEffect(() => {
     const handleDeviceDetection = () => {
       const userAgent = navigator.userAgent.toLowerCase();
-      const isMobile =
-        /iphone|ipad|ipod|android|blackberry|windows phone/g.test(
-          userAgent
-        );
-      const isTablet =
-        /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(
-          userAgent
-        );
+      const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
+      const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
 
       if (isMobile) {
         setDevice("Mobile");
@@ -39,10 +33,7 @@ export const useTouchDevice = () => {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
-    const isTouch =
-      window.navigator.msPointerEnabled ||
-      window.navigator.maxTouchPoints > 0 ||
-      window.navigator.down;
+    const isTouch = window.navigator.msPointerEnabled || window.navigator.maxTouchPoints > 0 || window.navigator.down;
     setIsTouchDevice(isTouch);
   }, []);
 

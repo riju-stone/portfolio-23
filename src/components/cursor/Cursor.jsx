@@ -1,38 +1,25 @@
 import React from "react";
 import { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
-import {
-  useDeviceDetection,
-  useTouchDevice
-} from "../../utils/deviceType";
+import { useDeviceDetection, useTouchDevice } from "../../utils/deviceType";
 
 const cursorStyles = {
   normallight: "w-[32px] h-[32px] bg-[#122027]",
   normaldark: "w-[32px] h-[32px] bg-[#EDEDED]",
-  expandedlight:
-    "w-[45px] h-[45px] bg-[none] border-solid border-2 border-[#122027]",
-  expandeddark:
-    "w-[45px] h-[45px] bg-[none] border-solid border-2 border-[#EDEDED]",
-  lockedlight:
-    "h-[40px] bg-[none] border-solid border-4 border-[#122027]",
-  lockeddark:
-    "h-[40px] bg-[none] border-solid border-4 border-[#EDEDED]"
+  expandedlight: "w-[45px] h-[45px] bg-[none] border-solid border-2 border-[#122027]",
+  expandeddark: "w-[45px] h-[45px] bg-[none] border-solid border-2 border-[#EDEDED]",
+  lockedlight: "h-[40px] bg-[none] border-solid border-4 border-[#122027]",
+  lockeddark: "h-[40px] bg-[none] border-solid border-4 border-[#EDEDED]"
 };
 
 const Cursor = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
-  const cursorState = useSelector(
-    (state) => state.cursor.cursorStyle
-  );
+  const cursorState = useSelector((state) => state.cursor.cursorStyle);
   const cursorRef = useRef(null);
   const isTouchDevice = useTouchDevice();
   const deviceType = useDeviceDetection();
 
-  if (
-    isTouchDevice ||
-    deviceType === "Mobile" ||
-    deviceType === "Tablet"
-  ) {
+  if (isTouchDevice || deviceType === "Mobile" || deviceType === "Tablet") {
     cursorRef.current.style.display = `none`;
   }
 
@@ -74,14 +61,7 @@ const Cursor = () => {
     };
   }, []);
 
-  return (
-    <div
-      ref={cursorRef}
-      className={`custom-cursor ${
-        cursorStyles[cursorState + "" + theme]
-      }`}
-    ></div>
-  );
+  return <div ref={cursorRef} className={`custom-cursor ${cursorStyles[cursorState + "" + theme]}`}></div>;
 };
 
 export default Cursor;

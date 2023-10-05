@@ -2,7 +2,10 @@
  * @author {Celik Koseoglu} <https://github.com/celikkoseoglu/celikk-personal-website>
  */
 
-import { COLORS } from "./constants";
+const BGCOLORS = {
+  light: "#EDEDED",
+  dark: "#1A1A1A"
+};
 
 const RADIUS_GROWTH_RATE_MS = 0.025;
 const CIRCLE_RESOLUTION = 0.5;
@@ -34,24 +37,16 @@ const Circle = {
 
   initializeCanvas: (ctx, theme) => {
     Circle.ctx = ctx;
-    Circle.isDark = theme === "dark" ? true : false;
+    Circle.isDark = theme == "dark" ? true : false;
 
-    Circle.height = Math.max(
-      window.screen.height,
-      window.innerHeight
-    );
+    Circle.height = Math.max(window.screen.height, window.innerHeight);
     Circle.width = Math.max(window.screen.width, window.innerWidth);
-    Circle.maxRadiusMultiplier =
-      Math.max(Circle.width, Circle.height) **
-      (1.0 / GROWTH_FUNCTION_EXPONENTIAL);
+    Circle.maxRadiusMultiplier = Math.max(Circle.width, Circle.height) ** (1.0 / GROWTH_FUNCTION_EXPONENTIAL);
     Circle.prevDrawTS = Date.now();
 
-    document.body.style.backgroundColor = Circle.isDark
-      ? COLORS.light
-      : COLORS.white;
+    document.body.style.backgroundColor = Circle.isDark ? BGCOLORS.light : BGCOLORS.dark;
 
-    const { width, height } =
-      Circle.ctx.canvas.getBoundingClientRect();
+    const { width, height } = Circle.ctx.canvas.getBoundingClientRect();
     let canvasWidth = Circle.ctx.canvas.width;
     let canvasHeight = Circle.ctx.canvas.height;
     if (canvasHeight !== height || canvasWidth !== width) {
@@ -62,50 +57,33 @@ const Circle = {
       Circle.ctx.scale(lowerResolutionRatio, lowerResolutionRatio);
     }
 
-    if (
-      circleCenterCoordinates.x == null ||
-      circleCenterCoordinates.y == null
-    ) {
-      Circle.radiusMultiplier = Circle.isDark
-        ? 0
-        : Circle.maxRadiusMultiplier;
+    if (circleCenterCoordinates.x == null || circleCenterCoordinates.y == null) {
+      Circle.radiusMultiplier = Circle.isDark ? 0 : Circle.maxRadiusMultiplier;
     }
 
     return Circle.startAnimation;
   },
 
-  startAnimation: () =>
-    Circle.isDark ? Circle.shrinkCircle : Circle.growCircle,
+  startAnimation: () => (Circle.isDark ? Circle.shrinkCircle : Circle.growCircle),
 
   shrinkCircle: () => {
-    Circle.radiusMultiplier -=
-      RADIUS_GROWTH_RATE_MS *
-      Math.max(1, Date.now() - Circle.prevDrawTS);
-
+    Circle.radiusMultiplier -= RADIUS_GROWTH_RATE_MS * Math.max(1, Date.now() - Circle.prevDrawTS);
     return Circle.verifyCircleBounds;
   },
 
   growCircle: () => {
-    Circle.radiusMultiplier +=
-      RADIUS_GROWTH_RATE_MS *
-      Math.max(1, Date.now() - Circle.prevDrawTS);
-
+    Circle.radiusMultiplier += RADIUS_GROWTH_RATE_MS * Math.max(1, Date.now() - Circle.prevDrawTS);
     return Circle.verifyCircleBounds;
   },
 
   verifyCircleBounds: () => {
     if (
       (Circle.radiusMultiplier <= 0 && Circle.isDark) ||
-      (Circle.radiusMultiplier >= Circle.maxRadiusMultiplier &&
-        !Circle.isDark)
+      (Circle.radiusMultiplier >= Circle.maxRadiusMultiplier && !Circle.isDark)
     ) {
-      Circle.ctx.fillStyle = Circle.isDark
-        ? COLORS.dark
-        : COLORS.light;
+      Circle.ctx.fillStyle = Circle.isDark ? BGCOLORS.dark : BGCOLORS.light;
       Circle.ctx.fillRect(0, 0, Circle.width, Circle.height);
-      Circle.radiusMultiplier = Circle.isDark
-        ? 0
-        : Circle.maxRadiusMultiplier;
+      Circle.radiusMultiplier = Circle.isDark ? 0 : Circle.maxRadiusMultiplier;
       return null;
     }
 
@@ -114,7 +92,7 @@ const Circle = {
   },
 
   drawCircle: () => {
-    Circle.ctx.fillStyle = COLORS.light;
+    Circle.ctx.fillStyle = BGCOLORS.light;
     Circle.ctx.beginPath();
     Circle.ctx.arc(
       circleCenterCoordinates.x,

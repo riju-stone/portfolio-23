@@ -18,6 +18,5 @@ export const cursorSlice = createSlice({
   }
 });
 
-export const { defaultCursor, lockCursor, expandCursor } =
-  cursorSlice.actions;
+export const { defaultCursor, lockCursor, expandCursor } = cursorSlice.actions;
 export default cursorSlice.reducer;

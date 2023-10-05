@@ -8,19 +8,11 @@ import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
 const headerData = [
   {
     link: "/",
-    label: "Home"
-  },
-  {
-    link: "#projects",
-    label: "Projects"
-  },
-  {
-    link: "#skills",
-    label: "Skills"
+    label: "home"
   },
   {
     link: "/blog",
-    label: "Blog"
+    label: "blog"
   }
 ];
 
@@ -29,17 +21,17 @@ const headerAnimation = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.8,
-      duration: 0.1
+      staggerChildren: 0.6,
+      delayChildren: 0.5,
+      duration: 0.05
     }
   }
 };
 
 const headerLinkAnimation = {
-  hidden: { y: -20, opacity: 0 },
+  hidden: { x: -20, opacity: 0 },
   show: {
-    y: 0,
+    x: 0,
     opacity: 1,
     transition: {
       duration: 0.6
@@ -47,18 +39,19 @@ const headerLinkAnimation = {
   }
 };
 
+const styles = {
+  headerContainer: `w-screen fixed flex justify-between align-middle items-center py-6 px-8 font-space-grotesk`,
+  headerLinkWrapper: `flex justify-start items-center`,
+  headerLink: `flex justify-start font-[500] ease-out duration-[0.6s] mx-2`
+};
+
 const Header = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
-  const [currentPage, setCurrentPage] = useState("Home");
+  const [currentPage, setCurrentPage] = useState("home");
   const dispatch = useDispatch();
 
-  const styles = {
-    textlight: `text-[#122027]`,
-    textdark: `text-[#EDEDED]`,
-    headerContainer: `w-screen flex justify-between align-middle items-center py-6 px-8 font-work-sans`,
-    headerLink: `flex font-normal items-center ease-out duration-[0.1s]`,
-    selectedHeaderLink: `flex font-bold items-center ease-out duration-[0.1s]`
-  };
+  const linkStyle = theme == "dark" ? "text-darktext" : "text-lighttext";
+  const selectedLinkStyle = theme == "dark" ? "text-darkdisabled" : "text-lightdisabled";
 
   const handleMouseEnter = () => {
     dispatch(expandCursor());
@@ -69,33 +62,26 @@ const Header = () => {
   };
 
   return (
-    <motion.div
-      variants={headerAnimation}
-      initial="hidden"
-      animate="show"
-      className={`${styles.headerContainer} ${
-        theme === "dark" ? styles.textdark : styles.textlight
-      }`}
-    >
-      {headerData.map((headerElement, i) => {
-        return (
-          <Link key={i} to={headerElement.link}>
-            <motion.div
-              className={`${
-                currentPage === headerElement.label
-                  ? styles.selectedHeaderLink
-                  : styles.headerLink
-              }`}
-              variants={headerLinkAnimation}
-              onClick={() => setCurrentPage(headerElement.label)}
-              onMouseEnter={() => handleMouseEnter()}
-              onMouseLeave={() => handleMouseLeave()}
-            >
-              {headerElement.label}
-            </motion.div>
-          </Link>
-        );
-      })}
+    <motion.div variants={headerAnimation} initial="hidden" animate="show" className={styles.headerContainer}>
+      <div className={styles.headerLinkWrapper}>
+        {headerData.map((headerElement, i) => {
+          return (
+            <Link key={i} to={headerElement.link}>
+              <motion.div
+                className={
+                  styles.headerLink + " " + `${currentPage === headerElement.label ? linkStyle : selectedLinkStyle}`
+                }
+                variants={headerLinkAnimation}
+                onClick={() => setCurrentPage(headerElement.label)}
+                onMouseEnter={() => handleMouseEnter()}
+                onMouseLeave={() => handleMouseLeave()}
+              >
+                {headerElement.label}
+              </motion.div>
+            </Link>
+          );
+        })}
+      </div>
       <ThemeToggle />
     </motion.div>
   );

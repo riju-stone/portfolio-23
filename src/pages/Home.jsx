@@ -1,11 +1,13 @@
 import React from "react";
+import HeroSection from "../components/hero/HeroSection";
+import AboutSection from "../components/about/AboutSection";
 
 const Home = () => {
   return (
-    <div className="px-8">
-      {/* <HeroSection />
+    <div>
+      <HeroSection />
       <AboutSection />
-      <ProjectSection />
+      {/* <ProjectSection />
       <SkillsSection />
       <LetsConnectSection /> */}
     </div>

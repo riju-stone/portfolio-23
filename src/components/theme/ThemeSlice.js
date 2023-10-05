@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const themeSlice = createSlice({
   name: "theme",
   initialState: {
-    currentTheme: localStorage.getItem("theme") || "light",
+    currentTheme: localStorage.getItem("theme") || "dark",
     toggleButtonPos: {
       x: null,
       y: null
