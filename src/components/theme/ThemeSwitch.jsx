@@ -45,7 +45,7 @@ const ThemeSwitch = () => {
 
   let toggleSize = "h-10 w-10";
   if (deviceType === "Mobile") {
-    toggleSize = "h-7 w-7";
+    toggleSize = "h-6 w-6";
   }
 
   const handleSwitch = (e) => {
@@ -68,7 +68,7 @@ const ThemeSwitch = () => {
       aria-label="auto"
       aria-live="polite"
       initial={{ scale: 0 }}
-      animate={{ scale: 1, transition: { duration: 1 } }}
+      animate={{ scale: 1, transition: { duration: 1.8 } }}
       exit={{ scale: 0 }}
       onClick={(e) => handleSwitch(e)}
       onMouseEnter={() => handleMouseEnter()}
@@ -84,7 +84,7 @@ const ThemeSwitch = () => {
           fill={theme == "light" ? "#FF9043" : "#B9B9B9"}
         />
         <motion.g
-          className="sun-beams strole-[2px]"
+          className="sun-beams stroke-[1.5px]"
           stroke="#FF9043"
           variants={animations.sunBeams}
           animate={theme == "light" ? "light" : "dark"}

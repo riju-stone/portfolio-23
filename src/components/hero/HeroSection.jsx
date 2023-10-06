@@ -5,9 +5,10 @@ import { COLORS } from "../../utils/constants";
 const styles = {
   heroContainer: "flex flex-col h-screen justify-center align-middle items-center px-10",
   heroTitle: "font-work-sans font-normal text-6xl text-center ease-out duration-[0.6s]",
-  heroLeftTitle: "absolute font-playfair top-[5em] left-[2.5rem] text-left",
-  heroRightTitle: "absolute font-playfair bottom-[2.5em] right-[2.5rem] text-right",
-  arrow: "h-16 w-16 my-4 ease-out duration-[0.6s]"
+  heroLeftTitle: "absolute font-playfair top-[4rem] left-[2.5rem] text-left",
+  heroRightTitle: "absolute font-playfair bottom-[2.5em] right-[2.5rem] text-right z-[5]",
+  arrow: "h-16 w-16 my-4 ease-out duration-[0.6s]",
+  backgroundImage: "absolute bottom-0 z-0"
 };
 
 const HeroSection = () => {

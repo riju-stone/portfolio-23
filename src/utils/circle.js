@@ -4,7 +4,7 @@
 
 const BGCOLORS = {
   light: "#EDEDED",
-  dark: "#1A1A1A"
+  dark: "#17181a"
 };
 
 const RADIUS_GROWTH_RATE_MS = 0.025;

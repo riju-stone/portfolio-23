@@ -1,12 +1,12 @@
 export const COLORS = {
   orange: "#E04634",
   light: "#EDEDED",
-  dark: "#1A1A1A"
+  dark: "#17181a"
 };
 
 export const TEXTCOLORS = {
   dark: "#EDEDED",
-  light: "#1A1A1A"
+  light: "#17181a"
 };
 
 export const DISABLEDTEXTCOLORS = {
