@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeTheme, setThemeSwitchPos } from "./ThemeSlice";
 import { motion } from "framer-motion";
 import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
 import { useDeviceDetection } from "../../utils/deviceType";
@@ -48,11 +47,6 @@ const ThemeSwitch = () => {
     toggleSize = "h-6 w-6";
   }
 
-  const handleSwitch = (e) => {
-    dispatch(changeTheme());
-    dispatch(setThemeSwitchPos({ x: e.pageX, y: e.pageY }));
-  };
-
   const handleMouseEnter = () => {
     dispatch(expandCursor());
   };
@@ -70,7 +64,6 @@ const ThemeSwitch = () => {
       initial={{ scale: 0 }}
       animate={{ scale: 1, transition: { duration: 1.8 } }}
       exit={{ scale: 0 }}
-      onClick={(e) => handleSwitch(e)}
       onMouseEnter={() => handleMouseEnter()}
       onMouseLeave={() => handleMouseLeave()}
     >

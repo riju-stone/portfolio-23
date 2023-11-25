@@ -8,13 +8,14 @@ import Blog from "./pages/Blog";
 import Error from "./pages/Error";
 import LoadingScreen from "./components/loading/LoadingScreen";
 import { AnimatePresence, motion } from "framer-motion";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   return (
     <Router>
-      <div className="App">
+      <div className="App overflow-hidden">
         <AnimatePresence>
           {loading == true ? (
             <motion.div key="loader">
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="*" element={<Error />} />
               </Routes>
+              <Footer />
             </>
           )}
         </AnimatePresence>

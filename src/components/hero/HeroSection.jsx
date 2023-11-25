@@ -1,12 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
 import { COLORS } from "../../utils/constants";
 
 const styles = {
   heroContainer: "flex flex-col h-screen justify-center align-middle items-center px-10",
   heroTitle: "font-work-sans font-normal text-6xl text-center ease-out duration-[0.6s]",
-  heroLeftTitle: "absolute font-playfair top-[4rem] left-[2.5rem] text-left",
-  heroRightTitle: "absolute font-playfair bottom-[2.5em] right-[2.5rem] text-right z-[5]",
+  heroLeftTitle: "absolute font-playfair top-[4rem] left-[2rem] text-left",
+  heroRightTitle: "absolute font-playfair bottom-[2.5rem] right-[2rem] text-right z-[5]",
   arrow: "h-16 w-16 my-4 ease-out duration-[0.6s]",
   backgroundImage: "absolute bottom-0 z-0"
 };
@@ -18,32 +19,92 @@ const HeroSection = () => {
   const textStyle = theme == "dark" ? "text-darktext" : "text-lighttext";
   const disabledTextStyle = theme == "dark" ? "text-darkdisabled" : "text-lightdisabled";
 
+  const heroSectionAnimation = {
+    show: {
+      transition: {
+        staggerChildren: 0.25,
+        delayChildren: 0.4
+      }
+    }
+  };
+
+  const leftSubtitleAnimation = {
+    hidden: {
+      y: 30,
+      opacity: 0
+    },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        ease: [0.6, 0.01, 0.05, 0.85],
+        duration: 1
+      }
+    }
+  };
+
+  const titleWordAnimation = {
+    hidden: {
+      y: 100
+    },
+    show: {
+      y: 0,
+      transition: {
+        ease: [0.6, 0.01, 0.05, 0.95],
+        duration: 1
+      }
+    }
+  };
+
+  const arrowAnimation = {
+    hidden: { y: 0 },
+    show: {
+      y: 30,
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "reverse"
+      }
+    }
+  };
+
   return (
-    <section className={styles.heroContainer}>
-      <div className={styles.heroLeftTitle + " " + disabledTextStyle}>
+    <motion.section className={styles.heroContainer} variants={heroSectionAnimation} initial="hidden" animate="show">
+      <motion.div variants={leftSubtitleAnimation} className={styles.heroLeftTitle + " " + disabledTextStyle}>
         Full-Stack Developer
         <br />
         with a love for Design ...
-      </div>
+      </motion.div>
       <div className={styles.heroTitle + " " + textStyle}>
-        <div>Multi-</div>
-        <div>Disciplinary</div>
-        <div>Developer</div>
+        <motion.div className="overflow-hidden h-[65px]">
+          <motion.div variants={titleWordAnimation}>Multi-</motion.div>
+        </motion.div>
+        <motion.div className="overflow-hidden h-[65px]">
+          <motion.div variants={titleWordAnimation}>Disciplinary</motion.div>{" "}
+        </motion.div>
+        <motion.div className="overflow-hidden h-[65px]">
+          <motion.div variants={titleWordAnimation}>Developer</motion.div>{" "}
+        </motion.div>
       </div>
       <div>
-        <svg className={styles.arrow} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <motion.svg
+          variants={arrowAnimation}
+          className={styles.arrow}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
           <path
             d="M12.9999 16.1716L18.3638 10.8076L19.778 12.2218L11.9999 20L4.22168 12.2218L5.63589 10.8076L10.9999 16.1716V4H12.9999V16.1716Z"
             fill={COLORS.orange}
           ></path>
-        </svg>
+        </motion.svg>
       </div>
-      <div className={styles.heroRightTitle + " " + disabledTextStyle}>
+      <motion.div variants={leftSubtitleAnimation} className={styles.heroRightTitle + " " + disabledTextStyle}>
         ... and emphasis on
         <br />
         unique user experiences
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 

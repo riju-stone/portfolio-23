@@ -39,7 +39,7 @@ const headerLinkAnimation = {
 };
 
 const styles = {
-  headerContainer: `w-screen fixed flex justify-between align-middle items-center py-6 px-8 font-space-grotesk z-20`,
+  headerContainer: `w-screen fixed flex justify-between align-middle items-center py-[1rem] px-[1.5rem] font-space-grotesk z-20`,
   headerLinkWrapper: `flex justify-start items-center`,
   headerLink: `flex justify-start font-[500] ease-out duration-[0.6s] mx-2`
 };

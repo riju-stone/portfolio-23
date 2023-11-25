@@ -6,6 +6,7 @@ export default {
     colors: {
       lightbg: COLORS.light,
       darkbg: COLORS.dark,
+      orangebg: COLORS.orange,
       lighttext: TEXTCOLORS.light,
       darktext: TEXTCOLORS.dark,
       lightdisabled: DISABLEDTEXTCOLORS.light,

@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const styles = {
-  aboutContainer: "h-screen flex align-middle items-center py-[4rem] px-[2.5rem]",
+  aboutContainer: "h-screen flex align-middle items-center py-[4rem] px-[1.5rem]",
   aboutTitle: "font-work-sans text-2xl ease-out duration-[0.6s]"
 };
 
