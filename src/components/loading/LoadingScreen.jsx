@@ -7,7 +7,7 @@ const styles = {
   loaderScreenWrapper:
     "absolute h-screen w-screen flex justify-center align-middle items-center text-center bg-[#E04634] z-10",
   loadingProgress: "absolute !w-full h-[2px] bg-darkbg",
-  loadingPercent: "font-space-grotesk text-6xl text-lighttext bg-[#E04634] p-2 z-10"
+  loadingPercent: "font-space-grotesk text-6xl text-lighttext bg-[#E04634] w-[160px] z-10"
 };
 
 const LoadingScreen = ({ setLoading }) => {
@@ -64,6 +64,19 @@ const LoadingScreen = ({ setLoading }) => {
     }
   };
 
+  const loadingPercentAnimation = {
+    hidden: {
+      opacity: 0
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        ease: [0.6, 0.01, 0.05, 0.95],
+        duration: 1.2
+      }
+    }
+  };
+
   useAnimationFrame(() => {
     let progressPos = progressRef.current.getBoundingClientRect().left;
     progressPos = Math.floor(Math.abs(progressPos));
@@ -82,7 +95,9 @@ const LoadingScreen = ({ setLoading }) => {
       className={styles.loaderContainer + " " + backgroundStyle}
     >
       <motion.div variants={loadingWrapperAnimation} className={styles.loaderScreenWrapper}>
-        <motion.div className={styles.loadingPercent}>{progressPercent}%</motion.div>
+        <motion.div variants={loadingPercentAnimation} className={styles.loadingPercent}>
+          {progressPercent}%
+        </motion.div>
         <motion.div
           onChange={() => handleProgressBar()}
           ref={progressRef}

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const Footer = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const styles = {
-    footerContainer: `w-screen flex justify-between text-[12px] font-normal align-middle items-center py-6 px-[1.5rem] font-space-grotesk z-20`
+    footerContainer: `fixed bottom-0 w-screen flex justify-between text-[12px] font-normal align-end py-[1rem] px-[2rem] font-space-grotesk z-20`
   };
   const textStyle = theme == "dark" ? "text-darkdisabled" : "text-lightdisabled";
   const date = new Date();

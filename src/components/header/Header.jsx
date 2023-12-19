@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ThemeToggle from "../theme/ThemeToggle";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
@@ -46,11 +46,22 @@ const styles = {
 
 const Header = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
-  const [currentPage, setCurrentPage] = useState("home");
+  const [currentPage, setCurrentPage] = useState("none");
   const dispatch = useDispatch();
 
   const linkStyle = theme == "dark" ? "text-darktext" : "text-lighttext";
   const selectedLinkStyle = theme == "dark" ? "text-darkdisabled" : "text-lightdisabled";
+
+  useEffect(() => {
+    let pathname = window.location.pathname;
+    if (pathname.indexOf("blog") > -1) {
+      setCurrentPage("blog");
+    } else if (pathname == "/") {
+      setCurrentPage("home");
+    } else {
+      setCurrentPage("none");
+    }
+  });
 
   const handleMouseEnter = () => {
     dispatch(expandCursor());
