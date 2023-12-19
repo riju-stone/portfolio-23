@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import GrowingCircle from "./components/background/GrowingCirle";
 import Cursor from "./components/cursor/Cursor";
 import Header from "./components/header/Header";
@@ -35,6 +37,7 @@ function App() {
             </>
           )}
         </AnimatePresence>
+        <SpeedInsights />
       </div>
     </Router>
   );
