@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
@@ -10,10 +11,14 @@ const Footer = () => {
   const date = new Date();
 
   return (
-    <div className={styles.footerContainer + " " + textStyle}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.8, delay: 1 } }}
+      className={styles.footerContainer + " " + textStyle}
+    >
       <div>&copy; {date.getFullYear()}</div>
       <div>v2.0</div>
-    </div>
+    </motion.div>
   );
 };
 

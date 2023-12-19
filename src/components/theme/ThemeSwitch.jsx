@@ -42,7 +42,7 @@ const ThemeSwitch = () => {
   const dispatch = useDispatch();
   const deviceType = useDeviceDetection();
 
-  let toggleSize = "h-10 w-10";
+  let toggleSize = "h-8 w-8";
   if (deviceType === "Mobile") {
     toggleSize = "h-6 w-6";
   }
@@ -62,7 +62,7 @@ const ThemeSwitch = () => {
       aria-label="auto"
       aria-live="polite"
       initial={{ scale: 0 }}
-      animate={{ scale: 1, transition: { duration: 1.8 } }}
+      animate={{ scale: 1, transition: { duration: 1.2 } }}
       exit={{ scale: 0 }}
       onMouseEnter={() => handleMouseEnter()}
       onMouseLeave={() => handleMouseLeave()}

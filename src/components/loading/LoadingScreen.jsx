@@ -3,7 +3,9 @@ import { easeInOut, motion, progress, useAnimationFrame } from "framer-motion";
 import { useSelector } from "react-redux";
 
 const styles = {
-  loaderContainer: "h-screen w-screen overflow-hidden",
+  loaderContainer:
+    "absolute h-screen w-screen flex justify-center align-middle text-center items-center overflow-hidden",
+  loaderTitle: "h-full w-full !text-6xl font-space-grotesk",
   loaderScreenWrapper:
     "absolute h-screen w-screen flex justify-center align-middle items-center text-center bg-[#E04634] z-10",
   loadingProgress: "absolute !w-full h-[2px] bg-darkbg",
@@ -15,7 +17,6 @@ const LoadingScreen = ({ setLoading }) => {
 
   const backgroundStyle = theme == "dark" ? "bg-darkbg" : "bg-lightbg";
   const textStyle = theme == "dark" ? "text-darktext" : "text-lighttext";
-  const disabledTextStyle = theme == "dark" ? "text-darkdisabled" : "text-lightdisabled";
 
   const progressRef = useRef(null);
   const [progressPercent, setProgressPercent] = useState(0);
@@ -36,10 +37,10 @@ const LoadingScreen = ({ setLoading }) => {
     show: {
       y: 0,
       transition: {
-        ease: [0.6, 0.01, 0.05, 0.95],
+        ease: [0.65, 0.01, 0.05, 0.95],
         staggerChildren: 0.4,
         when: "beforeChildren",
-        duration: 1.8
+        duration: 2
       }
     },
     exit: {
@@ -47,6 +48,26 @@ const LoadingScreen = ({ setLoading }) => {
       transition: {
         ease: "easeInOut",
         duration: 0.8
+      }
+    }
+  };
+
+  const loadingTitleAnimation = {
+    hidden: {
+      opacity: 0
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        ease: [0.6, 0.01, 0.05, 0.95],
+        duration: 1.2
+      }
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        ease: "easeInOut",
+        duration: 0.1
       }
     }
   };
@@ -94,6 +115,10 @@ const LoadingScreen = ({ setLoading }) => {
       onAnimationComplete={() => setLoading(false)}
       className={styles.loaderContainer + " " + backgroundStyle}
     >
+      <motion.div variants={loadingTitleAnimation} className={styles.loadingTitle + " " + textStyle}>
+        Arighna <br />
+        Chakraborty
+      </motion.div>
       <motion.div variants={loadingWrapperAnimation} className={styles.loaderScreenWrapper}>
         <motion.div variants={loadingPercentAnimation} className={styles.loadingPercent}>
           {progressPercent}%

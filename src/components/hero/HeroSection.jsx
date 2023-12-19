@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { COLORS } from "../../utils/constants";
@@ -13,6 +13,7 @@ const styles = {
 };
 
 const HeroSection = () => {
+ 
   const theme = useSelector((state) => state.theme.currentTheme);
 
   const colorStyle = theme == "dark" ? COLORS.light : COLORS.dark;
@@ -103,7 +104,7 @@ const HeroSection = () => {
       <motion.div variants={leftSubtitleAnimation} className={styles.heroRightTitle + " " + disabledTextStyle}>
         ... and emphasis on
         <br />
-        unique user experiences
+        user experiences
       </motion.div>
     </motion.section>
   );
