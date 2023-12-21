@@ -5,7 +5,7 @@ import { COLORS } from "../utils/constants";
 
 const styles = {
   errorContainer: "h-screen flex justify-center align-middle items-center py-[4rem] px-[2rem]",
-  errorCode: "font-space-grotesk font-normal text-9xl text-center ease-out duration-[0.6s]"
+  errorCode: "font-space-grotesk font-normal text-[10rem] text-center ease-out duration-[0.6s]"
 };
 
 const Error = () => {

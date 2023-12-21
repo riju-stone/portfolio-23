@@ -13,7 +13,6 @@ const styles = {
 };
 
 const HeroSection = () => {
- 
   const theme = useSelector((state) => state.theme.currentTheme);
 
   const colorStyle = theme == "dark" ? COLORS.light : COLORS.dark;
