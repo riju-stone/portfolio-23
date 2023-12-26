@@ -16,7 +16,6 @@ const Cursor = () => {
     dark: "border-lightbg",
     normal: "w-[32px] h-[32px] border-2 border-solid",
     expanded: "w-[48px] h-[48px] bg-[none] border-2 border-solid",
-    locked: "h-[40px] !bg-[none] border-4 border-solid",
     innerCursor: "h[4px] w-[4px] border-orangebg border-2 border-solid"
   };
 

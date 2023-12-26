@@ -3,6 +3,7 @@ import ThemeToggle from "../theme/ThemeToggle";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import MagneticButton from "../button/MagneticButton";
 import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
 
 const headerData = [

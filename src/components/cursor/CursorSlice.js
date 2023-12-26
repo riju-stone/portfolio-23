@@ -9,9 +9,6 @@ export const cursorSlice = createSlice({
     expandCursor: (state) => {
       state.cursorStyle = "expanded";
     },
-    lockCursor: (state) => {
-      state.cursorStyle = "locked";
-    },
     defaultCursor: (state) => {
       state.cursorStyle = "normal";
     }
