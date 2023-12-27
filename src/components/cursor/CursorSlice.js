@@ -6,6 +6,9 @@ export const cursorSlice = createSlice({
     cursorStyle: "normal"
   },
   reducers: {
+    maskCursor: (state) => {
+      state.cursorStyle = "masked";
+    },
     expandCursor: (state) => {
       state.cursorStyle = "expanded";
     },
@@ -15,5 +18,5 @@ export const cursorSlice = createSlice({
   }
 });
 
-export const { defaultCursor, lockCursor, expandCursor } = cursorSlice.actions;
+export const { defaultCursor, maskCursor, expandCursor } = cursorSlice.actions;
 export default cursorSlice.reducer;

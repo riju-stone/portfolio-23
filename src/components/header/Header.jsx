@@ -3,7 +3,6 @@ import ThemeToggle from "../theme/ThemeToggle";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import MagneticButton from "../button/MagneticButton";
 import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
 
 const headerData = [
@@ -40,9 +39,9 @@ const headerLinkAnimation = {
 };
 
 const styles = {
-  headerContainer: `w-screen fixed flex justify-between align-middle items-center py-[1rem] px-[1.5rem] font-space-grotesk z-20`,
+  headerContainer: `w-screen fixed flex justify-between align-middle items-center py-[1rem] px-[1.5rem] font-space-grotesk font-[600] z-20`,
   headerLinkWrapper: `flex justify-start items-center`,
-  headerLink: `flex justify-start font-[500] ease-out duration-[0.6s] mx-2`
+  headerLink: `flex justify-start ease-out duration-[0.6s] mx-2`
 };
 
 const Header = () => {

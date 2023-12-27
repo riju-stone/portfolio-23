@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { COLORS } from "../../utils/constants";
 
 const styles = {
   heroContainer: "flex flex-col h-screen justify-center align-middle items-center px-10",
-  heroTitle: "font-work-sans font-normal text-6xl text-center ease-out duration-[0.6s]",
-  heroLeftTitle: "absolute font-playfair top-[4rem] left-[2rem] text-left",
-  heroRightTitle: "absolute font-playfair bottom-[4rem] right-[2rem] text-right z-[5]",
+  heroTitle: "font-space-grotesk font-[800] font-normal text-6xl text-center ease-out duration-[0.6s]",
+  heroLeftTitle: "absolute font-caveat top-[4rem] left-[2rem] text-left text-2xl",
+  heroRightTitle: "absolute font-caveat bottom-[4rem] right-[2rem] text-right text-2xl z-[5]",
   arrow: "h-16 w-16 my-4 ease-out duration-[0.6s]",
   backgroundImage: "absolute bottom-0 z-0"
 };
@@ -15,7 +15,6 @@ const styles = {
 const HeroSection = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
 
-  const colorStyle = theme == "dark" ? COLORS.light : COLORS.dark;
   const textStyle = theme == "dark" ? "text-darktext" : "text-lighttext";
   const disabledTextStyle = theme == "dark" ? "text-darkdisabled" : "text-lightdisabled";
 
@@ -103,7 +102,7 @@ const HeroSection = () => {
       <motion.div variants={leftSubtitleAnimation} className={styles.heroRightTitle + " " + disabledTextStyle}>
         ... and emphasis on
         <br />
-        user experiences
+        unique user experiences
       </motion.div>
     </motion.section>
   );

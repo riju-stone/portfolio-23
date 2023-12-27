@@ -10,11 +10,11 @@ export const useDeviceDetection = () => {
       const isTablet = /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
 
       if (isMobile) {
-        setDevice("Mobile");
+        setDevice("mobile");
       } else if (isTablet) {
-        setDevice("Tablet");
+        setDevice("tablet");
       } else {
-        setDevice("Desktop");
+        setDevice("desktop");
       }
     };
 
@@ -27,15 +27,4 @@ export const useDeviceDetection = () => {
   }, []);
 
   return device;
-};
-
-export const useTouchDevice = () => {
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-
-  useEffect(() => {
-    const isTouch = window.navigator.msPointerEnabled || window.navigator.maxTouchPoints > 0 || window.navigator.down;
-    setIsTouchDevice(isTouch);
-  }, []);
-
-  return isTouchDevice;
 };

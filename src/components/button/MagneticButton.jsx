@@ -15,7 +15,7 @@ function MagneticButton({ children }) {
       xMove((clientX - (left + width / 2)) * 0.5);
       yMove((clientY - (top + height / 2)) * 0.5);
     });
-    magneticButtonRef.current.addEventListener("mouseleave", (e) => {
+    magneticButtonRef.current.addEventListener("mouseleave", () => {
       xMove(0);
       yMove(0);
     });

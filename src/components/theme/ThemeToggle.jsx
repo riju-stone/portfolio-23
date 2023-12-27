@@ -1,11 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { changeTheme, setThemeSwitchPos } from "./ThemeSlice";
 import ThemeSwitch from "./ThemeSwitch";
 
 const ThemeToggle = () => {
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.theme.currentTheme);
 
   const handleSwitch = (e) => {
     dispatch(changeTheme());

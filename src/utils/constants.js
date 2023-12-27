@@ -1,5 +1,6 @@
 export const COLORS = {
   orange: "#E04634",
+  green: "#cdfc75",
   light: "#EDEDED",
   dark: "#17181a"
 };

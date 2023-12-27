@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
-import { easeInOut, motion, progress, useAnimationFrame } from "framer-motion";
+import { motion, useAnimationFrame } from "framer-motion";
 import { useSelector } from "react-redux";
 
 const styles = {
   loaderContainer: "absolute h-screen w-screen flex overflow-hidden",
   loaderScreenWrapper: "h-screen w-screen flex column bg-[#E04634] z-50",
   loadingProgress: "absolute w-full h-[8px] bg-darkbg bottom-0",
-  loadingTitle: "font-work-sans text-4xl text-lighttext z-50 mx-8 my-8",
-  loadingPercent: "absolute bottom-[1.2rem] font-space-grotesk text-6xl text-lighttext z-10 mx-8 my-8"
+  loadingTitle: "font-avant-garde font-[700] text-5xl text-lighttext z-50 mx-8 my-8",
+  loadingPercent: "absolute font-space-grotesk font-[700] bottom-[1.2rem] text-6xl text-lighttext z-10 mx-8 my-8"
 };
 
 const loadingScreenAnimation = {

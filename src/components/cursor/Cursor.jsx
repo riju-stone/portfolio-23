@@ -1,25 +1,21 @@
 import React from "react";
 import { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useDeviceDetection, useTouchDevice } from "../../utils/deviceType";
+import { useDeviceDetection } from "../../utils/deviceType";
 
 const Cursor = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const cursorState = useSelector((state) => state.cursor.cursorStyle);
   const cursorRef = useRef(null);
   const innerCursorRef = useRef(null);
-  const isTouchDevice = useTouchDevice();
   const deviceType = useDeviceDetection();
 
   const cursorStyles = {
-    light: "border-darkbg",
-    dark: "border-lightbg",
-    normal: "w-[32px] h-[32px] border-2 border-solid",
-    expanded: "w-[48px] h-[48px] bg-[none] border-2 border-solid",
-    innerCursor: "h[4px] w-[4px] border-orangebg border-2 border-solid"
+    light: "border-darkbg border-solid border-2",
+    dark: "border-lightbg border-solid border-2"
   };
 
-  if (isTouchDevice || deviceType === "Mobile" || deviceType === "Tablet") {
+  if (deviceType === "mobile" || deviceType === "tablet") {
     cursorRef.current.style.display = `none`;
     innerCursorRef.current.style.display = `none`;
   }
@@ -44,6 +40,7 @@ const Cursor = () => {
     cursorRef.current.style.opacity = `1`;
     innerCursorRef.current.style.opacity = `1`;
   };
+
   const handleMouseOut = () => {
     cursorRef.current.style.opacity = `0`;
     innerCursorRef.current.style.opacity = `0`;
@@ -68,8 +65,8 @@ const Cursor = () => {
 
   return (
     <>
-      <div ref={cursorRef} className={`custom-cursor ${cursorStyles[theme] + " " + cursorStyles[cursorState]}`}></div>
-      <div ref={innerCursorRef} className={`custom-cursor-inner ${cursorStyles.innerCursor}`}></div>
+      <div ref={cursorRef} className={`custom-cursor ${cursorStyles[theme] + " " + cursorState}`}></div>
+      <div ref={innerCursorRef} className="custom-cursor-inner"></div>
     </>
   );
 };
