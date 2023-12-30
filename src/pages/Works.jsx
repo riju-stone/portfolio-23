@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import Transition from "../components/transition/Transition";
 
 const styles = {
-  blogContainer: "h-screen flex align-middle items-center py-[4rem] px-[2rem]",
-  blogTitle: "font-avant-garde font-[600] text-6xl ease-out duration-[0.6s]"
+  worksContainer: "h-screen flex align-middle items-center py-[4rem] px-[2rem]",
+  worksTitle: "font-avant-garde font-[600] text-6xl ease-out duration-[0.6s]"
 };
 
-const blogSectionAnimation = {
+const worksSectionAnimation = {
   show: {
     transition: {
       staggerChildren: 0.25,
@@ -30,14 +30,19 @@ const titleWordAnimation = {
   }
 };
 
-const Blog = () => {
+const Works = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const disabledTextStyle = theme == "dark" ? "text-darkdisabled" : "text-lightdisabled";
 
   return (
     <Transition>
-      <motion.section className={styles.blogContainer} variants={blogSectionAnimation} initial="hidden" animate="show">
-        <div className={styles.blogTitle + " " + disabledTextStyle}>
+      <motion.section
+        className={styles.worksContainer}
+        variants={worksSectionAnimation}
+        initial="hidden"
+        animate="show"
+      >
+        <div className={styles.worksTitle + " " + disabledTextStyle}>
           <motion.div className="overflow-hidden h-[70px]">
             <motion.div variants={titleWordAnimation}>Still</motion.div>
           </motion.div>
@@ -56,4 +61,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Works;

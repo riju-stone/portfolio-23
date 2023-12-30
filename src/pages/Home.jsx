@@ -1,16 +1,20 @@
 import React from "react";
+
 import HeroSection from "../components/hero/HeroSection";
 import AboutSection from "../components/about/AboutSection";
+import ProjectSection from "../components/projects/ProjectSection";
+
+import Transition from "../components/transition/Transition";
 
 const Home = () => {
   return (
-    <div>
+    <Transition>
       <HeroSection />
       <AboutSection />
-      {/* <ProjectSection />
-      <SkillsSection />
+      <ProjectSection />
+      {/*<SkillsSection />
       <LetsConnectSection /> */}
-    </div>
+    </Transition>
   );
 };
 

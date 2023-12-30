@@ -1,14 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useAnimationFrame } from "framer-motion";
-import { useSelector } from "react-redux";
 
-const styles = {
-  loaderContainer: "absolute h-screen w-screen flex overflow-hidden",
-  loaderScreenWrapper: "h-screen w-screen flex column bg-[#E04634] z-50",
-  loadingProgress: "absolute w-full h-[8px] bg-darkbg bottom-0",
-  loadingTitle: "font-avant-garde font-[700] text-5xl text-lighttext z-50 mx-8 my-8",
-  loadingPercent: "absolute font-space-grotesk font-[700] bottom-[1.2rem] text-6xl text-lighttext z-10 mx-8 my-8"
-};
+import styles from "./LoadingScreen.module.scss";
 
 const loadingScreenAnimation = {
   show: {
@@ -35,10 +28,10 @@ const loadingWrapperAnimation = {
     }
   },
   exit: {
-    y: -window.screen.height,
+    opacity: 0,
     transition: {
       ease: "easeInOut",
-      duration: 0.8
+      duration: 1.2
     }
   }
 };
@@ -50,6 +43,14 @@ const loadingTitleAnimation = {
   show: {
     opacity: 1,
     transition: {
+      duration: 1.2,
+      ease: "easeInOut"
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      ease: "easeInOut",
       duration: 0.8
     }
   }
@@ -63,7 +64,7 @@ const loadingProgressAnimation = {
     x: 0,
     transition: {
       ease: [0.5, 0.001, 0.08, 0.95],
-      duration: 5
+      duration: 4
     }
   }
 };
@@ -75,8 +76,15 @@ const loadingPercentAnimation = {
   show: {
     opacity: 1,
     transition: {
-      ease: [0.6, 0.01, 0.05, 0.95],
+      ease: "easeInOut",
       duration: 1.2
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      ease: "easeInOut",
+      duration: 0.8
     }
   }
 };
@@ -96,10 +104,7 @@ const phraseArray = [
 ];
 
 const LoadingScreen = ({ setLoading }) => {
-  const theme = useSelector((state) => state.theme.currentTheme);
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-
-  const backgroundStyle = theme == "dark" ? "bg-darkbg" : "bg-lightbg";
 
   const progressRef = useRef(null);
   const [progressPercent, setProgressPercent] = useState(0);
@@ -110,16 +115,19 @@ const LoadingScreen = ({ setLoading }) => {
       () => {
         setCurrentPhraseIndex(currentPhraseIndex + 1);
       },
-      currentPhraseIndex == 0 ? 2000 : 250
+      currentPhraseIndex == 0 ? 2500 : 250
     );
   }, [currentPhraseIndex]);
 
   useAnimationFrame(() => {
-    let progressPos = progressRef.current.getBoundingClientRect().left;
-    progressPos = Math.floor(Math.abs(progressPos));
-    let percent = Math.abs(progressPos - window.screen.width);
-    percent = Math.floor((percent / window.screen.width) * 100);
-    setProgressPercent(percent);
+    let progressPos = 0;
+    if (progressRef.current !== null) {
+      progressPos = progressRef.current.getBoundingClientRect().left;
+      progressPos = Math.floor(Math.abs(progressPos));
+      let percent = Math.abs(progressPos - window.screen.width);
+      percent = Math.floor((percent / window.screen.width) * 100);
+      setProgressPercent(percent);
+    }
   });
 
   return (
@@ -129,9 +137,9 @@ const LoadingScreen = ({ setLoading }) => {
       animate="show"
       exit="exit"
       onAnimationComplete={() => setLoading(false)}
-      className={styles.loaderContainer + " " + backgroundStyle}
+      className={styles.loadingScreenWrapper}
     >
-      <motion.div variants={loadingWrapperAnimation} className={styles.loaderScreenWrapper}>
+      <motion.div variants={loadingWrapperAnimation} className={styles.loaderContainer}>
         <motion.div variants={loadingTitleAnimation} className={styles.loadingTitle}>
           * {phraseArray[currentPhraseIndex]}
         </motion.div>

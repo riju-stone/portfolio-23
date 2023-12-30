@@ -1,0 +1,21 @@
+@use "../../index.scss" as global;
+
+.footerWrapper {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Space Grotesk";
+  font-size: 15px;
+  padding: 1rem 2.5rem;
+  z-index: 10;
+}
+
+.light {
+  color: global.$light-disabled-color;
+}
+
+.dark {
+  color: global.$dark-disabled-color;
+}

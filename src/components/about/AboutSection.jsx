@@ -1,18 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
+
 import { defaultCursor, maskCursor } from "../cursor/CursorSlice";
 import { useDeviceDetection } from "../../utils/deviceType";
+import MagneticButton from "../button/MagneticButton";
 
-const styles = {
-  aboutContainer: "h-screen flex justify-center align-middle items-center py-[4rem] px-[2rem]",
-  aboutTextWrapper:
-    "flex justify-center align-middle items-center font-avant-garde font-[600] text-4xl ease-out duration-[0.6s]",
-  aboutMaskedTextWrapper:
-    "absolute h-screen w-screen flex justify-center align-middle items-center font-avant-garde font-[900] text-4xl ease-out duration-[0.6s] py-[4rem] px-[2rem] z-10",
-  aboutWordsMask: "relative overflow-hidden inline-flex py-1",
-  aboutWords: "mr-4"
-};
+import styles from "./AboutSection.module.scss";
 
 const aboutSectionAnimation = {
   show: {
@@ -25,7 +20,7 @@ const aboutSectionAnimation = {
 
 const aboutTextAnimation = {
   hidden: {
-    y: 50
+    y: 100
   },
   show: (i) => ({
     y: 0,
@@ -36,7 +31,7 @@ const aboutTextAnimation = {
 const phrase =
   "Based out of City of Joy - Kolkata. A selectively skilled developer with strong focus on high quality & impactful digital experiences.";
 const maskedPhrase =
-  "A full-stack developer - with skills that haven't been replaced by A.I. (yet) - making good shit only if the paycheck is equally good.";
+  "A full-stack developer with skills that haven't been replaced by A.I. (yet) - making good shit only if the paycheck is equally good.";
 
 const AboutSection = () => {
   const dispatch = useDispatch();
@@ -50,7 +45,6 @@ const AboutSection = () => {
   const maskSize = cursorState == "masked" ? 400 : 0;
 
   const theme = useSelector((state) => state.theme.currentTheme);
-  const textStyle = theme == "dark" ? "text-darktext" : "text-lighttext";
 
   const inView = useInView(aboutTextRef, { once: true });
   const animationControls = useAnimation();
@@ -70,6 +64,7 @@ const AboutSection = () => {
 
   useEffect(() => {
     if (inView) {
+      console.log(inView);
       animationControls.start("show");
     } else {
       animationControls.start("hidden");
@@ -84,25 +79,29 @@ const AboutSection = () => {
 
   return (
     <motion.section
-      className={styles.aboutContainer + " " + textStyle}
+      className={styles.aboutContainer + " " + styles[theme]}
       variants={aboutSectionAnimation}
       animate={animationControls}
     >
       {deviceType == "desktop" ? (
         <motion.div
           ref={aboutMaskedTextRef}
-          className={"masked-text" + " " + styles.aboutMaskedTextWrapper}
+          className={styles.maskedTextWrapper}
           animate={{
             WebkitMaskPosition: `${maskPos.x - maskSize / 2}px ${maskPos.y - maskSize / 2}px`,
             WebkitMaskSize: `${maskSize}px`
           }}
-          transition={{ type: "tween", ease: "backOut", duration: 0.1 }}
+          transition={{ type: "tween", ease: "backOut", duration: 0.4 }}
         >
-          <p onMouseEnter={() => handleMouseEnter()} onMouseLeave={() => handleMouseLeave()}>
+          <p
+            className={styles.maskedTextContainer}
+            onMouseEnter={() => handleMouseEnter()}
+            onMouseLeave={() => handleMouseLeave()}
+          >
             {maskedPhrase.split(" ").map((word, index) => {
               return (
-                <span key={index}>
-                  <span className={styles.aboutWords}>{word}</span>
+                <span key={index + " " + word}>
+                  <span className={styles.maskedWords}>{word}</span>
                 </span>
               );
             })}
@@ -111,12 +110,11 @@ const AboutSection = () => {
       ) : (
         <></>
       )}
-
-      <div className={styles.aboutTextWrapper} ref={aboutTextRef}>
-        <p>
+      <div className={styles.aboutTextWrapper}>
+        <p className={styles.aboutWordsContainer} ref={aboutTextRef}>
           {phrase.split(" ").map((word, index) => {
             return (
-              <span key={index} className={styles.aboutWordsMask}>
+              <span key={index} className={styles.aboutTextMask}>
                 <motion.span
                   className={styles.aboutWords}
                   variants={aboutTextAnimation}
@@ -129,6 +127,13 @@ const AboutSection = () => {
             );
           })}
         </p>
+      </div>
+      <div className={styles.aboutButtonWrapper}>
+        <MagneticButton>
+          <Link to="/about">
+            <div className={styles.aboutButton}>About Me</div>
+          </Link>
+        </MagneticButton>
       </div>
     </motion.section>
   );

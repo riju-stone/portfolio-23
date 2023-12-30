@@ -2,6 +2,7 @@ import React from "react";
 import { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDeviceDetection } from "../../utils/deviceType";
+import styles from "./Cursor.module.scss";
 
 const Cursor = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
@@ -9,11 +10,6 @@ const Cursor = () => {
   const cursorRef = useRef(null);
   const innerCursorRef = useRef(null);
   const deviceType = useDeviceDetection();
-
-  const cursorStyles = {
-    light: "border-darkbg border-solid border-2",
-    dark: "border-lightbg border-solid border-2"
-  };
 
   if (deviceType === "mobile" || deviceType === "tablet") {
     cursorRef.current.style.display = `none`;
@@ -65,8 +61,8 @@ const Cursor = () => {
 
   return (
     <>
-      <div ref={cursorRef} className={`custom-cursor ${cursorStyles[theme] + " " + cursorState}`}></div>
-      <div ref={innerCursorRef} className="custom-cursor-inner"></div>
+      <div ref={cursorRef} className={styles.customCursor + " " + styles[cursorState] + " " + styles[theme]}></div>
+      <div ref={innerCursorRef} className={styles.customCursorInner}></div>
     </>
   );
 };

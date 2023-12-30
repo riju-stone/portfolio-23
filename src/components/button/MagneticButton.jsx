@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-
 function MagneticButton({ children }) {
   const magneticButtonRef = useRef(null);
 

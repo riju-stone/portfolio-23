@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import ThemeToggle from "../theme/ThemeToggle";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
 import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
+import ThemeToggle from "../theme/ThemeToggle";
+import styles from "./Header.module.scss";
 
 const headerData = [
   {
@@ -11,57 +13,55 @@ const headerData = [
     label: "home"
   },
   {
-    link: "/blog",
-    label: "blog"
+    link: "/works",
+    label: "works"
+  },
+  {
+    link: "/about",
+    label: "about"
+  },
+  {
+    link: "/blogs",
+    label: "blogs"
   }
 ];
 
-const headerAnimation = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.35,
-      delayChildren: 0.5
-    }
-  }
-};
-
 const headerLinkAnimation = {
-  hidden: { x: -20, opacity: 0 },
-  show: {
+  hidden: { x: -30, opacity: 0 },
+  show: (i) => ({
     x: 0,
     opacity: 1,
     transition: {
-      duration: 0.6
+      duration: 0.6,
+      delay: 1.2 + i * 0.1
     }
-  }
+  })
 };
 
-const styles = {
-  headerContainer: `w-screen fixed flex justify-between align-middle items-center py-[1rem] px-[1.5rem] font-space-grotesk font-[600] z-20`,
-  headerLinkWrapper: `flex justify-start items-center`,
-  headerLink: `flex justify-start ease-out duration-[0.6s] mx-2`
-};
-
-const Header = () => {
+const Header = ({ location }) => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const [currentPage, setCurrentPage] = useState("none");
   const dispatch = useDispatch();
 
-  const linkStyle = theme == "dark" ? "text-darktext" : "text-lighttext";
-  const selectedLinkStyle = theme == "dark" ? "text-darkdisabled" : "text-lightdisabled";
-
   useEffect(() => {
-    let pathname = window.location.pathname;
-    if (pathname.indexOf("blog") > -1) {
-      setCurrentPage("blog");
-    } else if (pathname == "/") {
-      setCurrentPage("home");
-    } else {
-      setCurrentPage("none");
+    switch (location.pathname) {
+      case "/":
+        setCurrentPage("home");
+        break;
+      case "/works":
+        setCurrentPage("works");
+        break;
+      case "/about":
+        setCurrentPage("about");
+        break;
+      case "/blogs":
+        setCurrentPage("blogs");
+        break;
+      default:
+        setCurrentPage("none");
+        break;
     }
-  });
+  }, [location.pathname]);
 
   const handleMouseEnter = () => {
     dispatch(expandCursor());
@@ -72,16 +72,23 @@ const Header = () => {
   };
 
   return (
-    <motion.div variants={headerAnimation} initial="hidden" animate="show" className={styles.headerContainer}>
-      <div className={styles.headerLinkWrapper}>
-        {headerData.map((headerElement, i) => {
+    <div className={styles.headerWrapper}>
+      <div className={styles.headerLinksContainer}>
+        {headerData.map((headerElement, index) => {
           return (
-            <Link key={i} to={headerElement.link}>
+            <Link key={index + " " + headerElement.link} to={headerElement.link}>
               <motion.div
                 className={
-                  styles.headerLink + " " + `${currentPage === headerElement.label ? linkStyle : selectedLinkStyle}`
+                  styles.headerLink +
+                  " " +
+                  styles[theme] +
+                  " " +
+                  `${currentPage === headerElement.label ? styles.selected : styles.normal}`
                 }
                 variants={headerLinkAnimation}
+                initial="hidden"
+                animate="show"
+                custom={index}
                 onClick={() => setCurrentPage(headerElement.label)}
                 onMouseEnter={() => handleMouseEnter()}
                 onMouseLeave={() => handleMouseLeave()}
@@ -93,7 +100,7 @@ const Header = () => {
         })}
       </div>
       <ThemeToggle />
-    </motion.div>
+    </div>
   );
 };
 

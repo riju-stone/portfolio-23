@@ -1,0 +1,49 @@
+@use "../../index" as global;
+
+.customCursor {
+  position: fixed;
+  opacity: 0;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  transition-duration: 0.05s, 0.05s, 0.4s, 0.4s, 0.4s, 0.05s;
+  transition-property: top, left, height, width, border, opacity;
+  will-change: top, left, width, height, transform, opacity, border;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.light {
+  border: 2px solid global.$dark-bg-color;
+}
+
+.dark {
+  border: 2px solid global.$light-bg-color;
+}
+
+.normal {
+  height: 32px;
+  width: 32px;
+}
+
+.expanded {
+  height: 52px;
+  width: 52px;
+}
+
+.masked {
+  height: 5px;
+  width: 5px;
+}
+
+.customCursorInner {
+  height: 4px;
+  width: 4px;
+  position: fixed;
+  opacity: 0;
+  border: 2px solid global.$pale-orange-color;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  will-change: opacity, border;
+  pointer-events: none;
+  z-index: 999;
+}

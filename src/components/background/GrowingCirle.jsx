@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import Circle from "../../utils/circle";
 import { throttle, debounce } from "../../utils/limitors";
 
+import styles from "./GrowingCircle.module.scss";
+
 const GrowingCircle = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const themeSwitchPos = useSelector((state) => state.theme.toggleButtonPos);
@@ -45,7 +47,7 @@ const GrowingCircle = () => {
     };
   }, [theme]);
 
-  return <canvas className={`fixed bg-darkbg w-screen h-screen -z-10`} ref={canvasRef}></canvas>;
+  return <canvas className={styles.circleBackgroundWrapper} ref={canvasRef}></canvas>;
 };
 
 export default GrowingCircle;

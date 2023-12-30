@@ -1,0 +1,111 @@
+@use "../../index.scss" as global;
+
+.light {
+  color: global.$light-text-color;
+}
+
+.dark {
+  color: global.$dark-text-color;
+}
+
+.aboutContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 2.5rem;
+}
+
+.maskedTextWrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  font-family: "Avant Garde Book BT";
+  font-weight: 600;
+  font-size: 2.5rem;
+  position: absolute;
+  padding: 0 2.5rem;
+  mask-image: url("../../assets/cursor-mask.svg");
+  mask-size: 40px;
+  mask-repeat: no-repeat;
+  background-color: global.$pale-green-color;
+  color: global.$light-text-color;
+  z-index: 10;
+
+  .maskedTextContainer {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    align-items: center;
+  }
+
+  .maskedWords {
+    display: inline-flex;
+    position: relative;
+    overflow: hidden;
+    margin-right: 1rem;
+  }
+}
+
+.aboutTextWrapper {
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Avant Garde Book BT";
+  font-weight: 600;
+  font-size: 2.5rem;
+  transition: ease-out 0.6s;
+  padding: 0 2.5rem;
+
+  .aboutTextContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+  }
+
+  .aboutTextMask {
+    height: 3.3rem;
+    position: relative;
+    display: inline-flex;
+    overflow-y: hidden;
+  }
+
+  .aboutWords {
+    position: relative;
+    margin-right: 1rem;
+  }
+}
+
+.aboutButtonWrapper {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 2rem;
+
+  .aboutButton {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    word-break: normal;
+    background-color: global.$pale-green-color;
+    color: global.$light-text-color;
+    font-family: "Space Grotesk";
+    font-weight: 800;
+    font-size: 1.5rem;
+    height: 120px;
+    width: 120px;
+    padding: 1.2rem 1.2rem;
+    border-radius: 100%;
+  }
+}

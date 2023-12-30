@@ -1,0 +1,9 @@
+@use "../../index.scss" as global;
+
+.circleBackgroundWrapper {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: global.$dark-bg-color;
+    z-index: -10;
+}

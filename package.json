@@ -18,7 +18,9 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.15.0",
-    "sort-by": "^1.2.0"
+    "sass": "^1.69.5",
+    "sort-by": "^1.2.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
