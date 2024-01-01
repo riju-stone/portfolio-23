@@ -7,43 +7,91 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 2.5rem;
 
-  .heroName {
+  .heroImageWrapper {
     position: absolute;
-    font-family: "Space Grotesk";
-    font-size: 26rem;
-    font-weight: 800;
-    z-index: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    $size: 12px; /* the size on the corner */
+    $thick: 2px; /* the thickness of the border */
+    $gap: 1rem; /* the gap between the border and image */
+
+    padding: calc($gap + $thick);
+    outline-offset: calc(-1 * $thick);
+    -webkit-mask:
+      conic-gradient(at $size $size, #0000 75%, #000 0) 0 0 / calc(100% - $size) calc(100% - $size),
+      linear-gradient(#000 0 0) content-box;
+    mask:
+      conic-gradient(at $size $size, #0000 75%, #000 0) 0 0 / calc(100% - $size) calc(100% - $size),
+      linear-gradient(#000 0 0) content-box;
+    transition: 0.4s;
+
+    .heroImageMask {
+      overflow: hidden;
+
+      .heroImage {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &:hover {
+      outline-offset: calc($gap/-1);
+    }
 
     &.light {
-      color: global.$light-disabled-color;
+      outline: $size solid global.$light-disabled-color;
     }
 
     &.dark {
-      color: global.$dark-disabled-color;
+      outline: $size solid global.$dark-disabled-color;
     }
   }
 
   .heroTitleWrapper {
-    font-family: "Avant Garde Book BT";
-    font-size: 6rem;
-    font-weight: 700;
+    position: absolute;
+    bottom: 30%;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    font-size: 4.5rem;
+    font-weight: bolder;
     text-align: center;
-    transition: 0.6s ease-out;
-    z-index: 5;
 
     .heroTitleMask {
       overflow-y: hidden;
-      height: 8rem;
+      height: 6rem;
+
+      .heroTitle {
+        z-index: 0;
+      }
+
+      .heroTitleOutline {
+        position: relative;
+        top: -6.75rem;
+        // background-image: url("../../assets/hero/hero-image.jpeg");
+        // background-position: 50% 75%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        z-index: 10;
+
+        &.light {
+          -webkit-text-stroke: 1.5px global.$pale-orange-color;
+        }
+
+        &.dark {
+          -webkit-text-stroke: 1.5px global.$pale-green-color;
+        }
+      }
     }
 
     &.light {
-      color: global.$light-text-color;
+      color: global.$pale-orange-color;
     }
 
     &.dark {
-      color: global.$dark-text-color;
+      color: global.$pale-green-color;
     }
   }
 
@@ -52,9 +100,10 @@
     top: 4.5rem;
     left: 2.5rem;
     font-family: "Caveat";
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     text-align: left;
     line-height: 2.4rem;
+    transition: 0.6s linear;
 
     &.light {
       color: global.$light-disabled-color;
@@ -70,9 +119,10 @@
     bottom: 4.5rem;
     right: 2.5rem;
     font-family: "Caveat";
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     text-align: right;
     line-height: 2.4rem;
+    transition: 0.6s linear;
 
     &.light {
       color: global.$light-disabled-color;
@@ -81,10 +131,5 @@
     &.dark {
       color: global.$dark-disabled-color;
     }
-  }
-
-  .arrowIcon {
-    height: 5.5rem;
-    width: 5.5rem;
   }
 }

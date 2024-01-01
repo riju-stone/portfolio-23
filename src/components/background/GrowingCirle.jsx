@@ -9,10 +9,18 @@ const GrowingCircle = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const themeSwitchPos = useSelector((state) => state.theme.toggleButtonPos);
   const canvasRef = useRef(null);
+  const isDark = theme == "dark";
 
   useEffect(() => {
     const ctx = canvasRef.current.getContext("2d");
-    let circleAnimation = Circle.initializeCanvas(ctx, theme);
+    let circleAnimation = null;
+
+    const initializeAnimation = () => {
+      circleAnimation = Circle.initializeCanvas(ctx, isDark);
+    };
+
+    initializeAnimation();
+
     let shouldStartCircleAnimation = true;
 
     const circleAnimationRunner = () => {
@@ -35,7 +43,7 @@ const GrowingCircle = () => {
 
     const handleResize = () => {
       Circle.resetCircleCenterCoordinates();
-      Circle.initializeCanvas(ctx, theme);
+      initializeAnimation();
       circleAnimationRunner();
     };
 
@@ -45,9 +53,8 @@ const GrowingCircle = () => {
       shouldStartCircleAnimation = false;
       window.removeEventListener("resize", throttle(debounce(handleResize)), false);
     };
-  }, [theme]);
+  }, [isDark]);
 
   return <canvas className={styles.circleBackgroundWrapper} ref={canvasRef}></canvas>;
 };
-
 export default GrowingCircle;

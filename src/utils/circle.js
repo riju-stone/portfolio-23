@@ -35,16 +35,16 @@ const Circle = {
     circleCenterCoordinates.y = null;
   },
 
-  initializeCanvas: (ctx, theme) => {
+  initializeCanvas: (ctx, isDark) => {
     Circle.ctx = ctx;
-    Circle.isDark = theme == "dark" ? true : false;
+    Circle.isDark = isDark;
 
     Circle.height = Math.max(window.screen.height, window.innerHeight);
     Circle.width = Math.max(window.screen.width, window.innerWidth);
     Circle.maxRadiusMultiplier = Math.max(Circle.width, Circle.height) ** (1.0 / GROWTH_FUNCTION_EXPONENTIAL);
     Circle.prevDrawTS = Date.now();
 
-    document.body.style.backgroundColor = Circle.isDark ? BGCOLORS.light : BGCOLORS.dark;
+    document.body.style.backgroundColor = Circle.isDark ? BGCOLORS.dark : BGCOLORS.light;
 
     const { width, height } = Circle.ctx.canvas.getBoundingClientRect();
     let canvasWidth = Circle.ctx.canvas.width;
@@ -61,17 +61,25 @@ const Circle = {
       Circle.radiusMultiplier = Circle.isDark ? 0 : Circle.maxRadiusMultiplier;
     }
 
+    console.log("Canvas Init Config:");
+    console.log("CTX: ", Circle.ctx);
+    console.log("Canvas Size: ", Circle.ctx.canvas.width, Circle.ctx.canvas.height);
+    console.log("Circle.isDark: ", Circle.isDark);
+    console.log("Circle.maxRadiusMultiplier: ", Circle.maxRadiusMultiplier);
+
     return Circle.startAnimation;
   },
 
   startAnimation: () => (Circle.isDark ? Circle.shrinkCircle : Circle.growCircle),
 
   shrinkCircle: () => {
+    console.log("Shrinking Circle...");
     Circle.radiusMultiplier -= RADIUS_GROWTH_RATE_MS * Math.max(1, Date.now() - Circle.prevDrawTS);
     return Circle.verifyCircleBounds;
   },
 
   growCircle: () => {
+    console.log("Expanding Circle...");
     Circle.radiusMultiplier += RADIUS_GROWTH_RATE_MS * Math.max(1, Date.now() - Circle.prevDrawTS);
     return Circle.verifyCircleBounds;
   },

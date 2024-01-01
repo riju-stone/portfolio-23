@@ -74,11 +74,11 @@ const ThemeSwitch = () => {
           cy="12"
           r="6"
           mask="url(#moon-mask)"
-          fill={theme == "light" ? "#FF9043" : "#B9B9B9"}
+          fill={theme == "light" ? "#e04634" : "#B9B9B9"}
         />
         <motion.g
           className="sun-beams stroke-[1.5px]"
-          stroke="#FF9043"
+          stroke="#e04634"
           variants={animations.sunBeams}
           animate={theme == "light" ? "light" : "dark"}
         >
