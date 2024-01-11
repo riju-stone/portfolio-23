@@ -12,6 +12,7 @@ import Error from "./pages/Error";
 import LoadingScreen from "./components/loading/LoadingScreen";
 import { AnimatePresence, motion } from "framer-motion";
 import Footer from "./components/footer/Footer";
+import SmoothScrolling from "./components/smooth-scrolling/SmoothScrolling";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -26,10 +27,11 @@ function App() {
           </motion.div>
         </AnimatePresence>
       ) : (
-        <>
+        <SmoothScrolling>
           <GrowingCircle />
           <Cursor />
           <Header location={location} />
+
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
@@ -39,8 +41,9 @@ function App() {
               <Route path="*" element={<Error />} />
             </Routes>
           </AnimatePresence>
+
           <Footer />
-        </>
+        </SmoothScrolling>
       )}
     </div>
   );

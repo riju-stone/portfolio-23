@@ -36,13 +36,13 @@ const maskedPhrase =
 const AboutSection = () => {
   const dispatch = useDispatch();
   const cursorState = useSelector((state) => state.cursor.cursorStyle);
-
   const deviceType = useDeviceDetection();
+
+  const [mousePos, setMousePos] = useState({ x: null, y: null });
 
   const aboutTextRef = useRef(null);
   const aboutMaskedTextRef = useRef(null);
-  const [maskPos, setMaskPos] = useState({ x: null, y: null });
-  const maskSize = cursorState == "masked" ? 400 : 0;
+  let maskSize = cursorState == "masked" ? 400 : 0;
 
   const theme = useSelector((state) => state.theme.currentTheme);
 
@@ -51,7 +51,7 @@ const AboutSection = () => {
 
   const handleMouseMove = (e) => {
     let { clientX, clientY } = e;
-    setMaskPos({ x: clientX, y: clientY });
+    setMousePos({ x: clientX, y: clientY });
   };
 
   const handleMouseEnter = () => {
@@ -63,18 +63,14 @@ const AboutSection = () => {
   };
 
   useEffect(() => {
+    document.addEventListener("mousemove", handleMouseMove);
+
     if (inView) {
       console.log(inView);
       animationControls.start("show");
     } else {
       animationControls.start("hidden");
     }
-
-    document.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
   }, [inView]);
 
   return (
@@ -88,7 +84,7 @@ const AboutSection = () => {
           ref={aboutMaskedTextRef}
           className={styles.maskedTextWrapper}
           animate={{
-            WebkitMaskPosition: `${maskPos.x - maskSize / 2}px ${maskPos.y - maskSize / 2}px`,
+            WebkitMaskPosition: `${mousePos.x - maskSize / 2}px ${mousePos.y - maskSize / 2}px`,
             WebkitMaskSize: `${maskSize}px`
           }}
           transition={{ type: "tween", ease: "backOut", duration: 0.4 }}
@@ -107,9 +103,7 @@ const AboutSection = () => {
             })}
           </p>
         </motion.div>
-      ) : (
-        <></>
-      )}
+      ) : null}
       <div className={styles.aboutTextWrapper}>
         <p className={styles.aboutWordsContainer} ref={aboutTextRef}>
           {phrase.split(" ").map((word, index) => {

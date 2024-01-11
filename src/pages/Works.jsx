@@ -5,7 +5,7 @@ import Transition from "../components/transition/Transition";
 
 const styles = {
   worksContainer: "h-screen flex align-middle items-center py-[4rem] px-[2rem]",
-  worksTitle: "font-avant-garde font-[600] text-6xl ease-out duration-[0.6s]"
+  worksTitle: "font-avant-garde font-[600] text-[8.75rem] ease-out duration-[0.6s]"
 };
 
 const worksSectionAnimation = {
@@ -19,7 +19,7 @@ const worksSectionAnimation = {
 
 const titleWordAnimation = {
   hidden: {
-    y: 100
+    y: "100%"
   },
   show: {
     y: 0,
@@ -43,16 +43,16 @@ const Works = () => {
         animate="show"
       >
         <div className={styles.worksTitle + " " + disabledTextStyle}>
-          <motion.div className="overflow-hidden h-[70px]">
+          <motion.div className="overflow-hidden h-[12.5rem]">
             <motion.div variants={titleWordAnimation}>Still</motion.div>
           </motion.div>
-          <motion.div className="overflow-hidden h-[70px]">
+          <motion.div className="overflow-hidden h-[12.5rem]">
             <motion.div variants={titleWordAnimation}>Figuring</motion.div>{" "}
           </motion.div>
-          <motion.div className="overflow-hidden h-[70px]">
+          <motion.div className="overflow-hidden h-[12.5rem]">
             <motion.div variants={titleWordAnimation}>Out some</motion.div>{" "}
           </motion.div>
-          <motion.div className="overflow-hidden h-[70px]">
+          <motion.div className="overflow-hidden h-[12.5rem]">
             <motion.div variants={titleWordAnimation}>Stuff...</motion.div>{" "}
           </motion.div>
         </div>

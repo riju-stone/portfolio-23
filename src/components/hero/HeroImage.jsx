@@ -7,8 +7,14 @@ import I0 from "../../assets/hero/hero-1.jpeg";
 import I1 from "../../assets/hero/hero-2.jpeg";
 import I2 from "../../assets/hero/hero-3.jpeg";
 import I3 from "../../assets/hero/hero-4.jpeg";
+import I4 from "../../assets/hero/hero-5.jpeg";
+import I5 from "../../assets/hero/hero-6.jpeg";
+import I6 from "../../assets/hero/hero-7.jpeg";
+import I7 from "../../assets/hero/hero-8.jpeg";
+import I8 from "../../assets/hero/hero-9.jpeg";
+import I9 from "../../assets/hero/hero-10.jpeg";
 
-const imageData = [I0, I1, I2, I3];
+const imageData = [I0, I1, I2, I3, I4, I5, I6, I7, I8, I9];
 
 const imageAnimation = {
   hidden: {

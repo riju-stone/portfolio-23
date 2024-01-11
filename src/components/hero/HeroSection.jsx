@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import styles from "./HeroSection.module.scss";
 import HeroImage from "./HeroImage";
 
+import { RiArrowLeftDownLine } from "@remixicon/react";
+
 const heroSectionAnimation = {
   show: {
     transition: {
@@ -22,7 +24,7 @@ const titleWordAnimation = {
     y: 0,
     transition: {
       ease: [0.6, 0.01, 0.05, 0.95],
-      duration: 1.2,
+      duration: 0.3,
       delay: 1.8
     }
   }
@@ -38,8 +40,24 @@ const leftSubtitleAnimation = {
     opacity: 1,
     transition: {
       ease: [0.6, 0.01, 0.05, 0.85],
-      duration: 1,
+      duration: 0.6,
       delay: 1.2
+    }
+  }
+};
+
+const rightSubtitleAnimation = {
+  hidden: {
+    y: 50,
+    opacity: 0
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      ease: [0.6, 0.01, 0.05, 0.85],
+      duration: 0.6,
+      delay: 2.2
     }
   }
 };
@@ -56,12 +74,18 @@ const HeroSection = () => {
     >
       <div className={styles.heroImageWrapper + " " + styles[theme]}>
         <HeroImage />
+        <div className={styles.heroNameWrapper + " " + styles[theme]}>
+          <RiArrowLeftDownLine size={32} />
+          <p>Arighna</p>
+          <p>Chakraborty</p>
+        </div>
       </div>
       <motion.div variants={leftSubtitleAnimation} className={styles.heroLeftTitle + " " + styles[theme]}>
         Full-Stack Developer
         <br />
         with a love for Design ...
       </motion.div>
+      <div className={styles.heroSectionCount + " " + styles[theme]}>[ 01/06 ]</div>
       <div className={styles.heroTitleWrapper + " " + styles[theme]}>
         <motion.div className={styles.heroTitleMask}>
           <motion.div variants={titleWordAnimation} className={styles.heroTitle}>
@@ -72,7 +96,7 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
-      <motion.div variants={leftSubtitleAnimation} className={styles.heroRightTitle + " " + styles[theme]}>
+      <motion.div variants={rightSubtitleAnimation} className={styles.heroRightTitle + " " + styles[theme]}>
         ... and emphasis on
         <br />
         unique user experiences

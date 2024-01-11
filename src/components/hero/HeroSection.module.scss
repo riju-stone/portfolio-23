@@ -48,6 +48,16 @@
     &.dark {
       outline: $size solid global.$dark-disabled-color;
     }
+
+    .heroNameWrapper {
+      position: absolute;
+      right: 6.5rem;
+      font-size: 1.5rem;
+      font-family: "Space Grotesk";
+      font-weight: 600;
+      line-height: 25px;
+      color: global.$dark-disabled-color;
+    }
   }
 
   .heroTitleWrapper {
@@ -65,14 +75,17 @@
 
       .heroTitle {
         z-index: 0;
+        transition: 0.6s linear;
       }
 
       .heroTitleOutline {
         position: relative;
         top: -6.75rem;
+        transition: 0.6s linear;
         // background-image: url("../../assets/hero/hero-image.jpeg");
         // background-position: 50% 75%;
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
         z-index: 10;
 
@@ -92,6 +105,23 @@
 
     &.dark {
       color: global.$pale-green-color;
+    }
+  }
+
+  .heroSectionCount {
+    position: absolute;
+    bottom: 10.5rem;
+    left: 2.5rem;
+    font-family: "Avant Garde Book BT";
+    font-weight: 500;
+    font-size: 1.2rem;
+
+    &.light {
+      color: global.$light-disabled-color;
+    }
+
+    &.dark {
+      color: global.$dark-disabled-color;
     }
   }
 

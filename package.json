@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
+    "@remixicon/react": "^4.0.1",
+    "@studio-freight/lenis": "^1.0.33",
+    "@studio-freight/react-lenis": "^0.0.43",
     "framer-motion": "^10.16.4",
     "gsap": "^3.12.4",
     "localforage": "^1.10.0",
@@ -19,8 +22,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.15.0",
     "sass": "^1.69.5",
-    "sort-by": "^1.2.0",
-    "uuid": "^9.0.1"
+    "sort-by": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
