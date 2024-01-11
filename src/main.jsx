@@ -7,14 +7,18 @@ import store from "./store";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import SmoothScrolling from "./components/smooth-scrolling/SmoothScrolling";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/*" element={<App />} />
-        </Routes>
-      </BrowserRouter>
+      <SmoothScrolling>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/*" element={<App />} />
+          </Routes>
+        </BrowserRouter>
+      </SmoothScrolling>
     </Provider>
   </React.StrictMode>
 );

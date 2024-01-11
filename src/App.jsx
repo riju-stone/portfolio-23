@@ -27,7 +27,7 @@ function App() {
           </motion.div>
         </AnimatePresence>
       ) : (
-        <SmoothScrolling>
+        <>
           <GrowingCircle />
           <Cursor />
           <Header location={location} />
@@ -41,9 +41,8 @@ function App() {
               <Route path="*" element={<Error />} />
             </Routes>
           </AnimatePresence>
-
           <Footer />
-        </SmoothScrolling>
+        </>
       )}
     </div>
   );
