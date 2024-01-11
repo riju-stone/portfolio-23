@@ -11,7 +11,6 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@remixicon/react": "^4.0.1",
-    "@studio-freight/lenis": "^1.0.33",
     "@studio-freight/react-lenis": "^0.0.43",
     "framer-motion": "^10.16.4",
     "gsap": "^3.12.4",

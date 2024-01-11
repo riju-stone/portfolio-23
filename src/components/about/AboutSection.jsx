@@ -4,10 +4,11 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import { defaultCursor, maskCursor } from "../cursor/CursorSlice";
-import { useDeviceDetection } from "../../utils/deviceType";
+import { useDeviceDetection } from "../hooks/useDeviceDetection";
 import MagneticButton from "../button/MagneticButton";
 
 import styles from "./AboutSection.module.scss";
+import SkewScroll from "../skew-scroll/SkewScroll";
 
 const aboutSectionAnimation = {
   show: {
@@ -74,62 +75,64 @@ const AboutSection = () => {
   }, [inView]);
 
   return (
-    <motion.section
-      className={styles.aboutContainer + " " + styles[theme]}
-      variants={aboutSectionAnimation}
-      animate={animationControls}
-    >
-      {deviceType == "desktop" ? (
-        <motion.div
-          ref={aboutMaskedTextRef}
-          className={styles.maskedTextWrapper}
-          animate={{
-            WebkitMaskPosition: `${mousePos.x - maskSize / 2}px ${mousePos.y - maskSize / 2}px`,
-            WebkitMaskSize: `${maskSize}px`
-          }}
-          transition={{ type: "tween", ease: "backOut", duration: 0.4 }}
-        >
-          <p
-            className={styles.maskedTextContainer}
-            onMouseEnter={() => handleMouseEnter()}
-            onMouseLeave={() => handleMouseLeave()}
+    <SkewScroll>
+      <motion.section
+        className={styles.aboutContainer + " " + styles[theme]}
+        variants={aboutSectionAnimation}
+        animate={animationControls}
+      >
+        {deviceType == "desktop" ? (
+          <motion.div
+            ref={aboutMaskedTextRef}
+            className={styles.maskedTextWrapper}
+            animate={{
+              WebkitMaskPosition: `${mousePos.x - maskSize / 2}px ${mousePos.y - maskSize / 2}px`,
+              WebkitMaskSize: `${maskSize}px`
+            }}
+            transition={{ type: "tween", ease: "backOut", duration: 0.4 }}
           >
-            {maskedPhrase.split(" ").map((word, index) => {
+            <p
+              className={styles.maskedTextContainer}
+              onMouseEnter={() => handleMouseEnter()}
+              onMouseLeave={() => handleMouseLeave()}
+            >
+              {maskedPhrase.split(" ").map((word, index) => {
+                return (
+                  <span key={index + " " + word}>
+                    <span className={styles.maskedWords}>{word}</span>
+                  </span>
+                );
+              })}
+            </p>
+          </motion.div>
+        ) : null}
+        <div className={styles.aboutTextWrapper}>
+          <p className={styles.aboutWordsContainer} ref={aboutTextRef}>
+            {phrase.split(" ").map((word, index) => {
               return (
-                <span key={index + " " + word}>
-                  <span className={styles.maskedWords}>{word}</span>
+                <span key={index} className={styles.aboutTextMask}>
+                  <motion.span
+                    className={styles.aboutWords}
+                    variants={aboutTextAnimation}
+                    custom={index}
+                    animate={inView ? "show" : "hidden"}
+                  >
+                    {word}
+                  </motion.span>
                 </span>
               );
             })}
           </p>
-        </motion.div>
-      ) : null}
-      <div className={styles.aboutTextWrapper}>
-        <p className={styles.aboutWordsContainer} ref={aboutTextRef}>
-          {phrase.split(" ").map((word, index) => {
-            return (
-              <span key={index} className={styles.aboutTextMask}>
-                <motion.span
-                  className={styles.aboutWords}
-                  variants={aboutTextAnimation}
-                  custom={index}
-                  animate={inView ? "show" : "hidden"}
-                >
-                  {word}
-                </motion.span>
-              </span>
-            );
-          })}
-        </p>
-      </div>
-      <div className={styles.aboutButtonWrapper}>
-        <MagneticButton>
-          <Link to="/about">
-            <div className={styles.aboutButton}>About Me</div>
-          </Link>
-        </MagneticButton>
-      </div>
-    </motion.section>
+        </div>
+        {/* <div className={styles.aboutButtonWrapper}>
+          <MagneticButton>
+            <Link to="/about">
+              <div className={styles.aboutButton}>About Me</div>
+            </Link>
+          </MagneticButton>
+        </div> */}
+      </motion.section>
+    </SkewScroll>
   );
 };
 

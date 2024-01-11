@@ -26,13 +26,6 @@ const loadingWrapperAnimation = {
       when: "beforeChildren",
       duration: 1.5
     }
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      ease: "easeInOut",
-      duration: 1.2
-    }
   }
 };
 
@@ -51,7 +44,7 @@ const loadingTitleAnimation = {
     opacity: 0,
     transition: {
       ease: "easeInOut",
-      duration: 0.8
+      duration: 0.4
     }
   }
 };
@@ -65,6 +58,13 @@ const loadingProgressAnimation = {
     transition: {
       ease: [0.5, 0.001, 0.08, 0.95],
       duration: 4
+    }
+  },
+  exit: {
+    y: -20,
+    transition: {
+      ease: [0.5, 0.001, 0.08, 0.95],
+      duration: 0.4
     }
   }
 };
@@ -84,7 +84,7 @@ const loadingPercentAnimation = {
     opacity: 0,
     transition: {
       ease: "easeInOut",
-      duration: 0.8
+      duration: 0.4
     }
   }
 };
@@ -132,6 +132,7 @@ const LoadingScreen = ({ setLoading }) => {
 
   return (
     <motion.div
+      key="loader"
       variants={loadingScreenAnimation}
       initial="hidden"
       animate="show"

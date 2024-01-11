@@ -13,10 +13,11 @@ const expandAnimation = {
       duration: 0.7,
       delay: 0.06 * i,
       ease: [0.215, 0.61, 0.355, 1]
-    }
+    },
+    transitionEnd: { height: "0", top: "0" }
   }),
   exit: (i) => ({
-    top: 0,
+    height: "100vh",
     transition: {
       duration: 0.7,
       delay: 0.06 * i,
@@ -38,7 +39,7 @@ const Transition = ({ children }) => {
               exit="exit"
               variants={expandAnimation}
               custom={columnQuantity - index}
-              key={index}
+              key={"transition-" + index}
               className={styles.transitionColumns}
             />
           );

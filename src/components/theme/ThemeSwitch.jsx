@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
-import { useDeviceDetection } from "../../utils/deviceType";
+import { useDeviceDetection } from "../hooks/useDeviceDetection";
 
 const animations = {
   sunBeams: {

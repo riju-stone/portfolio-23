@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { ReactLenis } from "@studio-freight/react-lenis";
+import { AnimatePresence, motion } from "framer-motion";
 
 import GrowingCircle from "./components/background/GrowingCirle";
 import Cursor from "./components/cursor/Cursor";
@@ -10,28 +12,25 @@ import Works from "./pages/Works";
 import About from "./pages/About";
 import Error from "./pages/Error";
 import LoadingScreen from "./components/loading/LoadingScreen";
-import { AnimatePresence, motion } from "framer-motion";
 import Footer from "./components/footer/Footer";
-import SmoothScrolling from "./components/smooth-scrolling/SmoothScrolling";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
   return (
-    <div className="App overflow-hidden">
+    <ReactLenis className="App" root options={{ lerp: 0.1, duration: 1.5, smoothTouch: true }}>
       {loading == true ? (
-        <AnimatePresence mode="wait">
-          <motion.div key="loader">
+        <AnimatePresence>
+          <div>
             <LoadingScreen setLoading={setLoading} />
-          </motion.div>
+          </div>
         </AnimatePresence>
       ) : (
         <>
           <GrowingCircle />
           <Cursor />
           <Header location={location} />
-
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
@@ -44,7 +43,7 @@ function App() {
           <Footer />
         </>
       )}
-    </div>
+    </ReactLenis>
   );
 }
 

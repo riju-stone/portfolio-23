@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import ProjectItem from "./ProjectItem";
 import MagneticButton from "../button/MagneticButton";
 import { Link } from "react-router-dom";
+import SkewScroll from "../skew-scroll/SkewScroll";
 
 const styles = {
   projectWrapper:
@@ -38,24 +39,26 @@ function ProjectSection() {
   const disabledTextStyle = theme == "dark" ? "bg-darkdisabled" : "bg-lightdisabled";
 
   return (
-    <section className={styles.projectWrapper}>
-      {projectData.map((project, index) => {
-        return (
-          <div key={index + " " + project.title}>
-            {index == 0 ? <div className={styles.projectSeparator + " " + disabledTextStyle}></div> : null}
-            <ProjectItem projectData={project} />
-            <div className={styles.projectSeparator + " " + disabledTextStyle}></div>
-          </div>
-        );
-      })}
-      <div className={styles.projectButtonWrapper}>
-        <MagneticButton>
-          <Link to="/works">
-            <div className={styles.projectWorksButton}>All Works</div>
-          </Link>
-        </MagneticButton>
-      </div>
-    </section>
+    <SkewScroll>
+      <section className={styles.projectWrapper}>
+        {projectData.map((project, index) => {
+          return (
+            <div key={index + " " + project.title}>
+              {index == 0 ? <div className={styles.projectSeparator + " " + disabledTextStyle}></div> : null}
+              <ProjectItem projectData={project} />
+              <div className={styles.projectSeparator + " " + disabledTextStyle}></div>
+            </div>
+          );
+        })}
+        <div className={styles.projectButtonWrapper}>
+          <MagneticButton>
+            <Link to="/works">
+              <div className={styles.projectWorksButton}>All Works</div>
+            </Link>
+          </MagneticButton>
+        </div>
+      </section>
+    </SkewScroll>
   );
 }
 

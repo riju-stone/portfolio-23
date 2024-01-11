@@ -3,32 +3,19 @@
 .transitionWrapper {
   min-height: calc(100vh - 80px);
   .transitionContainer {
-    margin: 0;
-    padding: 0;
     position: fixed;
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     left: 0;
     top: 0;
     pointer-events: none;
     z-index: 999;
-
     .transitionColumns {
       position: relative;
       height: 100%;
       width: 100%;
       background-color: global.$pale-orange-color;
-    }
-
-    .transitionTitle {
-      position: absolute;
-      font-family: "Space Grotesk";
-      font-size: 3.2rem;
-      font-weight: 600;
-      color: global.$light-text-color;
     }
   }
 }
