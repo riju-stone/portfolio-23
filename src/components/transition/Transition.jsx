@@ -29,7 +29,7 @@ const expandAnimation = {
 const Transition = ({ children }) => {
   const columnQuantity = 6;
   return (
-    <div className={styles.transitionWrapper}>
+    <motion.div key="transition" className={styles.transitionWrapper}>
       <div className={styles.transitionContainer}>
         {[...Array(columnQuantity)].map((_, index) => {
           return (
@@ -46,7 +46,7 @@ const Transition = ({ children }) => {
         })}
       </div>
       {children}
-    </div>
+    </motion.div>
   );
 };
 

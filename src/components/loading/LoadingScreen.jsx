@@ -6,26 +6,11 @@ import styles from "./LoadingScreen.module.scss";
 const loadingScreenAnimation = {
   show: {
     transition: {
-      when: "afterChildren",
-      staggerChildren: 0.4
+      when: "afterChildren"
     }
-  }
-};
-
-const loadingWrapperAnimation = {
-  hidden: {
-    y: 0,
-    opacity: 0
   },
-  show: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      ease: [0.65, 0.01, 0.05, 0.95],
-      staggerChildren: 0.4,
-      when: "beforeChildren",
-      duration: 1.5
-    }
+  exit: {
+    when: "afterChildren"
   }
 };
 
@@ -36,7 +21,7 @@ const loadingTitleAnimation = {
   show: {
     opacity: 1,
     transition: {
-      duration: 1.2,
+      duration: 1.5,
       ease: "easeInOut"
     }
   },
@@ -77,7 +62,7 @@ const loadingPercentAnimation = {
     opacity: 1,
     transition: {
       ease: "easeInOut",
-      duration: 1.2
+      duration: 1.5
     }
   },
   exit: {
@@ -115,7 +100,7 @@ const LoadingScreen = ({ setLoading }) => {
       () => {
         setCurrentPhraseIndex(currentPhraseIndex + 1);
       },
-      currentPhraseIndex == 0 ? 2500 : 250
+      currentPhraseIndex == 0 ? 1000 : 250
     );
   }, [currentPhraseIndex]);
 
@@ -140,20 +125,15 @@ const LoadingScreen = ({ setLoading }) => {
       onAnimationComplete={() => setLoading(false)}
       className={styles.loadingScreenWrapper}
     >
-      <motion.div variants={loadingWrapperAnimation} className={styles.loaderContainer}>
+      <div className={styles.loaderContainer}>
         <motion.div variants={loadingTitleAnimation} className={styles.loadingTitle}>
           * {phraseArray[currentPhraseIndex]}
         </motion.div>
         <motion.div variants={loadingPercentAnimation} className={styles.loadingPercent}>
           {progressPercent}%
         </motion.div>
-
-        <motion.div
-          ref={progressRef}
-          className={styles.loadingProgress}
-          variants={loadingProgressAnimation}
-        ></motion.div>
-      </motion.div>
+        <motion.div ref={progressRef} className={styles.loadingProgress} variants={loadingProgressAnimation} />
+      </div>
     </motion.div>
   );
 };

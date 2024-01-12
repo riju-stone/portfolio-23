@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { ReactLenis } from "@studio-freight/react-lenis";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 import GrowingCircle from "./components/background/GrowingCirle";
 import Cursor from "./components/cursor/Cursor";
@@ -19,12 +18,10 @@ function App() {
   const location = useLocation();
 
   return (
-    <ReactLenis className="App" root options={{ lerp: 0.1, duration: 1.5, smoothTouch: true }}>
-      {loading == true ? (
-        <AnimatePresence>
-          <div>
-            <LoadingScreen setLoading={setLoading} />
-          </div>
+    <div className="App">
+      {loading ? (
+        <AnimatePresence mode="wait">
+          <LoadingScreen setLoading={setLoading} />
         </AnimatePresence>
       ) : (
         <>
@@ -43,7 +40,7 @@ function App() {
           <Footer />
         </>
       )}
-    </ReactLenis>
+    </div>
   );
 }
 

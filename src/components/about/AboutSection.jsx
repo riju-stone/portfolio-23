@@ -1,12 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { Link } from "react-router-dom";
 
 import { defaultCursor, maskCursor } from "../cursor/CursorSlice";
 import { useDeviceDetection } from "../hooks/useDeviceDetection";
-import MagneticButton from "../button/MagneticButton";
-
 import styles from "./AboutSection.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 
