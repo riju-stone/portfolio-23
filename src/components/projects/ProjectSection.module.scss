@@ -1,0 +1,96 @@
+@use "../../index.scss" as global;
+
+.projectSectionWrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: linear 0.6s;
+  padding: 6rem 4rem;
+
+  .projectItemsWrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .projectItemSeparator {
+      width: 90%;
+      height: 1px;
+
+      &.light {
+        background-color: global.$light-disabled-color;
+      }
+
+      &.dark {
+        background-color: global.$dark-disabled-color;
+      }
+    }
+  }
+}
+
+.projectItemWrapper {
+  width: 80%;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  .projectTitleContainer {
+    width: 100%;
+    .projectTitle {
+      font-size: 3.5rem;
+      font-family: "Avant Garde Book BT";
+      transition: linear 0.6s;
+      text-align: left;
+    }
+
+    .light {
+      color: global.$light-text-color;
+    }
+
+    .dark {
+      color: global.$dark-text-color;
+    }
+  }
+
+  .projectRoleWrapper {
+    text-align: right;
+    transition: linear 0.6s;
+    font-family: "Space Grotesk";
+    font-size: 1.2rem;
+
+    &.light {
+      color: global.$light-disabled-color;
+    }
+
+    &.dark {
+      color: global.$dark-disabled-color;
+    }
+  }
+}
+
+.projectButtonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 4rem;
+  .projectWorksButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7.5rem;
+    width: 7.5rem;
+    padding: 1rem;
+    background-color: global.$pale-green-color;
+    font-family: "Avant Garde Book BT";
+    font-weight: 600;
+    font-size: 1.6rem;
+    border-radius: 100%;
+    margin-top: 2.5rem;
+  }
+}

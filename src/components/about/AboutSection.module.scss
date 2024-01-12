@@ -1,13 +1,5 @@
 @use "../../index.scss" as global;
 
-.light {
-  color: global.$light-text-color;
-}
-
-.dark {
-  color: global.$dark-text-color;
-}
-
 .aboutContainer {
   height: 100vh;
   display: flex;
@@ -86,6 +78,14 @@
   .aboutWords {
     position: relative;
     margin-right: 1rem;
+  }
+
+  &.light {
+    color: global.$light-text-color;
+  }
+
+  &.dark {
+    color: global.$dark-text-color;
   }
 }
 

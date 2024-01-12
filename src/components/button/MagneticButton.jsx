@@ -4,8 +4,8 @@ function MagneticButton({ children }) {
   const magneticButtonRef = useRef(null);
 
   useEffect(() => {
-    const xMove = gsap.quickTo(magneticButtonRef.current, "x", { duration: 0.2, ease: "elastic.out(1, 0.3)" });
-    const yMove = gsap.quickTo(magneticButtonRef.current, "y", { duration: 0.2, ease: "elastic.out(1, 0.3)" });
+    const xMove = gsap.quickTo(magneticButtonRef.current, "x", { duration: 0.2, ease: "elastic.out(1, 0.4)" });
+    const yMove = gsap.quickTo(magneticButtonRef.current, "y", { duration: 0.2, ease: "elastic.out(1, 0.4)" });
 
     magneticButtonRef.current.addEventListener("mousemove", (e) => {
       console.log("Mouse Entered");

@@ -73,11 +73,7 @@ const AboutSection = () => {
 
   return (
     <SkewScroll>
-      <motion.section
-        className={styles.aboutContainer + " " + styles[theme]}
-        variants={aboutSectionAnimation}
-        animate={animationControls}
-      >
+      <motion.section className={styles.aboutContainer} variants={aboutSectionAnimation} animate={animationControls}>
         {deviceType == "desktop" ? (
           <motion.div
             ref={aboutMaskedTextRef}
@@ -103,7 +99,7 @@ const AboutSection = () => {
             </p>
           </motion.div>
         ) : null}
-        <div className={styles.aboutTextWrapper}>
+        <div className={styles.aboutTextWrapper + " " + styles[theme]}>
           <p className={styles.aboutWordsContainer} ref={aboutTextRef}>
             {phrase.split(" ").map((word, index) => {
               return (

@@ -1,19 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { defaultCursor, focusCursor } from "../cursor/CursorSlice";
 
 import ProjectItem from "./ProjectItem";
 import MagneticButton from "../button/MagneticButton";
-import { Link } from "react-router-dom";
 import SkewScroll from "../skew-scroll/SkewScroll";
 
-const styles = {
-  projectWrapper:
-    "h-screen grid grid-cols-1 justify-center align-middle items-center py-[4rem] px-[2rem] ease-out duration-[0.6s]",
-  projectSeparator: "h-[1px] w-full ease-out duration-[0.6s]",
-  projectButtonWrapper: "grid justify-end align-middle items-center",
-  projectWorksButton:
-    "grid justify-center align-middle items-center break-normal bg-greenbg text-center text-lighttext h-[90px] w-[90px] font-avant-garde font-[600] rounded-full px-2 py-2"
-};
+import styles from "./ProjectSection.module.scss";
 
 const projectData = [
   {
@@ -36,24 +30,38 @@ const projectData = [
 
 function ProjectSection() {
   const theme = useSelector((state) => state.theme.currentTheme);
-  const disabledTextStyle = theme == "dark" ? "bg-darkdisabled" : "bg-lightdisabled";
+  const dispatch = useDispatch();
+
+  const handleMouseEnter = () => {
+    dispatch(focusCursor());
+  };
+
+  const handleMouseLeave = () => {
+    dispatch(defaultCursor());
+  };
 
   return (
     <SkewScroll>
-      <section className={styles.projectWrapper}>
+      <section className={styles.projectSectionWrapper}>
         {projectData.map((project, index) => {
           return (
-            <div key={index + " " + project.title}>
-              {index == 0 ? <div className={styles.projectSeparator + " " + disabledTextStyle}></div> : null}
+            <div className={styles.projectItemsWrapper} key={index + " " + project.title}>
+              {index == 0 ? <div className={styles.projectItemSeparator + " " + styles[theme]}></div> : null}
               <ProjectItem projectData={project} />
-              <div className={styles.projectSeparator + " " + disabledTextStyle}></div>
+              <div className={styles.projectItemSeparator + " " + styles[theme]}></div>
             </div>
           );
         })}
         <div className={styles.projectButtonWrapper}>
           <MagneticButton>
             <Link to="/works">
-              <div className={styles.projectWorksButton}>All Works</div>
+              <div
+                className={styles.projectWorksButton}
+                onMouseEnter={() => handleMouseEnter()}
+                onMouseLeave={() => handleMouseLeave()}
+              >
+                Works
+              </div>
             </Link>
           </MagneticButton>
         </div>
