@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 import { motion, useAnimation, useInView } from "framer-motion";
 
-import { defaultCursor, maskCursor } from "../cursor/CursorSlice";
-import { useDeviceDetection } from "../hooks/useDeviceDetection";
 import styles from "./AboutSection.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 
@@ -28,43 +26,17 @@ const aboutTextAnimation = {
 
 const phrase =
   "Based out of City of Joy - Kolkata. A selectively skilled developer with strong focus on high quality & impactful digital experiences.";
-const maskedPhrase =
-  "A full-stack developer with skills that haven't been replaced by A.I. (yet) - making good shit only if the paycheck is equally good.";
 
 const AboutSection = () => {
-  const dispatch = useDispatch();
-  const cursorState = useSelector((state) => state.cursor.cursorStyle);
-  const deviceType = useDeviceDetection();
-
-  const [mousePos, setMousePos] = useState({ x: null, y: null });
-
   const aboutTextRef = useRef(null);
-  const aboutMaskedTextRef = useRef(null);
-  let maskSize = cursorState == "masked" ? 400 : 0;
 
   const theme = useSelector((state) => state.theme.currentTheme);
 
   const inView = useInView(aboutTextRef, { once: true });
   const animationControls = useAnimation();
 
-  const handleMouseMove = (e) => {
-    let { clientX, clientY } = e;
-    setMousePos({ x: clientX, y: clientY });
-  };
-
-  const handleMouseEnter = () => {
-    dispatch(maskCursor());
-  };
-
-  const handleMouseLeave = () => {
-    dispatch(defaultCursor());
-  };
-
   useEffect(() => {
-    document.addEventListener("mousemove", handleMouseMove);
-
     if (inView) {
-      console.log(inView);
       animationControls.start("show");
     } else {
       animationControls.start("hidden");
@@ -74,32 +46,8 @@ const AboutSection = () => {
   return (
     <SkewScroll>
       <motion.section className={styles.aboutContainer} variants={aboutSectionAnimation} animate={animationControls}>
-        {deviceType == "desktop" ? (
-          <motion.div
-            ref={aboutMaskedTextRef}
-            className={styles.maskedTextWrapper}
-            animate={{
-              WebkitMaskPosition: `${mousePos.x - maskSize / 2}px ${mousePos.y - maskSize / 2}px`,
-              WebkitMaskSize: `${maskSize}px`
-            }}
-            transition={{ type: "tween", ease: "backOut", duration: 0.4 }}
-          >
-            <p
-              className={styles.maskedTextContainer}
-              onMouseEnter={() => handleMouseEnter()}
-              onMouseLeave={() => handleMouseLeave()}
-            >
-              {maskedPhrase.split(" ").map((word, index) => {
-                return (
-                  <span key={index + " " + word}>
-                    <span className={styles.maskedWords}>{word}</span>
-                  </span>
-                );
-              })}
-            </p>
-          </motion.div>
-        ) : null}
         <div className={styles.aboutTextWrapper + " " + styles[theme]}>
+          <p className={styles.aboutTitle}>About Me</p>
           <p className={styles.aboutWordsContainer} ref={aboutTextRef}>
             {phrase.split(" ").map((word, index) => {
               return (

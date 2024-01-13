@@ -3,51 +3,15 @@
 .aboutContainer {
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: flex-start;
   padding: 2rem 2.5rem;
 }
 
-.maskedTextWrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: left;
-  font-family: "Avant Garde Book BT";
-  font-weight: 600;
-  font-size: 2.5rem;
-  position: absolute;
-  left: 0;
-  padding: 0 5rem;
-  mask-image: url("../../assets/masks/cursor-mask.svg");
-  mask-repeat: no-repeat;
-  mask-size: "0px";
-  background-color: global.$pale-green-color;
-  color: global.$light-text-color;
-  z-index: 10;
-
-  .maskedTextContainer {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: left;
-    align-items: center;
-  }
-
-  .maskedWords {
-    display: inline-flex;
-    position: relative;
-    overflow: hidden;
-    margin-right: 1rem;
-  }
-}
-
 .aboutTextWrapper {
   height: 100%;
-  width: 50%;
+  width: 75%;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -55,21 +19,34 @@
   align-items: flex-start;
   font-family: "Avant Garde Book BT";
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 4.5rem;
   transition: linear 0.6s;
-  padding: 0 2.5rem;
+
+  .aboutTitle {
+    font-family: "Avant Garde Book BT";
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+    text-align: left;
+    &.light {
+      color: global.$light-text-color;
+    }
+
+    &.dark {
+      color: global.$dark-text-color;
+    }
+  }
 
   .aboutTextContainer {
-    width: 50%;
+    width: 75%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    text-align: left;
+    text-align: center;
     align-items: center;
   }
 
   .aboutTextMask {
-    height: 3.3rem;
+    height: 6.5rem;
     position: relative;
     display: inline-flex;
     overflow-y: hidden;

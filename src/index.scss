@@ -47,6 +47,10 @@ $pale-orange-color: #f05443;
 $light-bg-color: #ededed;
 $dark-bg-color: #17181a;
 
+/* hide scrollbar for IE, Edge and Firefox */
+
+/* hide scrollbar for chrome, safari and opera */
+
 *,
 body {
   user-select: none;
@@ -56,4 +60,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-text-size-adjust: 100%;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -12,19 +12,18 @@ const Cursor = () => {
   const outerCursorRef = React.useRef(null);
   const innerCursorRef = React.useRef(null);
 
-  if (deviceType === "mobile" || deviceType === "tablet") {
-    outerCursorRef.current.style.display = `none`;
-    innerCursorRef.current.style.display = `none`;
-  }
-
   const handleMouseMove = (e) => {
     let { clientX, clientY } = e;
-
     outerCursorRef.current.style.top = `${clientY}px`;
     outerCursorRef.current.style.left = `${clientX}px`;
     innerCursorRef.current.style.top = `${clientY}px`;
     innerCursorRef.current.style.left = `${clientX}px`;
   };
+
+  if (deviceType === "mobile" || deviceType === "tablet") {
+    outerCursorRef.current.style.display = `none`;
+    innerCursorRef.current.style.display = `none`;
+  }
 
   const handleMouseDown = () => {
     outerCursorRef.current.style.transform = `translate(-50%, -50%) scale(0.75)`;
@@ -45,14 +44,20 @@ const Cursor = () => {
   };
 
   useEffect(() => {
-    if (outerCursorRef.current && innerCursorRef.current && outerCursorRef.current.style.display !== `none`) {
-      document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("mouseleave", handleMouseOut);
-      document.addEventListener("mouseenter", handleMouseEnter);
-      document.addEventListener("mousedown", handleMouseDown);
-      document.addEventListener("mouseup", handleMouseUp);
-    }
-  }, []);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseOut);
+    document.addEventListener("mouseenter", handleMouseEnter);
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mouseup", handleMouseUp);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseOut);
+      document.removeEventListener("mouseenter", handleMouseEnter);
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  });
 
   return (
     <>

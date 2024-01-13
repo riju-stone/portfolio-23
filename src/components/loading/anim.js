@@ -37,7 +37,7 @@ const loadingProgressAnimation = {
     x: 0,
     transition: {
       ease: [0.5, 0.001, 0.08, 0.95],
-      duration: 4
+      duration: 6
     }
   },
   exit: {

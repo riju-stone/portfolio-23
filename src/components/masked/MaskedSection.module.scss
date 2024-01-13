@@ -1,0 +1,67 @@
+@use "../../index.scss" as global;
+
+.maskedSectionWrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  mask-image: url("../../assets/masks/cursor-mask.svg");
+  mask-repeat: no-repeat;
+  mask-size: 0px;
+
+  .maskedHeroSection {
+    height: 100vh;
+  }
+
+  .maskedAboutSection {
+    height: 100vh;
+  }
+}
+
+.maskedHeroSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Space Grotesk";
+  font-weight: 800;
+  font-size: 8rem;
+  background-color: global.$pale-green-color;
+  color: global.$light-text-color;
+}
+
+.maskedAboutSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  font-family: "Avant Garde Book BT";
+  font-weight: 800;
+  font-size: 4rem;
+  padding: 0 2.5rem;
+  background-color: global.$pale-green-color;
+  color: global.$light-text-color;
+
+  .aboutTextContainer {
+    width: 100%;
+    padding: 2.5rem 0;
+    .maskedTextContainer {
+      width: 72%;
+      display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+      align-items: center;
+    }
+  }
+
+  .maskedWords {
+    position: relative;
+    overflow: hidden;
+    margin-right: 1rem;
+  }
+}
