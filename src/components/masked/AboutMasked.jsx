@@ -1,11 +1,12 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { defaultCursor, maskCursor } from "../cursor/CursorSlice";
 import styles from "./MaskedSection.module.scss";
 
 function AboutMasked() {
   const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.currentTheme);
 
   const maskedPhrase =
     "A full-stack developer with skills that haven't been replaced by A.I. (yet) - making good shit only if the paycheck is equally good.";
@@ -18,7 +19,7 @@ function AboutMasked() {
     dispatch(defaultCursor());
   };
   return (
-    <div className={styles.maskedAboutSection}>
+    <div className={styles.maskedAboutSection + " " + styles[theme]}>
       <div className={styles.maskedTextWrapper}>
         <div
           className={styles.aboutTextContainer}

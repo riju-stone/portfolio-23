@@ -13,10 +13,6 @@ const headerData = [
     label: "home"
   },
   {
-    link: "/works",
-    label: "works"
-  },
-  {
     link: "/about",
     label: "about"
   },

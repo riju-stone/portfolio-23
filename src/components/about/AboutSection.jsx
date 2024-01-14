@@ -16,7 +16,7 @@ const aboutSectionAnimation = {
 
 const aboutTextAnimation = {
   hidden: {
-    y: 100
+    y: 150
   },
   show: (i) => ({
     y: 0,

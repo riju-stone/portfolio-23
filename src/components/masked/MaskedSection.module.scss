@@ -19,19 +19,31 @@
   .maskedAboutSection {
     height: 100vh;
   }
+
+  .maskedProjectSection {
+    height: 100vh;
+  }
 }
 
 .maskedHeroSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: "Space Grotesk";
+  align-items: flex-start;
+  text-align: left;
+  font-family: "Avant Garde Book BT";
   font-weight: 800;
-  font-size: 8rem;
-  background-color: global.$pale-green-color;
+  font-size: 4rem;
+  padding: 0 2.5rem;
   color: global.$light-text-color;
+
+  &.light {
+    background-color: global.$pale-orange-color;
+  }
+
+  &.dark {
+    background-color: global.$pale-green-color;
+  }
 }
 
 .maskedAboutSection {
@@ -44,8 +56,15 @@
   font-weight: 800;
   font-size: 4rem;
   padding: 0 2.5rem;
-  background-color: global.$pale-green-color;
   color: global.$light-text-color;
+
+  &.light {
+    background-color: global.$pale-orange-color;
+  }
+
+  &.dark {
+    background-color: global.$pale-green-color;
+  }
 
   .aboutTextContainer {
     width: 100%;

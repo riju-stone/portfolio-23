@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   transition: linear 0.6s;
-  padding: 6rem 4rem;
+  padding: 6rem 0;
 
   .projectItemsWrapper {
     height: 100%;
@@ -18,7 +18,7 @@
     align-items: center;
 
     .projectItemSeparator {
-      width: 90%;
+      width: 100%;
       height: 1px;
 
       &.light {
@@ -32,29 +32,99 @@
   }
 }
 
-.projectItemWrapper {
-  width: 80%;
+.projectMaskedItemWrapper {
+  position: absolute;
+  height: 7.6rem;
+  width: 100%;
   display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  padding: 0 8.5rem;
+  clip-path: inset(50% 0 50%);
+  transition: clip-path 0.8s;
+  color: global.$light-text-color;
+  z-index: 20;
+
+  &.light {
+    background-color: global.$pale-orange-color;
+  }
+
+  &.dark {
+    background-color: global.$pale-green-color;
+  }
 
   .projectTitleContainer {
     width: 100%;
+
     .projectTitle {
-      font-size: 3.5rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      font-size: 3.8rem;
+      font-weight: 700;
       font-family: "Avant Garde Book BT";
       transition: linear 0.6s;
       text-align: left;
+      text-transform: uppercase;
+    }
+  }
+
+  .projectDescriptionWrapper {
+    text-align: right;
+    font-family: "Space Grotesk";
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+}
+
+.projectItemWrapper {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 8.5rem;
+  z-index: 9;
+
+  .projectTitleContainer {
+    width: 100%;
+
+    .projectTitle {
+      font-size: 3.8rem;
+      font-weight: 700;
+      font-family: "Avant Garde Book BT";
+      transition: color linear 0.6s;
+      text-align: left;
+      text-transform: uppercase;
+
+      &.light {
+        color: global.$light-text-color;
+      }
+
+      &.dark {
+        color: global.$dark-text-color;
+      }
     }
 
-    .light {
-      color: global.$light-text-color;
-    }
+    .projectDisabledTitle {
+      position: absolute;
+      font-size: 3.8rem;
+      font-weight: 700;
+      font-family: "Avant Garde Book BT";
+      transition: linear 0.6s;
+      text-align: left;
+      text-transform: uppercase;
 
-    .dark {
-      color: global.$dark-text-color;
+      &.light {
+        color: global.$light-disabled-color;
+      }
+
+      &.dark {
+        color: global.$dark-disabled-color;
+      }
     }
   }
 
@@ -71,28 +141,5 @@
     &.dark {
       color: global.$dark-disabled-color;
     }
-  }
-}
-
-.projectButtonWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 4rem;
-  z-index: 100;
-
-  .projectWorksButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 7.5rem;
-    width: 7.5rem;
-    padding: 1rem;
-    background-color: global.$pale-green-color;
-    font-family: "Avant Garde Book BT";
-    font-weight: 600;
-    font-size: 1.6rem;
-    border-radius: 100%;
-    margin-top: 2.5rem;
   }
 }

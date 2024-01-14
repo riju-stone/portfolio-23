@@ -32,8 +32,8 @@ function App() {
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
               <Route path="/blogs" element={<Blog />} />
-              <Route path="/works" element={<Works />} />
               <Route path="/about" element={<About />} />
+              <Route path="/works" element={<Works />} />
               <Route path="*" element={<Error />} />
             </Routes>
           </AnimatePresence>

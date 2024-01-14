@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 
 import styles from "./Transition.module.scss";
+import { useDeviceDetection } from "../hooks/useDeviceDetection";
 
 const expandAnimation = {
   initial: {
@@ -27,7 +28,13 @@ const expandAnimation = {
 };
 
 const Transition = ({ children }) => {
-  const columnQuantity = 6;
+  const deviceType = useDeviceDetection();
+  let columnQuantity = 6;
+
+  useEffect(() => {
+    columnQuantity = deviceType == "desktop" ? 6 : 4;
+  });
+
   return (
     <motion.div key="transition" className={styles.transitionWrapper}>
       <div className={styles.transitionContainer}>

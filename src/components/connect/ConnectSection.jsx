@@ -1,0 +1,58 @@
+import React from "react";
+import { useSelector } from "react-redux";
+
+import styles from "./ConnectSection.module.scss";
+import SkewScroll from "../skew-scroll/SkewScroll";
+
+import { RiArrowRightUpLine } from "@remixicon/react";
+
+const data = {
+  fname: "Arighna",
+  lname: "Chakraborty",
+  designation: ["Creative", "Full-Stack", "Developer"],
+  phone: "+919163411820",
+  links: ["email", "linkedin", "github", "twitter", "instagram", "youtube"]
+};
+
+function ConnectSection() {
+  const theme = useSelector((state) => state.theme.currentTheme);
+  return (
+    <SkewScroll>
+      <section className={styles.connectSectionWrapper}>
+        <div className={styles.connectSectionContainer + " " + styles[theme]}>
+          <div className={styles.connectLines}>
+            <p>{data.fname}</p>
+            <p>{data.lname}</p>
+          </div>
+
+          <div className={styles.connectLines}>
+            <p>{data.designation[0]}</p>
+            <p>&</p>
+          </div>
+
+          <div className={styles.connectLines}>
+            <p>{data.designation[1]}</p>
+            <p>{data.designation[2]}</p>
+          </div>
+
+          <div className={styles.connectLinks}>
+            <p>{data.phone}</p>
+          </div>
+
+          <div className={styles.connectLinksContainer}>
+            {data.links.map((link, index) => {
+              return (
+                <div className={styles.connectLinks} key={index}>
+                  <p>{link}</p>
+                  <RiArrowRightUpLine size={90} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </SkewScroll>
+  );
+}
+
+export default ConnectSection;
