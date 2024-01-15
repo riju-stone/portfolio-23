@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
 
 import styles from "./HeroSection.module.scss";
 import HeroImage from "./HeroImage";
@@ -11,22 +12,20 @@ import { RiArrowLeftDownLine } from "@remixicon/react";
 const heroSectionAnimation = {
   show: {
     transition: {
-      staggerChildren: 0.25,
-      delayChildren: 0.4
+      staggerChildren: 0
     }
   }
 };
 
-const titleWordAnimation = {
+const heroTitleAnimation = {
   hidden: {
-    y: 150
+    opacity: 0
   },
   show: {
-    y: 0,
+    opacity: 1,
     transition: {
-      ease: [0.6, 0.01, 0.05, 0.95],
-      duration: 0.3,
-      delay: 1.8
+      duration: 1.5,
+      delay: 2
     }
   }
 };
@@ -58,7 +57,7 @@ const rightSubtitleAnimation = {
     transition: {
       ease: [0.6, 0.01, 0.05, 0.85],
       duration: 0.6,
-      delay: 2.2
+      delay: 1.2
     }
   }
 };
@@ -74,12 +73,26 @@ const HeroSection = () => {
         initial="hidden"
         animate="show"
       >
+        <div className={styles.heroTitleWrapper + " " + styles[theme]}>
+          <motion.div className={styles.heroTitleMask}>
+            <motion.div variants={heroTitleAnimation} className={styles.heroTitle}>
+              <Marquee loop={0} autoFill={true} speed={50}>
+                Arighna * Chakraborty *
+              </Marquee>
+            </motion.div>
+            <motion.div variants={heroTitleAnimation} className={styles.heroTitleStroke + " " + styles[theme]}>
+              <Marquee loop={0} autoFill={true} speed={50}>
+                Arighna * Chakraborty *
+              </Marquee>
+            </motion.div>
+          </motion.div>
+        </div>
         <div className={styles.heroImageWrapper + " " + styles[theme]}>
           <HeroImage />
           <div className={styles.heroNameWrapper + " " + styles[theme]}>
             <RiArrowLeftDownLine size={32} />
-            <p>Arighna</p>
-            <p>Chakraborty</p>
+            <p>Hover</p>
+            <p>On Me.</p>
           </div>
         </div>
         <motion.div variants={leftSubtitleAnimation} className={styles.heroLeftTitle + " " + styles[theme]}>
@@ -88,16 +101,6 @@ const HeroSection = () => {
           with a love for Design ...
         </motion.div>
         <div className={styles.heroSectionCount + " " + styles[theme]}>[ 01/06 ]</div>
-        <div className={styles.heroTitleWrapper + " " + styles[theme]}>
-          <motion.div className={styles.heroTitleMask}>
-            <motion.div variants={titleWordAnimation} className={styles.heroTitle}>
-              Multi-Disciplinary Creative Developer
-            </motion.div>
-            <motion.div variants={titleWordAnimation} className={styles.heroTitleOutline + " " + styles[theme]}>
-              Multi-Disciplinary Creative Developer
-            </motion.div>
-          </motion.div>
-        </div>
         <motion.div variants={rightSubtitleAnimation} className={styles.heroRightTitle + " " + styles[theme]}>
           ... and emphasis on
           <br />

@@ -47,7 +47,6 @@ const AboutSection = () => {
     <SkewScroll>
       <motion.section className={styles.aboutContainer} variants={aboutSectionAnimation} animate={animationControls}>
         <div className={styles.aboutTextWrapper + " " + styles[theme]}>
-          <p className={styles.aboutTitle}>About Me</p>
           <p className={styles.aboutWordsContainer} ref={aboutTextRef}>
             {phrase.split(" ").map((word, index) => {
               return (
@@ -65,13 +64,6 @@ const AboutSection = () => {
             })}
           </p>
         </div>
-        {/* <div className={styles.aboutButtonWrapper}>
-          <MagneticButton>
-            <Link to="/about">
-              <div className={styles.aboutButton}>About Me</div>
-            </Link>
-          </MagneticButton>
-        </div> */}
       </motion.section>
     </SkewScroll>
   );

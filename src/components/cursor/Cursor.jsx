@@ -57,7 +57,7 @@ const Cursor = () => {
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  });
+  }, []);
 
   return (
     <>

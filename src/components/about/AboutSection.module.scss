@@ -22,25 +22,9 @@
   font-size: 4.5rem;
   transition: linear 0.6s;
 
-  .aboutTitle {
-    font-family: "Avant Garde Book BT";
-    font-size: 1.5rem;
-    padding: 0 0.5rem;
-    text-align: left;
-
-    &.light {
-      color: global.$light-text-color;
-    }
-
-    &.dark {
-      color: global.$dark-text-color;
-    }
-  }
-
   .aboutTextContainer {
-    width: 75%;
+    width: 85%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -64,32 +48,5 @@
 
   &.dark {
     color: global.$dark-text-color;
-  }
-}
-
-.aboutButtonWrapper {
-  position: fixed;
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: 2rem;
-
-  .aboutButton {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    word-break: normal;
-    background-color: global.$pale-green-color;
-    color: global.$light-text-color;
-    font-family: "Space Grotesk";
-    font-weight: 800;
-    font-size: 1.5rem;
-    height: 120px;
-    width: 120px;
-    padding: 1.2rem 1.2rem;
-    border-radius: 100%;
   }
 }

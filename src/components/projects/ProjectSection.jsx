@@ -22,7 +22,7 @@ const projectData = [
   {
     title: "Auth API",
     role: ["Development"],
-    desc: "Role-based Authentication API using JWT & Go"
+    desc: "Role-based Authentication API using Go, MongoDB and JWT"
   },
   {
     title: "Url Shortner",
@@ -32,12 +32,12 @@ const projectData = [
   {
     title: "Dictionary",
     role: ["Development", "Design"],
-    desc: "A beautiful minimalistic dictionary app built with React Native, Expo and Reanimated"
+    desc: "A beautiful minimalistic dictionary app built with React-Native, Expo and Reanimated"
   },
   {
     title: "Expense Tracker",
     role: ["Design"],
-    desc: "A simple expense tracker app built with React Native, Expo and Reanimated"
+    desc: "A simple expense tracker app designed with Figma"
   }
 ];
 

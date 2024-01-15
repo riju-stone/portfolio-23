@@ -51,7 +51,8 @@
 
     .heroNameWrapper {
       position: absolute;
-      right: 6.5rem;
+      top: 5.5rem;
+      right: 5rem;
       font-size: 1.5rem;
       font-family: "Space Grotesk";
       font-weight: 600;
@@ -62,55 +63,63 @@
 
   .heroTitleWrapper {
     position: absolute;
-    bottom: 30%;
-    width: 100%;
-    font-family: "Roboto", sans-serif;
-    font-size: 4.5rem;
-    font-weight: bolder;
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: "Avant Garde Book BT";
+    font-size: 15.5rem;
+    font-weight: 500;
     text-align: center;
 
     .heroTitleMask {
       overflow-y: hidden;
-      height: 6rem;
+      height: 100%;
 
       .heroTitle {
+        position: absolute;
+        width: 100%;
+        bottom: 6rem;
+        transition: 0.6s color linear;
+        text-transform: uppercase;
+        text-wrap: nowrap;
         z-index: 0;
-        transition: 0.6s linear;
       }
 
-      .heroTitleOutline {
-        position: relative;
-        top: -6.75rem;
+      .heroTitleStroke {
+        position: absolute;
+        bottom: 6rem;
+        width: 100%;
         transition: 0.6s linear;
-        // background-image: url("../../assets/hero/hero-image.jpeg");
-        // background-position: 50% 75%;
+        text-transform: uppercase;
+        text-wrap: nowrap;
+        z-index: 90;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        z-index: 10;
+        -webkit-text-stroke-width: 5px;
 
         &.light {
-          -webkit-text-stroke: 1.5px global.$pale-orange-color;
+          -webkit-text-stroke-color: global.$light-text-color;
         }
 
         &.dark {
-          -webkit-text-stroke: 1.5px global.$pale-green-color;
+          -webkit-text-stroke-color: global.$dark-text-color;
         }
       }
     }
 
     &.light {
-      color: global.$pale-orange-color;
+      color: global.$light-text-color;
     }
 
     &.dark {
-      color: global.$pale-green-color;
+      color: global.$dark-text-color;
     }
   }
 
   .heroSectionCount {
     position: absolute;
-    bottom: 10.5rem;
+    bottom: 6.5rem;
     left: 2.5rem;
     font-family: "Avant Garde Book BT";
     font-weight: 500;

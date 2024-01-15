@@ -10,7 +10,6 @@ const data = {
   fname: "Arighna",
   lname: "Chakraborty",
   designation: ["Creative", "Full-Stack", "Developer"],
-  phone: "+919163411820",
   links: ["email", "linkedin", "github", "twitter", "instagram", "youtube"]
 };
 
@@ -33,10 +32,6 @@ function ConnectSection() {
           <div className={styles.connectLines}>
             <p>{data.designation[1]}</p>
             <p>{data.designation[2]}</p>
-          </div>
-
-          <div className={styles.connectLinks}>
-            <p>{data.phone}</p>
           </div>
 
           <div className={styles.connectLinksContainer}>
