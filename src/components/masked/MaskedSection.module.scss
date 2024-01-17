@@ -13,56 +13,11 @@
   mask-size: 0px;
 
   .maskedHeroSection {
-    height: 100vh;
+    height: 100dvh;
   }
 
   .maskedAboutSection {
-    height: 100vh;
-  }
-}
-
-.maskedHeroSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  .maskedHeroImageWrapper {
-    position: absolute;
-    height: 80vh;
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .maskedHeroTitleContainer {
-    position: relative;
-    top: 5rem;
-    font-family: "Avant Garde Book BT";
-    font-size: 7rem;
-    font-weight: 800;
-    color: global.$light-text-color;
-  }
-
-  .maskedHeroSubTitleContainer {
-    position: relative;
-    bottom: 5.5rem;
-    font-family: "Avant Garde Book BT";
-    font-size: 7rem;
-    font-weight: 800;
-    color: global.$light-text-color;
-  }
-
-  &.light {
-    background-color: global.$pale-orange-color;
-  }
-
-  &.dark {
-    background-color: global.$pale-green-color;
+    height: 100dvh;
   }
 }
 

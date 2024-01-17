@@ -68,7 +68,7 @@ const Header = ({ location }) => {
   };
 
   return (
-    <div className={styles.headerWrapper}>
+    <div className={styles.headerWrapper + " " + styles[theme]}>
       <div className={styles.headerLinksContainer}>
         {headerData.map((headerElement, index) => {
           return (

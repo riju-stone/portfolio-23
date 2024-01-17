@@ -15,7 +15,7 @@ function MaskedSection() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   let { scrollY } = useScroll();
 
-  let maskSize = cursorState == "masked" ? 500 : 0;
+  let maskSize = cursorState == "masked" ? 400 : 0;
 
   const handleMouseMove = (e) => {
     let { clientX, clientY } = e;

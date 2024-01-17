@@ -76,12 +76,14 @@ const HeroSection = () => {
         <div className={styles.heroTitleWrapper + " " + styles[theme]}>
           <motion.div className={styles.heroTitleMask}>
             <motion.div variants={heroTitleAnimation} className={styles.heroTitle}>
-              <Marquee loop={0} autoFill={true} speed={50}>
+              <Marquee loop={0} autoFill={true} speed={100}>
+                {" "}
                 Arighna * Chakraborty *
               </Marquee>
             </motion.div>
             <motion.div variants={heroTitleAnimation} className={styles.heroTitleStroke + " " + styles[theme]}>
-              <Marquee loop={0} autoFill={true} speed={50}>
+              <Marquee loop={0} autoFill={true} speed={100}>
+                {" "}
                 Arighna * Chakraborty *
               </Marquee>
             </motion.div>
@@ -91,8 +93,8 @@ const HeroSection = () => {
           <HeroImage />
           <div className={styles.heroNameWrapper + " " + styles[theme]}>
             <RiArrowLeftDownLine size={32} />
-            <p>Hover</p>
-            <p>On Me.</p>
+            <p>Creative &</p>
+            <p>Full-Stack Developer</p>
           </div>
         </div>
         <motion.div variants={leftSubtitleAnimation} className={styles.heroLeftTitle + " " + styles[theme]}>

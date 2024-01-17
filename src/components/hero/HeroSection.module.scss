@@ -1,12 +1,13 @@
 @use "../../index.scss" as global;
 
 .heroScreenWrapper {
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 
   .heroImageWrapper {
     position: absolute;

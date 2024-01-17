@@ -1,19 +1,14 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap"); */
-
 @font-face {
   font-family: "Avant Garde Book BT";
   src: url("./fonts/avante/AvantGardeBook.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Roboto", sans-serif;
+  font-family: "Circular";
   src:
-    url("./fonts/roboto/Roboto-Regular.ttf") format("truetype"),
-    url("./fonts/roboto/Roboto-Medium.ttf") format("truetype"),
-    url("./fonts/roboto/Roboto-Bold.ttf") format("truetype"),
-    url("./fonts/roboto/Roboto-Black.ttf") format("truetype");
+    url("./fonts/circular/CircularStd-Light.otf") format("opentype"),
+    url("./fonts/circular/CircularStd-Medium.otf") format("opentype"),
+    url("./fonts/circular/CircularStd-Bold.otf") format("opentype");
 }
 
 @font-face {

@@ -1,0 +1,59 @@
+@use "../../index.scss" as global;
+
+.postsSectionWrapper {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5rem 2.5rem;
+  text-align: left;
+
+  &.light {
+    color: global.$light-text-color;
+  }
+
+  &.dark {
+    color: global.$dark-text-color;
+  }
+}
+
+.postsTitle {
+  font-family: "Avant Garde Book BT";
+  font-size: 4.5rem;
+  font-weight: 600;
+}
+
+.postsWrapper {
+  margin: 2rem 0;
+  width: 100%;
+  overflow-y: visible;
+}
+
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.postTitle {
+  font-family: "Avant Garde Book BT";
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.postDate{
+  font-family: "Space Grotesk";
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.postSummary{
+  width: 75%;
+  font-family: "Circular";
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+

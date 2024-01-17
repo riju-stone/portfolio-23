@@ -19,27 +19,27 @@ function App() {
 
   return (
     <div className="App">
-      {/* {loading ? (
+      {loading ? (
         <AnimatePresence mode="wait">
           <LoadingScreen setLoading={setLoading} />
         </AnimatePresence>
-      ) : ( */}
-      <>
-        <GrowingCircle />
-        <Cursor />
-        <Header location={location} />
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/blogs" element={<Blog />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/works" element={<Works />} />
-            <Route path="*" element={<Error />} />
-          </Routes>
-        </AnimatePresence>
-        <Footer />
-      </>
-      {/* )} */}
+      ) : (
+        <>
+          <GrowingCircle />
+          <Cursor />
+          <Header location={location} />
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route path="/blogs" element={<Blog />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/works" element={<Works />} />
+              <Route path="*" element={<Error />} />
+            </Routes>
+          </AnimatePresence>
+          <Footer />
+        </>
+      )}
     </div>
   );
 }

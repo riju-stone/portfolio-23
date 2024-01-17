@@ -1,11 +1,11 @@
 @use "../../index.scss" as global;
 
 .transitionWrapper {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100dvh - 80px);
   .transitionContainer {
     position: fixed;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     left: 0;
     top: 0;
