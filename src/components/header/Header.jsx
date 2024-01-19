@@ -40,17 +40,14 @@ const Header = ({ location }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    switch (location.pathname) {
-      case "/":
+    switch (location.pathname.split("/")[1]) {
+      case "":
         setCurrentPage("home");
         break;
-      case "/works":
-        setCurrentPage("works");
-        break;
-      case "/about":
+      case "about":
         setCurrentPage("about");
         break;
-      case "/blogs":
+      case "blogs":
         setCurrentPage("blogs");
         break;
       default:

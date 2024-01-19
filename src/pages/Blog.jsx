@@ -3,10 +3,10 @@ import React from "react";
 import Transition from "../components/transition/Transition";
 import PostList from "../components/post/PostList";
 
-const Blog = () => {
+const Blog = ({ posts }) => {
   return (
     <Transition>
-      <PostList />
+      <PostList posts={posts} />
     </Transition>
   );
 };

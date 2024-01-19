@@ -30,30 +30,136 @@
   overflow-y: visible;
 }
 
-.postContainer {
+.postPreviewContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
+
+  &.light {
+    color: global.$light-text-color;
+  }
+
+  &.dark {
+    color: global.$dark-text-color;
+  }
+
+  .postPreviewTitle {
+    font-family: "Space Grotesk";
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  .postPreviewDate {
+    font-family: "Space Grotesk";
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .postPreviewSummary {
+    width: 75%;
+    font-family: "Avant Garde Book BT";
+    font-weight: 400;
+    font-size: 1.1rem;
+  }
 }
 
-.postTitle {
-  font-family: "Avant Garde Book BT";
-  font-size: 1.8rem;
-  font-weight: 500;
+.postSectionWrapper {
+  height: fit-content;
+  width: 100dvw;
+  padding: 5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  transition: 0.6s color linear;
+
+  &.light {
+    color: global.$light-text-color;
+  }
+
+  &.dark {
+    color: global.$dark-text-color;
+  }
+
+  .postTitle {
+    width: 100%;
+    font-family: "Space Grotesk";
+    font-size: 6.5rem;
+    font-weight: 700;
+  }
+
+  .postDetailsContainer {
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: "Avant Garde Book BT";
+    font-size: 1rem;
+
+    * {
+      margin-right: 1rem;
+    }
+  }
+
+  .postTagsContainer {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2rem;
+  }
+
+  .postContentWrapper {
+    width: 100%;
+    font-family: "Circular";
+    font-size: 1.2rem;
+    font-weight: 500;
+    .postCodeWrapper {
+      display: flex;
+
+      pre {
+        width: 85%;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        transition: 0.6s linear;
+      }
+
+      svg {
+        position: relative;
+        top: 20px;
+        right: 40px;
+        color: global.$dark-disabled-color;
+      }
+    }
+  }
+
+  .postInlineCodeWrapper {
+    width: fit-content;
+    max-width: 85%;
+    text-wrap: wrap;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    padding: 0.8rem 0.8rem;
+    background-color: global.$light-disabled-color;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid global.$light-disabled-color;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 85%;
+  }
+
+  th,
+  td {
+    padding: 0.4rem 0.8rem;
+    text-align: center;
+    vertical-align: center;
+  }
 }
-
-.postDate{
-  font-family: "Space Grotesk";
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.postSummary{
-  width: 75%;
-  font-family: "Circular";
-  font-weight: 400;
-  font-size: 1.2rem;
-}
-
-

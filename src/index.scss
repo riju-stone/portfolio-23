@@ -1,3 +1,5 @@
+@import "@code-hike/mdx/dist/index.css";
+
 @font-face {
   font-family: "Avant Garde Book BT";
   src: url("./fonts/avante/AvantGardeBook.ttf") format("truetype");
@@ -48,6 +50,8 @@ $dark-bg-color: #17181a;
 
 *,
 body {
+  margin: 0;
+  padding: 0;
   user-select: none;
   cursor: none;
   box-sizing: border-box;
@@ -61,5 +65,9 @@ body {
 
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  a{
+    text-decoration: none;
   }
 }

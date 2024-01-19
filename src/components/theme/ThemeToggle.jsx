@@ -29,13 +29,7 @@ const ThemeToggle = () => {
   };
 
   return (
-    <motion.div
-      variants={themeButtonAnimation}
-      initial="initial"
-      animate="show"
-      className="mx-1"
-      onClick={(e) => handleSwitch(e)}
-    >
+    <motion.div variants={themeButtonAnimation} initial="initial" animate="show" onClick={(e) => handleSwitch(e)}>
       <ThemeSwitch />
     </motion.div>
   );

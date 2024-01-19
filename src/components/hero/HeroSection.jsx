@@ -2,12 +2,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
+import { ArrowDownLeft } from "lucide-react";
 
 import styles from "./HeroSection.module.scss";
 import HeroImage from "./HeroImage";
 import SkewScroll from "../skew-scroll/SkewScroll";
-
-import { RiArrowLeftDownLine } from "@remixicon/react";
 
 const heroSectionAnimation = {
   show: {
@@ -92,7 +91,7 @@ const HeroSection = () => {
         <div className={styles.heroImageWrapper + " " + styles[theme]}>
           <HeroImage />
           <div className={styles.heroNameWrapper + " " + styles[theme]}>
-            <RiArrowLeftDownLine size={32} />
+            <ArrowDownLeft />
             <p>Creative &</p>
             <p>Full-Stack Developer</p>
           </div>

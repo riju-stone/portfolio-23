@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import styles from "./ConnectSection.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 
-import { RiArrowRightUpLine } from "@remixicon/react";
+import { ArrowUpRight } from "lucide-react";
 
 const data = {
   fname: "Arighna",
@@ -39,7 +39,7 @@ function ConnectSection() {
               return (
                 <div className={styles.connectLinks} key={index}>
                   <p>{link}</p>
-                  <RiArrowRightUpLine size={90} />
+                  <ArrowUpRight />
                 </div>
               );
             })}

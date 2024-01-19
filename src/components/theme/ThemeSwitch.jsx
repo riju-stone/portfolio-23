@@ -2,7 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
-import { useDeviceDetection } from "../hooks/useDeviceDetection";
+
+import styles from "./Theme.module.scss";
 
 const animations = {
   sunBeams: {
@@ -40,12 +41,6 @@ const animations = {
 const ThemeSwitch = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const dispatch = useDispatch();
-  const deviceType = useDeviceDetection();
-
-  let toggleSize = "h-8 w-8";
-  if (deviceType === "mobile") {
-    toggleSize = "h-6 w-6";
-  }
 
   const handleMouseEnter = () => {
     dispatch(expandCursor());
@@ -57,7 +52,7 @@ const ThemeSwitch = () => {
 
   return (
     <motion.button
-      className="theme-switch"
+      className={styles.themeSwitchWrapper}
       title="Theme Toggle Switch"
       aria-label="auto"
       aria-live="polite"
@@ -67,7 +62,13 @@ const ThemeSwitch = () => {
       onMouseEnter={() => handleMouseEnter()}
       onMouseLeave={() => handleMouseLeave()}
     >
-      <motion.svg className={`sun-moon ${toggleSize}`} aria-hidden="true" width="20" height="20" viewBox="0 0 24 24">
+      <motion.svg
+        className={`sun-moon ${styles.logoWrapper}`}
+        aria-hidden="true"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+      >
         <motion.circle
           className="sun"
           cx="12"
