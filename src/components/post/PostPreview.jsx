@@ -5,14 +5,20 @@ import styles from "./Posts.module.scss";
 import { Link } from "react-router-dom";
 
 function PostPreview({ id, postData }) {
-  let postLink = postData.title.split(" ").join("-").toLowerCase();
   const theme = useSelector((state) => state.theme.currentTheme);
+
+  // let postLink = postData.title
+  //   .replace(/[!@#$%^&*:]/g, "")
+  //   .split(" ")
+  //   .join("-")
+  //   .toLowerCase();
+  let postDate = new Date(postData.created_at).toString().split(" ").slice(0, 4).join(" ");
+
   return (
-    <Link to={`/blogs/${postLink}`}>
+    <Link to={`/blogs/${postData.post_id}`}>
       <div key={id} className={styles.postPreviewContainer + " " + styles[theme]}>
         <div className={styles.postPreviewTitle}>{postData.title}</div>
-        <div className={styles.postPreviewDate}>{postData.created_at}</div>
-        <div className={styles.postPreviewSummary}>{postData.summary}</div>
+        <div className={styles.postPreviewDate}>{postDate}</div>
       </div>
     </Link>
   );

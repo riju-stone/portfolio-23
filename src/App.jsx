@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-
-import supabase from "./utils/db";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import GrowingCircle from "./components/background/GrowingCirle";
 import Cursor from "./components/cursor/Cursor";
 import Header from "./components/header/Header";
-import Home from "./pages/Home";
-import Blog from "./pages/Blog";
-import Post from "./pages/Post";
-import About from "./pages/About";
-import Error from "./pages/Error";
+import HomePage from "./pages/HomePage";
+import BlogPage from "./pages/BlogPage";
+import PostPage from "./pages/PostPage";
+import AboutPage from "./pages/AboutPage";
+import ErrorPage from "./pages/ErrorPage";
 
 import LoadingScreen from "./components/loading/LoadingScreen";
 import Footer from "./components/footer/Footer";
@@ -20,21 +19,14 @@ function App() {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
-  const [posts, setPosts] = useState([]);
-
-  const fetchPosts = async () => {
-    let { data, error } = await supabase.from("posts").select("*").order("created_at", { ascending: false });
-
-    if (error) {
-      console.log("Error fetching posts", error);
-    } else {
-      setPosts(data);
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 1000 * 60 * 15,
+        refetchOnMount: false
+      }
     }
-  };
-
-  useEffect(() => {
-    fetchPosts().catch(console.error);
-  }, []);
+  });
 
   return (
     <div className="App">
@@ -43,24 +35,21 @@ function App() {
           <LoadingScreen setLoading={setLoading} />
         </AnimatePresence>
       ) : (
-        <>
+        <QueryClientProvider client={queryClient}>
           <GrowingCircle />
           <Cursor />
           <Header location={location} />
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Home />} />
-              <Route path="/blogs" element={<Blog posts={posts} />} />
-              <Route path="/about" element={<About />} />
-              <Route path="*" element={<Error />} />
-              {posts.map((post, index) => {
-                let postLink = post.title.split(" ").join("-").toLowerCase();
-                return <Route key={index} path={`/blogs/${postLink}`} element={<Post postData={post} />} />;
-              })}
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/blogs" element={<BlogPage />} />
+              <Route path="/blogs/:id" element={<PostPage />} />
+              <Route path="*" element={<ErrorPage />} />
             </Routes>
           </AnimatePresence>
           <Footer />
-        </>
+        </QueryClientProvider>
       )}
     </div>
   );

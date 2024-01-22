@@ -7,7 +7,7 @@ import ConnectSection from "../components/connect/ConnectSection";
 import Transition from "../components/transition/Transition";
 import MaskedSection from "../components/masked/MaskedSection";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <Transition>
       <HeroSection />
@@ -19,4 +19,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

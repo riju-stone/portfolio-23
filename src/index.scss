@@ -15,6 +15,7 @@
   font-family: "Space Grotesk";
   src:
     url("./fonts/space-grotesk/SpaceGrotesk-Light.ttf") format("truetype"),
+    url("./fonts/space-grotesk/SpaceGrotesk-Regular.ttf") format("truetype"),
     url("./fonts/space-grotesk/SpaceGrotesk-Medium.ttf") format("truetype"),
     url("./fonts/space-grotesk/SpaceGrotesk-SemiBold.ttf") format("truetype"),
     url("./fonts/space-grotesk/SpaceGrotesk-Bold.ttf") format("truetype");
@@ -29,14 +30,10 @@
     url("./fonts/caveat/Caveat-Bold.ttf") format("truetype");
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 $light-text-color: #17181a;
 $dark-text-color: #ededed;
-$light-disabled-color: #8d8d8d;
-$dark-disabled-color: #636363;
+$light-disabled-color: #b5b5b5;
+$dark-disabled-color: #414141;
 $pale-green-color: #cdfc75;
 $pale-orange-color: #f05443;
 $light-bg-color: #ededed;

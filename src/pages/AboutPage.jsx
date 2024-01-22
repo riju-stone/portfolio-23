@@ -30,7 +30,7 @@ const titleWordAnimation = {
   }
 };
 
-const About = () => {
+const AboutPage = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const disabledTextStyle = theme == "dark" ? "text-darkdisabled" : "text-lightdisabled";
 
@@ -61,4 +61,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutPage;
