@@ -143,3 +143,65 @@
     }
   }
 }
+
+@media only screen and (max-width: 640px) {
+  .projectSectionWrapper {
+    padding: 1.5rem 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .projectItemsWrapper {
+      height: 7.5rem;
+      width: 100%;
+    }
+  }
+
+  .projectMaskedItemWrapper {
+    height: 1.2rem;
+    padding: 0 1.5rem;
+    height: 7.5rem;
+    flex-direction: column;
+
+    .projectTitleContainer {
+      width: 100%;
+
+      .projectTitle {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        font-size: 2.5rem;
+      }
+    }
+
+    .projectDescriptionWrapper {
+      font-size: 1rem;
+      text-align: left;
+    }
+  }
+
+  .projectItemWrapper {
+    padding: 0 1.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .projectTitleContainer {
+      width: 100%;
+      .projectTitle {
+        padding: 0.5rem 0;
+        font-size: 2.5rem;
+      }
+
+      .projectDisabledTitle {
+        padding: 0.5rem 0;
+        font-size: 2.5rem;
+      }
+    }
+
+    .projectRoleWrapper {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      text-align: left;
+    }
+  }
+}

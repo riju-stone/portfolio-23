@@ -4,7 +4,7 @@
   min-height: calc(100dvh - 80px);
   .transitionContainer {
     position: fixed;
-    width: 100vw;
+    width: 100dvw;
     height: 100dvh;
     display: flex;
     left: 0;
@@ -16,6 +16,15 @@
       height: 100%;
       width: 100%;
       background-color: global.$pale-orange-color;
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .transitionWrapper {
+    overflow-x: hidden;
+    .transitionContainer {
+      overflow-x: hidden;
     }
   }
 }

@@ -345,3 +345,124 @@
     color: global.$dark-text-color;
   }
 }
+
+@media only screen and (max-width: 640px) {
+  .postsSectionWrapper {
+    padding: 4rem 1.5rem 2rem 1.5rem;
+  }
+
+  .postsScrollBarWrapper {
+    display: none;
+  }
+
+  .postsHeaderContainer {
+    .postsTitle {
+      font-size: 2.5rem;
+    }
+
+    .postsSort {
+      font-size: 1rem;
+      margin-right: 0;
+
+      svg {
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+
+  .postsWrapper {
+    padding: 0;
+  }
+
+  .postPreviewContainer {
+    width: 100%;
+    padding: 0.8rem;
+
+    &.light {
+      border-right: 0px;
+    }
+
+    &.dark {
+      border-right: 0px;
+    }
+
+    .postPreviewTitle {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .postPreviewDate {
+      font-size: 0.8rem;
+    }
+  }
+
+  .postSectionWrapper {
+    padding: 4rem 1.5rem;
+
+    .postHeaderWrapper {
+      .postBackButton {
+        margin-right: 0.1rem;
+        margin-top: 0.1rem;
+        height: 3rem;
+        width: 3rem;
+
+        svg {
+          height: 3rem;
+          width: 3rem;
+        }
+      }
+
+      .postTitle {
+        font-size: 2.5rem;
+      }
+    }
+
+    .postDetailsContainer {
+      height: 5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    .postTagsContainer {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      margin-left: 0;
+
+      p {
+        background-color: global.$dark-disabled-color;
+        padding: 0.1rem 0.4rem;
+        font-size: 0.8rem;
+        border-radius: 5px;
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+    }
+
+    .postContentWrapper {
+      font-size: 1.1rem;
+      line-height: 30px;
+    }
+
+    .postInlineCodeWrapper {
+      width: fit-content;
+      font-size: 0.9rem;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    th,
+    td {
+      padding: 0.2rem 0.4rem;
+    }
+  }
+
+  .contentLoaderWrapper {
+    font-size: 3rem;
+  }
+}

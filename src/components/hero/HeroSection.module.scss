@@ -173,3 +173,44 @@
     }
   }
 }
+
+@media only screen and (max-width: 640px) {
+  .heroScreenWrapper {
+    height: 100dvh;
+    width: 100dvw;
+    overflow-x: hidden;
+
+    .heroLeftTitle {
+      top: 3.5rem;
+      left: 1.5rem;
+      font-size: 1.2rem;
+      text-align: left;
+      line-height: 1.5rem;
+    }
+
+    .heroRightTitle {
+      bottom: 3.5rem;
+      right: 1.5rem;
+      font-size: 1.2rem;
+      text-align: left;
+      line-height: 1.5rem;
+    }
+
+    .heroImageWrapper {
+      width: 100%;
+      overflow-x: hidden;
+      .heroNameWrapper {
+        top: 5.5rem;
+        right: 30%;
+        font-size: 1rem;
+        font-family: "Space Grotesk";
+        font-weight: 600;
+        line-height: 18px;
+      }
+    }
+
+    .heroTitleWrapper {
+      font-size: 8rem;
+    }
+  }
+}

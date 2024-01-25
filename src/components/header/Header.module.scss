@@ -44,3 +44,11 @@
     }
   }
 }
+
+@media only screen and (max-width: 640px) {
+  .headerWrapper {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    z-index: 999;
+  }
+}

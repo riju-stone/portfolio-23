@@ -72,3 +72,24 @@
   pointer-events: none;
   opacity: 0;
 }
+
+@media only screen and (max-width: 640px) {
+  .connectSectionContainer {
+    padding: 0 1.5rem;
+    width: 100%;
+  }
+  .connectLines {
+    font-size: 3.2rem;
+    flex-wrap: wrap;
+  }
+
+  .connectLinks {
+    font-size: 2rem;
+  }
+
+  .connectLinksContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1rem;
+  }
+}

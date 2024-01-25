@@ -8,3 +8,10 @@
   height: 2.2rem;
   width: 2.2rem;
 }
+
+@media only screen and (max-width: 640px) {
+  .logoWrapper {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+}
