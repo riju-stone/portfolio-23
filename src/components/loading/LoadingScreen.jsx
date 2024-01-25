@@ -9,19 +9,7 @@ import {
   loadingTitleAnimation
 } from "./anim";
 
-const phraseArray = [
-  "Hola",
-  "مرحبًا",
-  "γεια",
-  "שלום",
-  "こんにちは",
-  "Ciao",
-  "안녕하세요",
-  "Привет",
-  "নমস্কার",
-  "नमस्ते",
-  "Hello"
-];
+const phraseArray = ["Hola", "مرحبًا", "γεια", "שלום", "Ciao", "안녕하세요", "Привет", "নমস্কার", "नमस्ते", "Hello"];
 
 const LoadingScreen = ({ setLoading }) => {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);

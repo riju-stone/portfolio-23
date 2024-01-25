@@ -43,6 +43,7 @@
 
   .aboutTextContainer {
     width: 75%;
+    margin-top: 3rem;
 
     .maskedTextContainer {
       width: 100%;
@@ -53,9 +54,16 @@
     }
   }
 
-  .maskedWords {
+  .maskedWordsWrapper {
     position: relative;
-    overflow: hidden;
-    margin-right: 1rem;
+    height: 6.1rem;
+    display: inline-flex;
+    overflow-y: hidden;
+
+    .maskedWords {
+      position: relative;
+      overflow: hidden;
+      margin-right: 1rem;
+    }
   }
 }

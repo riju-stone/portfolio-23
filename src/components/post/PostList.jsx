@@ -1,12 +1,13 @@
 import React, { Suspense, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { MoveDown } from "lucide-react";
+import { MoveDown, MoveLeft } from "lucide-react";
 
 import styles from "./Posts.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 import PostPreview from "./PostPreview";
 
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import MagneticButton from "../button/MagneticButton";
 
 function PostList({ postsData }) {
   const theme = useSelector((state) => state.theme.currentTheme);
@@ -33,7 +34,9 @@ function PostList({ postsData }) {
     <SkewScroll>
       <section ref={sectionRef} className={styles.postsSectionWrapper + " " + styles[theme]}>
         <div ref={scrollBarRef} className={styles.postsScrollBarWrapper}>
-          <MoveDown />
+          <MagneticButton>
+            <MoveDown />
+          </MagneticButton>
           <div className={styles.postsScrollBarBackground + " " + styles[theme]}>
             <motion.div
               ref={scrollBarThumbRef}
@@ -43,7 +46,13 @@ function PostList({ postsData }) {
           </div>
         </div>
         <div className={styles.postsListWrapper}>
-          <div className={styles.postsTitle}>My scribbles & opinions</div>
+          <div className={styles.postsHeaderContainer}>
+            <p className={styles.postsTitle}>My scribbles & opinions</p>
+            <div className={styles.postsSort}>
+              <p>By Newest </p>
+              <MoveLeft />
+            </div>
+          </div>
           <div className={styles.postsWrapper}>
             <Suspense fallback={<div>Loading...</div>}>
               {postsData.map((post, index) => {

@@ -1,15 +1,20 @@
 import React from "react";
 import Markdown from "markdown-to-jsx";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 import styles from "./Posts.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 import CodeHighlighter from "./CodeHighlighter";
+import MagneticButton from "../button/MagneticButton";
+
+import { ChevronLeft } from "lucide-react";
 
 const Post = ({ data }) => {
   let postDate = new Date(data.created_at).toString().split(" ").slice(0, 4).join(" ");
   const theme = useSelector((state) => state.theme.currentTheme);
+  const navigate = useNavigate();
 
   const { scrollYProgress } = useScroll();
   const scaleY = useSpring(scrollYProgress, {
@@ -29,7 +34,14 @@ const Post = ({ data }) => {
       ></motion.div>
       <SkewScroll>
         <section className={styles.postSectionWrapper + " " + styles[theme]}>
-          <div className={styles.postTitle}>{data.title}</div>
+          <div className={styles.postHeaderWrapper}>
+            <button className={styles.postBackButton + " " + styles[theme]} onClick={() => navigate("/blogs")}>
+              <MagneticButton>
+                <ChevronLeft />
+              </MagneticButton>
+            </button>
+            <div className={styles.postTitle}>{data.title}</div>
+          </div>
           <div className={styles.postDetailsContainer}>
             <p>{postDate}</p>
             <p>~ {data.read_time} mins read</p>
