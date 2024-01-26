@@ -176,8 +176,8 @@
 
 @media only screen and (max-width: 640px) {
   .heroScreenWrapper {
-    height: 100dvh;
-    width: 100dvw;
+    height: 100vh;
+    width: 100vw;
     overflow-x: hidden;
 
     .heroLeftTitle {
@@ -199,6 +199,20 @@
     .heroImageWrapper {
       width: 100%;
       overflow-x: hidden;
+
+      padding: none;
+
+      outline-offset: none;
+      -webkit-mask: none;
+      mask: none;
+
+      &.light {
+        outline: none;
+      }
+      &.dark {
+        outline: none;
+      }
+
       .heroNameWrapper {
         top: 5.5rem;
         right: 30%;
@@ -211,6 +225,13 @@
 
     .heroTitleWrapper {
       font-size: 8rem;
+    }
+
+    .heroSectionCount {
+      font-size: 1rem;
+      font-weight: 600;
+      bottom: 3.5rem;
+      left: 1.5rem;
     }
   }
 }

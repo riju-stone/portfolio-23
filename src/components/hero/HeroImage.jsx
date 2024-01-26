@@ -14,7 +14,7 @@ import I7 from "../../assets/hero/hero-8.jpeg";
 import I8 from "../../assets/hero/hero-9.jpeg";
 import I9 from "../../assets/hero/hero-10.jpeg";
 
-const imageData = [I0, I1, I2, I3, I4, I5, I6, I7, I8, I9];
+import { useDeviceDetection } from "../hooks/useDeviceDetection";
 
 const imageAnimation = {
   hidden: {
@@ -31,6 +31,14 @@ const imageAnimation = {
 };
 
 const HeroImage = () => {
+  const deviceType = useDeviceDetection();
+  console.log(deviceType);
+
+  let imageData = [I0, I1, I2, I3, I4, I5, I6, I7, I8, I9];
+  if (deviceType == "mobile") {
+    imageData = imageData.slice(2, 7);
+  }
+
   return (
     <>
       {imageData.map((image, index) => {

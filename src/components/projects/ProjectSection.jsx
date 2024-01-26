@@ -7,6 +7,7 @@ import SkewScroll from "../skew-scroll/SkewScroll";
 import { defaultCursor, focusCursor } from "../cursor/CursorSlice";
 
 import styles from "./ProjectSection.module.scss";
+import { useDeviceDetection } from "../hooks/useDeviceDetection";
 
 const projectData = [
   {
@@ -43,17 +44,22 @@ const projectData = [
 
 function ProjectSection() {
   const dispatch = useDispatch();
+  const deviceType = useDeviceDetection();
   const theme = useSelector((state) => state.theme.currentTheme);
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleMouseEnter = (item) => {
-    dispatch(focusCursor());
-    setSelectedItem(item);
+    if (deviceType != "mobile") {
+      dispatch(focusCursor());
+      setSelectedItem(item);
+    }
   };
 
   const handleMouseLeave = (item) => {
-    dispatch(defaultCursor());
-    setSelectedItem(item);
+    if (deviceType != "mobile") {
+      dispatch(defaultCursor());
+      setSelectedItem(item);
+    }
   };
 
   return (
@@ -66,6 +72,7 @@ function ProjectSection() {
               key={index + "-" + project.title}
               onMouseEnter={() => handleMouseEnter(project.title)}
               onMouseLeave={() => handleMouseLeave(null)}
+              onClick={() => setSelectedItem(project.title)}
             >
               {index == 0 ? <div className={styles.projectItemSeparator + " " + styles[theme]}></div> : null}
               <ProjectItem selectedItem={selectedItem} projectData={project} />

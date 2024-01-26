@@ -10,7 +10,7 @@ function SkewScroll({ children }) {
     direction: "vertical",
     gestureDirection: "vertical",
     smooth: true,
-    smoothTouch: false,
+    smoothTouch: true,
     touchMultiplier: 2
   });
 
@@ -30,9 +30,13 @@ function SkewScroll({ children }) {
     stiffness: 200,
     damping: 50
   });
-  const skewVelocityFactor = useTransform(skewVelocity, [-1000, 1000], [-1.2, 1.2]);
+  const skewVelocityFactor = useTransform(skewVelocity, [-1000, 1000], [-1.8, 1.8]);
 
-  return <motion.div style={{ skewY: skewVelocityFactor }}>{children}</motion.div>;
+  return (
+    <motion.div transition={{ duration: 0.2 }} style={{ skewY: skewVelocityFactor }}>
+      {children}
+    </motion.div>
+  );
 }
 
 export default SkewScroll;
