@@ -4,15 +4,7 @@ import { motion, useScroll, useVelocity, useTransform, useSpring } from "framer-
 
 function SkewScroll({ children }) {
   // For Smooth Scrolling
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
-    direction: "vertical",
-    gestureDirection: "vertical",
-    smooth: true,
-    smoothTouch: false,
-    touchMultiplier: 2
-  });
+  const lenis = new Lenis();
 
   useEffect(() => {
     function raf(time) {
