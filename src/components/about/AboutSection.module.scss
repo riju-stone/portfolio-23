@@ -1,7 +1,7 @@
 @use "../../index.scss" as global;
 
 .aboutContainer {
-  height: 100dvh;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -53,12 +53,11 @@
 
 @media only screen and (max-width: 640px) {
   .aboutContainer {
-    height: 100vh;
     padding: 1rem 1.5rem;
 
     .aboutTextWrapper {
-      width: 100%;
       font-size: 2.5rem;
+      width: 90%;
 
       .aboutTextMask {
         height: 4rem;

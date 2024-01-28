@@ -9,7 +9,7 @@ const expandAnimation = {
     top: 0
   },
   enter: (i) => ({
-    top: "100dvh",
+    top: "100vh",
     transition: {
       duration: 0.6,
       delay: 0.06 * i,
@@ -18,7 +18,7 @@ const expandAnimation = {
     transitionEnd: { height: "0", top: "0" }
   }),
   exit: (i) => ({
-    height: "100dvh",
+    height: "100vh",
     transition: {
       duration: 0.6,
       delay: 0.06 * i,

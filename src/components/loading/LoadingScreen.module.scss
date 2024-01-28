@@ -2,7 +2,7 @@
 
 .loadingScreenWrapper {
   position: absolute;
-  height: 100dvh;
+  height: 100vh;
   width: 100vw;
   display: flex;
   overflow: hidden;
@@ -47,11 +47,13 @@
 @media only screen and (max-width: 640px) {
   .loadingScreenWrapper {
     .loadingTitle {
-      font-size: 3rem;
+      margin: 1.5rem;
+      font-size: 4rem;
     }
 
     .loadingPercent {
-      font-size: 2rem;
+      margin: 1.5rem;
+      font-size: 2.5rem;
     }
   }
 }

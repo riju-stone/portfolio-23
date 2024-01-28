@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import GrowingCircle from "./components/background/GrowingCirle";
 import Cursor from "./components/cursor/Cursor";
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
 import PostPage from "./pages/PostPage";
@@ -13,7 +15,6 @@ import AboutPage from "./pages/AboutPage";
 import ErrorPage from "./pages/ErrorPage";
 
 import LoadingScreen from "./components/loading/LoadingScreen";
-import Footer from "./components/footer/Footer";
 
 function App() {
   const [loading, setLoading] = useState(true);
