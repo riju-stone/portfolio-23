@@ -22,7 +22,7 @@ function SkewScroll({ children }) {
     stiffness: 500,
     damping: 100
   });
-  const skewVelocityFactor = useTransform(skewVelocity, [-1000, 1000], [-1.8, 1.8]);
+  const skewVelocityFactor = useTransform(skewVelocity, [-1000, 1000], [-1.5, 1.5]);
 
   return <motion.div style={{ skewY: skewVelocityFactor }}>{children}</motion.div>;
 }

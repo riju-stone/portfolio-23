@@ -3,10 +3,7 @@ import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import Transition from "../components/transition/Transition";
 
-const styles = {
-  aboutContainer: "h-screen flex align-middle items-center py-[4rem] px-[2rem]",
-  aboutTitle: "font-avant-garde font-[600] text-6xl ease-out duration-[0.6s]"
-};
+import styles from "../components/about/AboutSection.module.scss";
 
 const aboutSectionAnimation = {
   show: {

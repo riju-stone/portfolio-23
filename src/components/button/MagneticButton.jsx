@@ -1,9 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { useDeviceDetection } from "../hooks/useDeviceDetection";
 
 function MagneticButton({ children }) {
-  const deviceType = useDeviceDetection();
   const magneticButtonRef = useRef(null);
 
   useEffect(() => {
@@ -16,6 +14,7 @@ function MagneticButton({ children }) {
       xMove((clientX - (left + width / 2)) * 0.8);
       yMove((clientY - (top + height / 2)) * 0.8);
     });
+
     magneticButtonRef.current.addEventListener("mouseleave", () => {
       xMove(0);
       yMove(0);

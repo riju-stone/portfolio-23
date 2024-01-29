@@ -1,8 +1,8 @@
 {
-  "routes": [
-    { "src": "/", "dest": "/" },
-    { "src": "/about", "dest": "/about" },
-    { "src": "/blogs", "dest": "/blogs" },
-    { "src": "/blogs/[^.]+", "dest": "/blogs" }
+  "rewrites": [
+    { "source": "/", "destination": "/" },
+    { "source": "/about", "destination": "/about" },
+    { "source": "/blogs", "destination": "/blogs" },
+    { "source": "/blogs/[^.]+", "destination": "/blogs" }
   ]
 }

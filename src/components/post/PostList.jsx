@@ -33,40 +33,46 @@ function PostList({ postsData }) {
   return (
     <SkewScroll>
       <section ref={sectionRef} className={styles.postsSectionWrapper + " " + styles[theme]}>
-        <div ref={scrollBarRef} className={styles.postsScrollBarWrapper}>
-          <MagneticButton>
-            <MoveDown />
-          </MagneticButton>
-          <div className={styles.postsScrollBarBackground + " " + styles[theme]}>
-            <motion.div
-              ref={scrollBarThumbRef}
-              style={{ top: scrollPercent }}
-              className={styles.postsScrollBarThumb + " " + styles[theme]}
-            />
-          </div>
-        </div>
-        <div className={styles.postsListWrapper}>
-          <div className={styles.postsHeaderContainer}>
-            <p className={styles.postsTitle}>My scribbles & opinions</p>
-            <div className={styles.postsSort}>
-              <p>By Newest </p>
-              <MoveLeft />
+        {postsData == [] ? (
+          <div>Nothing to Show</div>
+        ) : (
+          <>
+            <div ref={scrollBarRef} className={styles.postsScrollBarWrapper}>
+              <MagneticButton>
+                <MoveDown />
+              </MagneticButton>
+              <div className={styles.postsScrollBarBackground + " " + styles[theme]}>
+                <motion.div
+                  ref={scrollBarThumbRef}
+                  style={{ top: scrollPercent }}
+                  className={styles.postsScrollBarThumb + " " + styles[theme]}
+                />
+              </div>
             </div>
-          </div>
-          <div className={styles.postsWrapper}>
-            <Suspense fallback={<div>Loading...</div>}>
-              {postsData.map((post, index) => {
-                return (
-                  <div key={index}>
-                    {index === 0 && <div className={styles.postDivider + " " + styles[theme]} />}
-                    <PostPreview id={index} postData={post} />
-                    <div className={styles.postDivider + " " + styles[theme]} />
-                  </div>
-                );
-              })}
-            </Suspense>
-          </div>
-        </div>
+            <div className={styles.postsListWrapper}>
+              <div className={styles.postsHeaderContainer}>
+                <p className={styles.postsTitle}>My scribbles & opinions</p>
+                <div className={styles.postsSort}>
+                  <p>By Newest </p>
+                  <MoveLeft />
+                </div>
+              </div>
+              <div className={styles.postsWrapper}>
+                <Suspense fallback={<div>Loading...</div>}>
+                  {postsData.map((post, index) => {
+                    return (
+                      <div key={index}>
+                        {index === 0 && <div className={styles.postDivider + " " + styles[theme]} />}
+                        <PostPreview id={index} postData={post} />
+                        <div className={styles.postDivider + " " + styles[theme]} />
+                      </div>
+                    );
+                  })}
+                </Suspense>
+              </div>
+            </div>
+          </>
+        )}
       </section>
     </SkewScroll>
   );

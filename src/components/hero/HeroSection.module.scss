@@ -176,7 +176,6 @@
 
 @media only screen and (max-width: 640px) {
   .heroScreenWrapper {
-    height: 100dvh;
     overflow-x: hidden;
 
     .heroLeftTitle {
@@ -196,9 +195,9 @@
     }
 
     .heroImageWrapper {
+      height: 65%;
       width: 100%;
       overflow-x: hidden;
-
       padding: none;
 
       outline-offset: none;

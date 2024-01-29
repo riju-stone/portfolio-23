@@ -10,8 +10,10 @@ import CodeHighlighter from "./CodeHighlighter";
 import MagneticButton from "../button/MagneticButton";
 
 import { ChevronLeft } from "lucide-react";
+import { useDeviceDetection } from "../hooks/useDeviceDetection";
 
 const Post = ({ data }) => {
+  const deviceType = useDeviceDetection();
   let postDate = new Date(data.created_at).toString().split(" ").slice(0, 4).join(" ");
   const theme = useSelector((state) => state.theme.currentTheme);
   const navigate = useNavigate();
@@ -36,9 +38,13 @@ const Post = ({ data }) => {
         <section className={styles.postSectionWrapper + " " + styles[theme]}>
           <div className={styles.postHeaderWrapper}>
             <button className={styles.postBackButton + " " + styles[theme]} onClick={() => navigate("/blogs")}>
-              <MagneticButton>
+              {deviceType == "mobile" ? (
                 <ChevronLeft />
-              </MagneticButton>
+              ) : (
+                <MagneticButton>
+                  <ChevronLeft />
+                </MagneticButton>
+              )}
             </button>
             <div className={styles.postTitle}>{data.title}</div>
           </div>
