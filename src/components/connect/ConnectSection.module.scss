@@ -74,10 +74,10 @@
 }
 
 @media only screen and (max-width: 640px) {
+  .connectSectionWrapper {
+    height: 100dvh;
+  }
   .connectSectionContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
     padding: 0 1.5rem;
     width: 100%;

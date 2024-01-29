@@ -7,10 +7,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 99;
   mask-image: url("../../assets/masks/cursor-mask.svg");
   mask-repeat: no-repeat;
   mask-size: 0px;
+  z-index: 99;
 
   .maskedHeroSection {
     height: 100vh;

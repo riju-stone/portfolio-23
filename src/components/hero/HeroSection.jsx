@@ -101,7 +101,7 @@ const HeroSection = () => {
           <br />
           with a love for Design ...
         </motion.div>
-        <div className={styles.heroSectionCount + " " + styles[theme]}>[ 01/06 ]</div>
+        <div className={styles.heroSectionCount + " " + styles[theme]}>[ 01 / 04 ]</div>
         <motion.div variants={rightSubtitleAnimation} className={styles.heroRightTitle + " " + styles[theme]}>
           ... and emphasis on
           <br />

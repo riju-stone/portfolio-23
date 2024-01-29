@@ -51,13 +51,33 @@
   }
 }
 
+.aboutSectionCount {
+  text-align: right;
+  width: 100%;
+  font-family: "Avant Garde Book BT";
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  &.light {
+    color: global.$light-disabled-color;
+  }
+
+  &.dark {
+    color: global.$dark-disabled-color;
+  }
+}
+
 @media only screen and (max-width: 640px) {
   .aboutContainer {
     padding: 1rem 1.5rem;
 
     .aboutTextWrapper {
-      font-size: 2.5rem;
-      width: 90%;
+      font-size: 2.4rem;
+      width: 85%;
+
+      .aboutWordsContainer {
+        width: 100%;
+      }
 
       .aboutTextMask {
         height: 4rem;

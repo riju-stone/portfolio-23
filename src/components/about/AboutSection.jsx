@@ -63,6 +63,7 @@ const AboutSection = () => {
               );
             })}
           </p>
+          <div className={styles.aboutSectionCount + " " + styles[theme]}>[ 02 / 04 ]</div>
         </div>
       </motion.section>
     </SkewScroll>
