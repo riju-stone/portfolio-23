@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { MoveDown, MoveLeft } from "lucide-react";
 
@@ -15,6 +15,10 @@ function PostList({ postsData }) {
   const scrollBarRef = useRef(null);
   const scrollBarThumbRef = useRef(null);
 
+  const [scrollBarHeight, setScrollBarHeight] = useState("100vh");
+
+  let parentHeight = "100vh";
+
   const { scrollYProgress } = useScroll();
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -26,18 +30,18 @@ function PostList({ postsData }) {
   const scrollPercent = useTransform(scaleY, [0, 1], ["0%", "90%"]);
 
   useEffect(() => {
-    let parentHeight = sectionRef.current.clientHeight;
-    scrollBarRef.current.style.height = parentHeight - 250 + "px";
+    parentHeight = sectionRef.current.clientHeight;
+    setScrollBarHeight(parentHeight - 250 + "px");
   }, []);
 
   return (
     <SkewScroll>
       <section ref={sectionRef} className={styles.postsSectionWrapper + " " + styles[theme]}>
-        {postsData == [] ? (
+        {postsData == {} ? (
           <div>Nothing to Show</div>
         ) : (
           <>
-            <div ref={scrollBarRef} className={styles.postsScrollBarWrapper}>
+            <div ref={scrollBarRef} className={styles.postsScrollBarWrapper} style={{ height: scrollBarHeight }}>
               <MagneticButton>
                 <MoveDown />
               </MagneticButton>

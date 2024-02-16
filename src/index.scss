@@ -47,14 +47,15 @@ $dark-bg-color: #17181a;
 body {
   margin: 0;
   padding: 0;
-  user-select: none;
-  cursor: none;
-  box-sizing: border-box;
+  -webkit-user-select: none;
   -webkit-user-drag: none;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-text-size-adjust: 100%;
-
+  user-select: none;
+  cursor: none;
+  box-sizing: border-box;
+  text-size-adjust: 100%;
   -ms-overflow-style: none;
   scrollbar-width: none;
 

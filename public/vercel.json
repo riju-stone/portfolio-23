@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/" },
+    { "source": "/about", "destination": "/about" },
+    { "source": "/blogs", "destination": "/blogs" },
+    { "source": "/blogs/:id", "destination": "/blogs" }
+  ]
+}

@@ -7,6 +7,9 @@
   top: 0;
   left: 0;
   width: 100%;
+  -webkit-mask-image: url("../../assets/masks/cursor-mask.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 0px;
   mask-image: url("../../assets/masks/cursor-mask.svg");
   mask-repeat: no-repeat;
   mask-size: 0px;

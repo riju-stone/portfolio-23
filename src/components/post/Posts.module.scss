@@ -298,6 +298,7 @@
 
   .postInlineCodeWrapper {
     width: fit-content;
+    width: -moz-fit-content;
     max-width: 75%;
     text-wrap: wrap;
     font-size: 0.9rem;
@@ -450,6 +451,7 @@
 
     .postInlineCodeWrapper {
       width: fit-content;
+      width: -moz-fit-content;
       font-size: 0.9rem;
     }
 

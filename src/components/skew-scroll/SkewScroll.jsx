@@ -2,9 +2,12 @@ import React, { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 import { motion, useScroll, useVelocity, useTransform, useSpring } from "framer-motion";
 
+import { useDeviceDetection } from "../hooks/useDeviceDetection";
+
 function SkewScroll({ children }) {
   // For Smooth Scrolling
   const lenis = new Lenis();
+  const deviceType = useDeviceDetection();
 
   useEffect(() => {
     function raf(time) {
@@ -24,7 +27,15 @@ function SkewScroll({ children }) {
   });
   const skewVelocityFactor = useTransform(skewVelocity, [-1000, 1000], [-1.5, 1.5]);
 
-  return <motion.div style={{ skewY: skewVelocityFactor }}>{children}</motion.div>;
+  return (
+    <>
+      {deviceType == "desktop" ? (
+        <motion.div style={{ skewY: skewVelocityFactor }}>{children}</motion.div>
+      ) : (
+        <div>{children}</div>
+      )}
+    </>
+  );
 }
 
 export default SkewScroll;

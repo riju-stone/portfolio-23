@@ -36,6 +36,7 @@ const AboutSection = () => {
   const animationControls = useAnimation();
 
   useEffect(() => {
+    console.log("In View:", inView);
     if (inView) {
       animationControls.start("show");
     } else {
