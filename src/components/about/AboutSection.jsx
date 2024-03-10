@@ -32,7 +32,7 @@ const AboutSection = () => {
 
   const theme = useSelector((state) => state.theme.currentTheme);
 
-  const inView = useInView(aboutTextRef, { once: true });
+  const inView = useInView(aboutTextRef, { once: true, root: aboutTextRef, margin: "-200px" });
   const animationControls = useAnimation();
 
   useEffect(() => {

@@ -37,7 +37,7 @@ function PostList({ postsData }) {
   return (
     <SkewScroll>
       <section ref={sectionRef} className={styles.postsSectionWrapper + " " + styles[theme]}>
-        {postsData == {} ? (
+        {postsData === null ? (
           <div>Nothing to Show</div>
         ) : (
           <>
