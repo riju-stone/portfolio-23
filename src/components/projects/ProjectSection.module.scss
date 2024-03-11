@@ -34,14 +34,13 @@
 
 .projectMaskedItemWrapper {
   position: absolute;
-  height: 7.6rem;
   width: 100%;
   display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 0 8.5rem;
+  padding: 1rem 8.5rem;
   clip-path: inset(50% 0 50%);
   transition: clip-path 0.5s;
   color: global.$light-text-color;

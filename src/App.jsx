@@ -31,16 +31,14 @@ function App() {
 
   return (
     <div className="App">
-      {loading ? (
+      <GrowingCircle />
+      <Cursor />
+      <Header location={location} />
+      <QueryClientProvider client={queryClient}>
         <AnimatePresence mode="wait">
-          <LoadingScreen setLoading={setLoading} />
-        </AnimatePresence>
-      ) : (
-        <QueryClientProvider client={queryClient}>
-          <GrowingCircle />
-          <Cursor />
-          <Header location={location} />
-          <AnimatePresence mode="wait">
+          {loading ? (
+            <LoadingScreen setLoading={setLoading} />
+          ) : (
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
@@ -48,10 +46,10 @@ function App() {
               <Route path="/blogs/:id" element={<PostPage />} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>
-          </AnimatePresence>
-          <Footer />
-        </QueryClientProvider>
-      )}
+          )}
+        </AnimatePresence>
+      </QueryClientProvider>
+      <Footer />
     </div>
   );
 }

@@ -23,13 +23,12 @@ const headerData = [
 ];
 
 const headerLinkAnimation = {
-  hidden: { x: -30, opacity: 0 },
+  hidden: { y: 150 },
   show: (i) => ({
-    x: 0,
-    opacity: 1,
+    y: 0,
     transition: {
-      duration: 0.6,
-      delay: 1.2 + i * 0.1
+      duration: 1.5,
+      delay: i * 0.08
     }
   })
 };
@@ -70,24 +69,26 @@ const Header = ({ location }) => {
         {headerData.map((headerElement, index) => {
           return (
             <Link key={index + " " + headerElement.link} to={headerElement.link}>
-              <motion.div
-                className={
-                  styles.headerLink +
-                  " " +
-                  styles[theme] +
-                  " " +
-                  `${currentPage === headerElement.label ? styles.selected : styles.normal}`
-                }
-                variants={headerLinkAnimation}
-                initial="hidden"
-                animate="show"
-                custom={index}
-                onClick={() => setCurrentPage(headerElement.label)}
-                onMouseEnter={() => handleMouseEnter()}
-                onMouseLeave={() => handleMouseLeave()}
-              >
-                {headerElement.label}
-              </motion.div>
+              <div className={styles.headerLinkWrapper}>
+                <motion.div
+                  className={
+                    styles.headerLink +
+                    " " +
+                    styles[theme] +
+                    " " +
+                    `${currentPage === headerElement.label ? styles.selected : styles.normal}`
+                  }
+                  variants={headerLinkAnimation}
+                  initial="hidden"
+                  animate="show"
+                  custom={index}
+                  onClick={() => setCurrentPage(headerElement.label)}
+                  onMouseEnter={() => handleMouseEnter()}
+                  onMouseLeave={() => handleMouseLeave()}
+                >
+                  {headerElement.label}
+                </motion.div>
+              </div>
             </Link>
           );
         })}

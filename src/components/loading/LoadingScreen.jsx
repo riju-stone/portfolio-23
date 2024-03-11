@@ -45,7 +45,6 @@ const LoadingScreen = ({ setLoading }) => {
       initial="hidden"
       animate="show"
       exit="exit"
-      onAnimationComplete={() => setLoading(false)}
       className={styles.loadingScreenWrapper}
     >
       <div className={styles.loaderContainer}>
@@ -55,7 +54,12 @@ const LoadingScreen = ({ setLoading }) => {
         <motion.div variants={loadingPercentAnimation} className={styles.loadingPercent}>
           {progressPercent}%
         </motion.div>
-        <motion.div ref={progressRef} className={styles.loadingProgress} variants={loadingProgressAnimation} />
+        <motion.div
+          ref={progressRef}
+          className={styles.loadingProgress}
+          variants={loadingProgressAnimation}
+          onAnimationComplete={() => setLoading(false)}
+        />
       </div>
     </motion.div>
   );
