@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
+
+import { setThemeSwitchPos } from "./ThemeSlice";
 
 import styles from "./Theme.module.scss";
 
@@ -40,7 +42,9 @@ const animations = {
 
 const ThemeSwitch = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
+
   const dispatch = useDispatch();
+  const switchRef = useRef(null);
 
   const handleMouseEnter = () => {
     dispatch(expandCursor());
@@ -49,6 +53,11 @@ const ThemeSwitch = () => {
   const handleMouseLeave = () => {
     dispatch(defaultCursor());
   };
+
+  useEffect(() => {
+    let switchData = switchRef.current.getBoundingClientRect();
+    dispatch(setThemeSwitchPos({ x: switchData.right - 20, y: switchData.top }));
+  }, []);
 
   return (
     <motion.button
@@ -70,6 +79,7 @@ const ThemeSwitch = () => {
         viewBox="0 0 24 24"
       >
         <motion.circle
+          ref={switchRef}
           className="sun"
           cx="12"
           cy="12"

@@ -32,10 +32,11 @@ const AboutSection = () => {
 
   const theme = useSelector((state) => state.theme.currentTheme);
 
-  const inView = useInView(aboutTextRef, { once: true, root: aboutTextRef, margin: "-200px" });
+  const inView = useInView(aboutTextRef);
   const animationControls = useAnimation();
 
   useEffect(() => {
+    console.log("About Text Ref: ", aboutTextRef);
     console.log("In View:", inView);
     if (inView) {
       animationControls.start("show");
@@ -46,9 +47,14 @@ const AboutSection = () => {
 
   return (
     <SkewScroll>
-      <motion.section className={styles.aboutContainer} variants={aboutSectionAnimation} animate={animationControls}>
+      <motion.section
+        className={styles.aboutContainer}
+        variants={aboutSectionAnimation}
+        animate={animationControls}
+        ref={aboutTextRef}
+      >
         <div className={styles.aboutTextWrapper + " " + styles[theme]}>
-          <p className={styles.aboutWordsContainer} ref={aboutTextRef}>
+          <p className={styles.aboutWordsContainer}>
             {phrase.split(" ").map((word, index) => {
               return (
                 <span key={index} className={styles.aboutTextMask}>

@@ -12,34 +12,26 @@ const GrowingCircle = () => {
   const isDark = theme == "dark";
 
   useEffect(() => {
+    Circle.setCircleCenterCoordinates(themeSwitchPos.x, themeSwitchPos.y);
     const ctx = canvasRef.current.getContext("2d");
     let circleAnimation = null;
+    let shouldStartCircleAnimation = true;
 
     const initializeAnimation = () => {
       circleAnimation = Circle.initializeCanvas(ctx, isDark);
     };
-
     initializeAnimation();
 
-    let shouldStartCircleAnimation = true;
-
-    const circleAnimationRunner = () => {
+    const circleAnimationRunner = async () => {
       if (circleAnimation !== null && shouldStartCircleAnimation) {
         if (circleAnimation instanceof Function) {
-          circleAnimation = circleAnimation();
+          circleAnimation = await circleAnimation();
           circleAnimationRunner();
-        } else {
-          circleAnimation.then((val) => {
-            circleAnimation = val();
-            circleAnimationRunner();
-          });
         }
       }
     };
 
     circleAnimationRunner();
-
-    Circle.setCircleCenterCoordinates(themeSwitchPos.x, themeSwitchPos.y);
 
     const handleResize = () => {
       Circle.resetCircleCenterCoordinates();
@@ -47,7 +39,7 @@ const GrowingCircle = () => {
       circleAnimationRunner();
     };
 
-    window.addEventListener("resize", throttle(debounce(handleResize)));
+    window.addEventListener("resize", throttle(debounce(handleResize)), false);
 
     return () => {
       shouldStartCircleAnimation = false;

@@ -8,7 +8,7 @@ const BGCOLORS = {
 };
 
 const RADIUS_GROWTH_RATE_MS = 0.025;
-const CIRCLE_RESOLUTION = 0.5;
+const CIRCLE_RESOLUTION = 0.3;
 const GROWTH_FUNCTION_EXPONENTIAL = 2.8;
 
 const circleCenterCoordinates = {
@@ -50,8 +50,8 @@ const Circle = {
     let canvasWidth = Circle.ctx.canvas.width;
     let canvasHeight = Circle.ctx.canvas.height;
     if (canvasHeight !== height || canvasWidth !== width) {
-      const { devicePixelRatio: originalRatio = 1 } = window;
-      const lowerResolutionRatio = originalRatio * CIRCLE_RESOLUTION;
+      const { devicePixelRatio } = window;
+      const lowerResolutionRatio = devicePixelRatio * CIRCLE_RESOLUTION;
       Circle.ctx.canvas.width = width * lowerResolutionRatio;
       Circle.ctx.canvas.height = height * lowerResolutionRatio;
       Circle.ctx.scale(lowerResolutionRatio, lowerResolutionRatio);
@@ -60,12 +60,6 @@ const Circle = {
     if (circleCenterCoordinates.x == null || circleCenterCoordinates.y == null) {
       Circle.radiusMultiplier = Circle.isDark ? 0 : Circle.maxRadiusMultiplier;
     }
-
-    console.log("Canvas Init Config:");
-    console.log("CTX: ", Circle.ctx);
-    console.log("Canvas Size: ", Circle.ctx.canvas.width, Circle.ctx.canvas.height);
-    console.log("Circle.isDark: ", Circle.isDark);
-    console.log("Circle.maxRadiusMultiplier: ", Circle.maxRadiusMultiplier);
 
     return Circle.startAnimation;
   },

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 
-import { changeTheme, setThemeSwitchPos } from "./ThemeSlice";
+import { changeTheme } from "./ThemeSlice";
 import ThemeSwitch from "./ThemeSwitch";
 
 const themeButtonAnimation = {
@@ -23,13 +23,12 @@ const themeButtonAnimation = {
 const ThemeToggle = () => {
   const dispatch = useDispatch();
 
-  const handleSwitch = (e) => {
+  const handleSwitch = () => {
     dispatch(changeTheme());
-    dispatch(setThemeSwitchPos({ x: e.clientX, y: e.clientY }));
   };
 
   return (
-    <motion.div variants={themeButtonAnimation} initial="initial" animate="show" onClick={(e) => handleSwitch(e)}>
+    <motion.div variants={themeButtonAnimation} initial="initial" animate="show" onClick={() => handleSwitch()}>
       <ThemeSwitch />
     </motion.div>
   );

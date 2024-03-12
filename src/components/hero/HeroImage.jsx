@@ -32,7 +32,6 @@ const imageAnimation = {
 
 const HeroImage = () => {
   const deviceType = useDeviceDetection();
-  console.log(deviceType);
 
   let imageData = [I0, I1, I2, I3, I4, I5, I6, I7, I8, I9];
   if (deviceType == "mobile") {

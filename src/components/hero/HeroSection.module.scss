@@ -7,10 +7,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 199;
+  z-index: 100;
 
   .heroImageWrapper {
-    z-index: 199;
+    z-index: 100;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -134,70 +134,16 @@
       color: global.$dark-disabled-color;
     }
   }
-
-  .heroLeftTitle {
-    position: absolute;
-    top: 4.5rem;
-    left: 2.5rem;
-    font-family: "Caveat";
-    font-size: 1.8rem;
-    text-align: left;
-    line-height: 2.4rem;
-    transition: 0.6s linear;
-
-    &.light {
-      color: global.$light-disabled-color;
-    }
-
-    &.dark {
-      color: global.$dark-disabled-color;
-    }
-  }
-
-  .heroRightTitle {
-    position: absolute;
-    bottom: 4.5rem;
-    right: 2.5rem;
-    font-family: "Caveat";
-    font-size: 1.8rem;
-    text-align: right;
-    line-height: 2.4rem;
-    transition: 0.6s linear;
-
-    &.light {
-      color: global.$light-disabled-color;
-    }
-
-    &.dark {
-      color: global.$dark-disabled-color;
-    }
-  }
 }
 
 @media only screen and (max-width: 640px) {
   .heroScreenWrapper {
     overflow-x: hidden;
 
-    .heroLeftTitle {
-      top: 3.5rem;
-      left: 1.5rem;
-      font-size: 1.2rem;
-      text-align: left;
-      line-height: 1.5rem;
-    }
-
-    .heroRightTitle {
-      bottom: 3.5rem;
-      right: 1.5rem;
-      font-size: 1.2rem;
-      text-align: left;
-      line-height: 1.5rem;
-    }
-
     .heroImageWrapper {
       height: 65%;
       width: 100%;
-      overflow-x: hidden;
+      overflow: hidden;
       padding: none;
 
       outline-offset: none;

@@ -29,38 +29,6 @@ const heroTitleAnimation = {
   }
 };
 
-const leftSubtitleAnimation = {
-  hidden: {
-    y: 50,
-    opacity: 0
-  },
-  show: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      ease: [0.6, 0.01, 0.05, 0.85],
-      duration: 0.6,
-      delay: 1.2
-    }
-  }
-};
-
-const rightSubtitleAnimation = {
-  hidden: {
-    y: 50,
-    opacity: 0
-  },
-  show: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      ease: [0.6, 0.01, 0.05, 0.85],
-      duration: 0.6,
-      delay: 1.2
-    }
-  }
-};
-
 const HeroSection = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
 
@@ -96,17 +64,7 @@ const HeroSection = () => {
             <p>Full-Stack Developer</p>
           </div>
         </div>
-        <motion.div variants={leftSubtitleAnimation} className={styles.heroLeftTitle + " " + styles[theme]}>
-          Full-Stack Developer
-          <br />
-          with a love for Design ...
-        </motion.div>
         <div className={styles.heroSectionCount + " " + styles[theme]}>[ 01 / 04 ]</div>
-        <motion.div variants={rightSubtitleAnimation} className={styles.heroRightTitle + " " + styles[theme]}>
-          ... and emphasis on
-          <br />
-          unique user experiences
-        </motion.div>
       </motion.section>
     </SkewScroll>
   );
