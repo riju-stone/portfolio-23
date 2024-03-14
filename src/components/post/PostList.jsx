@@ -58,7 +58,9 @@ function PostList({ postsData }) {
                 <p className={styles.postsTitle}>My scribbles & opinions</p>
                 <div className={styles.postsSort}>
                   <p>By Newest </p>
-                  <MoveLeft />
+                  <MagneticButton>
+                    <MoveLeft />
+                  </MagneticButton>
                 </div>
               </div>
               <div className={styles.postsWrapper}>

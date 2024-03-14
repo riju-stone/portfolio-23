@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { motion, useScroll } from "framer-motion";
 
-import { useDeviceDetection } from "../hooks/useDeviceDetection";
+import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
 import styles from "./MaskedSection.module.scss";
 import AboutMasked from "./AboutMasked";
@@ -15,7 +15,7 @@ function MaskedSection() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   let { scrollY } = useScroll();
 
-  let maskSize = cursorState == "masked" ? 400 : 0;
+  let maskSize = cursorState == "masked" ? 300 : 0;
 
   const handleMouseMove = (e) => {
     let { clientX, clientY } = e;
@@ -39,7 +39,7 @@ function MaskedSection() {
             WebkitMaskPosition: `${mousePos.x - maskSize / 2}px ${mousePos.y - maskSize / 2}px`,
             WebkitMaskSize: `${maskSize}px`
           }}
-          transition={{ type: "tween", ease: "backOut", duration: 0.3 }}
+          transition={{ type: "tween", ease: "backOut", duration: 0.4 }}
         >
           <HeroMasked />
           <AboutMasked />

@@ -7,6 +7,7 @@ import { ArrowDownLeft } from "lucide-react";
 import styles from "./HeroSection.module.scss";
 import HeroImage from "./HeroImage";
 import SkewScroll from "../skew-scroll/SkewScroll";
+import MagneticButton from "../button/MagneticButton";
 
 const heroSectionAnimation = {
   show: {
@@ -58,11 +59,13 @@ const HeroSection = () => {
         </div>
         <div className={styles.heroImageWrapper + " " + styles[theme]}>
           <HeroImage />
-          <div className={styles.heroNameWrapper + " " + styles[theme]}>
-            <ArrowDownLeft />
-            <p>Creative &</p>
-            <p>Full-Stack Developer</p>
-          </div>
+          <MagneticButton>
+            <div className={styles.heroNameWrapper + " " + styles[theme]}>
+              <ArrowDownLeft />
+              <p>Creative &</p>
+              <p>Full-Stack Developer</p>
+            </div>
+          </MagneticButton>
         </div>
         <div className={styles.heroSectionCount + " " + styles[theme]}>[ 01 / 04 ]</div>
       </motion.section>

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 
 import styles from "./Transition.module.scss";
-import { useDeviceDetection } from "../hooks/useDeviceDetection";
+import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
 const expandAnimation = {
   initial: {

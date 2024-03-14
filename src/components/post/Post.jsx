@@ -10,7 +10,7 @@ import CodeHighlighter from "./CodeHighlighter";
 import MagneticButton from "../button/MagneticButton";
 
 import { ChevronLeft } from "lucide-react";
-import { useDeviceDetection } from "../hooks/useDeviceDetection";
+import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
 const Post = ({ data }) => {
   const deviceType = useDeviceDetection();

@@ -5,9 +5,9 @@
   opacity: 0;
   border-radius: 100%;
   transform: translate(-50%, -50%);
-  transition-duration: 0.05s, 0.05s, 0.4s, 0.4s, 0.4s, 0.08s;
-  transition-property: top, left, height, width, border, opacity;
-  will-change: top, left, width, height, transform, opacity, border;
+  transition-duration: 0.4s, 0.4s, 0.4s, 0.08s;
+  transition-property: height, width, border, opacity;
+  will-change: width, height, transform, opacity, border;
   pointer-events: none;
   z-index: 9999;
 }

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import supabase from "../../utils/db";
+import supabase from "../utils/db";
 
 const fetchPostMetadata = async () => {
   let { data, error } = await supabase.from("post_metadata").select("*").order("created_at", { ascending: false });

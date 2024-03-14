@@ -28,22 +28,20 @@ const phrase =
   "Based out of City of Joy - Kolkata. A selectively skilled developer with strong focus on high quality & impactful digital experiences.";
 
 const AboutSection = () => {
-  const aboutTextRef = useRef(null);
+  const aboutTextRef = useRef();
+  const inView = useInView(aboutTextRef, { once: true });
 
   const theme = useSelector((state) => state.theme.currentTheme);
-
-  const inView = useInView(aboutTextRef);
   const animationControls = useAnimation();
 
   useEffect(() => {
-    console.log("About Text Ref: ", aboutTextRef);
     console.log("In View:", inView);
     if (inView) {
       animationControls.start("show");
     } else {
       animationControls.start("hidden");
     }
-  }, [inView]);
+  }, []);
 
   return (
     <SkewScroll>

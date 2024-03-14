@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 import { motion, useScroll, useVelocity, useTransform, useSpring } from "framer-motion";
 
-import { useDeviceDetection } from "../hooks/useDeviceDetection";
+import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
 function SkewScroll({ children }) {
   // For Smooth Scrolling

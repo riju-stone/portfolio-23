@@ -6,7 +6,7 @@ import ConnectSection from "../components/connect/ConnectSection";
 
 import Transition from "../components/transition/Transition";
 import MaskedSection from "../components/masked/MaskedSection";
-import { useDeviceDetection } from "../components/hooks/useDeviceDetection";
+import { useDeviceDetection } from "../hooks/useDeviceDetection";
 
 const HomePage = () => {
   const deviceType = useDeviceDetection();
@@ -16,7 +16,7 @@ const HomePage = () => {
       <AboutSection />
       <ProjectSection />
       <ConnectSection />
-      {deviceType != "mobile" ? <MaskedSection /> : null}
+      {deviceType != "mobile" ? <MaskedSection /> : <></>}
     </Transition>
   );
 };

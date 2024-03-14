@@ -7,7 +7,7 @@ import SkewScroll from "../skew-scroll/SkewScroll";
 import { defaultCursor, focusCursor } from "../cursor/CursorSlice";
 
 import styles from "./ProjectSection.module.scss";
-import { useDeviceDetection } from "../hooks/useDeviceDetection";
+import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
 const projectData = [
   {

@@ -14,7 +14,7 @@ import I7 from "../../assets/hero/hero-8.jpeg";
 import I8 from "../../assets/hero/hero-9.jpeg";
 import I9 from "../../assets/hero/hero-10.jpeg";
 
-import { useDeviceDetection } from "../hooks/useDeviceDetection";
+import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
 const imageAnimation = {
   hidden: {

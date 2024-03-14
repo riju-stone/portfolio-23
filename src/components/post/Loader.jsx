@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const Loader = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
-  return <div className={styles.contentLoaderWrapper + " " + styles[theme]}>Loading Content...</div>;
+  return <div className={styles.contentLoaderWrapper + " " + styles[theme]}>Getting my shit together...</div>;
 };
 
 export default Loader;
