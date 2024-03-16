@@ -49,14 +49,14 @@ function ProjectSection() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleMouseEnter = (item) => {
-    if (deviceType != "mobile") {
+    if (deviceType !== "mobile") {
       dispatch(focusCursor());
       setSelectedItem(item);
     }
   };
 
   const handleMouseLeave = (item) => {
-    if (deviceType != "mobile") {
+    if (deviceType !== "mobile") {
       dispatch(defaultCursor());
       setSelectedItem(item);
     }
@@ -69,14 +69,14 @@ function ProjectSection() {
           return (
             <div
               className={styles.projectItemsWrapper}
-              key={index + "-" + project.title}
+              key={`${index}-${project.title}`}
               onMouseEnter={() => handleMouseEnter(project.title)}
               onMouseLeave={() => handleMouseLeave(null)}
               onClick={() => setSelectedItem(project.title)}
             >
-              {index == 0 ? <div className={styles.projectItemSeparator + " " + styles[theme]}></div> : null}
+              {index === 0 ? <div className={`${styles.projectItemSeparator} ${styles[theme]}`} /> : null}
               <ProjectItem selectedItem={selectedItem} projectData={project} />
-              <div className={styles.projectItemSeparator + " " + styles[theme]}></div>
+              <div className={`${styles.projectItemSeparator} ${styles[theme]}`} />
             </div>
           );
         })}

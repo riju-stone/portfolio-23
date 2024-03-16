@@ -50,6 +50,16 @@
   }
 }
 
+.collapsedHeaderWrapper{
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: global.$pale-orange-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (max-width: 640px) {
   .headerWrapper {
     padding: 1rem 1.5rem;

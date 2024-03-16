@@ -7,10 +7,10 @@ import usePost from "../hooks/usePost";
 import Loader from "../components/post/Loader";
 
 function PostPage() {
-  let { id } = useParams();
+  const { id } = useParams();
   const { status, data } = usePost(id);
 
-  return <Transition>{status == "pending" ? <Loader /> : <Post data={data[0]} />}</Transition>;
+  return <Transition>{status === "pending" ? <Loader /> : <Post data={data[0]} />}</Transition>;
 }
 
 export default PostPage;

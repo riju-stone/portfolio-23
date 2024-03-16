@@ -51,7 +51,7 @@ const AboutSection = () => {
         animate={animationControls}
         ref={aboutTextRef}
       >
-        <div className={styles.aboutTextWrapper + " " + styles[theme]}>
+        <div className={`${styles.aboutTextWrapper} ${styles[theme]}`}>
           <p className={styles.aboutWordsContainer}>
             {phrase.split(" ").map((word, index) => {
               return (
@@ -68,7 +68,7 @@ const AboutSection = () => {
               );
             })}
           </p>
-          <div className={styles.aboutSectionCount + " " + styles[theme]}>[ 02 / 04 ]</div>
+          <div className={`${styles.aboutSectionCount} ${styles[theme]}`}>[ 02 / 04 ]</div>
         </div>
       </motion.section>
     </SkewScroll>

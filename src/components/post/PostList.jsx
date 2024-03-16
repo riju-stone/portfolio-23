@@ -31,12 +31,12 @@ function PostList({ postsData }) {
 
   useEffect(() => {
     parentHeight = sectionRef.current.clientHeight;
-    setScrollBarHeight(parentHeight - 250 + "px");
+    setScrollBarHeight(`${parentHeight - 250}px`);
   }, []);
 
   return (
     <SkewScroll>
-      <section ref={sectionRef} className={styles.postsSectionWrapper + " " + styles[theme]}>
+      <section ref={sectionRef} className={`${styles.postsSectionWrapper} ${styles[theme]}`}>
         {postsData === null ? (
           <div>Nothing to Show</div>
         ) : (
@@ -45,11 +45,11 @@ function PostList({ postsData }) {
               <MagneticButton>
                 <MoveDown />
               </MagneticButton>
-              <div className={styles.postsScrollBarBackground + " " + styles[theme]}>
+              <div className={`${styles.postsScrollBarBackground} ${styles[theme]}`}>
                 <motion.div
                   ref={scrollBarThumbRef}
                   style={{ top: scrollPercent }}
-                  className={styles.postsScrollBarThumb + " " + styles[theme]}
+                  className={`${styles.postsScrollBarThumb} ${styles[theme]}`}
                 />
               </div>
             </div>
@@ -68,9 +68,9 @@ function PostList({ postsData }) {
                   {postsData.map((post, index) => {
                     return (
                       <div key={index}>
-                        {index === 0 && <div className={styles.postDivider + " " + styles[theme]} />}
+                        {index === 0 && <div className={`${styles.postDivider} ${styles[theme]}`} />}
                         <PostPreview id={index} postData={post} />
-                        <div className={styles.postDivider + " " + styles[theme]} />
+                        <div className={`${styles.postDivider} ${styles[theme]}`} />
                       </div>
                     );
                   })}

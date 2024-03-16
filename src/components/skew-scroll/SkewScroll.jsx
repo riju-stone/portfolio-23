@@ -29,7 +29,7 @@ function SkewScroll({ children }) {
 
   return (
     <>
-      {deviceType == "desktop" ? (
+      {deviceType === "desktop" ? (
         <motion.div style={{ skewY: skewVelocityFactor }}>{children}</motion.div>
       ) : (
         <div>{children}</div>

@@ -9,7 +9,12 @@ import PostList from "../components/post/PostList";
 const BlogPage = () => {
   const { status, data } = usePostList();
 
-  return <Transition>{status == "pending" ? <Loader /> : <PostList postsData={data} />}</Transition>;
+  return (
+    <Transition>
+      {/* <Header /> */}
+      {status === "pending" ? <Loader /> : <PostList postsData={data} />}
+    </Transition>
+  );
 };
 
 export default BlogPage;

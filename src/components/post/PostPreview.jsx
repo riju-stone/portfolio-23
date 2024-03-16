@@ -12,11 +12,11 @@ function PostPreview({ id, postData }) {
   //   .split(" ")
   //   .join("-")
   //   .toLowerCase();
-  let postDate = new Date(postData.created_at).toString().split(" ").slice(0, 4).join(" ");
+  const postDate = new Date(postData.created_at).toString().split(" ").slice(0, 4).join(" ");
 
   return (
     <Link to={`/blogs/${postData.post_id}`}>
-      <div key={id} className={styles.postPreviewContainer + " " + styles[theme]}>
+      <div key={id} className={`${styles.postPreviewContainer} ${styles[theme]}`}>
         <div className={styles.postPreviewTitle}>{postData.title}</div>
         <div className={styles.postPreviewDate}>{postDate}</div>
       </div>

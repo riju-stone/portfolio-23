@@ -21,20 +21,20 @@ const ProjectItem = ({ selectedItem, projectData }) => {
     <>
       <div ref={titleContainer} className={styles.projectItemWrapper}>
         <div className={styles.projectTitleContainer}>
-          <motion.p className={styles.projectDisabledTitle + " " + styles[theme]}>{projectData.title}</motion.p>
-          <motion.p className={styles.projectTitle + " " + styles[theme]} style={{ clipPath: clip }}>
+          <motion.p className={`${styles.projectDisabledTitle} ${styles[theme]}`}>{projectData.title}</motion.p>
+          <motion.p className={`${styles.projectTitle} ${styles[theme]}`} style={{ clipPath: clip }}>
             {projectData.title}
           </motion.p>
         </div>
-        <div className={styles.projectRoleWrapper + " " + styles[theme]}>
+        <div className={`${styles.projectRoleWrapper} ${styles[theme]}`}>
           {projectData.role.map((role, index) => {
-            return <p key={index + " " + role}>{role}</p>;
+            return <p key={`${index} ${role}`}>{role}</p>;
           })}
         </div>
       </div>
       <div
-        className={styles.projectMaskedItemWrapper + " " + styles[theme]}
-        style={{ clipPath: selectedItem == projectData.title ? "inset(0 0 0)" : "inset(50% 0 50%)" }}
+        className={`${styles.projectMaskedItemWrapper} ${styles[theme]}`}
+        style={{ clipPath: selectedItem === projectData.title ? "inset(0 0 0)" : "inset(50% 0 50%)" }}
       >
         <div className={styles.projectTitleContainer}>
           <p className={styles.projectTitle}>{projectData.title}</p>

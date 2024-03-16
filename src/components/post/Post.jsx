@@ -14,7 +14,7 @@ import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
 const Post = ({ data }) => {
   const deviceType = useDeviceDetection();
-  let postDate = new Date(data.created_at).toString().split(" ").slice(0, 4).join(" ");
+  const postDate = new Date(data.created_at).toString().split(" ").slice(0, 4).join(" ");
   const theme = useSelector((state) => state.theme.currentTheme);
   const navigate = useNavigate();
 
@@ -30,15 +30,12 @@ const Post = ({ data }) => {
 
   return (
     <>
-      <motion.div
-        style={{ left: scrollPercent }}
-        className={styles.postScrollProgress + " " + styles[theme]}
-      ></motion.div>
+      <motion.div style={{ left: scrollPercent }} className={`${styles.postScrollProgress} ${styles[theme]}`} />
       <SkewScroll>
-        <section className={styles.postSectionWrapper + " " + styles[theme]}>
+        <section className={`${styles.postSectionWrapper} ${styles[theme]}`}>
           <div className={styles.postHeaderWrapper}>
-            <button className={styles.postBackButton + " " + styles[theme]} onClick={() => navigate("/blogs")}>
-              {deviceType == "mobile" ? (
+            <button className={`${styles.postBackButton} ${styles[theme]}`} onClick={() => navigate("/blogs")}>
+              {deviceType === "mobile" ? (
                 <ChevronLeft />
               ) : (
                 <MagneticButton>

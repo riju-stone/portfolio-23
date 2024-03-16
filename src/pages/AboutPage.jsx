@@ -29,17 +29,18 @@ const titleWordAnimation = {
 
 const AboutPage = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
-  const disabledTextStyle = theme == "dark" ? "text-darkdisabled" : "text-lightdisabled";
+  const disabledTextStyle = theme === "dark" ? "text-darkdisabled" : "text-lightdisabled";
 
   return (
     <Transition>
+      {/* <Header /> */}
       <motion.section
         className={styles.aboutContainer}
         variants={aboutSectionAnimation}
         initial="hidden"
         animate="show"
       >
-        <div className={styles.aboutTitle + " " + disabledTextStyle}>
+        <div className={`${styles.aboutTitle} ${disabledTextStyle}`}>
           <motion.div className="overflow-hidden h-[70px]">
             <motion.div variants={titleWordAnimation}>Still</motion.div>
           </motion.div>

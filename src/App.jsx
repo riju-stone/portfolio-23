@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import GrowingCircle from "./components/background/GrowingCirle";
 import Cursor from "./components/cursor/Cursor";
-import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
 import HomePage from "./pages/HomePage";
@@ -15,6 +14,7 @@ import AboutPage from "./pages/AboutPage";
 import ErrorPage from "./pages/ErrorPage";
 
 import LoadingScreen from "./components/loading/LoadingScreen";
+import Header from "./components/header/Header";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,9 +31,9 @@ function App() {
 
   return (
     <div className="App">
+      <Header location={location} />
       <GrowingCircle />
       <Cursor />
-      <Header location={location} />
       <QueryClientProvider client={queryClient}>
         <AnimatePresence mode="wait">
           {loading ? (

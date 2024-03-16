@@ -14,7 +14,7 @@ function CodeHighlighter({ className, children }) {
 
   let lang = "text"; // default monospaced text
 
-  if (className && className.startsWith("lang-")) {
+  if (className?.startsWith("lang-")) {
     lang = className.replace("lang-", "");
     switch (lang) {
       case "c#":
@@ -25,14 +25,14 @@ function CodeHighlighter({ className, children }) {
 
   return (
     <div className={styles.postCodeHighlighter}>
-      {lang != "text" ? (
+      {lang !== "text" ? (
         <div className={styles.postCodeWrapper}>
           <SyntaxHighlighter
             showLineNumbers={true}
             wrapLines={true}
             wrapLongLines={true}
             language={lang.toLowerCase()}
-            style={theme == "dark" ? coldDark : coldLight}
+            style={theme === "dark" ? coldDark : coldLight}
           >
             {children}
           </SyntaxHighlighter>

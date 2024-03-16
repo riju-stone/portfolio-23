@@ -13,13 +13,13 @@ function MaskedSection() {
   const deviceType = useDeviceDetection();
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  let { scrollY } = useScroll();
+  const { scrollY } = useScroll();
 
-  let maskSize = cursorState == "masked" ? 300 : 0;
+  const maskSize = cursorState === "masked" ? 300 : 0;
 
   const handleMouseMove = (e) => {
-    let { clientX, clientY } = e;
-    let totalClientY = clientY + scrollY.current;
+    const { clientX, clientY } = e;
+    const totalClientY = clientY + scrollY.current;
     setMousePos({ x: clientX, y: totalClientY });
   };
 
@@ -32,7 +32,7 @@ function MaskedSection() {
 
   return (
     <>
-      {deviceType == "desktop" ? (
+      {deviceType === "desktop" ? (
         <motion.div
           className={styles.maskedSectionWrapper}
           animate={{
