@@ -9,26 +9,29 @@ import styles from "./HamburgerMenu.module.scss";
 const menuButtonAnimation = {
   collapse: {
     height: "1rem",
-    width: "1rem"
+    width: "1rem",
+    borderRadius: "100%"
   },
   expand: {
     height: "3rem",
     width: "3rem",
+    borderRadius: "100%",
     transition: {
-      duration: 0.4
+      duration: 0.35,
+      delay: 0.4,
+      type: "tween",
+      ease: [0.76, 0, 0.24, 1],
+      borderRadius: {
+        duration: 0.4,
+        delay: 0.6
+      }
     }
   },
   open: {
-    height: "70vh",
-    width: "70vw",
     borderRadius: "10px",
-    position: "fixed",
-    top: "1.5rem",
-    left: "2rem",
-    transition: {
-      duration: 0.4,
-      ease: [0.6, 0.05, 0.1, 0.95]
-    }
+    height: "680px",
+    width: "480px",
+    transition: { duration: 0.35, type: "tween", ease: [0.76, 0, 0.24, 1], borderRadius: { duration: 0.4 } }
   }
 };
 
@@ -59,19 +62,19 @@ function HamburgerMenu({ headerState, isMenuOpen, setMenuOpen }) {
         onMouseLeave={() => handleMouseLeave()}
       >
         {headerState === "collapsed" ? (
-          <>
-            {isMenuOpen ? (
-              <motion.div className={styles.hamburgerContainer}>
+          <div>
+            <motion.div className={styles.hamburgerContainer}>
+              {isMenuOpen ? (
                 <button className={styles.hamburgerButton} onClick={() => setMenuOpen(false)}>
                   <X />
                 </button>
-              </motion.div>
-            ) : (
-              <button className={styles.hamburgerButton} onClick={() => setMenuOpen(true)}>
-                <Menu />
-              </button>
-            )}
-          </>
+              ) : (
+                <button className={styles.hamburgerButton} onClick={() => setMenuOpen(true)}>
+                  <Menu />
+                </button>
+              )}
+            </motion.div>
+          </div>
         ) : null}
       </motion.div>
     </div>

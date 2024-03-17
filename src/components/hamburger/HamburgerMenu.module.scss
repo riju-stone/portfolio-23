@@ -1,13 +1,13 @@
 @use "../../index.scss" as global;
 
 .hamburgerMenuWrapper{
-    z-index: 999;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 100%;
-    margin-right: 1rem;
-    overflow: hidden;
+    margin-top: -8px;
+    margin-right: -25px;
+    box-sizing: border-box;
     transition: background-color linear 0.6s;
 
     &.light{
@@ -20,9 +20,15 @@
 }
 
 .hamburgerContainer{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
 .hamburgerButton{
