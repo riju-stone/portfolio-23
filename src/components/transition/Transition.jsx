@@ -32,8 +32,8 @@ const Transition = ({ children }) => {
   let columnQuantity = 6;
 
   useEffect(() => {
-    columnQuantity = deviceType == "desktop" ? 6 : 4;
-  });
+    columnQuantity = deviceType === "desktop" ? 6 : 4;
+  }, [deviceType]);
 
   return (
     <motion.div key="transition" className={styles.transitionWrapper}>

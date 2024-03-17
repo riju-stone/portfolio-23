@@ -2,11 +2,12 @@
 
 .headerWrapper {
   position: fixed;
+  height: 5rem;
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2.5rem;
+  padding: 1rem 2rem;
   font-family: "Space Grotesk";
   font-weight: 600;
   font-size: 1.2rem;
@@ -50,14 +51,21 @@
   }
 }
 
-.collapsedHeaderWrapper{
-  height: 3rem;
-  width: 3rem;
+.menuWrapper{
   border-radius: 50%;
-  background-color: global.$pale-orange-color;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 1rem;
+  transition: background-color linear 0.6s;
+
+  &.light{
+    background-color: global.$pale-orange-color;
+  }
+
+  &.dark{
+    background-color: global.$pale-green-color;
+  }
 }
 
 @media only screen and (max-width: 640px) {

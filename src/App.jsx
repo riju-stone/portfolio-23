@@ -18,6 +18,7 @@ import Header from "./components/header/Header";
 
 function App() {
   const [loading, setLoading] = useState(true);
+
   const location = useLocation();
 
   const queryClient = new QueryClient({

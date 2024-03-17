@@ -1,0 +1,35 @@
+@use "../../index.scss" as global;
+
+.hamburgerMenuWrapper{
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    margin-right: 1rem;
+    overflow: hidden;
+    transition: background-color linear 0.6s;
+
+    &.light{
+        background-color: global.$pale-orange-color;
+    }
+
+    &.dark {
+        background-color: global.$pale-green-color;
+    }
+}
+
+.hamburgerContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.hamburgerButton{
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
