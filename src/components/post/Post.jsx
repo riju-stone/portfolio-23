@@ -34,7 +34,11 @@ const Post = ({ data }) => {
       <SkewScroll>
         <section className={`${styles.postSectionWrapper} ${styles[theme]}`}>
           <div className={styles.postHeaderWrapper}>
-            <button className={`${styles.postBackButton} ${styles[theme]}`} onClick={() => navigate("/blogs")}>
+            <button
+              className={`${styles.postBackButton} ${styles[theme]}`}
+              type="button"
+              onClick={() => navigate("/blogs")}
+            >
               {deviceType === "mobile" ? (
                 <ChevronLeft />
               ) : (
@@ -60,7 +64,7 @@ const Post = ({ data }) => {
           </div>
 
           <Markdown
-            className={styles.postContentWrapper + " " + styles[theme]}
+            className={`${styles.postContentWrapper} ${styles[theme]}`}
             options={{
               overrides: {
                 code: CodeHighlighter

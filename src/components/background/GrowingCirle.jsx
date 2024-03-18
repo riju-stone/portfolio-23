@@ -9,7 +9,7 @@ const GrowingCircle = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const themeSwitchPos = useSelector((state) => state.theme.toggleButtonPos);
   const canvasRef = useRef(null);
-  const isDark = theme == "dark";
+  const isDark = theme === "dark";
 
   useEffect(() => {
     Circle.setCircleCenterCoordinates(themeSwitchPos.x, themeSwitchPos.y);
@@ -47,6 +47,6 @@ const GrowingCircle = () => {
     };
   }, [isDark]);
 
-  return <canvas className={styles.circleBackgroundWrapper} ref={canvasRef}></canvas>;
+  return <canvas className={styles.circleBackgroundWrapper} ref={canvasRef} />;
 };
 export default GrowingCircle;

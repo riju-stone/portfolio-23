@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import supabase from "../utils/db";
 
 const fetchPostMetadata = async () => {
-  let { data, error } = await supabase.from("post_metadata").select("*").order("created_at", { ascending: false });
+  const { data, error } = await supabase.from("post_metadata").select("*").order("created_at", { ascending: false });
 
   if (error) {
     console.error("Error fetching posts", error);

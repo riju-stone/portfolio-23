@@ -47,8 +47,8 @@ const Circle = {
     document.body.style.backgroundColor = Circle.isDark ? BGCOLORS.dark : BGCOLORS.light;
 
     const { width, height } = Circle.ctx.canvas.getBoundingClientRect();
-    let canvasWidth = Circle.ctx.canvas.width;
-    let canvasHeight = Circle.ctx.canvas.height;
+    const canvasWidth = Circle.ctx.canvas.width;
+    const canvasHeight = Circle.ctx.canvas.height;
     if (canvasHeight !== height || canvasWidth !== width) {
       const { devicePixelRatio } = window;
       const lowerResolutionRatio = devicePixelRatio * CIRCLE_RESOLUTION;

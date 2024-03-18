@@ -19,7 +19,7 @@ function AboutMasked() {
     dispatch(defaultCursor());
   };
   return (
-    <div className={styles.maskedAboutSection + " " + styles[theme]}>
+    <div className={`${styles.maskedAboutSection} ${styles[theme]}`}>
       <div
         className={styles.aboutTextContainer}
         onMouseEnter={() => handleMouseEnter()}
@@ -28,7 +28,7 @@ function AboutMasked() {
         <p className={styles.maskedTextContainer}>
           {maskedPhrase.split(" ").map((word, index) => {
             return (
-              <span key={index + " " + word} className={styles.maskedWordsWrapper}>
+              <span key={`${index} ${word}`} className={styles.maskedWordsWrapper}>
                 <span className={styles.maskedWords}>{word}</span>
               </span>
             );

@@ -18,12 +18,12 @@ const LoadingScreen = ({ setLoading }) => {
   const [progressPercent, setProgressPercent] = useState(0);
 
   useEffect(() => {
-    if (currentPhraseIndex == phraseArray.length - 1) return;
+    if (currentPhraseIndex === phraseArray.length - 1) return;
     setTimeout(
       () => {
         setCurrentPhraseIndex(currentPhraseIndex + 1);
       },
-      currentPhraseIndex == 0 ? 1000 : 250
+      currentPhraseIndex === 0 ? 1000 : 250
     );
   }, [currentPhraseIndex]);
 

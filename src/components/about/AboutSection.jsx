@@ -41,7 +41,7 @@ const AboutSection = () => {
     } else {
       animationControls.start("hidden");
     }
-  }, []);
+  }, [inView]);
 
   return (
     <SkewScroll>
@@ -55,7 +55,7 @@ const AboutSection = () => {
           <p className={styles.aboutWordsContainer}>
             {phrase.split(" ").map((word, index) => {
               return (
-                <span key={index} className={styles.aboutTextMask}>
+                <span key={`mask${index}`} className={styles.aboutTextMask}>
                   <motion.span
                     className={styles.aboutWords}
                     variants={aboutTextAnimation}

@@ -42,14 +42,14 @@ const HeroImage = () => {
     <>
       {imageData.map((image, index) => {
         return (
-          <div key={index + " " + image} className={styles.heroImageMask}>
+          <div key={`${index} ${image}`} className={styles.heroImageMask}>
             <motion.img
               variants={imageAnimation}
               initial="hidden"
               animate="show"
               className={styles.heroImage}
               src={image}
-              alt="hero image"
+              alt="hero"
             />
           </div>
         );

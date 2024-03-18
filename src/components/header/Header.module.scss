@@ -20,18 +20,13 @@
 
     .headerLinkWrapper {
       height: 1.5rem;
-      margin-right: 1rem;
+      margin-left: 1rem;
       overflow-y: hidden;
 
 
       .headerLink {
         transition: 0.6s linear;
         text-decoration: none !important;
-
-        &:first-child{
-          margin-left: 30px;
-        }
-       
       }
     }
 
@@ -56,6 +51,7 @@
     }
   }
 }
+
 
 .menuWrapper{
   border-radius: 50%;

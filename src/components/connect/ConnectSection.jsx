@@ -18,7 +18,7 @@ function ConnectSection() {
   return (
     <SkewScroll>
       <section className={styles.connectSectionWrapper}>
-        <div className={styles.connectSectionContainer + " " + styles[theme]}>
+        <div className={`${styles.connectSectionContainer} ${styles[theme]}`}>
           <div className={styles.connectLines}>
             <p>{data.fname}</p>
             <p>{data.lname}</p>

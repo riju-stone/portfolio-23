@@ -55,7 +55,7 @@ const ThemeSwitch = () => {
   };
 
   useEffect(() => {
-    let switchData = switchRef.current.getBoundingClientRect();
+    const switchData = switchRef.current.getBoundingClientRect();
     dispatch(setThemeSwitchPos({ x: switchData.right - 20, y: switchData.top }));
   }, []);
 
@@ -85,13 +85,13 @@ const ThemeSwitch = () => {
           cy="12"
           r="6"
           mask="url(#moon-mask)"
-          fill={theme == "light" ? "#e04634" : "#B9B9B9"}
+          fill={theme === "light" ? "#e04634" : "#B9B9B9"}
         />
         <motion.g
           className="sun-beams stroke-[1.5px]"
           stroke="#e04634"
           variants={animations.sunBeams}
-          animate={theme == "light" ? "light" : "dark"}
+          animate={theme === "light" ? "light" : "dark"}
         >
           <line x1="12" y1="1" x2="12" y2="3" />
           <line x1="12" y1="21" x2="12" y2="23" />
@@ -110,7 +110,7 @@ const ThemeSwitch = () => {
             r="6"
             fill="black"
             variants={animations.moonCircle}
-            animate={theme == "light" ? "light" : "dark"}
+            animate={theme === "light" ? "light" : "dark"}
           />
         </motion.mask>
       </motion.svg>

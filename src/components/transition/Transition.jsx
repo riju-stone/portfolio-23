@@ -46,7 +46,7 @@ const Transition = ({ children }) => {
               exit="exit"
               variants={expandAnimation}
               custom={columnQuantity - index}
-              key={"transition-" + index}
+              key={`transition-${index}`}
               className={styles.transitionColumns}
             />
           );

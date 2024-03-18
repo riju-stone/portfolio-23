@@ -41,7 +41,7 @@ const HeroSection = () => {
         initial="hidden"
         animate="show"
       >
-        <div className={styles.heroTitleWrapper + " " + styles[theme]}>
+        <div className={`${styles.heroTitleWrapper} ${styles[theme]}`}>
           <motion.div className={styles.heroTitleMask}>
             <motion.div variants={heroTitleAnimation} className={styles.heroTitle}>
               <Marquee loop={0} autoFill={true} speed={100}>
@@ -49,7 +49,7 @@ const HeroSection = () => {
                 Arighna * Chakraborty *
               </Marquee>
             </motion.div>
-            <motion.div variants={heroTitleAnimation} className={styles.heroTitleStroke + " " + styles[theme]}>
+            <motion.div variants={heroTitleAnimation} className={`${styles.heroTitleStroke} ${styles[theme]}`}>
               <Marquee loop={0} autoFill={true} speed={100}>
                 {" "}
                 Arighna * Chakraborty *
@@ -57,17 +57,17 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
         </div>
-        <div className={styles.heroImageWrapper + " " + styles[theme]}>
+        <div className={`${styles.heroImageWrapper} ${styles[theme]}`}>
           <HeroImage />
           <MagneticButton>
-            <div className={styles.heroNameWrapper + " " + styles[theme]}>
+            <div className={`${styles.heroNameWrapper} ${styles[theme]}`}>
               <ArrowDownLeft />
               <p>Creative &</p>
               <p>Full-Stack Developer</p>
             </div>
           </MagneticButton>
         </div>
-        <div className={styles.heroSectionCount + " " + styles[theme]}>[ 01 / 04 ]</div>
+        <div className={`${styles.heroSectionCount} ${styles[theme]}`}>[ 01 / 04 ]</div>
       </motion.section>
     </SkewScroll>
   );

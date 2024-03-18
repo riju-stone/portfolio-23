@@ -67,6 +67,7 @@ function ProjectSection() {
       <section className={styles.projectSectionWrapper}>
         {projectData.map((project, index) => {
           return (
+            // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
             <div
               className={styles.projectItemsWrapper}
               key={`${index}-${project.title}`}

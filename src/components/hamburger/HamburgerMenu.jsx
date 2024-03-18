@@ -65,11 +65,11 @@ function HamburgerMenu({ headerState, isMenuOpen, setMenuOpen }) {
           <div>
             <motion.div className={styles.hamburgerContainer}>
               {isMenuOpen ? (
-                <button className={styles.hamburgerButton} onClick={() => setMenuOpen(false)}>
+                <button className={styles.hamburgerButton} type="button" onClick={() => setMenuOpen(false)}>
                   <X />
                 </button>
               ) : (
-                <button className={styles.hamburgerButton} onClick={() => setMenuOpen(true)}>
+                <button className={styles.hamburgerButton} type="button" onClick={() => setMenuOpen(true)}>
                   <Menu />
                 </button>
               )}

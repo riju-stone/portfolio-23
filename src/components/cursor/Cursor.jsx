@@ -21,26 +21,26 @@ const Cursor = () => {
   };
 
   if (deviceType === "mobile" || deviceType === "tablet") {
-    outerCursorRef.current.style.display = `none`;
-    innerCursorRef.current.style.display = `none`;
+    outerCursorRef.current.style.display = "none";
+    innerCursorRef.current.style.display = "none";
   }
 
   const handleMouseDown = () => {
-    outerCursorRef.current.style.transform = `translate(-50%, -50%) scale(0.75)`;
+    outerCursorRef.current.style.transform = "translate(-50%, -50%) scale(0.75)";
   };
 
   const handleMouseUp = () => {
-    outerCursorRef.current.style.transform = `translate(-50%, -50%)`;
+    outerCursorRef.current.style.transform = "translate(-50%, -50%)";
   };
 
   const handleMouseEnter = () => {
-    outerCursorRef.current.style.opacity = `1`;
-    innerCursorRef.current.style.opacity = `1`;
+    outerCursorRef.current.style.opacity = "1";
+    innerCursorRef.current.style.opacity = "1";
   };
 
   const handleMouseOut = () => {
-    outerCursorRef.current.style.opacity = `0`;
-    innerCursorRef.current.style.opacity = `0`;
+    outerCursorRef.current.style.opacity = "0";
+    innerCursorRef.current.style.opacity = "0";
   };
 
   useEffect(() => {
@@ -61,8 +61,8 @@ const Cursor = () => {
 
   return (
     <>
-      <div ref={outerCursorRef} className={styles.customCursor + " " + styles[cursorState] + " " + styles[theme]}></div>
-      <div ref={innerCursorRef} className={styles.customCursorInner}></div>
+      <div ref={outerCursorRef} className={`${styles.customCursor} ${styles[cursorState]} ${styles[theme]}`} />
+      <div ref={innerCursorRef} className={styles.customCursorInner} />
     </>
   );
 };
