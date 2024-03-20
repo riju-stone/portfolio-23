@@ -16,8 +16,11 @@ import ErrorPage from "./pages/ErrorPage";
 import LoadingScreen from "./components/loading/LoadingScreen";
 import Header from "./components/header/Header";
 
+import HamburgerMenu from "./components/hamburger/HamburgerMenu";
+
 function App() {
   const [loading, setLoading] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const location = useLocation();
 
@@ -32,7 +35,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header location={location} />
+      <HamburgerMenu isMenuOpen={menuOpen} />
+      <Header location={location} isMenuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <GrowingCircle />
       <Cursor />
       <QueryClientProvider client={queryClient}>

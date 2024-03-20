@@ -7,23 +7,48 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   font-family: "Space Grotesk";
   font-weight: 600;
   font-size: 1.2rem;
-  z-index: 999;
+  z-index: 9999;
 
   .headerLinksContainer {
     display: flex;
     justify-content: center;
     align-items: center;
 
+    .menuButton{
+      height: 0.8rem;
+      width: 0.8rem;
+      border: none;
+      outline: none;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color linear 0.6s;
+
+      &.light{
+        background-color: global.$pale-orange-color;
+      }
+
+      &.dark{
+        background-color: global.$pale-green-color;
+      }
+
+      svg{
+        height: 8px;
+        width: 8px;
+      }
+
+    }
+
     .headerLinkWrapper {
       height: 1.5rem;
-      margin-left: 1rem;
       overflow-y: hidden;
-
-
+      margin-left: 1.2rem;
+  
       .headerLink {
         transition: 0.6s linear;
         text-decoration: none !important;
@@ -49,24 +74,6 @@
         color: global.$dark-disabled-color;
       }
     }
-  }
-}
-
-
-.menuWrapper{
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1rem;
-  transition: background-color linear 0.6s;
-
-  &.light{
-    background-color: global.$pale-orange-color;
-  }
-
-  &.dark{
-    background-color: global.$pale-green-color;
   }
 }
 
