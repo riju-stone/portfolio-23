@@ -76,7 +76,7 @@ const menuLogoUpperAnimation = {
     y: 6,
     transition: {
       type: "spring",
-      duration: 0.2,
+      duration: 0.6,
       delay: 0.1
     }
   }
@@ -84,12 +84,15 @@ const menuLogoUpperAnimation = {
 
 const menuLogoMiddleAnimation = {
   open: {
-    opacity: 1
+    opacity: 1,
+    transition: {
+      duration: 0.3
+    }
   },
   close: {
     opacity: 0,
     transition: {
-      duration: 0.2
+      duration: 0.3
     }
   }
 };
@@ -104,7 +107,7 @@ const menuLogoLowerAnimation = {
     rotate: -45,
     transition: {
       type: "spring",
-      duration: 0.2,
+      duration: 0.6,
       delay: 0.1
     }
   }
@@ -153,6 +156,12 @@ const Header = ({ location, isMenuOpen, setMenuOpen }) => {
     dispatch(defaultCursor());
   };
 
+  const handleHamburgerMenu = () => {
+    if (headerState === "collapsed") {
+      setMenuOpen(!isMenuOpen);
+    }
+  };
+
   return (
     <div className={`${styles.headerWrapper} ${styles[theme]}`}>
       <div className={styles.headerLinksContainer}>
@@ -161,9 +170,10 @@ const Header = ({ location, isMenuOpen, setMenuOpen }) => {
           className={`${styles.menuButton} ${styles[theme]}`}
           variants={menuButtonAnimation}
           animate={headerState === "collapsed" ? "expand" : "collapse"}
-          onClick={() => setMenuOpen(!isMenuOpen)}
+          onClick={() => handleHamburgerMenu()}
         >
           <motion.svg
+            role="Menu Button"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -175,8 +185,9 @@ const Header = ({ location, isMenuOpen, setMenuOpen }) => {
             strokeLinejoin="round"
             className="lucide lucide-menu"
             variants={menuLogoAnimation}
-            animate={headerState == "expanded" ? "hide" : "show"}
+            animate={headerState === "expanded" ? "hide" : "show"}
           >
+            <title>Menu Button</title>
             <motion.line
               variants={menuLogoMiddleAnimation}
               animate={isMenuOpen ? "close" : "open"}
@@ -226,7 +237,7 @@ const Header = ({ location, isMenuOpen, setMenuOpen }) => {
           );
         })}
       </div>
-      <ThemeToggle />
+      <ThemeToggle isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
     </div>
   );
 };

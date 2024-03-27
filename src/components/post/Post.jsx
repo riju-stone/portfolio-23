@@ -39,12 +39,12 @@ const Post = ({ data }) => {
               type="button"
               onClick={() => navigate("/blogs")}
             >
-              {deviceType === "mobile" ? (
-                <ChevronLeft />
-              ) : (
+              {deviceType === "desktop" ? (
                 <MagneticButton>
                   <ChevronLeft />
                 </MagneticButton>
+              ) : (
+                <ChevronLeft />
               )}
             </button>
             <div className={styles.postTitle}>{data.title}</div>

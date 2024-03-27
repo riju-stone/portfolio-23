@@ -4,7 +4,7 @@
   background: none;
   position: absolute;
   top: 1.5rem;
-  right: 2rem;
+  right: 2.5rem;
 }
 
 .logoWrapper {
@@ -13,6 +13,9 @@
 }
 
 @media only screen and (max-width: 640px) {
+  .themeSwitchWrapper{
+    top: 2rem;
+  }
   .logoWrapper {
     height: 1.8rem;
     width: 1.8rem;

@@ -8,9 +8,11 @@ import PostPreview from "./PostPreview";
 
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import MagneticButton from "../button/MagneticButton";
+import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
 function PostList({ postsData }) {
   const theme = useSelector((state) => state.theme.currentTheme);
+  const deviceType = useDeviceDetection();
   const sectionRef = useRef(null);
   const scrollBarRef = useRef(null);
   const scrollBarThumbRef = useRef(null);
@@ -42,9 +44,14 @@ function PostList({ postsData }) {
         ) : (
           <>
             <div ref={scrollBarRef} className={styles.postsScrollBarWrapper} style={{ height: scrollBarHeight }}>
-              <MagneticButton>
+              {deviceType == "desktop" ? (
+                <MagneticButton>
+                  <MoveDown />
+                </MagneticButton>
+              ) : (
                 <MoveDown />
-              </MagneticButton>
+              )}
+
               <div className={`${styles.postsScrollBarBackground} ${styles[theme]}`}>
                 <motion.div
                   ref={scrollBarThumbRef}
@@ -58,9 +65,13 @@ function PostList({ postsData }) {
                 <p className={styles.postsTitle}>My scribbles & opinions</p>
                 <div className={styles.postsSort}>
                   <p>By Newest </p>
-                  <MagneticButton>
+                  {deviceType == "desktop" ? (
+                    <MagneticButton>
+                      <MoveLeft />
+                    </MagneticButton>
+                  ) : (
                     <MoveLeft />
-                  </MagneticButton>
+                  )}
                 </div>
               </div>
               <div className={styles.postsWrapper}>

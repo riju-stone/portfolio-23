@@ -3,6 +3,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+import { useScroll, useMotionValueEvent } from "framer-motion";
+
 import GrowingCircle from "./components/background/GrowingCirle";
 import Cursor from "./components/cursor/Cursor";
 import Footer from "./components/footer/Footer";
@@ -24,6 +26,11 @@ function App() {
 
   const location = useLocation();
 
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", () => {
+    setMenuOpen(false);
+  });
+
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -35,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <HamburgerMenu isMenuOpen={menuOpen} />
+      <AnimatePresence mode="wait">{menuOpen ? <HamburgerMenu isMenuOpen={menuOpen} /> : null}</AnimatePresence>
       <Header location={location} isMenuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <GrowingCircle />
       <Cursor />

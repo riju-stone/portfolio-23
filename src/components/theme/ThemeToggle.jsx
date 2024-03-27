@@ -20,11 +20,16 @@ const themeButtonAnimation = {
   }
 };
 
-const ThemeToggle = () => {
+const ThemeToggle = ({ isMenuOpen, setMenuOpen }) => {
   const dispatch = useDispatch();
 
   const handleSwitch = () => {
-    dispatch(changeTheme());
+    if (isMenuOpen) {
+      setMenuOpen(false);
+      setTimeout(() => dispatch(changeTheme()), 500);
+    } else {
+      dispatch(changeTheme());
+    }
   };
 
   return (
