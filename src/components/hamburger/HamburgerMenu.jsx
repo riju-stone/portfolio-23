@@ -7,19 +7,19 @@ import styles from "./HamburgerMenu.module.scss";
 
 const hamburgerMenuAnimation = {
   initial: {
-    y: -550
+    y: -600
   },
   animate: {
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.7,
       ease: [0.76, 0, 0.24, 1]
     }
   },
   exit: {
-    y: -550,
+    y: -600,
     transition: {
-      duration: 0.8,
+      duration: 0.7,
       ease: [0.76, 0, 0.24, 1]
     }
   }
@@ -27,7 +27,7 @@ const hamburgerMenuAnimation = {
 
 function HamburgerMenu() {
   const theme = useSelector((state) => state.theme.currentTheme);
-  const initialPath = `M0 0 L${window.innerWidth} 0 Q ${window.innerWidth / 2} 250 0 0`;
+  const initialPath = `M0 0 L${window.innerWidth} 0 Q ${window.innerWidth / 2} 200 0 0`;
   const targetPath = `M0 0 L${window.innerWidth} 0 Q ${window.innerWidth / 2} 0 0 0`;
 
   const hamburgerCurveAnimation = {

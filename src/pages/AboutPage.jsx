@@ -33,7 +33,6 @@ const AboutPage = () => {
 
   return (
     <Transition>
-      {/* <Header /> */}
       <motion.section
         className={styles.aboutContainer}
         variants={aboutSectionAnimation}

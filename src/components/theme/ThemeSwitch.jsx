@@ -56,7 +56,7 @@ const ThemeSwitch = () => {
 
   useEffect(() => {
     const switchData = switchRef.current.getBoundingClientRect();
-    dispatch(setThemeSwitchPos({ x: switchData.right - 20, y: switchData.top }));
+    dispatch(setThemeSwitchPos({ x: switchData.x, y: switchData.y }));
   }, []);
 
   return (
@@ -73,13 +73,13 @@ const ThemeSwitch = () => {
     >
       <motion.svg
         className={`sun-moon ${styles.logoWrapper}`}
+        ref={switchRef}
         aria-hidden="true"
         width="20"
         height="20"
         viewBox="0 0 24 24"
       >
         <motion.circle
-          ref={switchRef}
           className="sun"
           cx="12"
           cy="12"
