@@ -37,6 +37,39 @@
   }
 }
 
+.postsEmptyWrapper{
+  position: absolute;
+  left: 0;
+  top: 30vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .postsEmptyContainer{
+    font-family: "Space Grotesk";
+    font-size: 8rem;
+    font-weight: 600;
+    width: 50%;
+    transition: 0.6 linear;
+
+    &.light {
+      color: global.$light-disabled-color;
+    }
+
+    &.dark {
+      color: global.$dark-disabled-color;
+    }
+  }
+}
+
+.postsListContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .postsScrollBarWrapper {
   position: relative;
   width: 10%;

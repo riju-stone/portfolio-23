@@ -18,6 +18,24 @@ const Post = ({ data }) => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const navigate = useNavigate();
 
+  const postAnimation = {
+    initial: {
+      opacity: 0
+    },
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 0.4
+      }
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.2
+      }
+    }
+  };
+
   const { scrollYProgress } = useScroll();
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -29,7 +47,7 @@ const Post = ({ data }) => {
   const scrollPercent = useTransform(scaleY, [0, 1], ["-100%", "0%"]);
 
   return (
-    <>
+    <motion.div variants={postAnimation} initial="initial" animate="animate" exit="exit">
       <motion.div style={{ left: scrollPercent }} className={`${styles.postScrollProgress} ${styles[theme]}`} />
       <SkewScroll>
         <section className={`${styles.postSectionWrapper} ${styles[theme]}`}>
@@ -75,7 +93,7 @@ const Post = ({ data }) => {
           </Markdown>
         </section>
       </SkewScroll>
-    </>
+    </motion.div>
   );
 };
 

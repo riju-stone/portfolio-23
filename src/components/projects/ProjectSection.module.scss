@@ -34,14 +34,14 @@
 
 .projectMaskedItemWrapper {
   position: absolute;
-  height: 7rem;
+  height: fit-content;
   width: 100%;
   display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 0 8.5rem;
+  padding: 1.5rem 7.5rem;
   clip-path: inset(50% 0 50%);
   transition: clip-path 0.5s;
   color: global.$light-text-color;
@@ -57,6 +57,7 @@
 
   .projectTitleContainer {
     width: 100%;
+    white-space: nowrap;
 
     .projectTitle {
       display: flex;
@@ -86,7 +87,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 0 8.5rem;
+  padding: 0 7.5rem;
   z-index: 9;
 
   .projectTitleContainer {

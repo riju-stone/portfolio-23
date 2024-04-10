@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import supabase from "../utils/db";
 
-const fetchPostData = async (id) => {
-  const { data, error } = await supabase.from("post_data").select("*").eq("post_id", id);
+const fetchPostData = async (post_title) => {
+  const { data, error } = await supabase.from("post_data").select("*").eq("title", post_title);
 
   if (error) {
     console.error("Error fetching posts", error);
@@ -11,6 +11,6 @@ const fetchPostData = async (id) => {
   return data;
 };
 
-export default function usePost(post_id) {
-  return useQuery({ queryKey: ["postQuery", post_id], queryFn: () => fetchPostData(post_id) });
+export default function usePost(post_title) {
+  return useQuery({ queryKey: ["postQuery", post_title], queryFn: () => fetchPostData(post_title) });
 }

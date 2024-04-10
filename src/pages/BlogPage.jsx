@@ -1,4 +1,5 @@
 import React from "react";
+import { AnimatePresence } from "framer-motion";
 
 import usePostList from "../hooks/usePostList";
 import Transition from "../components/transition/Transition";
@@ -11,8 +12,7 @@ const BlogPage = () => {
 
   return (
     <Transition>
-      {/* <Header /> */}
-      {status === "pending" ? <Loader /> : <PostList postsData={data} />}
+      <AnimatePresence>{status === "pending" ? <Loader /> : <PostList postsData={data} />}</AnimatePresence>
     </Transition>
   );
 };

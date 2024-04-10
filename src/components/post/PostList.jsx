@@ -6,7 +6,7 @@ import styles from "./Posts.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 import PostPreview from "./PostPreview";
 
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import MagneticButton from "../button/MagneticButton";
 import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
@@ -18,6 +18,25 @@ function PostList({ postsData }) {
   const scrollBarThumbRef = useRef(null);
 
   const [scrollBarHeight, setScrollBarHeight] = useState("100vh");
+
+  const postListAnimation = {
+    initial: {
+      opacity: 0
+    },
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        delay: 1
+      }
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.2
+      }
+    }
+  };
 
   let parentHeight = "100vh";
 
@@ -39,57 +58,73 @@ function PostList({ postsData }) {
   return (
     <SkewScroll>
       <section ref={sectionRef} className={`${styles.postsSectionWrapper} ${styles[theme]}`}>
-        {postsData === null ? (
-          <div>Nothing to Show</div>
-        ) : (
-          <>
-            <div ref={scrollBarRef} className={styles.postsScrollBarWrapper} style={{ height: scrollBarHeight }}>
-              {deviceType == "desktop" ? (
-                <MagneticButton>
+        <AnimatePresence>
+          {postsData === null ? (
+            <motion.div
+              className={styles.postsEmptyWrapper}
+              variants={postListAnimation}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <div className={`${styles.postsEmptyContainer} ${styles[theme]}`}>I&apos;m Cooking right now...</div>
+            </motion.div>
+          ) : (
+            <motion.div
+              className={styles.postsListContainer}
+              variants={postListAnimation}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <div ref={scrollBarRef} className={styles.postsScrollBarWrapper} style={{ height: scrollBarHeight }}>
+                {deviceType == "desktop" ? (
+                  <MagneticButton>
+                    <MoveDown />
+                  </MagneticButton>
+                ) : (
                   <MoveDown />
-                </MagneticButton>
-              ) : (
-                <MoveDown />
-              )}
+                )}
 
-              <div className={`${styles.postsScrollBarBackground} ${styles[theme]}`}>
-                <motion.div
-                  ref={scrollBarThumbRef}
-                  style={{ top: scrollPercent }}
-                  className={`${styles.postsScrollBarThumb} ${styles[theme]}`}
-                />
-              </div>
-            </div>
-            <div className={styles.postsListWrapper}>
-              <div className={styles.postsHeaderContainer}>
-                <p className={styles.postsTitle}>My scribbles & opinions</p>
-                <div className={styles.postsSort}>
-                  <p>By Newest </p>
-                  {deviceType == "desktop" ? (
-                    <MagneticButton>
-                      <MoveLeft />
-                    </MagneticButton>
-                  ) : (
-                    <MoveLeft />
-                  )}
+                <div className={`${styles.postsScrollBarBackground} ${styles[theme]}`}>
+                  <motion.div
+                    ref={scrollBarThumbRef}
+                    style={{ top: scrollPercent }}
+                    className={`${styles.postsScrollBarThumb} ${styles[theme]}`}
+                  />
                 </div>
               </div>
-              <div className={styles.postsWrapper}>
-                <Suspense fallback={<div>Loading...</div>}>
-                  {postsData.map((post, index) => {
-                    return (
-                      <div key={index}>
-                        {index === 0 && <div className={`${styles.postDivider} ${styles[theme]}`} />}
-                        <PostPreview id={index} postData={post} />
-                        <div className={`${styles.postDivider} ${styles[theme]}`} />
-                      </div>
-                    );
-                  })}
-                </Suspense>
+              <div className={styles.postsListWrapper}>
+                <div className={styles.postsHeaderContainer}>
+                  <p className={styles.postsTitle}>My scribbles & opinions</p>
+                  <div className={styles.postsSort}>
+                    <p>By Newest </p>
+                    {deviceType == "desktop" ? (
+                      <MagneticButton>
+                        <MoveLeft />
+                      </MagneticButton>
+                    ) : (
+                      <MoveLeft />
+                    )}
+                  </div>
+                </div>
+                <div className={styles.postsWrapper}>
+                  <Suspense fallback={<div>Loading...</div>}>
+                    {postsData.map((post, index) => {
+                      return (
+                        <div key={index}>
+                          {index === 0 && <div className={`${styles.postDivider} ${styles[theme]}`} />}
+                          <PostPreview id={index} postData={post} />
+                          <div className={`${styles.postDivider} ${styles[theme]}`} />
+                        </div>
+                      );
+                    })}
+                  </Suspense>
+                </div>
               </div>
-            </div>
-          </>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
     </SkewScroll>
   );
