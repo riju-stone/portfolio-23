@@ -27,7 +27,7 @@ function PostList({ postsData }) {
       opacity: 1,
       transition: {
         duration: 0.6,
-        delay: 1
+        delay: 0.5
       }
     },
     exit: {

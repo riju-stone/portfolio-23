@@ -11,6 +11,7 @@ function PostPreview({ id, postData }) {
     .replace(/[!@#$%^&*:]/g, "")
     .split(" ")
     .join("-")
+    .replace("--", "-")
     .toLowerCase();
   const postDate = new Date(postData.created_at).toString().split(" ").slice(0, 4).join(" ");
 

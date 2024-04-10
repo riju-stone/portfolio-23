@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import supabase from "../utils/db";
 
 const fetchPostData = async (post_title) => {
-  const { data, error } = await supabase.from("post_data").select("*").eq("title", post_title);
+  const { data, error } = await supabase.from("post_data").select("*").eq("post_title_uid", post_title);
 
   if (error) {
     console.error("Error fetching posts", error);
