@@ -208,6 +208,46 @@
   }
 }
 
+.noPostWrapper{
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .noPostTitle {
+    font-family: "Space Grotesk";
+    font-size: 5rem;
+    font-weight: 700;
+
+    &.light {
+      color: global.$light-text-color;
+    }
+  
+    &.dark {
+      color: global.$dark-text-color;
+    }
+  }
+
+  .noPostSubTitle{
+    font-family: "Space Grotesk";
+    font-size: 2rem;
+    font-weight: 700;
+    width: 70%;
+    margin: 2rem 0;
+
+    &.light {
+      color: global.$light-disabled-color;
+    }
+  
+    &.dark {
+      color: global.$dark-disabled-color;
+    }
+  }
+}
+
 .postSectionWrapper {
   height: fit-content;
   width: 100dvw;
