@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import Transition from "../components/transition/Transition";
@@ -30,6 +30,10 @@ const titleWordAnimation = {
 const AboutPage = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const disabledTextStyle = theme === "dark" ? "text-darkdisabled" : "text-lightdisabled";
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return (
     <Transition>

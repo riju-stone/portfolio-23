@@ -21,7 +21,8 @@
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     font-family: "Space Grotesk";
 }

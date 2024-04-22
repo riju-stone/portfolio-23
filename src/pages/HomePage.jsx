@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import HeroSection from "../components/hero/HeroSection";
 import AboutSection from "../components/about/AboutSection";
@@ -11,6 +11,11 @@ import { useDeviceDetection } from "../hooks/useDeviceDetection";
 
 const HomePage = () => {
   const deviceType = useDeviceDetection();
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <Transition>
       {/* <Header /> */}

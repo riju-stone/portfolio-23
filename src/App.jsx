@@ -42,7 +42,9 @@ function App() {
 
   return (
     <div className="App">
-      <AnimatePresence mode="wait">{menuOpen ? <HamburgerMenu isMenuOpen={menuOpen} /> : null}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {menuOpen ? <HamburgerMenu isMenuOpen={menuOpen} setMenuOpen={setMenuOpen} /> : null}
+      </AnimatePresence>
       <Header location={location} isMenuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <GrowingCircle />
       <Cursor />

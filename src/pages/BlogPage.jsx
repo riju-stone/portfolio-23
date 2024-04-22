@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import usePostList from "../hooks/usePostList";
@@ -9,6 +9,10 @@ import PostList from "../components/post/PostList";
 
 const BlogPage = () => {
   const { status, data } = usePostList();
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return (
     <Transition>
