@@ -65,13 +65,15 @@ function HamburgerMenu({ isMenuOpen, setMenuOpen }) {
       className={`${styles.hamburgerMenuWrapper} ${styles[theme]}`}
     >
       <div className={styles.hamburgerMenuContainer}>
-        <div onClick={() => handleMenuClick()}>
+        <div className={styles.hamburgerMenuLink} onClick={() => handleMenuClick()}>
           <Link to="/">Home</Link>
         </div>
-        <div onClick={() => handleMenuClick()}>
+        <div className={styles.hamburgerMenuLink} onClick={() => handleMenuClick()}>
           <Link to="/about">About</Link>{" "}
         </div>
-        <Link to="/blogs">Blogs</Link>
+        <div className={styles.hamburgerMenuLink} onClick={() => handleMenuClick()}>
+          <Link to="/blogs">Blogs</Link>
+        </div>
       </div>
       <svg className={`${styles.hamburgerMenuCurve} ${styles[theme]}`} fill="#fff">
         <motion.path variants={hamburgerCurveAnimation} initial="initial" animate="animate" exit="exit" />
