@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import ThemeToggle from "../theme/ThemeToggle";
-import styles from "./Header.module.scss";
+import styles from "./styles.module.scss";
 
 import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
 
@@ -14,12 +14,12 @@ const headerData = [
     label: "home"
   },
   {
-    link: "/about",
-    label: "about"
-  },
-  {
     link: "/blogs",
     label: "blogs"
+  },
+  {
+    link: "/shelf",
+    label: "shelf"
   }
 ];
 
@@ -134,11 +134,11 @@ const Header = ({ location, isMenuOpen, setMenuOpen }) => {
       case "":
         setCurrentPage("home");
         break;
-      case "about":
-        setCurrentPage("about");
-        break;
       case "blogs":
         setCurrentPage("blogs");
+        break;
+      case "shelf":
+        setCurrentPage("shelf");
         break;
       default:
         setCurrentPage("none");

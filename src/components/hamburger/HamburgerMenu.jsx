@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import styles from "./HamburgerMenu.module.scss";
+import styles from "./styles.module.scss";
 
 const hamburgerMenuAnimation = {
   initial: {
@@ -69,10 +69,10 @@ function HamburgerMenu({ isMenuOpen, setMenuOpen }) {
           <Link to="/">Home</Link>
         </div>
         <div className={styles.hamburgerMenuLink} onClick={() => handleMenuClick()}>
-          <Link to="/about">About</Link>{" "}
+          <Link to="/blogs">Blogs</Link>
         </div>
         <div className={styles.hamburgerMenuLink} onClick={() => handleMenuClick()}>
-          <Link to="/blogs">Blogs</Link>
+          <Link to="/shelf">Shelf</Link>
         </div>
       </div>
       <svg className={`${styles.hamburgerMenuCurve} ${styles[theme]}`} fill="#fff">

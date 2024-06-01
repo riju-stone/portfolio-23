@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
 
-import styles from "./ProjectSection.module.scss";
+import styles from "./styles.module.scss";
 
 const ProjectItem = ({ selectedItem, projectData }) => {
   const theme = useSelector((state) => state.theme.currentTheme);

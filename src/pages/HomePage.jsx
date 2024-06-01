@@ -18,7 +18,6 @@ const HomePage = () => {
 
   return (
     <Transition>
-      {/* <Header /> */}
       <HeroSection />
       <AboutSection />
       <ProjectSection />

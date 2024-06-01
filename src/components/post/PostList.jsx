@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { MoveDown, MoveLeft } from "lucide-react";
 
-import styles from "./Posts.module.scss";
+import styles from "./styles.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 import PostPreview from "./PostPreview";
 

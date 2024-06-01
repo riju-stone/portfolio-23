@@ -14,7 +14,7 @@
   }
 
   &.dark {
-    background-color: global.$pale-green-color;
+    background-color: global.$pale-orange-color;
   }
 }
 
@@ -37,7 +37,7 @@
   }
 }
 
-.postsEmptyWrapper{
+.postsEmptyWrapper {
   position: absolute;
   left: 0;
   top: 30vh;
@@ -46,7 +46,7 @@
   justify-content: center;
   align-items: center;
 
-  .postsEmptyContainer{
+  .postsEmptyContainer {
     font-family: "Space Grotesk";
     font-size: 8rem;
     font-weight: 600;
@@ -63,7 +63,7 @@
   }
 }
 
-.postsListContainer{
+.postsListContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -208,7 +208,7 @@
   }
 }
 
-.noPostWrapper{
+.noPostWrapper {
   height: 90vh;
   width: 100%;
   display: flex;
@@ -225,13 +225,13 @@
     &.light {
       color: global.$light-text-color;
     }
-  
+
     &.dark {
       color: global.$dark-text-color;
     }
   }
 
-  .noPostSubTitle{
+  .noPostSubTitle {
     font-family: "Space Grotesk";
     font-size: 2rem;
     font-weight: 700;
@@ -241,7 +241,7 @@
     &.light {
       color: global.$light-disabled-color;
     }
-  
+
     &.dark {
       color: global.$dark-disabled-color;
     }
@@ -334,7 +334,7 @@
       background-color: global.$dark-disabled-color;
       padding: 0.2rem 0.8rem;
       border-radius: 10px;
-      color: global.$pale-green-color;
+      color: global.$pale-orange-color;
       margin-left: 1rem;
     }
   }

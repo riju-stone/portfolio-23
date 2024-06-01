@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import styles from "./ConnectSection.module.scss";
+import styles from "./styles.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 
 import { ArrowUpRight } from "lucide-react";

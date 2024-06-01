@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import styles from "./HeroSection.module.scss";
+import styles from "./styles.module.scss";
 
 import I0 from "../../assets/hero/hero-1.jpeg";
 import I1 from "../../assets/hero/hero-2.jpeg";

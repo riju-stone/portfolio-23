@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 import { ArrowDownLeft } from "lucide-react";
 
-import styles from "./HeroSection.module.scss";
+import styles from "./styles.module.scss";
 import HeroImage from "./HeroImage";
 import SkewScroll from "../skew-scroll/SkewScroll";
 import MagneticButton from "../button/MagneticButton";
@@ -67,7 +67,7 @@ const HeroSection = () => {
             </div>
           </MagneticButton>
         </div>
-        <div className={`${styles.heroSectionCount} ${styles[theme]}`}>[ 01 / 04 ]</div>
+        {/* <div className={`${styles.heroSectionCount} ${styles[theme]}`}>[ 01 / 04 ]</div> */}
       </motion.section>
     </SkewScroll>
   );

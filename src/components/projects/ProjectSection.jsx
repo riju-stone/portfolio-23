@@ -6,7 +6,7 @@ import ProjectItem from "./ProjectItem";
 import SkewScroll from "../skew-scroll/SkewScroll";
 import { defaultCursor, focusCursor } from "../cursor/CursorSlice";
 
-import styles from "./ProjectSection.module.scss";
+import styles from "./styles.module.scss";
 import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
 const projectData = [

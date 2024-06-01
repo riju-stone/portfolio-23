@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
-import styles from "./Posts.module.scss";
+import styles from "./styles.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 import CodeHighlighter from "./CodeHighlighter";
 import MagneticButton from "../button/MagneticButton";

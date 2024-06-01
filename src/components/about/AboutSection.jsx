@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { motion, useAnimation, useInView } from "framer-motion";
 
-import styles from "./AboutSection.module.scss";
+import styles from "./styles.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 
 const aboutSectionAnimation = {
@@ -34,8 +34,8 @@ const AboutSection = () => {
   const theme = useSelector((state) => state.theme.currentTheme);
   const animationControls = useAnimation();
 
-  useEffect(() => {
-    console.log("In View:", inView);
+  useLayoutEffect(() => {
+    // console.log("In View:", inView);
     if (inView) {
       animationControls.start("show");
     } else {
@@ -68,7 +68,7 @@ const AboutSection = () => {
               );
             })}
           </p>
-          <div className={`${styles.aboutSectionCount} ${styles[theme]}`}>[ 02 / 04 ]</div>
+          {/* <div className={`${styles.aboutSectionCount} ${styles[theme]}`}>[ 02 / 04 ]</div> */}
         </div>
       </motion.section>
     </SkewScroll>

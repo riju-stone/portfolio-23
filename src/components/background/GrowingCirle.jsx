@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Circle from "../../utils/circle";
 import { throttle, debounce } from "../../utils/limitors";
 
-import styles from "./GrowingCircle.module.scss";
+import styles from "./styles.module.scss";
 
 const GrowingCircle = () => {
   const theme = useSelector((state) => state.theme.currentTheme);

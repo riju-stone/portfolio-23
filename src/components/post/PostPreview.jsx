@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import styles from "./Posts.module.scss";
+import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 
 function PostPreview({ id, postData }) {

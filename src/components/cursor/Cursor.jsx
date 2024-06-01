@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDeviceDetection } from "../../hooks/useDeviceDetection";
-import styles from "./Cursor.module.scss";
+import styles from "./styles.module.scss";
 
 const Cursor = () => {
   const theme = useSelector((state) => state.theme.currentTheme);

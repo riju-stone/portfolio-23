@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { defaultCursor, maskCursor } from "../cursor/CursorSlice";
-import styles from "./MaskedSection.module.scss";
+import styles from "./styles.module.scss";
 
 function AboutMasked() {
   const dispatch = useDispatch();

@@ -4,7 +4,7 @@ import { motion, useScroll } from "framer-motion";
 
 import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
-import styles from "./MaskedSection.module.scss";
+import styles from "./styles.module.scss";
 import AboutMasked from "./AboutMasked";
 import HeroMasked from "./HeroMasked";
 

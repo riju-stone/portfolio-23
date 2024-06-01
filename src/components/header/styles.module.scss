@@ -18,7 +18,7 @@
     justify-content: center;
     align-items: center;
 
-    .menuButton{
+    .menuButton {
       height: 0.8rem;
       width: 0.8rem;
       border: none;
@@ -29,26 +29,25 @@
       align-items: center;
       transition: background-color linear 0.6s;
 
-      &.light{
+      &.light {
         background-color: global.$pale-orange-color;
       }
 
-      &.dark{
-        background-color: global.$pale-green-color;
+      &.dark {
+        background-color: global.$pale-orange-color;
       }
 
-      svg{
+      svg {
         height: 8px;
         width: 8px;
       }
-
     }
 
     .headerLinkWrapper {
       height: 1.5rem;
       overflow-y: hidden;
       margin-left: 1rem;
-  
+
       .headerLink {
         transition: 0.6s linear;
         text-decoration: none !important;
@@ -84,8 +83,8 @@
     font-size: 1rem;
     z-index: 999;
 
-    .headerLinksContainer{
-      .menuButton{
+    .headerLinksContainer {
+      .menuButton {
         margin-top: -4px;
       }
     }

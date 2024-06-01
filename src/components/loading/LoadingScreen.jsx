@@ -1,15 +1,40 @@
 import React, { useRef, useEffect, useState } from "react";
-import { motion, useAnimationFrame } from "framer-motion";
+import { AnimatePresence, motion, useAnimationFrame } from "framer-motion";
 
-import styles from "./LoadingScreen.module.scss";
-import {
-  loadingPercentAnimation,
-  loadingScreenAnimation,
-  loadingProgressAnimation,
-  loadingTitleAnimation
-} from "./anim";
+import styles from "./styles.module.scss";
 
-const phraseArray = ["Hola", "مرحبًا", "γεια", "שלום", "Ciao", "안녕하세요", "Привет", "নমস্কার", "नमस्ते", "Hello"];
+const phraseArray = ["Hola", "مرحبًا", "γεια", "Ciao", "Привет", "नमस्ते", "Hello"];
+
+const loadingScreenAnimation = {
+  show: {
+    transition: {
+      when: "afterChildren"
+    }
+  },
+  exit: {
+    when: "afterChildren"
+  }
+};
+
+const loadingProgressAnimation = {
+  hidden: {
+    x: -window.screen.width
+  },
+  show: {
+    x: 0,
+    transition: {
+      ease: [0.5, 0.001, 0.08, 0.95],
+      duration: 6
+    }
+  },
+  exit: {
+    y: -20,
+    transition: {
+      ease: [0.5, 0.001, 0.08, 0.95],
+      duration: 0.4
+    }
+  }
+};
 
 const LoadingScreen = ({ setLoading }) => {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
@@ -19,12 +44,9 @@ const LoadingScreen = ({ setLoading }) => {
 
   useEffect(() => {
     if (currentPhraseIndex === phraseArray.length - 1) return;
-    setTimeout(
-      () => {
-        setCurrentPhraseIndex(currentPhraseIndex + 1);
-      },
-      currentPhraseIndex === 0 ? 1000 : 250
-    );
+    setTimeout(() => {
+      setCurrentPhraseIndex(currentPhraseIndex + 1);
+    }, 800);
   }, [currentPhraseIndex]);
 
   useAnimationFrame(() => {
@@ -34,6 +56,7 @@ const LoadingScreen = ({ setLoading }) => {
       progressPos = Math.floor(Math.abs(progressPos));
       let percent = Math.abs(progressPos - window.screen.width);
       percent = Math.floor((percent / window.screen.width) * 100);
+
       setProgressPercent(percent);
     }
   });
@@ -48,12 +71,34 @@ const LoadingScreen = ({ setLoading }) => {
       className={styles.loadingScreenWrapper}
     >
       <div className={styles.loaderContainer}>
-        <motion.div variants={loadingTitleAnimation} className={styles.loadingTitle}>
-          * {phraseArray[currentPhraseIndex]}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={phraseArray[currentPhraseIndex]}
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.3
+            }}
+            className={styles.loadingTitle}
+          >
+            * {phraseArray[currentPhraseIndex]}
+          </motion.div>
+        </AnimatePresence>
+
+        <motion.div
+          className={styles.loadingPercent}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {progressPercent < 10 ? "0" : null}
+          {progressPercent < 100 ? "0" : null}
+          {progressPercent}
+          <span>%</span>
         </motion.div>
-        <motion.div variants={loadingPercentAnimation} className={styles.loadingPercent}>
-          {progressPercent}%
-        </motion.div>
+
         <motion.div
           ref={progressRef}
           className={styles.loadingProgress}

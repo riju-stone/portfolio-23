@@ -5,16 +5,14 @@
 
 @font-face {
   font-family: "Circular";
-  src:
-    url("./fonts/circular/CircularStd-Light.otf") format("opentype"),
+  src: url("./fonts/circular/CircularStd-Light.otf") format("opentype"),
     url("./fonts/circular/CircularStd-Medium.otf") format("opentype"),
     url("./fonts/circular/CircularStd-Bold.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Space Grotesk";
-  src:
-    url("./fonts/space-grotesk/SpaceGrotesk-Light.ttf") format("truetype"),
+  src: url("./fonts/space-grotesk/SpaceGrotesk-Light.ttf") format("truetype"),
     url("./fonts/space-grotesk/SpaceGrotesk-Regular.ttf") format("truetype"),
     url("./fonts/space-grotesk/SpaceGrotesk-Medium.ttf") format("truetype"),
     url("./fonts/space-grotesk/SpaceGrotesk-SemiBold.ttf") format("truetype"),
@@ -23,8 +21,7 @@
 
 @font-face {
   font-family: "Caveat";
-  src:
-    url("./fonts/caveat/Caveat-Medium.ttf") format("truetype"),
+  src: url("./fonts/caveat/Caveat-Medium.ttf") format("truetype"),
     url("./fonts/caveat/Caveat-Regular.ttf") format("truetype"),
     url("./fonts/caveat/Caveat-SemiBold.ttf") format("truetype"),
     url("./fonts/caveat/Caveat-Bold.ttf") format("truetype");
@@ -34,7 +31,7 @@ $light-text-color: #17181a;
 $dark-text-color: #ededed;
 $light-disabled-color: #b5b5b5;
 $dark-disabled-color: #414141;
-$pale-green-color: #cdfc75;
+$pale-orange-color: #cdfc75;
 $pale-orange-color: #f05443;
 $light-bg-color: #ededed;
 $dark-bg-color: #17181a;

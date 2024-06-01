@@ -7,7 +7,7 @@ import coldLight from "react-syntax-highlighter/dist/esm/styles/prism/coldark-co
 
 import { Copy } from "lucide-react";
 
-import styles from "./Posts.module.scss";
+import styles from "./styles.module.scss";
 
 function CodeHighlighter({ className, children }) {
   const theme = useSelector((state) => state.theme.currentTheme);

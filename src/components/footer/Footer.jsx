@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 
-import styles from "./Footer.module.scss";
+import styles from "./styles.module.scss";
 
 const Footer = () => {
   const theme = useSelector((state) => state.theme.currentTheme);

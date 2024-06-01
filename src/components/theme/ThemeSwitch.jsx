@@ -5,7 +5,7 @@ import { defaultCursor, expandCursor } from "../cursor/CursorSlice";
 
 import { setThemeSwitchPos } from "./ThemeSlice";
 
-import styles from "./Theme.module.scss";
+import styles from "./styles.module.scss";
 
 const animations = {
   sunBeams: {

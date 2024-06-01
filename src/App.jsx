@@ -12,8 +12,8 @@ import Footer from "./components/footer/Footer";
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
 import PostPage from "./pages/PostPage";
-import AboutPage from "./pages/AboutPage";
 import ErrorPage from "./pages/ErrorPage";
+import ShelfPage from "./pages/ShelfPage";
 
 import LoadingScreen from "./components/loading/LoadingScreen";
 import Header from "./components/header/Header";
@@ -55,9 +55,9 @@ function App() {
           ) : (
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
               <Route path="/blogs" element={<BlogPage />} />
               <Route path="/blogs/:id" element={<PostPage />} />
+              <Route path="/shelf" element={<ShelfPage />} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>
           )}
