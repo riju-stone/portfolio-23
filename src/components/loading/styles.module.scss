@@ -18,12 +18,29 @@
 
   .loadingTitle {
     position: absolute;
-    bottom: 1.5rem;
-    font-family: "Space Grotesk";
-    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    bottom: 2rem;
+    font-family: "Avant Garde Book BT";
+    font-weight: 900;
     font-size: 6rem;
     color: global.$light-text-color;
     margin: 1rem 2.5rem;
+    height: 6rem;
+    width: fit-content;
+
+    .loadingAsterisk {
+      margin-right: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 5rem;
+        width: 5rem;
+      }
+    }
   }
 
   .loadingPercent {

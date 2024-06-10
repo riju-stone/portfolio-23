@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { motion, useAnimation, useInView } from "framer-motion";
 
@@ -29,13 +29,13 @@ const phrase =
 
 const AboutSection = () => {
   const aboutTextRef = useRef();
-  const inView = useInView(aboutTextRef, { once: true });
+  const inView = useInView(aboutTextRef, { margin: "-300px", once: true });
 
   const theme = useSelector((state) => state.theme.currentTheme);
   const animationControls = useAnimation();
 
-  useLayoutEffect(() => {
-    // console.log("In View:", inView);
+  useEffect(() => {
+    console.log("About Text Ref: ", aboutTextRef, "In View:", inView);
     if (inView) {
       animationControls.start("show");
     } else {

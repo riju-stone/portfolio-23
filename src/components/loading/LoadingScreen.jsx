@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import { AnimatePresence, motion, useAnimationFrame } from "framer-motion";
-
+// import { Asterisk } from "lucide-react";
 import styles from "./styles.module.scss";
-
+import Asterisk from "../../assets/icons/asterisk.svg";
 const phraseArray = ["Hola", "مرحبًا", "γεια", "Ciao", "Привет", "नमस्ते", "Hello"];
 
 const loadingScreenAnimation = {
@@ -71,21 +71,28 @@ const LoadingScreen = ({ setLoading }) => {
       className={styles.loadingScreenWrapper}
     >
       <div className={styles.loaderContainer}>
-        <AnimatePresence mode="wait">
+        <div className={styles.loadingTitle}>
           <motion.div
-            key={phraseArray[currentPhraseIndex]}
-            exit={{ opacity: 0 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.3
-            }}
-            className={styles.loadingTitle}
+            className={styles.loadingAsterisk}
+            animate={{ rotate: 360 }}
+            transition={{ ease: "linear", repeat: Infinity, duration: 4 }}
           >
-            * {phraseArray[currentPhraseIndex]}
+            <img src={Asterisk} />
           </motion.div>
-        </AnimatePresence>
-
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={phraseArray[currentPhraseIndex]}
+              exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.3
+              }}
+            >
+              {phraseArray[currentPhraseIndex]}
+            </motion.div>
+          </AnimatePresence>
+        </div>
         <motion.div
           className={styles.loadingPercent}
           initial={{ opacity: 0 }}
