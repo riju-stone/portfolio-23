@@ -7,8 +7,6 @@ import SkewScroll from "../skew-scroll/SkewScroll";
 import { ArrowUpRight } from "lucide-react";
 
 const data = {
-  fname: "Arighna",
-  lname: "Chakraborty",
   designation: ["Creative", "Full-Stack", "Developer"],
   links: ["email", "linkedin", "github", "twitter", "instagram", "youtube"]
 };
