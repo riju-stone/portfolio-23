@@ -18,11 +18,6 @@ function ConnectSection() {
       <section className={styles.connectSectionWrapper}>
         <div className={`${styles.connectSectionContainer} ${styles[theme]}`}>
           <div className={styles.connectLines}>
-            <p>{data.fname}</p>
-            <p>{data.lname}</p>
-          </div>
-
-          <div className={styles.connectLines}>
             <p>{data.designation[0]}</p>
             <p>&</p>
           </div>
