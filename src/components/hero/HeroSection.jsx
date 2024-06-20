@@ -20,13 +20,13 @@ const heroTitleAnimation = {
   hidden: {
     y: 150
   },
-  show: (i) => ({
+  show: {
     y: 0,
     transition: {
       duration: 0.6,
-      delay: 0.4 * i
+      delay: 0.4
     }
-  })
+  }
 };
 
 const HeroSection = () => {
@@ -51,11 +51,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
           <div className={styles.heroTitleMask}>
-            <motion.div
-              variants={heroTitleAnimation}
-              custom={2}
-              className={`${styles.heroTitleStroke} ${styles.heroTitleLname}`}
-            >
+            <motion.div variants={heroTitleAnimation} className={`${styles.heroTitleStroke} ${styles.heroTitleLname}`}>
               Chakraborty
             </motion.div>
           </div>

@@ -162,7 +162,7 @@
 
   .projectMaskedItemWrapper {
     height: 1.2rem;
-    padding: 0 0.5rem;
+    padding: 0 1rem;
     height: 7.5rem;
     flex-direction: column;
 
@@ -184,9 +184,9 @@
   }
 
   .projectItemWrapper {
-    padding: 0 0.5rem;
+    padding: 0 1rem;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 
     .projectTitleContainer {
       width: 100%;
@@ -206,6 +206,11 @@
       margin-bottom: 0.5rem;
       font-size: 1rem;
       text-align: left;
+      display: flex;
+
+      p {
+        margin-right: 1rem;
+      }
     }
   }
 }

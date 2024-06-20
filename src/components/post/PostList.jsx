@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 import PostPreview from "./PostPreview";
 
-import { motion, useScroll, useSpring, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, AnimatePresence, delay } from "framer-motion";
 import MagneticButton from "../button/MagneticButton";
 import { useDeviceDetection } from "../../hooks/useDeviceDetection";
 
@@ -38,6 +38,32 @@ function PostList({ postsData }) {
     }
   };
 
+  const postDividerAnimation = {
+    hidden: {
+      width: "0"
+    },
+    show: (i) => ({
+      width: "100%",
+      transition: {
+        duration: 0.2,
+        delay: 0.5 + 0.2 * i
+      }
+    })
+  };
+
+  const scrollBarAnimation = {
+    hidden: {
+      height: "0%"
+    },
+    show: {
+      height: "100%",
+      transition: {
+        duration: 1.5,
+        delay: 0.8
+      }
+    }
+  };
+
   let parentHeight = "100vh";
 
   const { scrollYProgress } = useScroll();
@@ -58,7 +84,7 @@ function PostList({ postsData }) {
   return (
     <SkewScroll>
       <section ref={sectionRef} className={`${styles.postsSectionWrapper} ${styles[theme]}`}>
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {postsData === null ? (
             <motion.div
               className={styles.postsEmptyWrapper}
@@ -86,13 +112,18 @@ function PostList({ postsData }) {
                   <MoveDown />
                 )}
 
-                <div className={`${styles.postsScrollBarBackground} ${styles[theme]}`}>
+                <motion.div
+                  variants={scrollBarAnimation}
+                  initial="hidden"
+                  animate="show"
+                  className={`${styles.postsScrollBarBackground} ${styles[theme]}`}
+                >
                   <motion.div
                     ref={scrollBarThumbRef}
                     style={{ top: scrollPercent }}
                     className={`${styles.postsScrollBarThumb} ${styles[theme]}`}
                   />
-                </div>
+                </motion.div>
               </div>
               <div className={styles.postsListWrapper}>
                 <div className={styles.postsHeaderContainer}>
@@ -113,9 +144,23 @@ function PostList({ postsData }) {
                     {postsData.map((post, index) => {
                       return (
                         <div key={index}>
-                          {index === 0 && <div className={`${styles.postDivider} ${styles[theme]}`} />}
+                          {index === 0 && (
+                            <motion.div
+                              custom={0}
+                              variants={postDividerAnimation}
+                              initial="hidden"
+                              animate="show"
+                              className={`${styles.postDivider} ${styles[theme]}`}
+                            />
+                          )}
                           <PostPreview id={index} postData={post} />
-                          <div className={`${styles.postDivider} ${styles[theme]}`} />
+                          <motion.div
+                            custom={index}
+                            variants={postDividerAnimation}
+                            initial="hidden"
+                            animate="show"
+                            className={`${styles.postDivider} ${styles[theme]}`}
+                          />
                         </div>
                       );
                     })}

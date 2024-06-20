@@ -5,22 +5,13 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import styles from "./styles.module.scss";
 import SkewScroll from "../skew-scroll/SkewScroll";
 
-const aboutSectionAnimation = {
-  show: {
-    transition: {
-      staggerChildren: 0.3,
-      delayChildren: 0.3
-    }
-  }
-};
-
 const aboutTextAnimation = {
   hidden: {
-    y: 150
+    y: "150px"
   },
   show: (i) => ({
-    y: 0,
-    transition: { duration: 0.5, delay: 0.05 * i }
+    y: "0px",
+    transition: { duration: 0.4, delay: 0.05 * i }
   })
 };
 
@@ -29,30 +20,23 @@ const phrase =
 
 const AboutSection = () => {
   const aboutTextRef = useRef();
-  const inView = useInView(aboutTextRef, { margin: "-300px", once: true });
+  const isInView = useInView(aboutTextRef, { margin: "-200px", once: true });
 
   const theme = useSelector((state) => state.theme.currentTheme);
   const animationControls = useAnimation();
 
   useEffect(() => {
-    console.log("About Text Ref: ", aboutTextRef, "In View:", inView);
-    if (inView) {
+    console.log("About Text Ref: ", aboutTextRef, "In View:", isInView);
+    if (isInView) {
       animationControls.start("show");
-    } else {
-      animationControls.start("hidden");
     }
-  }, [inView]);
+  }, [animationControls, isInView]);
 
   return (
     <SkewScroll>
-      <motion.section
-        className={styles.aboutContainer}
-        variants={aboutSectionAnimation}
-        animate={animationControls}
-        ref={aboutTextRef}
-      >
+      <section className={styles.aboutContainer}>
         <div className={`${styles.aboutTextWrapper} ${styles[theme]}`}>
-          <p className={styles.aboutWordsContainer}>
+          <p className={styles.aboutWordsContainer} ref={aboutTextRef}>
             {phrase.split(" ").map((word, index) => {
               return (
                 <span key={`mask${index}`} className={styles.aboutTextMask}>
@@ -60,7 +44,8 @@ const AboutSection = () => {
                     className={styles.aboutWords}
                     variants={aboutTextAnimation}
                     custom={index}
-                    animate={inView ? "show" : "hidden"}
+                    initial="hidden"
+                    animate={animationControls}
                   >
                     {word}
                   </motion.span>
@@ -70,7 +55,7 @@ const AboutSection = () => {
           </p>
           {/* <div className={`${styles.aboutSectionCount} ${styles[theme]}`}>[ 02 / 04 ]</div> */}
         </div>
-      </motion.section>
+      </section>
     </SkewScroll>
   );
 };

@@ -24,7 +24,7 @@ const imageAnimation = {
     x: 0,
     transition: {
       duration: 2,
-      delay: 0.8,
+      delay: 0.5,
       ease: [0.6, 0.01, 0.05, 0.95]
     }
   }
