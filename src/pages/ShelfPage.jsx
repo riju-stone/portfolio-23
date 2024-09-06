@@ -1,10 +1,10 @@
 import React from "react";
 import Transition from "../components/transition/Transition";
-
+import NoShelfComponent from "../components/shelf/NoShelf";
 function ShelfPage() {
   return (
     <Transition>
-      <section>ShelfPage</section>
+      <NoShelfComponent />
     </Transition>
   );
 }

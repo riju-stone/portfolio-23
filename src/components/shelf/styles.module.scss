@@ -1,0 +1,34 @@
+@use "../../index.scss" as global;
+
+.NoShelfWrapper {
+  position: absolute;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.6 linear;
+
+  .NoShelfText {
+    font-family: "Space Grotesk";
+    font-size: 8rem;
+    font-weight: 600;
+    width: 50%;
+
+    &.light {
+      color: global.$light-disabled-color;
+    }
+
+    &.dark {
+      color: global.$dark-disabled-color;
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .NoShelfWrapper {
+    .NoShelfText {
+      font-size: 4rem;
+      width: 75%;
+    }
+  }
+}

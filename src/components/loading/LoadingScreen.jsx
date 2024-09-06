@@ -74,8 +74,14 @@ const LoadingScreen = ({ setLoading }) => {
         <div className={styles.loadingTitle}>
           <motion.div
             className={styles.loadingAsterisk}
-            animate={{ rotate: 360 }}
-            transition={{ ease: "linear", repeat: Infinity, duration: 4 }}
+            initial={{ opacity: 0 }}
+            animate={{ rotate: 360, opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              ease: "linear",
+              rotate: { repeat: Infinity, duration: 4 },
+              opacity: { duration: 0.6, delay: 0.5 }
+            }}
           >
             <img src={Asterisk} />
           </motion.div>
